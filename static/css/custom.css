@@ -1173,21 +1173,11 @@ tr:hover {
   }
 }
 
-/* 确保顶部红色条纹始终可见 */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background: url('/images/redBanner.jpg') center/cover;
-  z-index: 9999;
-}
+/* 顶部条纹已移除 - 导航栏改为深色后不再需要 */
 
 /* 调整页面布局适应顶部条纹 */
 .page-body {
-  padding-top: 8px;
+  padding-top: 0;
 }
 
 /* 彻底修复Event主题导航栏高度问题 */
