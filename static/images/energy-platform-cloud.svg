@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="'PingFang SC','Microsoft YaHei',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/><stop offset="100%" style="stop-color:#0f2d1f"/>
+    </linearGradient>
+    <linearGradient id="cloud" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#166534"/><stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="380" fill="url(#bg)" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" fill="#4ade80" font-size="17" font-weight="700">🧠 AI 智慧能源云平台  ·  Cloud-Based Intelligent Management</text>
+
+  <!-- Center cloud circle -->
+  <circle cx="400" cy="155" r="80" fill="url(#cloud)" opacity="0.15"/>
+  <circle cx="400" cy="155" r="76" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="10,5"/>
+  <text x="400" y="135" text-anchor="middle" fill="white" font-size="30">☁️</text>
+  <text x="400" y="160" text-anchor="middle" fill="white" font-size="14" font-weight="700">AI智慧能源</text>
+  <text x="400" y="178" text-anchor="middle" fill="#4ade80" font-size="12">云平台</text>
+  <text x="400" y="196" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10">WiFi / 4G / 5G</text>
+
+  <!-- 6 feature nodes around the circle -->
+  <!-- Top: AI Scheduling -->
+  <rect x="315" y="42" width="170" height="46" rx="10" fill="rgba(22,163,74,0.25)" stroke="#22c55e" stroke-width="1"/>
+  <text x="400" y="62" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">🧠 AI智能调度</text>
+  <text x="400" y="79" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">深度学习 · 用电预测 · 成本最低化</text>
+  <line x1="400" y1="88" x2="400" y2="107" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Left top: Cloud Mgmt -->
+  <rect x="30" y="72" width="160" height="46" rx="10" fill="rgba(22,163,74,0.2)" stroke="#22c55e" stroke-width="1"/>
+  <text x="110" y="92" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">☁️ 云端协同管理</text>
+  <text x="110" y="109" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">多站点实时监控运维</text>
+  <line x1="190" y1="105" x2="326" y2="138" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Right top: Data Analytics -->
+  <rect x="610" y="72" width="160" height="46" rx="10" fill="rgba(22,163,74,0.2)" stroke="#22c55e" stroke-width="1"/>
+  <text x="690" y="92" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">📊 数据分析引擎</text>
+  <text x="690" y="109" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">个性化用能报告</text>
+  <line x1="610" y1="105" x2="474" y2="138" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Left bottom: VPP -->
+  <rect x="30" y="215" width="160" height="46" rx="10" fill="rgba(22,163,74,0.2)" stroke="#22c55e" stroke-width="1"/>
+  <text x="110" y="235" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">🔗 VPP虚拟电厂</text>
+  <text x="110" y="252" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">电力市场 · 调频收益</text>
+  <line x1="190" y1="238" x2="326" y2="182" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Right bottom: Security -->
+  <rect x="610" y="215" width="160" height="46" rx="10" fill="rgba(22,163,74,0.2)" stroke="#22c55e" stroke-width="1"/>
+  <text x="690" y="235" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">🔐 端到端安全</text>
+  <text x="690" y="252" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">金融级加密 · OpenAPI</text>
+  <line x1="610" y1="238" x2="474" y2="182" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Bottom: Fast Response -->
+  <rect x="315" y="255" width="170" height="46" rx="10" fill="rgba(22,163,74,0.25)" stroke="#22c55e" stroke-width="1"/>
+  <text x="400" y="275" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">⚡ 10秒极速响应</text>
+  <text x="400" y="292" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">故障自动切换 · 零中断供电</text>
+  <line x1="400" y1="255" x2="400" y2="233" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- App section -->
+  <rect x="60" y="315" width="680" height="50" rx="10" fill="rgba(22,163,74,0.12)" stroke="#22c55e" stroke-width="1"/>
+  <text x="400" y="337" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">📱 智能App · 全方位掌控家庭 / 工厂 / 矿山等能源</text>
+  <text x="400" y="355" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">实时监控 · AI助手建议 · 智能告警 · 收益可视化分析</text>
+</svg>

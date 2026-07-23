@@ -1,0 +1,292 @@
+{{ define "main" }}
+<!-- Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(220, 38, 38, 0.6), rgba(239, 68, 68, 0.6)), url('{{ printf "%simages/hy-consult.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title">{{ .Title }}</h1>
+                <p class="page-subtitle">{{ .Description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Product Section -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <h2>{{ if eq .Site.Language.Lang "zh" }}核心产品{{ else }}Core Products{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}企业级大数据基础软件平台{{ else }}Enterprise Big Data Infrastructure Software Platform{{ end }}</p>
+            </div>
+        </div>
+        
+        <!-- Product Overview -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <div class="product-info">
+                    <h3 class="text-primary mb-3">
+                        <i class="fas fa-cube me-2"></i>Redoop Enterprise V9.1
+                    </h3>
+                    <p class="lead mb-4">{{ if eq $.Site.Language.Lang "zh" }}大数据基础软件平台，基于Apache Hadoop、Apache HBase为存储和计算核心，以Apache Ambari为管理平台。{{ else }}Big data infrastructure software platform, based on Apache Hadoop and Apache HBase as storage and computing cores, with Apache Ambari as management platform.{{ end }}</p>
+                    <div class="product-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <span>{{ if eq $.Site.Language.Lang "zh" }}30+ Apache生态组件集成{{ else }}30+ Apache ecosystem components integration{{ end }}</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <span>{{ if eq $.Site.Language.Lang "zh" }}企业级安全和高可用保障{{ else }}Enterprise-level security and high availability{{ end }}</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <span>{{ if eq $.Site.Language.Lang "zh" }}一键安装和界面化管理{{ else }}One-click installation and GUI management{{ end }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product-image text-center">
+                    <img src="{{ printf "%simages/software-1.png" $.Site.BaseURL }}" alt="Redoop Enterprise" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Features -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2>{{ if eq .Site.Language.Lang "zh" }}产品特性{{ else }}Product Features{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}强大的功能特性，满足企业级需求{{ else }}Powerful features meeting enterprise-level requirements{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-download feature-icon"></i>
+                    </div>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}一键安装{{ else }}One-Click Installation{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}界面化安装Apache Hadoop大数据生态30+软件，快速部署企业级大数据平台{{ else }}GUI installation of 30+ Apache Hadoop big data ecosystem software, rapid deployment of enterprise big data platform{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-cogs feature-icon"></i>
+                    </div>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}界面配置{{ else }}GUI Configuration{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}支持界面化修改启动脚本和后台参数配置，降低运维复杂度{{ else }}Support GUI modification of startup scripts and background parameter configuration, reducing operational complexity{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                    </div>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}集群监控{{ else }}Cluster Monitoring{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}对组件状态、关键指标进行全面监控，确保系统稳定运行{{ else }}Comprehensive monitoring of component status and key indicators to ensure stable system operation{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-arrow-up feature-icon"></i>
+                    </div>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}组件升级{{ else }}Component Upgrade{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}通过组件地址配置实现快速升级，保持技术先进性{{ else }}Rapid upgrades through component address configuration, maintaining technical advancement{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                    </div>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}系统高可用{{ else }}High Availability{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}支持HDFS、YARN、HBASE高可用，确保业务连续性{{ else }}Support HDFS, YARN, HBASE high availability, ensuring business continuity{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-lock feature-icon"></i>
+                    </div>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}集群安全{{ else }}Cluster Security{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}Kerberos+Ranger+OpenLDAP安全体系，保障数据安全{{ else }}Kerberos+Ranger+OpenLDAP security system, ensuring data security{{ end }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Supported Components -->
+<section class="section">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2>{{ if eq .Site.Language.Lang "zh" }}支持组件{{ else }}Supported Components{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}丰富的大数据生态组件支持{{ else }}Rich big data ecosystem component support{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="component-category">
+                    <div class="category-header">
+                        <i class="fas fa-database text-primary"></i>
+                        <h4>{{ if eq $.Site.Language.Lang "zh" }}存储引擎{{ else }}Storage Engines{{ end }}</h4>
+                    </div>
+                    <div class="component-list">
+                        <span class="component-tag">HDFS</span>
+                        <span class="component-tag">HBase</span>
+                        <span class="component-tag">Kudu</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="component-category">
+                    <div class="category-header">
+                        <i class="fas fa-microchip text-primary"></i>
+                        <h4>{{ if eq $.Site.Language.Lang "zh" }}计算引擎{{ else }}Computing Engines{{ end }}</h4>
+                    </div>
+                    <div class="component-list">
+                        <span class="component-tag">Spark</span>
+                        <span class="component-tag">Hive</span>
+                        <span class="component-tag">Flink</span>
+                        <span class="component-tag">Storm</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="component-category">
+                    <div class="category-header">
+                        <i class="fas fa-exchange-alt text-primary"></i>
+                        <h4>{{ if eq $.Site.Language.Lang "zh" }}消息队列{{ else }}Message Queues{{ end }}</h4>
+                    </div>
+                    <div class="component-list">
+                        <span class="component-tag">Kafka</span>
+                        <span class="component-tag">Pulsar</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="component-category">
+                    <div class="category-header">
+                        <i class="fas fa-table text-primary"></i>
+                        <h4>{{ if eq $.Site.Language.Lang "zh" }}数据库{{ else }}Databases{{ end }}</h4>
+                    </div>
+                    <div class="component-list">
+                        <span class="component-tag">Doris</span>
+                        <span class="component-tag">ClickHouse</span>
+                        <span class="component-tag">Hudi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="component-category">
+                    <div class="category-header">
+                        <i class="fas fa-tools text-primary"></i>
+                        <h4>{{ if eq $.Site.Language.Lang "zh" }}管理工具{{ else }}Management Tools{{ end }}</h4>
+                    </div>
+                    <div class="component-list">
+                        <span class="component-tag">Ambari</span>
+                        <span class="component-tag">Ranger</span>
+                        <span class="component-tag">Atlas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="component-category">
+                    <div class="category-header">
+                        <i class="fas fa-chart-bar text-primary"></i>
+                        <h4>{{ if eq $.Site.Language.Lang "zh" }}监控工具{{ else }}Monitoring Tools{{ end }}</h4>
+                    </div>
+                    <div class="component-list">
+                        <span class="component-tag">Grafana</span>
+                        <span class="component-tag">Prometheus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Versions -->
+<section class="section">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2>{{ if eq .Site.Language.Lang "zh" }}产品版本{{ else }}Product Versions{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}选择适合您的版本{{ else }}Choose the right version for you{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}社区版{{ else }}Community Edition{{ end }}</h4>
+                    <div class="mb-3">
+                        <span class="h2 text-primary">{{ if eq $.Site.Language.Lang "zh" }}免费{{ else }}Free{{ end }}</span>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success"></i> {{ if eq $.Site.Language.Lang "zh" }}产品快速迭代{{ else }}Rapid product iteration{{ end }}</li>
+                        <li><i class="fas fa-check text-success"></i> {{ if eq $.Site.Language.Lang "zh" }}开放开源生态{{ else }}Open source ecosystem{{ end }}</li>
+                        <li><i class="fas fa-check text-success"></i> {{ if eq $.Site.Language.Lang "zh" }}社区支持{{ else }}Community support{{ end }}</li>
+                    </ul>
+                    <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-primary">{{ if eq $.Site.Language.Lang "zh" }}立即下载{{ else }}Download Now{{ end }}</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center" style="border: 2px solid var(--primary-color);">
+                    <div class="badge bg-primary mb-2">{{ if eq $.Site.Language.Lang "zh" }}推荐{{ else }}Recommended{{ end }}</div>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}企业版{{ else }}Enterprise Edition{{ end }}</h4>
+                    <div class="mb-3">
+                        <span class="h2 text-primary">{{ if eq $.Site.Language.Lang "zh" }}商业授权{{ else }}Commercial License{{ end }}</span>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success"></i> {{ if eq $.Site.Language.Lang "zh" }}商业技术支持{{ else }}Commercial technical support{{ end }}</li>
+                        <li><i class="fas fa-check text-success"></i> {{ if eq $.Site.Language.Lang "zh" }}7×24专业服务{{ else }}7×24 professional service{{ end }}</li>
+                        <li><i class="fas fa-check text-success"></i> {{ if eq $.Site.Language.Lang "zh" }}专家支持服务{{ else }}Expert support services{{ end }}</li>
+                    </ul>
+                    <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-primary">{{ if eq $.Site.Language.Lang "zh" }}联系销售{{ else }}Contact Sales{{ end }}</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}云版本{{ else }}Cloud Edition{{ end }}</h4>
+                    <div class="mb-3">
+                        <span class="h2 text-primary">{{ if eq $.Site.Language.Lang "zh" }}按需付费{{ else }}Pay-as-you-go{{ end }}</span>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success"></i> {{ if eq $.Site.Language.Lang "zh" }}快速部署{{ else }}Rapid deployment{{ end }}</li>
+                        <li><i class="fas fa-check text-success"></i> {{ if eq $.Site.Language.Lang "zh" }}弹性扩展{{ else }}Elastic scaling{{ end }}</li>
+                        <li><i class="fas fa-check text-success"></i> {{ if eq $.Site.Language.Lang "zh" }}云端优化{{ else }}Cloud optimization{{ end }}</li>
+                    </ul>
+                    <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-primary">{{ if eq $.Site.Language.Lang "zh" }}了解详情{{ else }}Learn More{{ end }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section" style="background: linear-gradient(rgba(220, 38, 38, 0.9), rgba(239, 68, 68, 0.9)); color: white;">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 style="color: white;">{{ if eq .Site.Language.Lang "zh" }}准备体验我们的产品？{{ else }}Ready to Experience Our Products?{{ end }}</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们获取产品演示和试用版本{{ else }}Contact us for product demos and trial versions{{ end }}</p>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg me-3">{{ if eq .Site.Language.Lang "zh" }}申请试用{{ else }}Request Trial{{ end }}</a>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg">{{ if eq .Site.Language.Lang "zh" }}查看方案{{ else }}View Solutions{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

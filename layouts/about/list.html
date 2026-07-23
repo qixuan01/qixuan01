@@ -1,0 +1,187 @@
+{{ define "main" }}
+<!-- Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(220, 38, 38, 0.6), rgba(239, 68, 68, 0.6)), url('{{ printf "%simages/solution-space-con.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}/{{ else }}/en/{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title">{{ .Title }}</h1>
+                <p class="page-subtitle">{{ .Description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Company Values -->
+<section class="section bg-light" id="values">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2>{{ if eq .Site.Language.Lang "zh" }}核心价值观{{ else }}Core Values{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}指导我们前进的价值理念{{ else }}Values that guide our progress{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-lightbulb feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}创新驱动{{ else }}Innovation-Driven{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}持续技术创新，引领行业发展{{ else }}Continuous technological innovation, leading industry development{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-users feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}客户至上{{ else }}Customer First{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}以客户需求为导向，提供优质服务{{ else }}Customer-oriented, providing quality services{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-handshake feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}开放合作{{ else }}Open Cooperation{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}构建开放生态，与合作伙伴共赢{{ else }}Building open ecosystem, win-win with partners{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-heart feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}诚信负责{{ else }}Integrity & Responsibility{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}诚信经营，承担社会责任{{ else }}Honest business operation, taking social responsibility{{ end }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technical Strength -->
+<section class="section">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 id="technology">{{ if eq .Site.Language.Lang "zh" }}技术实力{{ else }}Technical Strength{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}强大的技术团队和研发能力{{ else }}Strong technical team and R&D capabilities{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <div class="h1 text-primary mb-2">200+</div>
+                    <h5>{{ if eq $.Site.Language.Lang "zh" }}专业研发人员{{ else }}R&D Personnel{{ end }}</h5>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}80%硕士及以上学历，平均10年以上行业经验{{ else }}80% master's degree or above, average 10+ years industry experience{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <div class="h1 text-primary mb-2">50+</div>
+                    <h5>{{ if eq $.Site.Language.Lang "zh" }}发明专利{{ else }}Patents{{ end }}</h5>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}100+软件著作权，多项核心技术自主研发{{ else }}100+ software copyrights, multiple core technologies independently developed{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <div class="h1 text-primary mb-2">CMMI 5</div>
+                    <h5>{{ if eq $.Site.Language.Lang "zh" }}软件能力成熟度{{ else }}Software Maturity{{ end }}</h5>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}ISO 9001、ISO 27001等多项认证{{ else }}ISO 9001, ISO 27001 and other certifications{{ end }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ecosystem Partners -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 id="partners">{{ if eq .Site.Language.Lang "zh" }}产业生态合作{{ else }}Industrial Ecosystem{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}与行业领先企业深度合作{{ else }}Deep cooperation with industry-leading enterprises{{ end }}</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h3>{{ if eq $.Site.Language.Lang "zh" }}战略合作伙伴{{ else }}Strategic Partners{{ end }}</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i><strong>{{ if eq $.Site.Language.Lang "zh" }}云和恩墨{{ else }}Yunhe Enmo{{ end }}</strong> - {{ if eq $.Site.Language.Lang "zh" }}智能的数据技术提供商{{ else }}Intelligent data technology provider{{ end }}</li>
+                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i><strong>{{ if eq $.Site.Language.Lang "zh" }}华为{{ else }}Huawei{{ end }}</strong> - {{ if eq $.Site.Language.Lang "zh" }}全球领先的ICT基础设施提供商{{ else }}Global leading ICT infrastructure provider{{ end }}</li>
+                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i><strong>{{ if eq $.Site.Language.Lang "zh" }}阿里云{{ else }}Alibaba Cloud{{ end }}</strong> - {{ if eq $.Site.Language.Lang "zh" }}全球领先的云计算公司{{ else }}Global leading cloud computing company{{ end }}</li>
+                </ul>
+                <h3 class="mt-4">{{ if eq $.Site.Language.Lang "zh" }}技术合作伙伴{{ else }}Technical Partners{{ end }}</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>{{ if eq $.Site.Language.Lang "zh" }}Apache软件基金会{{ else }}Apache Software Foundation{{ end }}</li>
+                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>{{ if eq $.Site.Language.Lang "zh" }}Linux基金会{{ else }}Linux Foundation{{ end }}</li>
+                    <li class="mb-2"><i class="fas fa-check text-primary me-2"></i>{{ if eq $.Site.Language.Lang "zh" }}中国开源软件推进联盟{{ else }}China Open Source Software Alliance{{ end }}</li>
+                </ul>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{{ printf "%simages/software-2.png" $.Site.BaseURL }}" alt="产业生态" class="service-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Global Presence -->
+<section class="section">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 id="global">{{ if eq .Site.Language.Lang "zh" }}全球服务网络{{ else }}Global Service Network{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}为客户提供就近服务{{ else }}Providing localized services to customers{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="content-card">
+                    <h4><i class="fas fa-map-marker-alt text-primary me-2"></i>{{ if eq $.Site.Language.Lang "zh" }}国内分支机构{{ else }}Domestic Branches{{ end }}</h4>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>{{ if eq $.Site.Language.Lang "zh" }}深圳总部{{ else }}Shenzhen HQ{{ end }}</li>
+                                <li>{{ if eq $.Site.Language.Lang "zh" }}北京分公司{{ else }}Beijing Branch{{ end }}</li>
+                                <li>{{ if eq $.Site.Language.Lang "zh" }}上海分公司{{ else }}Shanghai Branch{{ end }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>{{ if eq $.Site.Language.Lang "zh" }}广州分公司{{ else }}Guangzhou Branch{{ end }}</li>
+                                <li>{{ if eq $.Site.Language.Lang "zh" }}成都分公司{{ else }}Chengdu Branch{{ end }}</li>
+                                <li>{{ if eq $.Site.Language.Lang "zh" }}西安分公司{{ else }}Xi'an Branch{{ end }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="content-card">
+                    <h4><i class="fas fa-globe text-primary me-2"></i>{{ if eq $.Site.Language.Lang "zh" }}国际业务{{ else }}International Business{{ end }}</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>{{ if eq $.Site.Language.Lang "zh" }}英国办事处 - 服务欧洲市场{{ else }}UK Office - Serving European market{{ end }}</li>
+                        <li><i class="fas fa-check text-success me-2"></i>{{ if eq $.Site.Language.Lang "zh" }}新加坡办事处 - 服务东南亚市场{{ else }}Singapore Office - Serving Southeast Asian market{{ end }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section" style="background: linear-gradient(rgba(220, 38, 38, 0.9), rgba(239, 68, 68, 0.9)); color: white;">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 style="color: white;">{{ if eq .Site.Language.Lang "zh" }}想了解更多关于我们？{{ else }}Want to Learn More About Us?{{ end }}</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们，深入了解星核动力科技的技术实力和服务能力{{ else }}Contact us to learn more about StellerCore Technology's technical strength and service capabilities{{ end }}</p>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}/contact{{ else }}/en/contact{{ end }}" class="btn btn-outline-light btn-lg me-3">{{ if eq .Site.Language.Lang "zh" }}联系我们{{ else }}Contact Us{{ end }}</a>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}/cases{{ else }}/en/cases{{ end }}" class="btn btn-outline-light btn-lg">{{ if eq .Site.Language.Lang "zh" }}查看案例{{ else }}View Cases{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

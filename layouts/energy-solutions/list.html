@@ -1,0 +1,83 @@
+{{ define "main" }}
+<!-- Energy Solutions Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(22, 101, 52, 0.75), rgba(21, 128, 61, 0.75)), url('{{ printf "%simages/solution-energy.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <div style="display:inline-block;background:rgba(255,255,255,0.2);color:white;font-size:0.75rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:12px;letter-spacing:0.1em;margin-bottom:0.75rem;">NEW</div>
+                <h1 class="page-title">{{ .Title }}</h1>
+                <p class="page-subtitle">{{ if eq .Site.Language.Lang "zh" }}AI驱动 · 光储充一体化 · 零碳未来{{ else }}AI-Powered · Solar-Storage-Charging Integration · Zero-Carbon Future{{ end }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content (from _index.md) -->
+<section class="section">
+    <div class="container">
+        <div class="energy-index-content">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+<!-- Sub Pages Grid -->
+{{ if .Pages }}
+<section class="section" style="background: var(--energy-bg-light, #f0fdf4);">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-12">
+                <h2 style="color: var(--energy-primary-dark, #166534); border-bottom-color: var(--energy-primary, #16a34a);">{{ if eq .Site.Language.Lang "zh" }}深入了解各方向{{ else }}Explore In Detail{{ end }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            {{ range .Pages }}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="content-card" style="border-color: rgba(22,163,74,0.15);">
+                    {{ if .Params.image }}
+                    <img src="{{ printf "%s%s" $.Site.BaseURL .Params.image }}" alt="{{ .Title }}" class="img-fluid">
+                    {{ end }}
+                    <h4 style="color: var(--energy-primary-dark, #166534);">{{ .Title }}</h4>
+                    <p>{{ .Description }}</p>
+                    <a href="{{ .Permalink }}" class="btn" style="background: var(--energy-gradient, linear-gradient(135deg, #16a34a, #22c55e)); color: white; border-radius: 20px; font-weight: 600;">{{ if eq $.Site.Language.Lang "zh" }}了解详情{{ else }}Learn More{{ end }}</a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+
+<!-- Cross-link to Big Data Solutions -->
+<section class="section" style="background: linear-gradient(135deg, #1e293b, #334155); color: white; text-align: center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 0.5rem;">{{ if eq .Site.Language.Lang "zh" }}同样关注我们的{{ else }}Also explore our{{ end }}</p>
+                <h3 style="color: white; margin-bottom: 1rem;">📊 {{ if eq .Site.Language.Lang "zh" }}企业级大数据解决方案{{ else }}Enterprise Big Data Solutions{{ end }}</h3>
+                <p style="color: rgba(255,255,255,0.8);">{{ if eq .Site.Language.Lang "zh" }}基于Apache Hadoop生态，为金融、能源、通信、航天等行业提供专业大数据平台服务。{{ else }}Apache Hadoop ecosystem-based professional big data platform for finance, energy, telecom, aerospace and more.{{ end }}</p>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}" style="display:inline-block;padding:0.75rem 2rem;background:linear-gradient(135deg,#dc2626,#ef4444);color:white;border-radius:25px;font-weight:700;text-decoration:none;margin-top:0.5rem;">{{ if eq .Site.Language.Lang "zh" }}探索大数据解决方案 →{{ else }}Explore Big Data Solutions →{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section" style="background: linear-gradient(rgba(22, 101, 52, 0.9), rgba(21, 128, 61, 0.9)); color: white;">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 style="color: white; border-bottom: none;">{{ if eq .Site.Language.Lang "zh" }}准备开启您的零碳能源之旅？{{ else }}Ready to Start Your Zero-Carbon Energy Journey?{{ end }}</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们的智慧能源专业团队，获取定制化的光储充解决方案{{ else }}Contact our smart energy professional team for customized solar-storage-charging solutions{{ end }}</p>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg">{{ if eq .Site.Language.Lang "zh" }}立即咨询{{ else }}Contact Now{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

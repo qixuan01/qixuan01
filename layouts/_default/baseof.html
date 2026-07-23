@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- 标题优化 -->
+    <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+    
+    <!-- 基础SEO元标签 -->
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="keywords" content="{{ with .Params.keywords }}{{ . }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    <meta name="robots" content="{{ .Site.Params.robots }}">
+    
+    <!-- 语言和地区 -->
+    <meta name="language" content="{{ .Site.Language.Lang }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ if .IsTranslated }}
+    {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+    {{ end }}
+    {{ end }}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+    <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.og.image }}">
+    <meta property="og:site_name" content="{{ .Site.Params.og.siteName }}">
+    <meta property="og:locale" content="{{ .Site.Params.og.locale }}">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ .Permalink }}">
+    <meta name="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+    <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ .Site.Params.og.image }}">
+    
+    <!-- 百度站长验证 (可选) -->
+    <!-- <meta name="baidu-site-verification" content="your-verification-code"> -->
+    
+    <!-- Google站长验证 (可选) -->
+    <!-- <meta name="google-site-verification" content="your-verification-code"> -->
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}favicon.ico">
+    <link rel="apple-touch-icon" href="{{ .Site.BaseURL }}images/logo.png">
+    
+    <!-- 结构化数据 - Organization Schema -->
+    {{ if .IsHome }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "{{ .Site.Params.company.name }}",
+      "legalName": "{{ .Site.Params.company.legalName }}",
+      "url": "{{ .Site.BaseURL }}",
+      "logo": "{{ .Site.BaseURL }}{{ .Site.Params.company.logo }}",
+      "foundingDate": "{{ .Site.Params.company.foundingDate }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CN",
+        "addressRegion": "广东省",
+        "addressLocality": "深圳市",
+        "streetAddress": "{{ .Site.Params.social.address }}"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "{{ .Site.Params.social.phone }}",
+        "contactType": "customer service",
+        "email": "{{ .Site.Params.social.email }}",
+        "availableLanguage": ["zh", "en"]
+      },
+      "sameAs": []
+    }
+    </script>
+    {{ end }}
+    
+    <!-- 结构化数据 - WebSite Schema -->
+    {{ if .IsHome }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{ .Site.Title }}",
+      "url": "{{ .Site.BaseURL }}",
+      "description": "{{ .Site.Params.description }}",
+      "inLanguage": "{{ .Site.Language.Lang }}"
+    }
+    </script>
+    {{ end }}
+    
+    <!-- 结构化数据 - BreadcrumbList Schema -->
+    {{ if not .IsHome }}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "{{ .Site.BaseURL }}"
+        }{{ if .Parent }},
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ .Parent.Title }}",
+          "item": "{{ .Parent.Permalink }}"
+        }{{ end }}{{ if .Title }},
+        {
+          "@type": "ListItem",
+          "position": {{ if .Parent }}3{{ else }}2{{ end }},
+          "name": "{{ .Title }}",
+          "item": "{{ .Permalink }}"
+        }{{ end }}
+      ]
+    }
+    </script>
+    {{ end }}
+    
+    <!-- Google Analytics (如果配置) -->
+    {{ with .Site.Params.googleAnalytics }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ . }}');
+    </script>
+    {{ end }}
+    
+    <!-- 百度统计 (如果配置) -->
+    {{ with .Site.Params.baiduAnalytics }}
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?{{ . }}";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    {{ end }}
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 自定义CSS -->
+    <style>
+        :root {
+            --primary-color: #dc2626;
+            --primary-light: #ef4444;
+            --primary-dark: #991b1b;
+        }
+        
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar {
+            background: white !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: white !important;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .navbar-nav .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        /* 下拉菜单样式 */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            min-width: 280px;
+        }
+        
+        .dropdown-item {
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            color: #333;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+        
+        .dropdown-item:hover {
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .dropdown-item i {
+            color: var(--primary-color);
+            width: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-item:hover i {
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .dropdown-divider {
+            margin: 0.5rem 1rem;
+            border-color: rgba(220, 38, 38, 0.2);
+        }
+        
+        /* 下拉菜单动画效果 */
+        .dropdown-menu {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            display: block;
+            visibility: hidden;
+        }
+        
+        .dropdown:hover .dropdown-menu,
+        .dropdown-menu.show {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+        
+        /* 下拉箭头动画 */
+        .dropdown-toggle::after {
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-toggle::after,
+        .dropdown-toggle[aria-expanded="true"]::after {
+            transform: rotate(180deg);
+        }
+        
+        /* 移动端导航 - 简洁设计，确保链接可点击 */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: white;
+                border-top: 1px solid #eee;
+                margin-top: 0.5rem;
+            }
+            
+            .navbar-nav {
+                padding: 0;
+            }
+            
+            .nav-item {
+                margin: 0;
+            }
+            
+            .nav-link {
+                padding: 0.6rem 1rem !important;
+                color: #333 !important;
+                font-weight: 500 !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                font-size: 0.95rem !important;
+                border-bottom: 1px solid #f0f0f0;
+                display: block !important;
+            }
+            
+            .nav-link:hover, .nav-link:focus {
+                background: #f8f9fa !important;
+                color: var(--primary-color) !important;
+            }
+            
+            /* 移动端隐藏下拉箭头（除了语言切换） */
+            .dropdown-toggle:not(#languageDropdown)::after {
+                display: none !important;
+            }
+            
+            /* 移动端隐藏下拉菜单内容（除了语言切换） */
+            .dropdown-menu:not([aria-labelledby="languageDropdown"]) {
+                display: none !important;
+            }
+            
+            /* 语言切换菜单样式 */
+            .dropdown-menu[aria-labelledby="languageDropdown"] {
+                position: static !important;
+                box-shadow: none !important;
+                border: none !important;
+                background: #f8f9fa !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border-radius: 0 !important;
+            }
+            
+            .dropdown-menu[aria-labelledby="languageDropdown"] .dropdown-item {
+                padding: 0.5rem 1.5rem !important;
+                font-size: 0.9rem !important;
+                color: #666 !important;
+                border-bottom: 1px solid #e9ecef !important;
+            }
+            
+            .dropdown-menu[aria-labelledby="languageDropdown"] .dropdown-item:hover {
+                background: #e9ecef !important;
+                color: var(--primary-color) !important;
+            }
+            
+            .dropdown-menu[aria-labelledby="languageDropdown"] .dropdown-item:last-child {
+                border-bottom: none !important;
+            }
+        }
+        
+        /* 产品页面专用样式 */
+        .product-info {
+            padding: 2rem 0;
+        }
+        
+        .product-highlights {
+            margin-top: 2rem;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(220, 38, 38, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .feature-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon-wrapper {
+            transform: scale(1.1);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .component-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(220, 38, 38, 0.1);
+        }
+        
+        .component-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.15);
+        }
+        
+        .category-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-header i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .category-header h4 {
+            color: #333;
+            margin-bottom: 0;
+        }
+        
+        .component-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .component-tag {
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .component-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(220, 38, 38, 0.7), rgba(239, 68, 68, 0.7));
+            color: white;
+            padding: 8rem 0 4rem;
+            margin-top: 80px;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item.active {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(220, 38, 38, 0.1);
+            height: 100%;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .content-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        /* 确保微信公众号二维码完整显示 */
+        .content-card img[src*="weichat.jpg"] {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+        
+        /* 解决方案内容样式优化 */
+        .solution-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .solution-content h2 {
+            color: var(--primary-color);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 1.8rem;
+        }
+        
+        .solution-content h3 {
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .solution-content h4 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .solution-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            max-width: none;
+        }
+        
+        .solution-content ul, .solution-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        .solution-content li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        .solution-content li strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .solution-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .solution-content blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        /* 两列布局优化 */
+        @media (min-width: 992px) {
+            .solution-content .row {
+                display: flex;
+                align-items: flex-start;
+            }
+            
+            .solution-content .col-md-6 {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        /* 解决方案侧边栏样式 */
+        .solution-nav .nav-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .solution-nav .nav-link:hover {
+            color: var(--primary-color);
+            padding-left: 0.5rem;
+        }
+        
+        .solution-nav .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+            padding-left: 0.5rem;
+            background: rgba(220, 38, 38, 0.05);
+            border-radius: 5px;
+        }
+        
+        .solution-nav .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .solution-nav .nav-link:last-child {
+            border-bottom: none;
+        }
+        
+        .related-item {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .related-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0 !important;
+        }
+        
+        .related-item h6 a {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .related-item h6 a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            .solution-content {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .solution-content h2 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+            }
+            
+            .solution-content h3 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .sticky-top {
+                position: static !important;
+                top: auto !important;
+            }
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 25px;
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 25px;
+        }
+        
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 首页特殊样式 */
+        .hero-section {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            .page-header {
+                padding: 6rem 0 3rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+                <img src="{{ printf "%simages/logo.png" $.Site.BaseURL }}" alt="{{ if eq .Site.Language.Lang "zh" }}星核动力科技{{ else }}StellerCore Technology{{ end }}">
+                {{ if eq .Site.Language.Lang "zh" }}星核动力{{ else }}StellerCore{{ end }}
+            </a>
+            <button class="navbar-toggler" type="button" id="navbarToggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- 统一的导航菜单 - 桌面端和移动端共用 -->
+                <ul class="navbar-nav ms-auto">
+                    {{ range .Site.Menus.main }}
+                    {{- $baseURL := $.Site.BaseURL -}}
+                    {{- $isZH := eq $.Site.Language.Lang "zh" -}}
+                    {{- $langPrefix := cond $isZH "" "en/" -}}
+                    {{ if eq .Identifier "bigdata-solutions" }}
+                    <!-- 大数据 下拉菜单 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%ssolutions/" $baseURL $langPrefix }}" id="bigdataDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ .Name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="bigdataDropdown">
+                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/" $baseURL $langPrefix }}">
+                                <i class="fas fa-database me-2"></i>{{ if $isZH }}大数据解决方案总览{{ else }}Big Data Solutions Overview{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/banking/" $baseURL $langPrefix }}">
+                                <i class="fas fa-university me-2"></i>{{ if $isZH }}银行业{{ else }}Banking{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/automotive/" $baseURL $langPrefix }}">
+                                <i class="fas fa-car me-2"></i>{{ if $isZH }}汽车工业{{ else }}Automotive{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/insurance/" $baseURL $langPrefix }}">
+                                <i class="fas fa-shield-alt me-2"></i>{{ if $isZH }}保险业{{ else }}Insurance{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/energy/" $baseURL $langPrefix }}">
+                                <i class="fas fa-bolt me-2"></i>{{ if $isZH }}能源行业{{ else }}Energy{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/telecommunications/" $baseURL $langPrefix }}">
+                                <i class="fas fa-broadcast-tower me-2"></i>{{ if $isZH }}通信行业{{ else }}Telecom{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/aerospace/" $baseURL $langPrefix }}">
+                                <i class="fas fa-rocket me-2"></i>{{ if $isZH }}航天航空{{ else }}Aerospace{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/smart-city/" $baseURL $langPrefix }}">
+                                <i class="fas fa-city me-2"></i>{{ if $isZH }}智慧城市{{ else }}Smart City{{ end }}
+                            </a></li>
+                        </ul>
+                    </li>
+                    {{ else if eq .Identifier "energy-solutions" }}
+                    <!-- 新能源 下拉菜单 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%senergy-solutions/" $baseURL $langPrefix }}" id="energyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ .Name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="energyDropdown">
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/" $baseURL $langPrefix }}">
+                                <i class="fas fa-solar-panel me-2" style="color:#16a34a;"></i>{{ if $isZH }}新能源解决方案总览{{ else }}Smart Energy Overview{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-ec/" $baseURL $langPrefix }}">
+                                <i class="fas fa-bolt me-2" style="color:#16a34a;"></i>{{ if $isZH }}储能逆变器 EC{{ else }}Energy Storage Inverter EC{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-hybrid/" $baseURL $langPrefix }}">
+                                <i class="fas fa-exchange-alt me-2" style="color:#16a34a;"></i>{{ if $isZH }}混合逆变器 Hybrid{{ else }}Hybrid Inverter{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-bat/" $baseURL $langPrefix }}">
+                                <i class="fas fa-battery-full me-2" style="color:#16a34a;"></i>{{ if $isZH }}储能电池 BAT{{ else }}Energy Storage Battery BAT{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-ev/" $baseURL $langPrefix }}">
+                                <i class="fas fa-charging-station me-2" style="color:#16a34a;"></i>{{ if $isZH }}直流充电桩 EVDC{{ else }}DC EV Charger EVDC{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/advantages/" $baseURL $langPrefix }}">
+                                <i class="fas fa-star me-2" style="color:#16a34a;"></i>{{ if $isZH }}核心优势{{ else }}Core Advantages{{ end }}
+                            </a></li>
+                        </ul>
+                    </li>
+                    {{ else if eq .Identifier "products" }}
+                    <!-- 产品 下拉菜单 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ .Name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <!-- AI智慧能源云平台 放第一位 -->
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/platform/" $baseURL $langPrefix }}">
+                                <i class="fas fa-brain me-2" style="color:#16a34a;"></i>{{ if $isZH }}AI智慧能源云平台{{ else }}AI Smart Energy Cloud Platform{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}">
+                                <i class="fas fa-cube me-2"></i>{{ if $isZH }}大数据产品概览{{ else }}Big Data Products{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#enterprise" $baseURL $langPrefix }}">
+                                <i class="fas fa-building me-2"></i>Redoop Enterprise
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#community" $baseURL $langPrefix }}">
+                                <i class="fas fa-users me-2"></i>{{ if $isZH }}社区版{{ else }}Community Edition{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#cloud" $baseURL $langPrefix }}">
+                                <i class="fas fa-cloud me-2"></i>{{ if $isZH }}云版本{{ else }}Cloud Edition{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%scontact/" $baseURL $langPrefix }}">
+                                <i class="fas fa-download me-2"></i>{{ if $isZH }}申请试用{{ else }}Request Trial{{ end }}
+                            </a></li>
+                        </ul>
+                    </li>
+                    {{ else if eq .Identifier "about" }}
+                    <!-- 关于我们 下拉菜单 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%sabout/" $baseURL $langPrefix }}" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ .Name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/" $baseURL $langPrefix }}">
+                                <i class="fas fa-info-circle me-2"></i>{{ if $isZH }}公司介绍{{ else }}Company Introduction{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/#values" $baseURL $langPrefix }}">
+                                <i class="fas fa-heart me-2"></i>{{ if $isZH }}核心价值观{{ else }}Core Values{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/#technology" $baseURL $langPrefix }}">
+                                <i class="fas fa-cogs me-2"></i>{{ if $isZH }}技术实力{{ else }}Technical Strength{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/#partners" $baseURL $langPrefix }}">
+                                <i class="fas fa-handshake me-2"></i>{{ if $isZH }}合作伙伴{{ else }}Partners{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/#global" $baseURL $langPrefix }}">
+                                <i class="fas fa-globe me-2"></i>{{ if $isZH }}全球服务{{ else }}Global Service{{ end }}
+                            </a></li>
+                        </ul>
+                    </li>
+                    {{ else if eq .Identifier "home" }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ printf "%s%s" $baseURL $langPrefix }}">{{ .Name }}</a>
+                    </li>
+                    {{ else if eq .Identifier "cases" }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ printf "%s%scases/" $baseURL $langPrefix }}">{{ .Name }}</a>
+                    </li>
+                    {{ else if eq .Identifier "contact" }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ printf "%s%scontact/" $baseURL $langPrefix }}">{{ .Name }}</a>
+                    </li>
+                    {{ else }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ printf "%s%s" $baseURL .URL }}">{{ .Name }}</a>
+                    </li>
+                    {{ end }}
+                    {{ end }}
+                    
+                    <!-- 语言切换 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i>
+                            {{ if eq .Site.Language.Lang "zh" }}中文{{ else }}English{{ end }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            {{ if eq .Site.Language.Lang "zh" }}
+                            <li>
+                                <a class="dropdown-item" href="{{ printf "%sen/" $.Site.BaseURL }}">
+                                    <i class="fas fa-language me-2"></i>English
+                                </a>
+                            </li>
+                            {{ else }}
+                            <li>
+                                <a class="dropdown-item" href="{{ printf "%s" $.Site.BaseURL }}">
+                                    <i class="fas fa-language me-2"></i>中文
+                                </a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {{ block "main" . }}{{ end }}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>{{ if eq .Site.Language.Lang "zh" }}星核动力科技（深圳）有限公司{{ else }}StellerCore Technology (Shenzhen) Co., Ltd.{{ end }}</h5>
+                    <p>{{ if eq .Site.Language.Lang "zh" }}专业的大数据基础软件平台提供商{{ else }}Professional Big Data Infrastructure Software Platform Provider{{ end }}</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>{{ if eq .Site.Language.Lang "zh" }}深圳市宝安区北京大学科创园{{ else }}Peking University Science and Technology Park, Bao'an District, Shenzhen{{ end }}<br>Copyright&copy;2026 {{ if eq .Site.Language.Lang "zh" }}星核动力科技（深圳）有限公司{{ else }}StellerCore Technology (Shenzhen) Co., Ltd.{{ end }}. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 导航脚本 - 确保移动端链接可点击 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 桌面端悬停效果
+        if (window.innerWidth > 991) {
+            document.querySelectorAll('.nav-item.dropdown').forEach(dropdown => {
+                const menu = dropdown.querySelector('.dropdown-menu');
+                dropdown.addEventListener('mouseenter', () => menu.classList.add('show'));
+                dropdown.addEventListener('mouseleave', () => menu.classList.remove('show'));
+            });
+        }
+        
+        // 移动端处理 - 确保中英文菜单都能正常工作
+        if (window.innerWidth <= 991) {
+            // 移动端阻止主菜单下拉功能，但允许链接跳转
+            document.querySelectorAll('.dropdown-toggle:not(#languageDropdown)').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    // 如果有有效链接，阻止下拉并允许跳转
+                    if (this.href && this.href !== '#' && !this.href.endsWith('#')) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // 直接跳转到链接
+                        window.location.href = this.href;
+                        return false;
+                    }
+                });
+            });
+            
+            // 强制显示所有导航项，确保英文菜单可见
+            document.querySelectorAll('.navbar-nav .nav-item').forEach(item => {
+                item.style.setProperty('display', 'block', 'important');
+                item.style.setProperty('visibility', 'visible', 'important');
+            });
+            
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                link.style.setProperty('display', 'block', 'important');
+                link.style.setProperty('visibility', 'visible', 'important');
+                link.style.setProperty('pointer-events', 'auto', 'important');
+                link.style.setProperty('opacity', '1', 'important');
+            });
+            
+            // 调试：输出菜单项数量和详细信息
+            const navItems = document.querySelectorAll('.navbar-nav .nav-item');
+            console.log('移动端菜单项数量:', navItems.length);
+            console.log('当前语言:', document.documentElement.lang || 'unknown');
+            console.log('当前URL:', window.location.href);
+            console.log('菜单项详情:');
+            navItems.forEach((item, index) => {
+                const link = item.querySelector('.nav-link');
+                console.log(`  ${index + 1}. ${link ? link.textContent.trim() : '无链接'}`);
+            });
+        }
+        
+        // 点击导航项后关闭菜单（延迟执行以允许跳转）
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 991 && this.id !== 'languageDropdown') {
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                        setTimeout(() => {
+                            const toggler = document.querySelector('.navbar-toggler');
+                            if (toggler) toggler.click();
+                        }, 100);
+                    }
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" font-family="'PingFang SC','Microsoft YaHei',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/><stop offset="100%" style="stop-color:#0f1f0a"/>
+    </linearGradient>
+    <linearGradient id="bl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/><stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#bg)" rx="12"/>
+  <text x="400" y="32" text-anchor="middle" fill="#60a5fa" font-size="16" font-weight="700">🏡 别墅大宅解决方案  ·  Villa &amp; Large Residence Solution</text>
+
+  <!-- House -->
+  <rect x="40" y="55" width="200" height="150" rx="12" fill="url(#bl)" opacity="0.85"/>
+  <text x="140" y="105" text-anchor="middle" font-size="48">🏡</text>
+  <text x="140" y="138" text-anchor="middle" fill="white" font-size="13" font-weight="600">别墅大宅</text>
+  <text x="140" y="158" text-anchor="middle" fill="#60a5fa" font-size="11">三相大功率系统</text>
+  <text x="140" y="178" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">V2G双向充放</text>
+
+  <!-- Specs row -->
+  <rect x="260" y="55" width="500" height="80" rx="10" fill="rgba(0,0,0,0.3)"/>
+  <text x="345" y="82" text-anchor="middle" fill="#fbbf24" font-size="20">☀</text>
+  <text x="345" y="104" text-anchor="middle" fill="white" font-size="14" font-weight="700">16 kW</text>
+  <text x="345" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">光伏系统</text>
+  <line x1="415" y1="63" x2="415" y2="127" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="500" y="82" text-anchor="middle" fill="#4ade80" font-size="20">🔋</text>
+  <text x="500" y="104" text-anchor="middle" fill="white" font-size="14" font-weight="700">32 kWh</text>
+  <text x="500" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">储能系统</text>
+  <line x1="580" y1="63" x2="580" y2="127" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="655" y="82" text-anchor="middle" fill="#60a5fa" font-size="20">🔌</text>
+  <text x="655" y="104" text-anchor="middle" fill="white" font-size="14" font-weight="700">7 kW</text>
+  <text x="655" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">EV充电 V2G</text>
+  <line x1="725" y1="63" x2="725" y2="127" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="762" y="82" text-anchor="middle" fill="#c4b5fd" font-size="20">🔄</text>
+  <text x="762" y="100" text-anchor="middle" fill="white" font-size="12" font-weight="700">Hybrid</text>
+  <text x="762" y="116" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">12kW三相</text>
+
+  <!-- Economics -->
+  <rect x="260" y="150" width="500" height="55" rx="10" fill="rgba(96,165,250,0.12)" stroke="#3b82f6" stroke-width="1"/>
+  <text x="355" y="173" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">年发电量</text>
+  <text x="355" y="192" text-anchor="middle" fill="#60a5fa" font-size="15" font-weight="700">~18,000度</text>
+  <line x1="440" y1="157" x2="440" y2="198" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="520" y="173" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">年节省电费</text>
+  <text x="520" y="192" text-anchor="middle" fill="#60a5fa" font-size="15" font-weight="700">1.2万+元</text>
+  <line x1="600" y1="157" x2="600" y2="198" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="670" y="173" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">投资回收</text>
+  <text x="670" y="192" text-anchor="middle" fill="#60a5fa" font-size="15" font-weight="700">5~8年</text>
+  <line x1="740" y1="157" x2="740" y2="198" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="770" y="180" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10">全屋</text>
+  <text x="770" y="194" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10">能管</text>
+
+  <rect x="40" y="222" width="720" height="58" rx="8" fill="rgba(0,0,0,0.3)"/>
+  <text x="400" y="244" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="600">✅ 三相大功率输出  支持中央空调、电热水器等大功率设备</text>
+  <text x="400" y="263" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">V2G双向充电 · 电动车作为家庭备用储能 · AI全屋能量管理统一调度</text>
+</svg>

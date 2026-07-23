@@ -1,0 +1,65 @@
+{{ define "main" }}
+<section class="page-header" style="background: linear-gradient(rgba(220, 38, 38, 0.6), rgba(239, 68, 68, 0.6)), url('{{ printf "%simages/redBanner.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="page-title">404 - {{ if eq .Site.Language.Lang "zh" }}页面未找到{{ else }}Page Not Found{{ end }}</h1>
+                <p class="page-subtitle">{{ if eq .Site.Language.Lang "zh" }}抱歉，您访问的页面不存在{{ else }}Sorry, the page you are looking for does not exist{{ end }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="content-card">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 5rem; color: var(--primary-color); margin-bottom: 2rem;"></i>
+                    <h2>{{ if eq .Site.Language.Lang "zh" }}页面不存在{{ else }}Page Not Found{{ end }}</h2>
+                    <p>{{ if eq .Site.Language.Lang "zh" }}您访问的页面可能已被删除、更名或暂时不可用。{{ else }}The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.{{ end }}</p>
+                    
+                    <div class="mt-4">
+                        <a href="{{ .Site.BaseURL }}" class="btn btn-primary me-2">
+                            <i class="fas fa-home"></i> {{ if eq .Site.Language.Lang "zh" }}返回首页{{ else }}Back to Home{{ end }}
+                        </a>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope"></i> {{ if eq .Site.Language.Lang "zh" }}联系我们{{ else }}Contact Us{{ end }}
+                        </a>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h4>{{ if eq .Site.Language.Lang "zh" }}您可能感兴趣的页面：{{ else }}You might be interested in:{{ end }}</h4>
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}" class="text-decoration-none">
+                                    <div class="feature-card">
+                                        <i class="fas fa-lightbulb feature-icon"></i>
+                                        <h5>{{ if eq .Site.Language.Lang "zh" }}解决方案{{ else }}Solutions{{ end }}</h5>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sproducts/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/products/" $.Site.BaseURL }}{{ end }}" class="text-decoration-none">
+                                    <div class="feature-card">
+                                        <i class="fas fa-cube feature-icon"></i>
+                                        <h5>{{ if eq .Site.Language.Lang "zh" }}产品与服务{{ else }}Products & Services{{ end }}</h5>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sabout/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/about/" $.Site.BaseURL }}{{ end }}" class="text-decoration-none">
+                                    <div class="feature-card">
+                                        <i class="fas fa-info-circle feature-icon"></i>
+                                        <h5>{{ if eq .Site.Language.Lang "zh" }}关于我们{{ else }}About Us{{ end }}</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

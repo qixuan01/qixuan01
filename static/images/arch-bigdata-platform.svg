@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="'PingFang SC','Microsoft YaHei',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0000"/>
+      <stop offset="100%" style="stop-color:#2d0a0a"/>
+    </linearGradient>
+    <linearGradient id="btop" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#991b1b"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="760" height="440" fill="url(#bbg)" rx="14"/>
+  <rect x="0" y="0" width="760" height="44" rx="14" fill="url(#btop)"/>
+  <rect x="0" y="30" width="760" height="14" fill="url(#btop)"/>
+  <text x="380" y="28" text-anchor="middle" fill="white" font-size="15" font-weight="700" letter-spacing="1">📊 企业级大数据平台架构  ·  Enterprise Big Data Platform Architecture</text>
+
+  <!-- Layer labels -->
+  <text x="740" y="78"  text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">数据源层</text>
+  <text x="740" y="148" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">采集传输层</text>
+  <text x="740" y="218" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">存储计算层</text>
+  <text x="740" y="308" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">数据服务层</text>
+  <text x="740" y="378" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">应用展现层</text>
+
+  <!-- ── Layer 1: Data Sources ── -->
+  <rect x="14" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <text x="64" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">🏦 业务系统</text>
+  <text x="64" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">ERP/CRM/OA</text>
+
+  <rect x="124" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <text x="174" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">📡 IoT设备</text>
+  <text x="174" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">传感器/边缘节点</text>
+
+  <rect x="234" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <text x="284" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">🌐 互联网数据</text>
+  <text x="284" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">爬虫/API/日志</text>
+
+  <rect x="344" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <text x="394" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">📁 文件数据</text>
+  <text x="394" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Excel/CSV/DB</text>
+
+  <rect x="454" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <text x="504" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">🏛️ 外部数据</text>
+  <text x="504" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">政府/征信/市场</text>
+
+  <rect x="564" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <text x="614" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">📱 移动数据</text>
+  <text x="614" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">App/小程序</text>
+
+  <!-- arrow -->
+  <line x1="380" y1="96" x2="380" y2="110" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,108 380,115 384,108" fill="#ef4444"/>
+
+  <!-- ── Layer 2: Ingestion ── -->
+  <rect x="14" y="116" width="180" height="46" rx="7" fill="rgba(220,38,38,0.18)" stroke="#ef4444" stroke-width="1"/>
+  <text x="104" y="134" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">⚡ Kafka 消息队列</text>
+  <text x="104" y="150" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">实时流数据接入 · 百万TPS</text>
+
+  <rect x="204" y="116" width="165" height="46" rx="7" fill="rgba(220,38,38,0.18)" stroke="#ef4444" stroke-width="1"/>
+  <text x="287" y="134" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🔄 Flume / Sqoop</text>
+  <text x="287" y="150" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">批量数据采集 · ETL</text>
+
+  <rect x="379" y="116" width="165" height="46" rx="7" fill="rgba(220,38,38,0.18)" stroke="#ef4444" stroke-width="1"/>
+  <text x="462" y="134" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🌊 DataX / CDC</text>
+  <text x="462" y="150" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">增量同步 · 变更捕获</text>
+
+  <rect x="554" y="116" width="190" height="46" rx="7" fill="rgba(220,38,38,0.18)" stroke="#ef4444" stroke-width="1"/>
+  <text x="649" y="134" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🔧 数据质量管控</text>
+  <text x="649" y="150" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">清洗 · 校验 · 标准化</text>
+
+  <!-- arrow -->
+  <line x1="380" y1="162" x2="380" y2="176" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,174 380,181 384,174" fill="#ef4444"/>
+
+  <!-- ── Layer 3: Storage & Compute (core) ── -->
+  <rect x="14" y="182" width="730" height="108" rx="10" fill="rgba(220,38,38,0.08)" stroke="#dc2626" stroke-width="1.8"/>
+  <text x="380" y="200" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">Redoop Enterprise  ·  大数据存储与计算核心</text>
+
+  <rect x="24" y="208" width="130" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <text x="89" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">🗄️ HDFS</text>
+  <text x="89" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">分布式存储</text>
+  <text x="89" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">PB级 · 3副本</text>
+  <text x="89" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">数据湖 · 归档</text>
+
+  <rect x="162" y="208" width="130" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <text x="227" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">⚡ Spark</text>
+  <text x="227" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">批处理引擎</text>
+  <text x="227" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">SQL · ML · Graph</text>
+  <text x="227" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">内存计算 · 高性能</text>
+
+  <rect x="300" y="208" width="130" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <text x="365" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">🌊 Flink</text>
+  <text x="365" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">实时流计算</text>
+  <text x="365" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">CEP · 毫秒延迟</text>
+  <text x="365" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">状态管理 · 精确一次</text>
+
+  <rect x="438" y="208" width="130" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <text x="503" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">🏠 Hive / Doris</text>
+  <text x="503" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">数据仓库</text>
+  <text x="503" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">OLAP · 即席查询</text>
+  <text x="503" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">分层建模 · DWS/ADS</text>
+
+  <rect x="576" y="208" width="158" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <text x="655" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">🤖 HBase + ML</text>
+  <text x="655" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">实时数据库 + AI</text>
+  <text x="655" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">毫秒读写 · 模型训练</text>
+  <text x="655" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">特征工程 · 推理服务</text>
+
+  <!-- arrow -->
+  <line x1="380" y1="290" x2="380" y2="304" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,302 380,309 384,302" fill="#ef4444"/>
+
+  <!-- ── Layer 4: Data Service ── -->
+  <rect x="14" y="310" width="170" height="44" rx="7" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="1"/>
+  <text x="99" y="328" text-anchor="middle" fill="white" font-size="10" font-weight="600">🔐 统一权限 · 数据治理</text>
+  <text x="99" y="344" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Ranger · 数据目录 · 血缘</text>
+
+  <rect x="194" y="310" width="170" height="44" rx="7" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="1"/>
+  <text x="279" y="328" text-anchor="middle" fill="white" font-size="10" font-weight="600">🚀 API服务 · 数据共享</text>
+  <text x="279" y="344" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">REST / GraphQL / 订阅</text>
+
+  <rect x="374" y="310" width="170" height="44" rx="7" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="1"/>
+  <text x="459" y="328" text-anchor="middle" fill="white" font-size="10" font-weight="600">📈 指标管理平台</text>
+  <text x="459" y="344" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">业务指标 · KPI · 北极星</text>
+
+  <rect x="554" y="310" width="190" height="44" rx="7" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="1"/>
+  <text x="649" y="328" text-anchor="middle" fill="white" font-size="10" font-weight="600">🔍 搜索 · 标签 · 画像</text>
+  <text x="649" y="344" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">ES · 用户标签 · 360画像</text>
+
+  <!-- ── Layer 5: Application ── -->
+  <rect x="14"  y="368" width="130" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
+  <text x="79"  y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">📉 风控反欺诈</text>
+  <text x="79"  y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">金融 · 保险</text>
+
+  <rect x="154" y="368" width="130" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
+  <text x="219" y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🎯 精准营销</text>
+  <text x="219" y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">推荐 · 广告投放</text>
+
+  <rect x="294" y="368" width="130" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
+  <text x="359" y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🏭 智能制造</text>
+  <text x="359" y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">质量 · 预测维护</text>
+
+  <rect x="434" y="368" width="130" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
+  <text x="499" y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🏙️ 智慧城市</text>
+  <text x="499" y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">交通 · 政务 · 民生</text>
+
+  <rect x="574" y="368" width="170" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
+  <text x="659" y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">📊 BI管理决策</text>
+  <text x="659" y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">报表 · 数据大屏 · AI洞察</text>
+
+  <!-- KPI bar -->
+  <rect x="14" y="416" width="730" height="14" rx="5" fill="rgba(0,0,0,0.3)"/>
+  <text x="380" y="427" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="9">Hadoop · Spark · Kafka · Flink · HBase · Hive · Doris · YARN · Kerberos · Ranger  —  500+ 企业客户 · 50+ 知识产权</text>
+</svg>

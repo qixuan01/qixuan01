@@ -1,0 +1,81 @@
+{{ define "main" }}
+<!-- AI Education Single Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(2,78,145,0.85), rgba(3,105,161,0.78)), url('{{ printf "%simages/solution-smartcity.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sai-education/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/ai-education/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}AI伴学{{ else }}AI Education{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title">{{ .Title }}</h1>
+                {{ if .Description }}<p class="page-subtitle">{{ .Description }}</p>{{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="content energy-content">
+                    {{ .Content }}
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 100px;">
+                    <div class="content-card mb-4" style="border-color: rgba(2,132,199,0.25);">
+                        <h5 class="mb-3" style="color: #1e3a5f;"><i class="fas fa-list me-2" style="color:#0284c7;"></i>{{ if eq .Site.Language.Lang "zh" }}快速导航{{ else }}Quick Navigation{{ end }}</h5>
+                        <div class="energy-nav" id="edu-nav"></div>
+                    </div>
+                    <div class="content-card mb-4" style="border-color: rgba(2,132,199,0.2); background: #eff6ff;">
+                        <h5 class="mb-3" style="color: #1e3a5f;"><i class="fas fa-envelope me-2" style="color:#0284c7;"></i>{{ if eq .Site.Language.Lang "zh" }}申请试点 & 合作{{ else }}Apply for Pilot & Partnership{{ end }}</h5>
+                        <p style="font-size: 0.9rem;">{{ if eq .Site.Language.Lang "zh" }}学校试点 · 家庭版 · 政务合作{{ else }}School pilot · Family trial · Gov partnership{{ end }}</p>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn w-100" style="background:linear-gradient(135deg,#0284c7,#38bdf8);color:white;border-radius:20px;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}立即联系{{ else }}Contact Now{{ end }}</a>
+                    </div>
+                    <div class="content-card" style="border-color: rgba(2,132,199,0.2);">
+                        <h5 class="mb-3" style="color: #1e3a5f;"><i class="fas fa-th me-2" style="color:#0284c7;"></i>{{ if eq .Site.Language.Lang "zh" }}AI伴学专区{{ else }}AI Education Hub{{ end }}</h5>
+                        <div class="mb-2"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sai-education/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/ai-education/" $.Site.BaseURL }}{{ end }}" style="color:#0284c7;font-size:0.9rem;text-decoration:none;">→ {{ if eq .Site.Language.Lang "zh" }}产品总览{{ else }}Product Overview{{ end }}</a></div>
+                        <div class="mt-3">
+                            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-sm w-100" style="border:1px solid #0284c7;color:#0284c7;">{{ if eq .Site.Language.Lang "zh" }}申请演示 →{{ else }}Request Demo →{{ end }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: linear-gradient(rgba(2,78,145,0.9),rgba(3,105,161,0.9)); color: white;">
+    <div class="container text-center">
+        <div class="row"><div class="col-lg-8 mx-auto">
+            <h2 style="color: white; border-bottom: none;">{{ if eq .Site.Language.Lang "zh" }}想进一步了解悦学智伴？{{ else }}Want to Learn More About Otowyue Learn AI?{{ end }}</h2>
+            <p style="color:rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们申请学校试点或产品演示{{ else }}Contact us to apply for a school pilot or product demo{{ end }}</p>
+            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg">{{ if eq .Site.Language.Lang "zh" }}立即联系{{ else }}Contact Now{{ end }}</a>
+        </div></div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var nav = document.getElementById('edu-nav');
+    var content = document.querySelector('.energy-content');
+    if (nav && content) {
+        var headings = content.querySelectorAll('h2');
+        if (headings.length > 0) {
+            headings.forEach(function(h, i) {
+                h.id = 'edu-sec-' + i;
+                var a = document.createElement('a');
+                a.href = '#edu-sec-' + i; a.className = 'nav-link'; a.textContent = h.textContent; a.style.color = '#0284c7';
+                a.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('edu-sec-'+i).scrollIntoView({behavior:'smooth'}); });
+                nav.appendChild(a);
+            });
+        } else { nav.closest('.content-card').style.display='none'; }
+    }
+});
+</script>
+{{ end }}

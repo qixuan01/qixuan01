@@ -1,0 +1,121 @@
+{{ define "main" }}
+<!-- Energy Solutions Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(22, 101, 52, 0.8), rgba(21, 128, 61, 0.75)), url('{{ printf "%simages/solution-energy.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}智慧能源{{ else }}Smart Energy{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title">{{ .Title }}</h1>
+                {{ if .Description }}<p class="page-subtitle">{{ .Description }}</p>{{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <!-- Main content -->
+            <div class="col-lg-8">
+                <div class="content energy-content">
+                    {{ .Content }}
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 100px;">
+                    <!-- Quick Navigation -->
+                    <div class="content-card mb-4" style="border-color: rgba(22,163,74,0.2);">
+                        <h5 class="mb-3" style="color: var(--energy-primary-dark, #166534);">
+                            <i class="fas fa-list me-2" style="color: var(--energy-primary, #16a34a);"></i>{{ if eq .Site.Language.Lang "zh" }}快速导航{{ else }}Quick Navigation{{ end }}
+                        </h5>
+                        <div class="energy-nav" id="energy-nav"></div>
+                    </div>
+                    
+                    <!-- Consultation -->
+                    <div class="content-card mb-4" style="border-color: rgba(22,163,74,0.2); background: var(--energy-bg-light, #f0fdf4);">
+                        <h5 class="mb-3" style="color: var(--energy-primary-dark, #166534);">
+                            <i class="fas fa-phone me-2" style="color: var(--energy-primary, #16a34a);"></i>{{ if eq .Site.Language.Lang "zh" }}咨询服务{{ else }}Consultation{{ end }}
+                        </h5>
+                        <p class="mb-3" style="font-size: 0.9rem;">{{ if eq .Site.Language.Lang "zh" }}获取定制化智慧能源方案{{ else }}Get customized smart energy solutions{{ end }}</p>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn w-100 mb-2" style="background: var(--energy-gradient, linear-gradient(135deg,#16a34a,#22c55e)); color: white; border-radius: 20px; font-weight: 600;">
+                            <i class="fas fa-envelope me-2"></i>{{ if eq .Site.Language.Lang "zh" }}立即咨询{{ else }}Contact Now{{ end }}
+                        </a>
+                    </div>
+                    
+                    <!-- Back to hub -->
+                    <div class="content-card" style="border-color: rgba(22,163,74,0.2);">
+                        <h5 class="mb-3" style="color: var(--energy-primary-dark, #166534);">
+                            <i class="fas fa-th me-2" style="color: var(--energy-primary, #16a34a);"></i>{{ if eq .Site.Language.Lang "zh" }}智慧能源专区{{ else }}Smart Energy Hub{{ end }}
+                        </h5>
+                        {{ $sectionPage := .Site.GetPage (printf "/%s/energy-solutions" .Site.Language.Lang) }}
+                        {{ $energySection := .Site.GetPage "energy-solutions" }}
+                        {{ $pages := (where .Site.Pages "Section" "energy-solutions") }}
+                        {{ range first 5 $pages }}
+                        <div class="mb-2">
+                            <a href="{{ .Permalink }}" class="text-decoration-none" style="color: var(--energy-primary, #16a34a); font-size: 0.9rem;">
+                                → {{ .Title }}
+                            </a>
+                        </div>
+                        {{ end }}
+                        <div class="mt-3">
+                            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-sm btn-outline-success w-100" style="border-color: var(--energy-primary, #16a34a); color: var(--energy-primary, #16a34a);">
+                                {{ if eq .Site.Language.Lang "zh" }}查看全部 →{{ else }}View All →{{ end }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section" style="background: linear-gradient(rgba(22, 101, 52, 0.9), rgba(21, 128, 61, 0.9)); color: white;">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 style="color: white; border-bottom: none;">{{ if eq .Site.Language.Lang "zh" }}想进一步了解这个方案？{{ else }}Want to Learn More About This Solution?{{ end }}</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们获取详细技术规格和定制报价{{ else }}Contact us for detailed technical specs and custom quotes{{ end }}</p>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg">{{ if eq .Site.Language.Lang "zh" }}立即联系{{ else }}Contact Now{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const energyNav = document.getElementById('energy-nav');
+    const contentArea = document.querySelector('.energy-content');
+    if (energyNav && contentArea) {
+        const headings = contentArea.querySelectorAll('h2');
+        if (headings.length > 0) {
+            headings.forEach(function(heading, index) {
+                const id = 'es-section-' + index;
+                heading.id = id;
+                const navLink = document.createElement('a');
+                navLink.href = '#' + id;
+                navLink.className = 'nav-link';
+                navLink.textContent = heading.textContent;
+                navLink.style.color = '#16a34a';
+                navLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+                energyNav.appendChild(navLink);
+            });
+        } else {
+            energyNav.closest('.content-card').style.display = 'none';
+        }
+    }
+});
+</script>
+{{ end }}

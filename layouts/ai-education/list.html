@@ -1,0 +1,63 @@
+{{ define "main" }}
+<!-- AI Education Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(2,78,145,0.82), rgba(3,105,161,0.75)), url('{{ printf "%simages/solution-smartcity.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <div style="display:inline-block;background:rgba(186,230,253,0.25);color:#bae6fd;font-size:0.75rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:12px;letter-spacing:0.1em;margin-bottom:0.75rem;">🎓 国内首创 · China First</div>
+                <h1 class="page-title">{{ .Title }}</h1>
+                <p class="page-subtitle">{{ if eq .Site.Language.Lang "zh" }}FSRS × 数字人国内首创 · 完全离线 · 有温度的AI老师{{ else }}China's First FSRS × Digital Human · Fully Offline · AI Teacher with Soul{{ end }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="energy-index-content">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+{{ if .Pages }}
+<section class="section" style="background: #eff6ff;">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-12">
+                <h2 style="color: #1e3a5f; border-bottom-color: #0284c7;">{{ if eq .Site.Language.Lang "zh" }}深入了解各功能{{ else }}Explore Features in Detail{{ end }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            {{ range .Pages }}
+            <div class="col-md-6 mb-4">
+                <div class="content-card" style="border-color: rgba(2,132,199,0.2);">
+                    <h4 style="color: #1e3a5f;">{{ .Title }}</h4>
+                    <p>{{ .Description }}</p>
+                    <a href="{{ .Permalink }}" class="btn" style="background: linear-gradient(135deg,#0284c7,#38bdf8); color: white; border-radius: 20px; font-weight: 600;">{{ if eq $.Site.Language.Lang "zh" }}了解详情{{ else }}Learn More{{ end }}</a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}
+
+<section class="section" style="background: linear-gradient(135deg,#0a1a30,#0f2540); color: white; text-align: center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 style="color: #7dd3fc; border-bottom: none;">{{ if eq .Site.Language.Lang "zh" }}让每一个孩子都拥有有温度的AI教师{{ else }}Every Child Deserves an AI Teacher with Soul{{ end }}</h2>
+                <p style="color: rgba(255,255,255,0.75);">{{ if eq .Site.Language.Lang "zh" }}申请学校试点、家庭版体验或政务合作{{ else }}Apply for school pilot, family trial or government partnership{{ end }}</p>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg" style="background:linear-gradient(135deg,#0284c7,#38bdf8);color:white;border-radius:25px;font-weight:700;">{{ if eq .Site.Language.Lang "zh" }}立即联系 →{{ else }}Contact Us →{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

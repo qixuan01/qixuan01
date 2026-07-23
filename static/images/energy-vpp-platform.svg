@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="'PingFang SC','Microsoft YaHei',Arial,sans-serif">
+  <defs>
+    <linearGradient id="darkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0f2d1f"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#166534"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="url(#darkBg)" rx="12"/>
+
+  <!-- Center: AI Cloud Platform -->
+  <circle cx="400" cy="180" r="72" fill="url(#g1)" opacity="0.9"/>
+  <circle cx="400" cy="180" r="68" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="400" y="165" text-anchor="middle" fill="white" font-size="20">☁</text>
+  <text x="400" y="186" text-anchor="middle" fill="white" font-size="13" font-weight="700">AI智慧</text>
+  <text x="400" y="204" text-anchor="middle" fill="white" font-size="13" font-weight="700">能源云平台</text>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle" fill="#4ade80" font-size="15" font-weight="700">VPP 虚拟电厂 · AI驱动的分布式能源聚合平台</text>
+
+  <!-- Node: Home Solar Storage -->
+  <rect x="30" y="60" width="110" height="75" rx="10" fill="url(#g1)" opacity="0.85"/>
+  <text x="85" y="88" text-anchor="middle" fill="white" font-size="18">🏠</text>
+  <text x="85" y="108" text-anchor="middle" fill="white" font-size="11" font-weight="600">家庭光储</text>
+  <text x="85" y="124" text-anchor="middle" fill="#4ade80" font-size="10">8-32 kWh</text>
+  <line x1="140" y1="97" x2="328" y2="162" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="331,160 325,170 321,162" fill="#4ade80"/>
+
+  <!-- Node: Commercial Storage -->
+  <rect x="30" y="175" width="110" height="75" rx="10" fill="url(#g2)" opacity="0.85"/>
+  <text x="85" y="203" text-anchor="middle" fill="white" font-size="18">🏭</text>
+  <text x="85" y="223" text-anchor="middle" fill="white" font-size="11" font-weight="600">工商业储能</text>
+  <text x="85" y="239" text-anchor="middle" fill="#60a5fa" font-size="10">48-336 kWh</text>
+  <line x1="140" y1="212" x2="328" y2="188" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="331,186 325,196 321,188" fill="#3b82f6"/>
+
+  <!-- Node: EV Charging Station -->
+  <rect x="30" y="285" width="110" height="55" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+  <text x="85" y="308" text-anchor="middle" fill="white" font-size="16">🔌</text>
+  <text x="85" y="328" text-anchor="middle" fill="#60a5fa" font-size="11" font-weight="600">EV充电桩 V2G</text>
+  <line x1="140" y1="312" x2="328" y2="200" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="331,198 325,208 321,200" fill="#60a5fa"/>
+
+  <!-- Right: Power Market -->
+  <rect x="660" y="60" width="110" height="75" rx="10" fill="#78350f" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="715" y="88" text-anchor="middle" fill="white" font-size="18">📈</text>
+  <text x="715" y="108" text-anchor="middle" fill="white" font-size="11" font-weight="600">电力现货市场</text>
+  <text x="715" y="124" text-anchor="middle" fill="#fbbf24" font-size="10">调峰调频收益</text>
+  <line x1="472" y1="162" x2="658" y2="97" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="655,95 661,105 655,97" fill="#f59e0b"/>
+
+  <!-- Right: Grid Company -->
+  <rect x="660" y="175" width="110" height="75" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="715" y="203" text-anchor="middle" fill="white" font-size="18">🏛</text>
+  <text x="715" y="223" text-anchor="middle" fill="white" font-size="11" font-weight="600">电网公司</text>
+  <text x="715" y="239" text-anchor="middle" fill="#60a5fa" font-size="10">OpenAPI对接</text>
+  <line x1="472" y1="188" x2="658" y2="212" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="655,210 661,220 655,212" fill="#3b82f6"/>
+
+  <!-- Right: Mobile App -->
+  <rect x="660" y="285" width="110" height="55" rx="10" fill="#166534" stroke="#22c55e" stroke-width="1"/>
+  <text x="715" y="308" text-anchor="middle" fill="white" font-size="16">📱</text>
+  <text x="715" y="328" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="600">智能App监控</text>
+  <line x1="472" y1="200" x2="658" y2="312" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="655,310 661,320 655,312" fill="#22c55e"/>
+
+  <!-- Bottom info bar -->
+  <rect x="20" y="335" width="760" height="18" rx="5" fill="rgba(22,163,74,0.1)"/>
+  <text x="400" y="349" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">聚合分布式能源 → 参与电力市场 → AI实时优化充放电 → 最大化投资回报</text>
+</svg>

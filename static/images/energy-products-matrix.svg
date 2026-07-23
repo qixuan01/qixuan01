@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" font-family="'PingFang SC','Microsoft YaHei',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0fdf4"/>
+      <stop offset="100%" style="stop-color:#dcfce7"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f0fdf4"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#166534"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="880" height="300" fill="url(#bg)" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="880" height="50" rx="12" fill="url(#header)"/>
+  <rect x="0" y="38" width="880" height="12" fill="url(#header)"/>
+  <text x="440" y="32" text-anchor="middle" fill="white" font-size="16" font-weight="700" letter-spacing="2">全场景光储充产品矩阵  ·  StarKernal Product Portfolio</text>
+
+  <!-- Product cards: 6 products -->
+  <!-- Card 1: EC Inverter -->
+  <rect x="20" y="65" width="130" height="210" rx="10" fill="url(#card)" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="20" y="65" width="130" height="5" rx="10" fill="#16a34a"/>
+  <text x="85" y="105" text-anchor="middle" font-size="32">⚡</text>
+  <text x="85" y="128" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">StarKernal EC</text>
+  <text x="85" y="146" text-anchor="middle" fill="#374151" font-size="11">储能逆变器</text>
+  <rect x="35" y="155" width="100" height="1" fill="#e5e7eb"/>
+  <text x="85" y="175" text-anchor="middle" fill="#16a34a" font-size="14" font-weight="800">98.4%</text>
+  <text x="85" y="190" text-anchor="middle" fill="#6b7280" font-size="10">最高转换效率</text>
+  <text x="85" y="210" text-anchor="middle" fill="#374151" font-size="10">3.0 ~ 30.0 kW</text>
+  <text x="85" y="228" text-anchor="middle" fill="#374151" font-size="10">IP66 · 自然散热</text>
+  <text x="85" y="248" text-anchor="middle" fill="#374151" font-size="10">200% 直流过配</text>
+  <text x="85" y="266" text-anchor="middle" fill="#374151" font-size="10">2-4路 MPPT</text>
+
+  <!-- Card 2: Hybrid -->
+  <rect x="165" y="65" width="130" height="210" rx="10" fill="url(#card)" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="165" y="65" width="130" height="5" rx="10" fill="#16a34a"/>
+  <text x="230" y="105" text-anchor="middle" font-size="32">🔄</text>
+  <text x="230" y="128" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">StarKernal Hybrid</text>
+  <text x="230" y="146" text-anchor="middle" fill="#374151" font-size="11">混合逆变器</text>
+  <rect x="180" y="155" width="100" height="1" fill="#e5e7eb"/>
+  <text x="230" y="175" text-anchor="middle" fill="#16a34a" font-size="14" font-weight="800">99.0%</text>
+  <text x="230" y="190" text-anchor="middle" fill="#6b7280" font-size="10">最高转换效率</text>
+  <text x="230" y="210" text-anchor="middle" fill="#374151" font-size="10">2.0 ~ 12.0 kW</text>
+  <text x="230" y="228" text-anchor="middle" fill="#374151" font-size="10">25dB 超静音</text>
+  <text x="230" y="248" text-anchor="middle" fill="#374151" font-size="10">98mm 超薄机身</text>
+  <text x="230" y="266" text-anchor="middle" fill="#374151" font-size="10">待机仅 2.5W</text>
+
+  <!-- Card 3: BAT -->
+  <rect x="310" y="65" width="130" height="210" rx="10" fill="url(#card)" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="310" y="65" width="130" height="5" rx="10" fill="#16a34a"/>
+  <text x="375" y="105" text-anchor="middle" font-size="32">🔋</text>
+  <text x="375" y="128" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">StarKernal BAT</text>
+  <text x="375" y="146" text-anchor="middle" fill="#374151" font-size="11">储能电池</text>
+  <rect x="325" y="155" width="100" height="1" fill="#e5e7eb"/>
+  <text x="375" y="175" text-anchor="middle" fill="#16a34a" font-size="14" font-weight="800">≥10000</text>
+  <text x="375" y="190" text-anchor="middle" fill="#6b7280" font-size="10">循环寿命(次)</text>
+  <text x="375" y="210" text-anchor="middle" fill="#374151" font-size="10">6.0 / 10.0 kWh</text>
+  <text x="375" y="228" text-anchor="middle" fill="#374151" font-size="10">LiFePO₄ 磷酸铁锂</text>
+  <text x="375" y="248" text-anchor="middle" fill="#374151" font-size="10">IP66 · 模块并联</text>
+  <text x="375" y="266" text-anchor="middle" fill="#374151" font-size="10">BMS智能管理</text>
+
+  <!-- Card 4: EVDC -->
+  <rect x="455" y="65" width="130" height="210" rx="10" fill="url(#card)" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="455" y="65" width="130" height="5" rx="10" fill="#16a34a"/>
+  <text x="520" y="105" text-anchor="middle" font-size="32">🔌</text>
+  <text x="520" y="128" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">StarKernal EVDC</text>
+  <text x="520" y="146" text-anchor="middle" fill="#374151" font-size="11">直流充电桩</text>
+  <rect x="470" y="155" width="100" height="1" fill="#e5e7eb"/>
+  <text x="520" y="175" text-anchor="middle" fill="#16a34a" font-size="14" font-weight="800">V2G</text>
+  <text x="520" y="190" text-anchor="middle" fill="#6b7280" font-size="10">车网双向互动</text>
+  <text x="520" y="210" text-anchor="middle" fill="#374151" font-size="10">12 / 25 kW</text>
+  <text x="520" y="228" text-anchor="middle" fill="#374151" font-size="10">AI智能调度</text>
+  <text x="520" y="248" text-anchor="middle" fill="#374151" font-size="10">RFID/App启动</text>
+  <text x="520" y="266" text-anchor="middle" fill="#374151" font-size="10">-40~70°C宽温</text>
+
+  <!-- Card 5: Gateway -->
+  <rect x="600" y="65" width="130" height="210" rx="10" fill="url(#card)" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="600" y="65" width="130" height="5" rx="10" fill="#16a34a"/>
+  <text x="665" y="105" text-anchor="middle" font-size="32">🛡</text>
+  <text x="665" y="128" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">StarKernal GW</text>
+  <text x="665" y="146" text-anchor="middle" fill="#374151" font-size="11">能源备电柜</text>
+  <rect x="615" y="155" width="100" height="1" fill="#e5e7eb"/>
+  <text x="665" y="175" text-anchor="middle" fill="#16a34a" font-size="14" font-weight="800">UPS级</text>
+  <text x="665" y="190" text-anchor="middle" fill="#6b7280" font-size="10">不间断供电</text>
+  <text x="665" y="210" text-anchor="middle" fill="#374151" font-size="10">12 / 30 / 60 kW</text>
+  <text x="665" y="228" text-anchor="middle" fill="#374151" font-size="10">关键负载保障</text>
+  <text x="665" y="248" text-anchor="middle" fill="#374151" font-size="10">即插即用</text>
+  <text x="665" y="266" text-anchor="middle" fill="#374151" font-size="10">模块化扩展</text>
+
+  <!-- Card 6: CommMod -->
+  <rect x="745" y="65" width="115" height="210" rx="10" fill="url(#card)" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="745" y="65" width="115" height="5" rx="10" fill="#16a34a"/>
+  <text x="802" y="105" text-anchor="middle" font-size="32">📡</text>
+  <text x="802" y="128" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">CommMod</text>
+  <text x="802" y="146" text-anchor="middle" fill="#374151" font-size="11">通信模块</text>
+  <rect x="760" y="155" width="85" height="1" fill="#e5e7eb"/>
+  <text x="802" y="175" text-anchor="middle" fill="#16a34a" font-size="14" font-weight="800">5G</text>
+  <text x="802" y="190" text-anchor="middle" fill="#6b7280" font-size="10">超低延迟</text>
+  <text x="802" y="210" text-anchor="middle" fill="#374151" font-size="10">4G/5G LTE</text>
+  <text x="802" y="228" text-anchor="middle" fill="#374151" font-size="10">WiFi / RS485</text>
+  <text x="802" y="248" text-anchor="middle" fill="#374151" font-size="10">云端直连</text>
+  <text x="802" y="266" text-anchor="middle" fill="#374151" font-size="10">OTA升级</text>
+</svg>

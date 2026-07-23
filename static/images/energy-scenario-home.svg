@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" font-family="'PingFang SC','Microsoft YaHei',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1f14"/><stop offset="100%" style="stop-color:#0f2027"/>
+    </linearGradient>
+    <linearGradient id="gn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#166534"/><stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" fill="url(#bg)" rx="12"/>
+  <text x="400" y="32" text-anchor="middle" fill="#4ade80" font-size="16" font-weight="700">🏠 家庭零碳解决方案  ·  Zero-Carbon Home Solution</text>
+
+  <!-- House icon area -->
+  <rect x="40" y="55" width="200" height="180" rx="12" fill="rgba(22,163,74,0.15)" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="140" y="110" text-anchor="middle" font-size="50">🏠</text>
+  <text x="140" y="148" text-anchor="middle" fill="white" font-size="13" font-weight="600">普通住宅</text>
+  <text x="140" y="168" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">家庭光储系统</text>
+  <text x="140" y="188" text-anchor="middle" fill="#4ade80" font-size="11">自给率 &gt;80%</text>
+  <text x="140" y="210" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">告别"电费焦虑"</text>
+
+  <!-- System specs -->
+  <rect x="270" y="55" width="490" height="85" rx="10" fill="rgba(0,0,0,0.3)"/>
+  <text x="380" y="80" text-anchor="middle" fill="#fbbf24" font-size="22">☀</text>
+  <text x="380" y="102" text-anchor="middle" fill="white" font-size="14" font-weight="700">光伏 8 kW</text>
+  <text x="380" y="120" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">标准单晶硅组件</text>
+  <line x1="430" y1="65" x2="430" y2="130" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="515" y="80" text-anchor="middle" fill="#4ade80" font-size="22">🔋</text>
+  <text x="515" y="102" text-anchor="middle" fill="white" font-size="14" font-weight="700">储能 16 kWh</text>
+  <text x="515" y="120" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">BAT 10.0 × 2台</text>
+  <line x1="600" y1="65" x2="600" y2="130" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="680" y="80" text-anchor="middle" fill="#60a5fa" font-size="22">🔄</text>
+  <text x="680" y="102" text-anchor="middle" fill="white" font-size="14" font-weight="700">混合逆变器</text>
+  <text x="680" y="120" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">单相 8.0 kW</text>
+
+  <!-- Economics -->
+  <rect x="270" y="155" width="490" height="80" rx="10" fill="rgba(22,163,74,0.12)" stroke="#22c55e" stroke-width="1"/>
+  <text x="330" y="178" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">年发电量</text>
+  <text x="330" y="200" text-anchor="middle" fill="#4ade80" font-size="16" font-weight="800">~9000度</text>
+  <text x="330" y="218" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">年均发电</text>
+  <line x1="410" y1="162" x2="410" y2="225" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="480" y="178" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">年节省电费</text>
+  <text x="480" y="200" text-anchor="middle" fill="#4ade80" font-size="16" font-weight="800">5000+元</text>
+  <text x="480" y="218" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">按阶梯电价估算</text>
+  <line x1="555" y1="162" x2="555" y2="225" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="625" y="178" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">回收期</text>
+  <text x="625" y="200" text-anchor="middle" fill="#4ade80" font-size="16" font-weight="800">5~7年</text>
+  <text x="625" y="218" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">25年正收益</text>
+  <line x1="695" y1="162" x2="695" y2="225" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="745" y="190" text-anchor="middle" fill="#4ade80" font-size="11">10ms</text>
+  <text x="745" y="207" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">停电切换</text>
+
+  <!-- Bottom -->
+  <rect x="40" y="250" width="720" height="32" rx="8" fill="rgba(0,0,0,0.3)"/>
+  <text x="400" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">白天：光伏直供+余电存储　|　夜间：电池放电供能　|　停电：10ms自动离网保障</text>
+</svg>

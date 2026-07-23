@@ -1,0 +1,19 @@
+{{/* Map embedding partial */}}
+{{ if .embeddableMapUrl }}
+<div class="map-container">
+  <iframe 
+    src="{{ .embeddableMapUrl }}" 
+    width="100%" 
+    height="300" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+  {{ if .viewLargerMapUrl }}
+  <div class="map-link">
+    <a href="{{ .viewLargerMapUrl }}" target="_blank" rel="noopener">查看大地图</a>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

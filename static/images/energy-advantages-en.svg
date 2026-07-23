@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="Arial,'Helvetica Neue',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/><stop offset="100%" style="stop-color:#0f2d1f"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#166534"/><stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" fill="url(#bg)" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" fill="#4ade80" font-size="16" font-weight="700">Core Advantages  ·  Technology Leadership · Safety &amp; Reliability</text>
+  <rect x="30" y="58" width="230" height="120" rx="12" fill="rgba(22,163,74,0.15)" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="145" y="90" text-anchor="middle" font-size="28">🛡️</text>
+  <text x="145" y="115" text-anchor="middle" fill="#4ade80" font-size="14" font-weight="700">Ultimate Safety</text>
+  <text x="145" y="134" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Cell-level fire isolation</text>
+  <text x="145" y="151" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">AFCI DC arc detection</text>
+  <text x="145" y="168" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Multi-layer protection</text>
+  <rect x="285" y="58" width="230" height="120" rx="12" fill="rgba(22,163,74,0.15)" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="400" y="90" text-anchor="middle" font-size="28">🧠</text>
+  <text x="400" y="115" text-anchor="middle" fill="#4ade80" font-size="14" font-weight="700">AI-Powered</text>
+  <text x="400" y="134" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Built-in AI chip</text>
+  <text x="400" y="151" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Deep learning patterns</text>
+  <text x="400" y="168" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Smart charge/discharge</text>
+  <rect x="540" y="58" width="230" height="120" rx="12" fill="rgba(22,163,74,0.15)" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="655" y="90" text-anchor="middle" font-size="28">🔧</text>
+  <text x="655" y="115" text-anchor="middle" fill="#4ade80" font-size="14" font-weight="700">Ultra-Simple Deploy</text>
+  <text x="655" y="134" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Modular plug-and-play</text>
+  <text x="655" y="151" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Single-person install</text>
+  <text x="655" y="168" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Lower deployment cost</text>
+  <rect x="30" y="198" width="230" height="120" rx="12" fill="rgba(22,163,74,0.1)" stroke="#4ade80" stroke-width="1"/>
+  <text x="145" y="230" text-anchor="middle" font-size="28">🔇</text>
+  <text x="145" y="255" text-anchor="middle" fill="#4ade80" font-size="14" font-weight="700">Ultra-Quiet</text>
+  <text x="145" y="274" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Only 25dB operation</text>
+  <text x="145" y="291" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Fanless natural cooling</text>
+  <text x="145" y="308" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Seamless home integration</text>
+  <rect x="285" y="198" width="230" height="120" rx="12" fill="rgba(22,163,74,0.1)" stroke="#4ade80" stroke-width="1"/>
+  <text x="400" y="230" text-anchor="middle" font-size="28">📈</text>
+  <text x="400" y="255" text-anchor="middle" fill="#4ade80" font-size="14" font-weight="700">Energy Efficient</text>
+  <text x="400" y="274" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Up to 99.0% efficiency</text>
+  <text x="400" y="291" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">200% DC overload</text>
+  <text x="400" y="308" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Maximize PV yield</text>
+  <rect x="540" y="198" width="230" height="120" rx="12" fill="rgba(22,163,74,0.1)" stroke="#4ade80" stroke-width="1"/>
+  <text x="655" y="230" text-anchor="middle" font-size="28">🌐</text>
+  <text x="655" y="255" text-anchor="middle" fill="#4ade80" font-size="14" font-weight="700">Cloud Connected</text>
+  <text x="655" y="274" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">AI Cloud + App remote mgmt</text>
+  <text x="655" y="291" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">VPP virtual power plant</text>
+  <text x="655" y="308" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">OpenAPI open ecosystem</text>
+  <rect x="30" y="330" width="740" height="18" rx="5" fill="rgba(22,163,74,0.08)"/>
+  <text x="400" y="344" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10">Star Kernal · Zhongshan Smart Manufacturing Center · 300,000+ units/year · MES Full-Digital Management</text>
+</svg>

@@ -1,0 +1,40 @@
+- id: home
+  translation: "Home"
+- id: solutions
+  translation: "Solutions"
+- id: products
+  translation: "Products & Services"
+- id: cases
+  translation: "Case Studies"
+- id: about
+  translation: "About Us"
+- id: contact
+  translation: "Contact"
+- id: readMore
+  translation: "Read More"
+- id: contactUs
+  translation: "Contact Us"
+- id: getStarted
+  translation: "Get Started"
+- id: learnMore
+  translation: "Learn More"
+- id: viewAll
+  translation: "View All"
+- id: phone
+  translation: "Phone"
+- id: email
+  translation: "Email"
+- id: address
+  translation: "Address"
+- id: followUs
+  translation: "Follow Us"
+- id: copyright
+  translation: "Copyright"
+- id: allRightsReserved
+  translation: "All Rights Reserved"
+- id: privacyPolicy
+  translation: "Privacy Policy"
+- id: termsOfService
+  translation: "Terms of Service"
+- id: sitemap
+  translation: "Sitemap"

@@ -1,0 +1,190 @@
+{{ define "main" }}
+<!-- Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(220, 38, 38, 0.6), rgba(239, 68, 68, 0.6)), url('{{ printf "%simages/hy-smartcity.png" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}/{{ else }}/en/{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title">{{ .Title }}</h1>
+                <p class="page-subtitle">{{ .Description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Success Statistics -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2>{{ if eq .Site.Language.Lang "zh" }}成功案例统计{{ else }}Success Statistics{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}用数据说话的成功实践{{ else }}Proven Success with Data{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="content-card text-center">
+                    <div class="h1 text-primary mb-2">500+</div>
+                    <h5>{{ if eq $.Site.Language.Lang "zh" }}企业客户{{ else }}Enterprise Customers{{ end }}</h5>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}服务各行业领先企业{{ else }}Serving leading enterprises across industries{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="content-card text-center">
+                    <div class="h1 text-primary mb-2">10+</div>
+                    <h5>{{ if eq $.Site.Language.Lang "zh" }}服务行业{{ else }}Industries Served{{ end }}</h5>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}覆盖主要行业领域{{ else }}Covering major industry sectors{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="content-card text-center">
+                    <div class="h1 text-primary mb-2">50+</div>
+                    <h5>{{ if eq $.Site.Language.Lang "zh" }}成功案例{{ else }}Success Cases{{ end }}</h5>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}丰富的项目实施经验{{ else }}Rich project implementation experience{{ end }}</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="content-card text-center">
+                    <div class="h1 text-primary mb-2">99.9%</div>
+                    <h5>{{ if eq $.Site.Language.Lang "zh" }}客户满意度{{ else }}Customer Satisfaction{{ end }}</h5>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}优质的服务质量{{ else }}High-quality service delivery{{ end }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Industry Cases -->
+<section class="section">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2>{{ if eq .Site.Language.Lang "zh" }}行业案例分布{{ else }}Industry Case Distribution{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}深耕各行业，积累丰富经验{{ else }}Deep industry expertise with rich experience{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-university feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}金融行业{{ else }}Financial Industry{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}银行、保险等金融机构的大数据平台建设，风险控制、客户分析等应用{{ else }}Big data platform construction for banks, insurance and other financial institutions, risk control, customer analysis applications{{ end }}</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">{{ if eq $.Site.Language.Lang "zh" }}汇丰银行{{ else }}HSBC Bank{{ end }}</span>
+                        <span class="badge bg-primary">{{ if eq $.Site.Language.Lang "zh" }}昆仑保险{{ else }}Kunlun Insurance{{ end }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-car feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}汽车工业{{ else }}Automotive Industry{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}智能制造、质量控制、供应链管理等大数据应用场景{{ else }}Smart manufacturing, quality control, supply chain management and other big data applications{{ end }}</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary">{{ if eq $.Site.Language.Lang "zh" }}北京汽车{{ else }}Beijing Automotive{{ end }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-oil-can feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}能源行业{{ else }}Energy Industry{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}石油勘探、电力调度、能源管理等数据分析平台{{ else }}Data analysis platforms for oil exploration, power dispatching, energy management{{ end }}</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary">{{ if eq $.Site.Language.Lang "zh" }}大港油田{{ else }}Dagang Oilfield{{ end }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-broadcast-tower feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}通信行业{{ else }}Telecommunications{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}网络优化、客户服务、业务分析等通信大数据应用{{ else }}Network optimization, customer service, business analysis and other telecom big data applications{{ end }}</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary">{{ if eq $.Site.Language.Lang "zh" }}烽火通信{{ else }}FiberHome Communications{{ end }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-rocket feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}航天航空{{ else }}Aerospace{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}飞行数据分析、设备健康管理等高可靠性应用{{ else }}Flight data analysis, equipment health management and other high-reliability applications{{ end }}</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary">{{ if eq $.Site.Language.Lang "zh" }}运载火箭院{{ else }}Launch Vehicle Academy{{ end }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card text-center">
+                    <i class="fas fa-city feature-icon"></i>
+                    <h4>{{ if eq $.Site.Language.Lang "zh" }}智慧城市{{ else }}Smart City{{ end }}</h4>
+                    <p>{{ if eq $.Site.Language.Lang "zh" }}城市治理、交通管理、环境监测等智慧城市应用{{ else }}Urban governance, traffic management, environmental monitoring and other smart city applications{{ end }}</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary">辽宁交通厅</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Testimonials -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2>{{ if eq .Site.Language.Lang "zh" }}客户评价{{ else }}Customer Testimonials{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}听听客户怎么说{{ else }}What our customers say{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="content-card">
+                    <blockquote class="blockquote">
+                        <p>"{{ if eq $.Site.Language.Lang "zh" }}星核动力科技的大数据平台帮助我们实现了数字化转型，显著提升了业务效率和决策能力。{{ else }}StellerCore's big data platform helped us achieve digital transformation, significantly improving business efficiency and decision-making capabilities.{{ end }}"</p>
+                        <footer class="blockquote-footer">{{ if eq $.Site.Language.Lang "zh" }}某银行CTO{{ else }}CTO of a Major Bank{{ end }}</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card">
+                    <blockquote class="blockquote">
+                        <p>"{{ if eq $.Site.Language.Lang "zh" }}专业的技术团队和完善的服务体系，让我们的大数据项目实施非常顺利。{{ else }}Professional technical team and comprehensive service system made our big data project implementation very smooth.{{ end }}"</p>
+                        <footer class="blockquote-footer">{{ if eq $.Site.Language.Lang "zh" }}某制造企业信息总监{{ else }}IT Director of a Manufacturing Company{{ end }}</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="content-card">
+                    <blockquote class="blockquote">
+                        <p>"{{ if eq $.Site.Language.Lang "zh" }}平台的稳定性和性能表现超出预期，为我们的业务发展提供了强有力的支撑。{{ else }}The platform's stability and performance exceeded expectations, providing strong support for our business development.{{ end }}"</p>
+                        <footer class="blockquote-footer">{{ if eq $.Site.Language.Lang "zh" }}某通信企业技术负责人{{ else }}Technical Director of a Telecom Company{{ end }}</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section" style="background: linear-gradient(rgba(220, 38, 38, 0.9), rgba(239, 68, 68, 0.9)); color: white;">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 style="color: white;">{{ if eq .Site.Language.Lang "zh" }}想成为我们的下一个成功案例？{{ else }}Want to Be Our Next Success Story?{{ end }}</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们，让专业团队为您定制解决方案{{ else }}Contact us and let our professional team customize solutions for you{{ end }}</p>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}/contact{{ else }}/en/contact{{ end }}" class="btn btn-outline-light btn-lg me-3">{{ if eq .Site.Language.Lang "zh" }}立即咨询{{ else }}Contact Now{{ end }}</a>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}/solutions{{ else }}/en/solutions{{ end }}" class="btn btn-outline-light btn-lg">{{ if eq .Site.Language.Lang "zh" }}查看方案{{ else }}View Solutions{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

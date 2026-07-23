@@ -1,0 +1,73 @@
+{{ define "main" }}
+<!-- Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(220, 38, 38, 0.6), rgba(239, 68, 68, 0.6)), url('{{ printf "%simages/hy-protect.png" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title">{{ .Title }}</h1>
+                <p class="page-subtitle">{{ .Description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content - Hidden for cleaner layout -->
+<!-- 
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="content">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+
+<!-- Solutions Grid -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2>{{ if eq .Site.Language.Lang "zh" }}行业解决方案{{ else }}Industry Solutions{{ end }}</h2>
+                <p class="lead">{{ if eq .Site.Language.Lang "zh" }}为各行业提供专业的大数据解决方案{{ else }}Professional big data solutions for various industries{{ end }}</p>
+            </div>
+        </div>
+        <div class="row">
+            {{ range .Pages }}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="content-card">
+                    {{ if .Params.image }}
+                    <img src="{{ printf "%s%s" $.Site.BaseURL .Params.image }}" alt="{{ .Title }}" class="img-fluid">
+                    {{ end }}
+                    <h4>{{ .Title }}</h4>
+                    <p>{{ .Summary }}</p>
+                    <a href="{{ .Permalink }}" class="btn btn-primary">{{ if eq $.Site.Language.Lang "zh" }}了解详情{{ else }}Learn More{{ end }}</a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section" style="background: linear-gradient(rgba(220, 38, 38, 0.9), rgba(239, 68, 68, 0.9)); color: white;">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 style="color: white;">{{ if eq .Site.Language.Lang "zh" }}需要定制化解决方案？{{ else }}Need Customized Solutions?{{ end }}</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们的专业团队，获取适合您行业的大数据解决方案{{ else }}Contact our professional team to get big data solutions tailored for your industry{{ end }}</p>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg">{{ if eq .Site.Language.Lang "zh" }}立即咨询{{ else }}Contact Now{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

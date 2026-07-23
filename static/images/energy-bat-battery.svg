@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" font-family="'PingFang SC','Microsoft YaHei',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2027"/><stop offset="100%" style="stop-color:#1a2a1a"/>
+    </linearGradient>
+    <linearGradient id="bat6" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#166534"/><stop offset="100%" style="stop-color:#15803d"/>
+    </linearGradient>
+    <linearGradient id="bat10" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/><stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="340" fill="url(#bg)" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" fill="#4ade80" font-size="17" font-weight="700">🔋 StarKernal BAT 储能电池  ·  LiFePO₄ 磷酸铁锂</text>
+
+  <!-- BAT 6.0 card -->
+  <rect x="60" y="60" width="310" height="200" rx="14" fill="url(#bat6)"/>
+  <rect x="70" y="70" width="290" height="180" rx="10" fill="rgba(0,0,0,0.25)"/>
+  <text x="215" y="100" text-anchor="middle" fill="white" font-size="14" font-weight="700">StarKernal BAT 6.0</text>
+  <text x="215" y="118" text-anchor="middle" fill="#4ade80" font-size="11">LiFePO₄ 磷酸铁锂</text>
+  <line x1="90" y1="128" x2="340" y2="128" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="140" y="152" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">额定容量</text>
+  <text x="285" y="152" text-anchor="middle" fill="white" font-size="13" font-weight="600">6.02 kWh</text>
+  <text x="140" y="175" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">充放电功率</text>
+  <text x="285" y="175" text-anchor="middle" fill="white" font-size="13" font-weight="600">3000W / 4600W</text>
+  <text x="140" y="198" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">循环寿命</text>
+  <text x="285" y="198" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">≥ 10000 次</text>
+  <text x="140" y="221" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">重量 / 防护</text>
+  <text x="285" y="221" text-anchor="middle" fill="white" font-size="13" font-weight="600">62kg · IP66</text>
+
+  <!-- BAT 10.0 card -->
+  <rect x="430" y="60" width="310" height="200" rx="14" fill="url(#bat10)"/>
+  <rect x="440" y="70" width="290" height="180" rx="10" fill="rgba(0,0,0,0.25)"/>
+  <text x="585" y="100" text-anchor="middle" fill="white" font-size="14" font-weight="700">StarKernal BAT 10.0</text>
+  <text x="585" y="118" text-anchor="middle" fill="#60a5fa" font-size="11">LiFePO₄ 磷酸铁锂</text>
+  <line x1="460" y1="128" x2="710" y2="128" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="510" y="152" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">额定容量</text>
+  <text x="655" y="152" text-anchor="middle" fill="white" font-size="13" font-weight="600">9.04 kWh</text>
+  <text x="510" y="175" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">充放电功率</text>
+  <text x="655" y="175" text-anchor="middle" fill="white" font-size="13" font-weight="600">4500W / 6900W</text>
+  <text x="510" y="198" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">循环寿命</text>
+  <text x="655" y="198" text-anchor="middle" fill="#60a5fa" font-size="13" font-weight="700">≥ 10000 次</text>
+  <text x="510" y="221" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">重量 / 防护</text>
+  <text x="655" y="221" text-anchor="middle" fill="white" font-size="13" font-weight="600">78kg · IP66</text>
+
+  <!-- Bottom safety bar -->
+  <rect x="30" y="278" width="740" height="48" rx="10" fill="rgba(22,163,74,0.15)" stroke="#22c55e" stroke-width="1"/>
+  <text x="400" y="300" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">🛡️ 多重安全保护体系</text>
+  <text x="400" y="318" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">电芯级热失控防护 · AFCI直流电弧检测 · BMS智能管理 · 模块化并联扩展(最多6台)</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="Arial,'Helvetica Neue',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/><stop offset="100%" style="stop-color:#0f2d1f"/>
+    </linearGradient>
+    <linearGradient id="cloud" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#166534"/><stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="380" fill="url(#bg)" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" fill="#4ade80" font-size="16" font-weight="700">🧠 AI Smart Energy Cloud Platform  ·  Cloud-Based Intelligent Management</text>
+  <circle cx="400" cy="155" r="80" fill="url(#cloud)" opacity="0.15"/>
+  <circle cx="400" cy="155" r="76" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="10,5"/>
+  <text x="400" y="135" text-anchor="middle" fill="white" font-size="30">☁️</text>
+  <text x="400" y="158" text-anchor="middle" fill="white" font-size="13" font-weight="700">AI Smart Energy</text>
+  <text x="400" y="176" text-anchor="middle" fill="#4ade80" font-size="12">Cloud Platform</text>
+  <text x="400" y="196" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10">WiFi / 4G / 5G</text>
+  <rect x="315" y="42" width="170" height="46" rx="10" fill="rgba(22,163,74,0.25)" stroke="#22c55e" stroke-width="1"/>
+  <text x="400" y="62" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">🧠 AI Intelligent Scheduling</text>
+  <text x="400" y="79" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">Deep Learning · Load Forecast · Lowest Cost</text>
+  <line x1="400" y1="88" x2="400" y2="107" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="30" y="72" width="165" height="46" rx="10" fill="rgba(22,163,74,0.2)" stroke="#22c55e" stroke-width="1"/>
+  <text x="112" y="92" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">☁️ Cloud Management</text>
+  <text x="112" y="109" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">Multi-site Real-time Monitor</text>
+  <line x1="195" y1="105" x2="326" y2="138" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="605" y="72" width="165" height="46" rx="10" fill="rgba(22,163,74,0.2)" stroke="#22c55e" stroke-width="1"/>
+  <text x="687" y="92" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">📊 Data Analytics</text>
+  <text x="687" y="109" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">Personalized Energy Reports</text>
+  <line x1="605" y1="105" x2="474" y2="138" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="30" y="215" width="165" height="46" rx="10" fill="rgba(22,163,74,0.2)" stroke="#22c55e" stroke-width="1"/>
+  <text x="112" y="235" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">🔗 VPP Virtual Power Plant</text>
+  <text x="112" y="252" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">Power Market · Freq. Regulation</text>
+  <line x1="195" y1="238" x2="326" y2="182" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="605" y="215" width="165" height="46" rx="10" fill="rgba(22,163,74,0.2)" stroke="#22c55e" stroke-width="1"/>
+  <text x="687" y="235" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">🔐 End-to-End Security</text>
+  <text x="687" y="252" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">Financial-Grade · OpenAPI</text>
+  <line x1="605" y1="238" x2="474" y2="182" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="315" y="255" width="170" height="46" rx="10" fill="rgba(22,163,74,0.25)" stroke="#22c55e" stroke-width="1"/>
+  <text x="400" y="275" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">⚡ 10s Rapid Response</text>
+  <text x="400" y="292" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">Auto Switchover · Zero Interruption</text>
+  <line x1="400" y1="255" x2="400" y2="233" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="60" y="315" width="680" height="50" rx="10" fill="rgba(22,163,74,0.12)" stroke="#22c55e" stroke-width="1"/>
+  <text x="400" y="337" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">📱 Smart App · Full Control of Home, Factory &amp; Industrial Energy</text>
+  <text x="400" y="355" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">Real-time Monitor · AI Assistant · Smart Alerts · Revenue Visualization</text>
+</svg>

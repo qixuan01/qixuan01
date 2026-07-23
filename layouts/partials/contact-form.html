@@ -1,0 +1,187 @@
+<!-- 联系表单 -->
+<div class="contact-form">
+    <h4><i class="fas fa-envelope text-primary"></i> {{ if eq .Site.Language.Lang "zh" }}在线咨询{{ else }}Online Consultation{{ end }}</h4>
+    <form id="contact-form" class="mt-3" action="https://formspree.io/f/xdakkjrz" method="POST">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="name" class="form-label">{{ if eq .Site.Language.Lang "zh" }}姓名{{ else }}Name{{ end }} *</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="company" class="form-label">{{ if eq .Site.Language.Lang "zh" }}公司名称{{ else }}Company{{ end }}</label>
+                <input type="text" class="form-control" id="company" name="company">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">{{ if eq .Site.Language.Lang "zh" }}邮箱{{ else }}Email{{ end }} *</label>
+                <input type="email" class="form-control" id="email" name="_replyto" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="phone" class="form-label">{{ if eq .Site.Language.Lang "zh" }}电话{{ else }}Phone{{ end }}</label>
+                <input type="tel" class="form-control" id="phone" name="phone">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="subject" class="form-label">{{ if eq .Site.Language.Lang "zh" }}咨询主题{{ else }}Subject{{ end }} *</label>
+            <select class="form-select" id="subject" name="_subject" required>
+                <option value="">{{ if eq .Site.Language.Lang "zh" }}请选择咨询主题{{ else }}Please select a topic{{ end }}</option>
+                <option value="解决方案咨询 - Solutions Inquiry">{{ if eq .Site.Language.Lang "zh" }}解决方案咨询{{ else }}Solutions Inquiry{{ end }}</option>
+                <option value="产品服务咨询 - Product Services Inquiry">{{ if eq .Site.Language.Lang "zh" }}产品服务咨询{{ else }}Product Services Inquiry{{ end }}</option>
+                <option value="合作洽谈 - Partnership Discussion">{{ if eq .Site.Language.Lang "zh" }}合作洽谈{{ else }}Partnership Discussion{{ end }}</option>
+                <option value="技术支持 - Technical Support">{{ if eq .Site.Language.Lang "zh" }}技术支持{{ else }}Technical Support{{ end }}</option>
+                <option value="其他 - Other">{{ if eq .Site.Language.Lang "zh" }}其他{{ else }}Other{{ end }}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">{{ if eq .Site.Language.Lang "zh" }}详细描述{{ else }}Detailed Description{{ end }} *</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required 
+                      placeholder="{{ if eq .Site.Language.Lang "zh" }}请详细描述您的需求或问题...{{ else }}Please describe your requirements or questions in detail...{{ end }}"></textarea>
+        </div>
+        
+        <!-- Formspree 隐藏字段 -->
+        <input type="hidden" name="_next" value="{{ .Site.BaseURL }}{{ if eq .Site.Language.Lang "zh" }}/contact/?success=true{{ else }}/en/contact/?success=true{{ end }}">
+        <input type="hidden" name="_language" value="{{ .Site.Language.Lang }}">
+        <input type="hidden" name="_format" value="plain">
+        
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="privacy" name="privacy" required>
+            <label class="form-check-label" for="privacy">
+                {{ if eq .Site.Language.Lang "zh" }}我已阅读并同意{{ else }}I have read and agree to the{{ end }} <a href="#" class="text-primary">{{ if eq .Site.Language.Lang "zh" }}隐私政策{{ else }}Privacy Policy{{ end }}</a>
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit-btn">
+            <i class="fas fa-paper-plane"></i> {{ if eq .Site.Language.Lang "zh" }}提交咨询{{ else }}Submit Inquiry{{ end }}
+        </button>
+    </form>
+    
+    <div id="form-message" class="mt-3"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const messageDiv = document.getElementById('form-message');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    // 检查URL参数，显示成功消息
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        messageDiv.innerHTML = `
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i> 
+                {{ if eq .Site.Language.Lang "zh" }}感谢您的咨询！我们已收到您的信息，将在24小时内与您联系。{{ else }}Thank you for your inquiry! We have received your information and will contact you within 24 hours.{{ end }}
+                <br><small>{{ if eq .Site.Language.Lang "zh" }}如需紧急联系，请直接拨打：0755-8888-8888{{ else }}For urgent contact, please call directly: 0755-8888-8888{{ end }}</small>
+            </div>
+        `;
+        messageDiv.scrollIntoView({ behavior: 'smooth' });
+        
+        // 清理URL参数
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+    }
+    
+    // 表单提交处理
+    form.addEventListener('submit', function(e) {
+        // 显示提交中状态
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {{ if eq .Site.Language.Lang "zh" }}提交中...{{ else }}Submitting...{{ end }}';
+        submitBtn.disabled = true;
+        
+        // 清除之前的消息
+        messageDiv.innerHTML = '';
+        
+        // 让Formspree处理表单提交
+        // 不阻止默认行为，让表单正常提交到Formspree
+    });
+    
+    // 表单验证增强
+    const requiredFields = form.querySelectorAll('[required]');
+    requiredFields.forEach(field => {
+        field.addEventListener('blur', function() {
+            if (!this.value.trim()) {
+                this.classList.add('is-invalid');
+            } else {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+        
+        field.addEventListener('input', function() {
+            if (this.classList.contains('is-invalid') && this.value.trim()) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+    });
+    
+    // 邮箱格式验证
+    const emailField = document.getElementById('email');
+    if (emailField) {
+        emailField.addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value && !emailRegex.test(this.value)) {
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+            } else if (this.value) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+    }
+});
+</script>
+
+<style>
+.contact-form {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(220, 38, 38, 0.25);
+}
+
+/* 表单验证样式 */
+.form-control.is-valid,
+.form-select.is-valid {
+    border-color: #198754;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='m2.3 6.73.94-.94 1.38 1.38 3.02-3.02.94.94L2.97 8.84z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: #dc3545;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath d='m5.8 4.6 2.4 2.4m0-2.4L5.8 7'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* 提交按钮禁用状态 */
+.btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* 加载动画 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fa-spin {
+    animation: spin 1s linear infinite;
+}
+</style>

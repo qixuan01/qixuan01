@@ -1,0 +1,158 @@
+{{ define "main" }}
+<!-- Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(220, 38, 38, 0.9), rgba(239, 68, 68, 0.9)), url('{{ printf "%simages/redBanner.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}解决方案{{ else }}Solutions{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title">{{ .Title }}</h1>
+                <p class="page-subtitle">{{ .Description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <!-- 主要内容区域 -->
+            <div class="col-lg-8">
+                <div class="content solution-content">
+                    {{ .Content }}
+                </div>
+            </div>
+            
+            <!-- 侧边栏 -->
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 100px;">
+                    <!-- 快速导航 -->
+                    <div class="content-card mb-4">
+                        <h5 class="mb-3"><i class="fas fa-list text-primary me-2"></i>{{ if eq .Site.Language.Lang "zh" }}快速导航{{ else }}Quick Navigation{{ end }}</h5>
+                        <div class="solution-nav" id="solution-nav">
+                            <!-- 导航链接将通过JavaScript动态生成 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 联系咨询 -->
+                    <div class="content-card mb-4">
+                        <h5 class="mb-3"><i class="fas fa-phone text-primary me-2"></i>{{ if eq .Site.Language.Lang "zh" }}咨询服务{{ else }}Consultation Services{{ end }}</h5>
+                        <p class="mb-3">{{ if eq .Site.Language.Lang "zh" }}需要了解更多详情？{{ else }}Need more details?{{ end }}</p>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-primary btn-sm w-100 mb-2">
+                            <i class="fas fa-envelope me-2"></i>{{ if eq .Site.Language.Lang "zh" }}立即咨询{{ else }}Contact Now{{ end }}
+                        </a>
+                        <a href="tel:0755-8888-8888" class="btn btn-outline-primary btn-sm w-100">
+                            <i class="fas fa-phone me-2"></i>{{ if eq .Site.Language.Lang "zh" }}电话咨询{{ else }}Phone Consultation{{ end }}
+                        </a>
+                    </div>
+                    
+                    <!-- 相关解决方案 -->
+                    <div class="content-card">
+                        <h5 class="mb-3"><i class="fas fa-lightbulb text-primary me-2"></i>{{ if eq .Site.Language.Lang "zh" }}相关方案{{ else }}Related Solutions{{ end }}</h5>
+                        {{ $related := .Site.RegularPages.Related . | first 3 }}
+                        {{ range $related }}
+                        <div class="related-item mb-3">
+                            <h6><a href="{{ .Permalink }}" class="text-decoration-none">{{ .Title }}</a></h6>
+                            <p class="small text-muted mb-0">{{ .Summary | truncate 60 }}</p>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- CTA Section -->
+<section class="section" style="background: linear-gradient(rgba(220, 38, 38, 0.9), rgba(239, 68, 68, 0.9)); color: white;">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 style="color: white;">{{ if eq .Site.Language.Lang "zh" }}准备实施这个解决方案？{{ else }}Ready to Implement This Solution?{{ end }}</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们的专业团队，获取详细的实施方案和报价{{ else }}Contact our professional team for detailed implementation plans and quotes{{ end }}</p>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg">{{ if eq .Site.Language.Lang "zh" }}立即联系{{ else }}Contact Now{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 生成快速导航
+    const solutionNav = document.getElementById('solution-nav');
+    const contentArea = document.querySelector('.solution-content');
+    
+    if (solutionNav && contentArea) {
+        // 查找所有h2标题
+        const headings = contentArea.querySelectorAll('h2');
+        
+        if (headings.length > 0) {
+            headings.forEach((heading, index) => {
+                // 为每个标题添加ID
+                const id = 'section-' + index;
+                heading.id = id;
+                
+                // 创建导航链接
+                const navLink = document.createElement('a');
+                navLink.href = '#' + id;
+                navLink.className = 'nav-link';
+                navLink.textContent = heading.textContent;
+                
+                // 添加平滑滚动
+                navLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.getElementById(id);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // 高亮当前导航项
+                        document.querySelectorAll('.solution-nav .nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        navLink.classList.add('active');
+                    }
+                });
+                
+                solutionNav.appendChild(navLink);
+            });
+        } else {
+            // 如果没有h2标题，隐藏导航卡片
+            solutionNav.closest('.content-card').style.display = 'none';
+        }
+    }
+    
+    // 滚动时高亮当前章节
+    window.addEventListener('scroll', function() {
+        const headings = document.querySelectorAll('.solution-content h2[id]');
+        const navLinks = document.querySelectorAll('.solution-nav .nav-link');
+        
+        let currentSection = '';
+        
+        headings.forEach(heading => {
+            const rect = heading.getBoundingClientRect();
+            if (rect.top <= 150) {
+                currentSection = heading.id;
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + currentSection) {
+                link.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+{{ end }}

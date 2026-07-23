@@ -1,0 +1,63 @@
+<!-- 简单搜索功能 -->
+<div class="search-container">
+  <div class="input-group">
+    <input type="text" id="search-input" class="form-control" placeholder="搜索内容...">
+    <button class="btn btn-outline-primary" type="button" id="search-btn">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+  <div id="search-results" class="search-results mt-3"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search-input');
+  const searchBtn = document.getElementById('search-btn');
+  const searchResults = document.getElementById('search-results');
+  
+  function performSearch() {
+    const query = searchInput.value.trim().toLowerCase();
+    if (query.length < 2) {
+      searchResults.innerHTML = '';
+      return;
+    }
+    
+    // 简单的客户端搜索实现
+    const content = document.body.innerText.toLowerCase();
+    if (content.includes(query)) {
+      searchResults.innerHTML = `
+        <div class="alert alert-info">
+          <i class="fas fa-info-circle"></i> 
+          在当前页面找到相关内容
+        </div>
+      `;
+    } else {
+      searchResults.innerHTML = `
+        <div class="alert alert-warning">
+          <i class="fas fa-exclamation-triangle"></i> 
+          未找到相关内容，请尝试其他关键词
+        </div>
+      `;
+    }
+  }
+  
+  searchBtn.addEventListener('click', performSearch);
+  searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
+  });
+});
+</script>
+
+<style>
+.search-container {
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.search-results {
+  max-height: 300px;
+  overflow-y: auto;
+}
+</style>

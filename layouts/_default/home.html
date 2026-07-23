@@ -1,0 +1,370 @@
+{{ define "main" }}
+<!-- Hero Section - 四图轮播 -->
+<section class="hero-section hero-carousel" id="heroSection">
+    <div class="hero-slide active" id="heroSlide0" style="background-image: url('{{ printf "%simages/solution-space-con.jpg" $.Site.BaseURL }}');">
+        <div class="hero-slide-overlay" style="background: rgba(15,118,110,0.52);"></div>
+    </div>
+    <div class="hero-slide" id="heroSlide1" style="background-image: url('{{ printf "%simages/energy-hero-bg.png" $.Site.BaseURL }}');">
+        <div class="hero-slide-overlay" style="background: rgba(10,60,25,0.52);"></div>
+    </div>
+    <div class="hero-slide" id="heroSlide2" style="background-image: url('{{ printf "%simages/banner-edge-ai.png" $.Site.BaseURL }}'); background-size: contain; background-repeat: no-repeat; background-color: #0a0a1a;">
+        <div class="hero-slide-overlay" style="background: rgba(5,5,30,0.35);"></div>
+    </div>
+    <div class="hero-slide" id="heroSlide3" style="background-image: url('{{ printf "%simages/banner-ai-edu.png" $.Site.BaseURL }}'); background-size: contain; background-repeat: no-repeat; background-color: #0a1a10;">
+        <div class="hero-slide-overlay" style="background: rgba(5,20,10,0.35);"></div>
+    </div>
+    <div class="hero-content-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="hero-title">{{ .Site.Title }}</h1>
+                    <p class="hero-subtitle">{{ .Description }}</p>
+                    <div>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-3" style="background: linear-gradient(135deg,#16a34a,#22c55e); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源{{ else }}Smart Energy{{ end }}</a>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-3" style="background: linear-gradient(135deg,#7c3aed,#a855f7); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI{{ else }}Edge AI{{ end }}</a>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-primary btn-lg">{{ if eq .Site.Language.Lang "zh" }}大数据{{ else }}Big Data{{ end }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-dots">
+        <span class="hero-dot active" onclick="goToSlide(0)" title="{{ if eq .Site.Language.Lang "zh" }}大数据{{ else }}Big Data{{ end }}"></span>
+        <span class="hero-dot" onclick="goToSlide(1)" title="{{ if eq .Site.Language.Lang "zh" }}新能源{{ else }}New Energy{{ end }}"></span>
+        <span class="hero-dot" onclick="goToSlide(2)" title="{{ if eq .Site.Language.Lang "zh" }}边缘AI{{ else }}Edge AI{{ end }}"></span>
+        <span class="hero-dot" onclick="goToSlide(3)" title="{{ if eq .Site.Language.Lang "zh" }}AI伴学{{ else }}AI Education{{ end }}"></span>
+    </div>
+</section>
+
+<style>
+.hero-carousel { position: relative; min-height: 600px; display: flex; align-items: center; color: white; margin-top: 80px; overflow: hidden; }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 0; }
+.hero-slide.active { opacity: 1; z-index: 1; }
+.hero-slide-overlay { position: absolute; inset: 0; }
+.hero-content-wrap { position: relative; z-index: 2; width: 100%; padding: 4rem 0; }
+.hero-dots { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; gap: 10px; }
+.hero-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.6); }
+.hero-dot.active { background: white; transform: scale(1.2); }
+</style>
+
+<script>
+(function() {
+    var current = 0, total = 4, timer;
+    function goToSlide(n) {
+        var s = document.querySelectorAll('.hero-slide'), d = document.querySelectorAll('.hero-dot');
+        s[current].classList.remove('active'); d[current].classList.remove('active');
+        current = n % total;
+        s[current].classList.add('active'); d[current].classList.add('active');
+        clearInterval(timer); startAuto();
+    }
+    function startAuto() { timer = setInterval(function(){ goToSlide((current+1)%total); }, 5000); }
+    window.goToSlide = goToSlide;
+    document.addEventListener('DOMContentLoaded', startAuto);
+})();
+</script>
+
+<!-- Section Title -->
+<section style="padding: 2.5rem 0 0; background: #0f172a; text-align: center;">
+    <h2 style="color: white; border-bottom: none; font-size: 1.8rem; margin-bottom: 0.5rem;">{{ if eq .Site.Language.Lang "zh" }}我们的四大核心业务{{ else }}Our Four Core Business Lines{{ end }}</h2>
+    <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-bottom: 0; padding-bottom: 2rem;">{{ if eq .Site.Language.Lang "zh" }}大数据运维 · 智慧能源 · 边缘AI推理 · AI伴学教育 — 自主研发·全栈可控·国产替代{{ else }}Big Data · Smart Energy · Edge AI · AI Education — Self-developed · Full-stack Controllable · Domestic Substitution{{ end }}</p>
+</section>
+
+<!-- Energy Architecture: 文字在上，图在下 -->
+<section class="arch-panel arch-panel-energy">
+    <div class="container-fluid px-0">
+        <!-- 文字行 -->
+        <div class="arch-header-row arch-header-energy">
+            <div class="arch-badge arch-badge-energy">NEW · 智慧新能源</div>
+            <h2 class="arch-title arch-title-energy">{{ if eq .Site.Language.Lang "zh" }}新能源EMS · 智慧能源管理系统{{ else }}Smart Energy EMS · Energy Management System{{ end }}</h2>
+            <p class="arch-desc">{{ if eq .Site.Language.Lang "zh" }}以EMS为能源底座，融合光伏、储能、充电桩、VPP虚拟电厂，AI全链路调度，构建零碳智慧能源新底座。{{ else }}EMS as the energy foundation — integrating PV, storage, EV charging, VPP with AI full-chain dispatch for zero-carbon smart energy.{{ end }}</p>
+            <div class="arch-points-row">
+                <span class="arch-point-tag arch-tag-energy">⚡ AI智能调度 · 峰谷套利</span>
+                <span class="arch-point-tag arch-tag-energy">🔋 光储充一体 · VPP虚拟电厂</span>
+                <span class="arch-point-tag arch-tag-energy">🌿 碳资产管理 · 双碳目标</span>
+                <span class="arch-point-tag arch-tag-energy">☁️ 云端EMS · OpenAPI生态</span>
+                <span class="arch-point-tag arch-tag-energy">10ms 响应 · 98.4% 逆变效率</span>
+            </div>
+            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="arch-btn arch-btn-energy">{{ if eq .Site.Language.Lang "zh" }}探索智慧能源解决方案 →{{ else }}Explore Smart Energy →{{ end }}</a>
+        </div>
+        <!-- 架构图行 -->
+        <div class="arch-diagram-row">
+            <img src="{{ printf "%simages/%s" $.Site.BaseURL (cond (eq .Site.Language.Lang "zh") "arch-energy-ems.svg" "arch-energy-ems-en.svg") }}" alt="{{ if eq .Site.Language.Lang "zh" }}新能源EMS智慧能源管理系统架构{{ else }}Smart Energy EMS Architecture{{ end }}" class="arch-diagram-full">
+        </div>
+    </div>
+</section>
+
+<!-- Big Data Architecture: 文字在上，图在下 -->
+<section class="arch-panel arch-panel-bigdata">
+    <div class="container-fluid px-0">
+        <!-- 文字行 -->
+        <div class="arch-header-row arch-header-bigdata">
+            <div class="arch-badge arch-badge-bigdata">企业级大数据</div>
+            <h2 class="arch-title arch-title-bigdata">{{ if eq .Site.Language.Lang "zh" }}HadoopForge · 企业级Hadoop智能运维平台{{ else }}HadoopForge · Enterprise Hadoop Intelligent O&M Platform{{ end }}</h2>
+            <p class="arch-desc">{{ if eq .Site.Language.Lang "zh" }}国内首个完成Ambari 3.0.0 + Bigtop 3.5.0适配，Hive 4.0.1 率先兼容，AI运维故障预测准确率92%，500+节点·12个月·0生产事故。{{ else }}China's first to complete Ambari 3.0.0 + Bigtop 3.5.0 adaptation. Hive 4.0.1 first-mover. AI fault prediction 92% accuracy. 500+ nodes · 12 months · 0 production incidents.{{ end }}</p>
+            <div class="arch-points-row">
+                <span class="arch-point-tag arch-tag-bigdata">📊 Hadoop · Spark · Kafka · Flink</span>
+                <span class="arch-point-tag arch-tag-bigdata">🏦 金融级安全 · Kerberos + Ranger</span>
+                <span class="arch-point-tag arch-tag-bigdata">🤖 机器学习平台 · AI驱动决策</span>
+                <span class="arch-point-tag arch-tag-bigdata">500+ 企业客户 · 50+ 知识产权</span>
+            </div>
+            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}" class="arch-btn arch-btn-bigdata">{{ if eq .Site.Language.Lang "zh" }}探索大数据平台 →{{ else }}Explore Big Data Platform →{{ end }}</a>
+        </div>
+        <!-- 架构图行 -->
+        <div class="arch-diagram-row">
+            <img src="{{ printf "%simages/%s" $.Site.BaseURL (cond (eq .Site.Language.Lang "zh") "arch-bigdata-platform.svg" "arch-bigdata-platform-en.svg") }}" alt="{{ if eq .Site.Language.Lang "zh" }}企业级大数据平台架构{{ else }}Enterprise Big Data Platform Architecture{{ end }}" class="arch-diagram-full">
+        </div>
+    </div>
+</section>
+
+<style>
+/* ---- 架构板块基础 ---- */
+.arch-panel { padding: 0; overflow: hidden; }
+.arch-panel-energy { background: linear-gradient(180deg, #052e16 0%, #0f2d1a 100%); }
+.arch-panel-bigdata { background: linear-gradient(180deg, #042f2e 0%, #0d3330 100%); }
+
+/* ---- 文字头部行 ---- */
+.arch-header-row {
+    padding: 2.5rem 5% 2rem;
+    text-align: center;
+}
+
+.arch-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+    margin-bottom: 1rem;
+}
+.arch-badge-energy { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+.arch-badge-bigdata { background: rgba(20,184,166,0.15); color: #5eead4; border: 1px solid rgba(20,184,166,0.3); }
+
+.arch-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    border-bottom: none !important;
+    line-height: 1.3;
+}
+.arch-title::after { display: none !important; }
+.arch-title-energy { color: #4ade80; }
+.arch-title-bigdata { color: #5eead4; }
+
+.arch-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 680px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.7;
+}
+
+/* ---- 标签行 ---- */
+.arch-points-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+}
+.arch-point-tag {
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    line-height: 1.4;
+}
+.arch-tag-energy { background: rgba(22,163,74,0.18); color: #86efac; border: 1px solid rgba(22,163,74,0.25); }
+.arch-tag-bigdata { background: rgba(15,118,110,0.18); color: #5eead4; border: 1px solid rgba(15,118,110,0.25); }
+
+/* ---- 按钮 ---- */
+.arch-btn {
+    display: inline-block;
+    padding: 0.7rem 2rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.arch-btn-energy { background: linear-gradient(135deg,#16a34a,#22c55e); color: white; box-shadow: 0 4px 15px rgba(22,163,74,0.35); }
+.arch-btn-energy:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(22,163,74,0.5); color: white; text-decoration: none; }
+.arch-btn-bigdata { background: linear-gradient(135deg,#0f766e,#14b8a6); color: white; box-shadow: 0 4px 15px rgba(15,118,110,0.35); }
+.arch-btn-bigdata:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(15,118,110,0.5); color: white; text-decoration: none; }
+
+/* ---- 架构图行 ---- */
+.arch-diagram-row { padding: 0 3% 2.5rem; }
+.arch-diagram-full {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+    transform: none !important;
+}
+.arch-diagram-full:hover { transform: none !important; box-shadow: 0 12px 40px rgba(0,0,0,0.5) !important; }
+
+@media (max-width: 768px) {
+    .arch-header-row { padding: 2rem 4% 1.5rem; }
+    .arch-title { font-size: 1.4rem; }
+    .arch-diagram-row { padding: 0 2% 2rem; }
+}
+</style>
+
+<!-- Edge AI Panel -->
+<section class="arch-panel arch-panel-edgeai">
+    <div class="container-fluid px-0">
+        <div class="arch-header-row arch-header-edgeai">
+            <div class="arch-badge arch-badge-edgeai">🌍 全球首创 · World First</div>
+            <h2 class="arch-title arch-title-edgeai">{{ if eq .Site.Language.Lang "zh" }}鸿源边缘AI推理加速器 · 全球首个 BitNet FPGA 硬件加速器{{ else }}Hongyuan Edge AI Accelerator · World's First BitNet FPGA Hardware Accelerator{{ end }}</h2>
+            <p class="arch-desc">{{ if eq .Site.Language.Lang "zh" }}BitNet W1.58 三值量化将乘法替换为加减法，让每块 ¥200 级国产 FPGA 都能运行 AI Transformer。6/6 全链路验证通过，256/256 矩阵零误差，100% 国产化。{{ else }}BitNet W1.58 ternary quantization replaces multiplication with addition/subtraction — enabling every ¥200-class domestic FPGA to run AI Transformer. 6/6 full-chain validation, 256/256 zero error, 100% domestic components.{{ end }}</p>
+            <div class="arch-points-row">
+                <span class="arch-point-tag arch-tag-edgeai">🔴 16x 存储压缩 · 33% 稀疏跳过</span>
+                <span class="arch-point-tag arch-tag-edgeai">✅ 6/6 全链路验证 · 零误差</span>
+                <span class="arch-point-tag arch-tag-edgeai">💰 BOM &lt;¥200 · Jetson低70%+</span>
+                <span class="arch-point-tag arch-tag-edgeai">🇨🇳 安路FPGA + RISC-V + 鸿蒙LiteOS · 100%国产</span>
+                <span class="arch-point-tag arch-tag-edgeai">🏆 架构创新奖 · 12–18月先发优势</span>
+            </div>
+            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="arch-btn arch-btn-edgeai">{{ if eq .Site.Language.Lang "zh" }}探索边缘AI产品 →{{ else }}Explore Edge AI Products →{{ end }}</a>
+        </div>
+        <div class="arch-diagram-row arch-edgeai-cards">
+            <div class="arch-edgeai-card">
+                <div class="arch-edgeai-card-title">🔴 鸿源边缘AI推理加速器</div>
+                <div class="arch-edgeai-card-stack">
+                    <div class="arch-edgeai-layer" style="background:rgba(124,58,237,0.25);border-color:rgba(167,139,250,0.4);">应用层 · Transformer推理引擎（QKV / Attention / FFN）</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(79,70,229,0.2);border-color:rgba(129,140,248,0.35);">系统层 · HarmonyOS LiteOS（调度 / IPC / 内存）</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(109,40,217,0.3);border-color:rgba(196,181,253,0.4);">加速层 · BitNet 16×16 Tile · 乘法→加减法 · 33%稀疏跳过</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(91,33,182,0.35);border-color:rgba(167,139,250,0.5);">硬件层 · 安路EG4X20 FPGA · PicoRV32 RISC-V @50MHz</div>
+                </div>
+                <div class="arch-edgeai-stats">
+                    <span>16x 压缩</span><span>0 误差</span><span>&lt;¥200</span><span>6/6 PASS</span>
+                </div>
+            </div>
+            <div class="arch-edgeai-card">
+                <div class="arch-edgeai-card-title">🟠 智能终端AI中间件</div>
+                <div class="arch-edgeai-card-stack">
+                    <div class="arch-edgeai-layer" style="background:rgba(234,88,12,0.2);border-color:rgba(251,146,60,0.35);">Tier 3 · 云端LLM（WiFi） · &lt;3s · 复杂语义</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(194,65,12,0.25);border-color:rgba(253,186,116,0.4);">Tier 2 · 规则引擎NLP · &lt;500ms · 19种意图 · 离线</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(154,52,18,0.3);border-color:rgba(254,215,170,0.45);">Tier 1 · 关键词匹配 · &lt;100ms · Flash存储 · 128KB峰值</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(124,45,18,0.35);border-color:rgba(251,146,60,0.5);">硬件 · Hi3863 WS63 RISC-V @240MHz · LiteOS</div>
+                </div>
+                <div class="arch-edgeai-stats">
+                    <span>128KB SRAM</span><span>&lt;100ms</span><span>3,500+ 行</span><span>已验证</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AI Education Panel -->
+<section class="arch-panel arch-panel-aiedu">
+    <div class="container-fluid px-0">
+        <div class="arch-header-row arch-header-aiedu">
+            <div class="arch-badge arch-badge-aiedu">🎓 国内首创 · China First</div>
+            <h2 class="arch-title arch-title-aiedu">{{ if eq .Site.Language.Lang "zh" }}悦学智伴 · FSRS × 数字人 · 有温度的AI老师{{ else }}Otowyue Learn AI · FSRS × Digital Human · AI Teacher with Soul{{ end }}</h2>
+            <p class="arch-desc">{{ if eq .Site.Language.Lang "zh" }}国内首创 FSRS × VRM 数字人深度融合，完全离线部署，情感感知引擎92%准确率。让每一个孩子都拥有有温度的智能教师。{{ else }}China's first FSRS × VRM digital human integration. Fully offline. 92% emotion sensing accuracy. Every child deserves an AI teacher with soul.{{ end }}</p>
+            <div class="arch-points-row">
+                <span class="arch-point-tag arch-tag-aiedu">❤️ 92% 情绪识别准确率 · &lt;800ms响应</span>
+                <span class="arch-point-tag arch-tag-aiedu">🧠 FSRS记忆算法 · 93%+ 保留率 · 效率3x</span>
+                <span class="arch-point-tag arch-tag-aiedu">🤖 VRM数字人 · 11+ LLM兼容 · 无供应商锁定</span>
+                <span class="arch-point-tag arch-tag-aiedu">🔒 完全离线 · 数据不出设备 · 符合GB/T标准</span>
+            </div>
+            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sai-education/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/ai-education/" $.Site.BaseURL }}{{ end }}" class="arch-btn arch-btn-aiedu">{{ if eq .Site.Language.Lang "zh" }}探索AI伴学 →{{ else }}Explore AI Education →{{ end }}</a>
+        </div>
+        <div class="arch-diagram-row arch-aiedu-cards">
+            <div class="arch-aiedu-feature">
+                <div class="arch-aiedu-feature-icon">🎭</div>
+                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}情感感知引擎{{ else }}Emotion Sensing{{ end }}</div>
+                <div class="arch-aiedu-feature-stat">92%</div>
+                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}文本/语音/表情三通道融合识别{{ else }}Text/Voice/Expression 3-channel{{ end }}</div>
+            </div>
+            <div class="arch-aiedu-feature">
+                <div class="arch-aiedu-feature-icon">🧠</div>
+                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}FSRS记忆算法{{ else }}FSRS Memory{{ end }}</div>
+                <div class="arch-aiedu-feature-stat">93%+</div>
+                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}MIT科学记忆 · 保留率提升42%{{ else }}MIT algorithm · 42% retention boost{{ end }}</div>
+            </div>
+            <div class="arch-aiedu-feature">
+                <div class="arch-aiedu-feature-icon">🗺️</div>
+                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}知识图谱导航{{ else }}Knowledge Graph{{ end }}</div>
+                <div class="arch-aiedu-feature-stat">K-12</div>
+                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}可视化脉络 · 薄弱点精准定位{{ else }}Visual pathways · Weakness targeting{{ end }}</div>
+            </div>
+            <div class="arch-aiedu-feature">
+                <div class="arch-aiedu-feature-icon">👥</div>
+                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}四角色AI协作{{ else }}4-Role AI Team{{ end }}</div>
+                <div class="arch-aiedu-feature-stat">×4</div>
+                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}教师/答疑/顾问/心理辅导协同{{ else }}Teacher/Q&A/Advisor/Counselor{{ end }}</div>
+            </div>
+            <div class="arch-aiedu-feature">
+                <div class="arch-aiedu-feature-icon">🤖</div>
+                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}VRM数字人{{ else }}VRM Digital Human{{ end }}</div>
+                <div class="arch-aiedu-feature-stat">&lt;800ms</div>
+                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}拟人化 · 11+大模型 · 音素评测{{ else }}Humanized · 11+ LLMs · Phoneme eval{{ end }}</div>
+            </div>
+            <div class="arch-aiedu-feature">
+                <div class="arch-aiedu-feature-icon">🔒</div>
+                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}完全离线{{ else }}Fully Offline{{ end }}</div>
+                <div class="arch-aiedu-feature-stat">100%</div>
+                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}数据不出设备 · Apache 2.0开源{{ else }}Data on-device · Apache 2.0 open{{ end }}</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* ---- Edge AI 板块 ---- */
+.arch-panel-edgeai { background: linear-gradient(180deg, #0d0020 0%, #1a0035 100%); }
+.arch-badge-edgeai { background: rgba(167,139,250,0.15); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.3); }
+.arch-title-edgeai { color: #c4b5fd; }
+.arch-tag-edgeai { background: rgba(124,58,237,0.2); color: #ddd6fe; border: 1px solid rgba(124,58,237,0.3); }
+.arch-btn-edgeai { background: linear-gradient(135deg,#7c3aed,#a855f7); color: white; box-shadow: 0 4px 15px rgba(124,58,237,0.4); }
+.arch-btn-edgeai:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.55); color: white; text-decoration: none; }
+
+.arch-edgeai-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 0 4% 2.5rem; max-width: 1100px; margin: 0 auto; }
+.arch-edgeai-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(167,139,250,0.2); border-radius: 14px; padding: 1.5rem; }
+.arch-edgeai-card-title { color: #e9d5ff; font-weight: 700; font-size: 1.05rem; margin-bottom: 1rem; }
+.arch-edgeai-card-stack { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+.arch-edgeai-layer { font-size: 0.82rem; color: rgba(255,255,255,0.8); padding: 0.5rem 0.9rem; border-radius: 8px; border: 1px solid; line-height: 1.4; }
+.arch-edgeai-stats { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.arch-edgeai-stats span { font-size: 0.78rem; font-weight: 600; color: #c4b5fd; background: rgba(124,58,237,0.2); padding: 0.25rem 0.6rem; border-radius: 10px; }
+
+/* ---- AI Education 板块 ---- */
+.arch-panel-aiedu { background: linear-gradient(180deg, #0a1a30 0%, #0f2540 100%); }
+.arch-badge-aiedu { background: rgba(56,189,248,0.15); color: #7dd3fc; border: 1px solid rgba(56,189,248,0.3); }
+.arch-title-aiedu { color: #7dd3fc; }
+.arch-tag-aiedu { background: rgba(14,165,233,0.2); color: #bae6fd; border: 1px solid rgba(14,165,233,0.3); }
+.arch-btn-aiedu { background: linear-gradient(135deg,#0284c7,#38bdf8); color: white; box-shadow: 0 4px 15px rgba(2,132,199,0.4); }
+.arch-btn-aiedu:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(2,132,199,0.55); color: white; text-decoration: none; }
+
+.arch-aiedu-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; padding: 0 4% 2.5rem; max-width: 1100px; margin: 0 auto; }
+.arch-aiedu-feature { background: rgba(255,255,255,0.05); border: 1px solid rgba(56,189,248,0.2); border-radius: 14px; padding: 1.5rem; text-align: center; transition: all 0.3s; }
+.arch-aiedu-feature:hover { border-color: rgba(56,189,248,0.5); background: rgba(255,255,255,0.08); }
+.arch-aiedu-feature-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.arch-aiedu-feature-title { font-size: 0.9rem; font-weight: 700; color: #7dd3fc; margin-bottom: 0.25rem; }
+.arch-aiedu-feature-stat { font-size: 1.75rem; font-weight: 800; color: #38bdf8; margin-bottom: 0.25rem; line-height: 1.2; }
+.arch-aiedu-feature-desc { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+@media (max-width: 768px) {
+    .arch-edgeai-cards { grid-template-columns: 1fr; }
+    .arch-aiedu-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .arch-aiedu-cards { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- Contact CTA -->
+<section style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 3rem 0; text-align: center;">
+    <div class="container">
+        <h2 style="color: white; border-bottom: none; margin-bottom: 0.75rem;">{{ if eq .Site.Language.Lang "zh" }}准备开启您的数字化未来？{{ else }}Ready to Build the Future?{{ end }}</h2>
+        <p style="color: rgba(255,255,255,0.6); margin-bottom: 1.5rem;">{{ if eq .Site.Language.Lang "zh" }}大数据运维 · 智慧能源 · 边缘AI推理 · AI伴学教育 — 联系我们的专业团队{{ else }}Big Data · Smart Energy · Edge AI · AI Education — Contact our professional team{{ end }}</p>
+        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI →{{ else }}Edge AI →{{ end }}</a>
+        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#16a34a,#22c55e);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源 →{{ else }}Smart Energy →{{ end }}</a>
+        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light mb-2" style="border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}联系我们{{ else }}Contact Us{{ end }}</a>
+    </div>
+</section>
+
+{{ end }}

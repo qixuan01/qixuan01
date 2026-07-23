@@ -1,0 +1,84 @@
+{{ define "main" }}
+<!-- Edge AI Single Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(91,33,182,0.85), rgba(109,40,217,0.78)), url('{{ printf "%simages/solution-space-con.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}边缘AI{{ else }}Edge AI{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title">{{ .Title }}</h1>
+                {{ if .Description }}<p class="page-subtitle">{{ .Description }}</p>{{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="content energy-content">
+                    {{ .Content }}
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sticky-top" style="top: 100px;">
+                    <div class="content-card mb-4" style="border-color: rgba(124,58,237,0.25);">
+                        <h5 class="mb-3" style="color: #5b21b6;"><i class="fas fa-list me-2" style="color:#7c3aed;"></i>{{ if eq .Site.Language.Lang "zh" }}快速导航{{ else }}Quick Navigation{{ end }}</h5>
+                        <div class="energy-nav" id="energy-nav"></div>
+                    </div>
+                    <div class="content-card mb-4" style="border-color: rgba(124,58,237,0.2); background: #f5f3ff;">
+                        <h5 class="mb-3" style="color: #5b21b6;"><i class="fas fa-envelope me-2" style="color:#7c3aed;"></i>{{ if eq .Site.Language.Lang "zh" }}咨询 & 合作{{ else }}Contact & Cooperation{{ end }}</h5>
+                        <p style="font-size: 0.9rem;">{{ if eq .Site.Language.Lang "zh" }}开发板购买 · IP授权 · 定制开发{{ else }}Dev board · IP licensing · Custom development{{ end }}</p>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn w-100" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;border-radius:20px;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}立即联系{{ else }}Contact Now{{ end }}</a>
+                    </div>
+                    <div class="content-card" style="border-color: rgba(124,58,237,0.2);">
+                        <h5 class="mb-3" style="color: #5b21b6;"><i class="fas fa-th me-2" style="color:#7c3aed;"></i>{{ if eq .Site.Language.Lang "zh" }}边缘AI产品线{{ else }}Edge AI Products{{ end }}</h5>
+                        {{ $pages := (where .Site.Pages "Section" "edge-ai") }}
+                        {{ range first 5 $pages }}
+                        <div class="mb-2"><a href="{{ .Permalink }}" style="color:#7c3aed;font-size:0.9rem;text-decoration:none;">→ {{ .Title }}</a></div>
+                        {{ end }}
+                        <div class="mt-3">
+                            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn btn-sm w-100" style="border:1px solid #7c3aed;color:#7c3aed;">{{ if eq .Site.Language.Lang "zh" }}查看全部 →{{ else }}View All →{{ end }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: linear-gradient(rgba(91,33,182,0.9),rgba(109,40,217,0.9)); color: white;">
+    <div class="container text-center">
+        <div class="row"><div class="col-lg-8 mx-auto">
+            <h2 style="color: white; border-bottom: none;">{{ if eq .Site.Language.Lang "zh" }}有技术问题或合作意向？{{ else }}Technical Questions or Partnership Interest?{{ end }}</h2>
+            <p style="color:rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们的技术团队获取支持{{ else }}Contact our technical team for support{{ end }}</p>
+            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg">{{ if eq .Site.Language.Lang "zh" }}立即联系{{ else }}Contact Now{{ end }}</a>
+        </div></div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var nav = document.getElementById('energy-nav');
+    var content = document.querySelector('.energy-content');
+    if (nav && content) {
+        var headings = content.querySelectorAll('h2');
+        if (headings.length > 0) {
+            headings.forEach(function(h, i) {
+                h.id = 'sec-' + i;
+                var a = document.createElement('a');
+                a.href = '#sec-' + i; a.className = 'nav-link'; a.textContent = h.textContent; a.style.color = '#7c3aed';
+                a.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('sec-'+i).scrollIntoView({behavior:'smooth'}); });
+                nav.appendChild(a);
+            });
+        } else { nav.closest('.content-card').style.display='none'; }
+    }
+});
+</script>
+{{ end }}

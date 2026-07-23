@@ -1,0 +1,152 @@
+{{ define "main" }}
+<!-- Page Header -->
+<section class="page-header" style="background: linear-gradient(rgba(220, 38, 38, 0.6), rgba(239, 68, 68, 0.6)), url('{{ printf "%simages/redBanner.jpg" $.Site.BaseURL }}') center/cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}/{{ else }}/en/{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title">{{ .Title }}</h1>
+                <p class="page-subtitle">{{ .Description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <!-- 联系方式信息 -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="content-card">
+                    <h3><i class="fas fa-map-marker-alt text-primary"></i> {{ if eq .Site.Language.Lang "zh" }}联系方式{{ else }}Contact Information{{ end }}</h3>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h5>{{ if eq $.Site.Language.Lang "zh" }}总部地址{{ else }}Headquarters{{ end }}</h5>
+                                <p>{{ if eq $.Site.Language.Lang "zh" }}深圳市宝安区松白路3000号<br>北大科创园A1栋研发楼423{{ else }}Room 423, R&D Building A1<br>Peking University Science and Technology Park<br>No. 3000, Songbai Road, Bao'an District, Shenzhen{{ end }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h5>{{ if eq $.Site.Language.Lang "zh" }}联系电话{{ else }}Phone{{ end }}</h5>
+                                <p>+86 136 3293 3869<br>+86 189 2371 9468</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h5>{{ if eq $.Site.Language.Lang "zh" }}邮箱地址{{ else }}Email{{ end }}</h5>
+                                <p>info@starkernal.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 协同机构 -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="content-card">
+                    <h3><i class="fas fa-globe text-primary"></i> {{ if eq .Site.Language.Lang "zh" }}协同机构{{ else }}Collaboration Partners{{ end }}</h3>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="branch-office">
+                                <h5><i class="fas fa-map-marker-alt text-primary"></i> {{ if eq $.Site.Language.Lang "zh" }}北京分公司{{ else }}Beijing Branch{{ end }}</h5>
+                                <p><strong>{{ if eq $.Site.Language.Lang "zh" }}地址：{{ else }}Address:{{ end }}</strong>{{ if eq $.Site.Language.Lang "zh" }}北京市海淀区中关村大街1号{{ else }}No. 1, Zhongguancun Street, Haidian District, Beijing{{ end }}</p>
+                                <p><strong>{{ if eq $.Site.Language.Lang "zh" }}电话：{{ else }}Phone:{{ end }}</strong>186-138-07209</p>
+                                <p><strong>{{ if eq $.Site.Language.Lang "zh" }}邮箱：{{ else }}Email:{{ end }}</strong>tongxiaojun@redoop.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="branch-office">
+                                <h5><i class="fas fa-map-marker-alt text-primary"></i> {{ if eq $.Site.Language.Lang "zh" }}浙江办事处{{ else }}Zhejiang Office{{ end }}</h5>
+                                <p><strong>{{ if eq $.Site.Language.Lang "zh" }}地址：{{ else }}Address:{{ end }}</strong>{{ if eq $.Site.Language.Lang "zh" }}浙江省兰溪市高新区镁合金大楼{{ else }}Magnesium Alloy Building, High-tech Zone, Lanxi City, Zhejiang Province{{ end }}</p>
+                                <p><strong>{{ if eq $.Site.Language.Lang "zh" }}邮箱：{{ else }}Email:{{ end }}</strong>info@starkernal.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- 左侧：公司信息 -->
+            <div class="col-lg-6">
+                <div class="content-card">
+                    {{ .Content }}
+                </div>
+            </div>
+            
+            <!-- 右侧：在线咨询表单 -->
+            <div class="col-lg-6">
+                <div class="content-card">
+                    {{ partial "contact-form.html" . }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.contact-item {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    background: #f8f9fa;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+    background: white;
+    color: var(--primary-color);
+}
+
+.branch-office {
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    background: #f8f9fa;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 1rem;
+}
+
+.branch-office h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+</style>
+{{ end }}
