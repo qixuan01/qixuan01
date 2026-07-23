@@ -1,4 +1,4 @@
----
+﻿---
 title: "家庭零碳解决方案"
 description: "8kW光伏 + 16kWh储能，实现家庭能源自给率>80%，零碳生活从这里开始"
 weight: 10
@@ -20,10 +20,10 @@ weight: 10
 
 | 组件 | 型号 | 规格 |
 |------|------|------|
-| 混合逆变器 | StarKernal Hybrid | 单相 8.0 kW |
-| 储能电池 | StarKernal BAT 10.0 × 2 | 共 18.08 kWh |
+| 混合逆变器 | Qixuan Hybrid | 单相 8.0 kW |
+| 储能电池 | Qixuan BAT 10.0 × 2 | 共 18.08 kWh |
 | 光伏组件 | 标准单晶硅 | 8 kWp |
-| 通信模块 | StarKernal CommMod | 4G/WiFi |
+| 通信模块 | Qixuan CommMod | 4G/WiFi |
 
 ## 系统运行逻辑
 

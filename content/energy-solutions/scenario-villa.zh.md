@@ -1,4 +1,4 @@
----
+﻿---
 title: "别墅大宅解决方案"
 description: "16kW光伏 + 32kWh储能 + 7kW充电，高端住宅全能量管理"
 weight: 11
@@ -20,11 +20,11 @@ weight: 11
 
 | 组件 | 型号 | 规格 |
 |------|------|------|
-| 混合逆变器 | StarKernal Hybrid 三相 | 12.0 kW |
-| 储能电池 | StarKernal BAT 10.0 × 4 | 共 36 kWh |
+| 混合逆变器 | Qixuan Hybrid 三相 | 12.0 kW |
+| 储能电池 | Qixuan BAT 10.0 × 4 | 共 36 kWh |
 | 光伏组件 | 标准单晶硅 | 16 kWp |
-| EV充电桩 | StarKernal EVDC 7kW | 含V2G |
-| 通信模块 | StarKernal CommMod | 5G/WiFi |
+| EV充电桩 | Qixuan EVDC 7kW | 含V2G |
+| 通信模块 | Qixuan CommMod | 5G/WiFi |
 
 ## 特色功能
 

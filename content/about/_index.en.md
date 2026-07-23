@@ -61,6 +61,21 @@ Addressing real enterprise pain points, doing the "dirty work" the community won
 - **2025 Shenzhen RISC-V & HarmonyOS Innovation Competition · Architecture Innovation Award** — Hongyuan Edge AI Inference Accelerator
 - World's first accelerator to implement BitNet b1.58 quantization algorithm on FPGA hardware
 
+<div class="about-award-section">
+  <div class="about-award-header">
+    <span class="about-award-badge">🏆 2025 Architecture Innovation Award</span>
+    <h4>Shenzhen RISC-V & HarmonyOS Innovation Competition</h4>
+    <p>Hongyuan Edge AI Inference Accelerator won the Architecture Innovation Award · World's first BitNet FPGA hardware accelerator</p>
+  </div>
+  <div class="about-award-images">
+    <img src="/images/award-arch-innovation.png" alt="Architecture Innovation Award Certificate" class="about-award-cert">
+    <div class="about-award-photos">
+      <img src="/images/award-ceremony-1.jpg" alt="Award Ceremony">
+      <img src="/images/award-ceremony-2.jpg" alt="Award Presentation">
+    </div>
+  </div>
+</div>
+
 ## <span id="products">Four Core Product Lines</span>
 
 ### HadoopForge — Big Data Intelligent O&M
@@ -75,7 +90,27 @@ World's first BitNet FPGA accelerator. Full-stack RISC-V+FPGA+HarmonyOS LiteOS. 
 ### Smart Terminal AI — Intelligent Terminal Middleware
 Edge AI tiered inference platform for IoT / industrial embedded scenarios. Three-tier progressive inference architecture. Full AI running in 606KB SRAM. Supports any RISC-V/ARM MCU.
 
-## <span id="partners">Technology Ecosystem</span>
+## <span id="partners">Technology Ecosystem & Strategic Partners</span>
+
+### Strategic Partners
+
+<div class="about-partners-grid">
+  <div class="about-partner-card">
+    <div class="about-partner-icon">🏢</div>
+    <h4>Beijing Hongxiang Yuneng System Technology Co., Ltd.</h4>
+    <p>Strategic partner in big data infrastructure software. We jointly provide enterprise-grade Hadoop O&M solutions, serving clients in finance, energy, and telecommunications.</p>
+  </div>
+  <div class="about-partner-card">
+    <div class="about-partner-icon">🌐</div>
+    <h4>Dongchuang Smart Technology</h4>
+    <p>Strategic partner in smart city and digital transformation. We jointly advance big data and AI applications in government services, industrial parks, and urban management.</p>
+  </div>
+  <div class="about-partner-card">
+    <div class="about-partner-icon">☀️</div>
+    <h4>Hainan Zhuoyan New Energy Technology</h4>
+    <p>Strategic partner in new energy. We jointly deliver solar-storage-charging integrated smart energy solutions, advancing dual-carbon goals across Hainan and South China.</p>
+  </div>
+</div>
 
 ### Open Source Community
 - Apache Software Foundation (Ambari active contributor)

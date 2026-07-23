@@ -1,16 +1,16 @@
----
-title: "StarKernal EVDC DC EV Charger"
+﻿---
+title: "Qixuan EVDC DC EV Charger"
 description: "12kW/25kW dual power versions, V2G vehicle-to-grid, AI intelligent scheduling, IP66 protection"
 weight: 4
 ---
 
 <div class="energy-page-header">
-  <div class="energy-breadcrumb"><a href="/en/energy-solutions/">Smart Energy</a> › Products › StarKernal EVDC</div>
-  <h1>StarKernal EVDC DC EV Charger</h1>
+  <div class="energy-breadcrumb"><a href="/en/energy-solutions/">Smart Energy</a> › Products › Qixuan EVDC</div>
+  <h1>Qixuan EVDC DC EV Charger</h1>
   <p>12 kW　|　25 kW　Dual Power Versions</p>
 </div>
 
-![StarKernal EVDC V2G Bidirectional Charging System](images/energy-ev-charger-en.svg)
+![Qixuan EVDC V2G Bidirectional Charging System](images/energy-ev-charger-en.svg)
 
 ## Core Features
 

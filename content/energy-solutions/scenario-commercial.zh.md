@@ -1,4 +1,4 @@
----
+﻿---
 title: "小型工商业解决方案"
 description: "25kW光伏 + 48kWh储能，帮助中小企业实现削峰填谷，降低用电成本"
 weight: 12
@@ -20,10 +20,10 @@ weight: 12
 
 | 组件 | 型号 | 规格 |
 |------|------|------|
-| 储能逆变器 | StarKernal EC 三相 | 25.0 kW |
-| 储能电池 | StarKernal BAT 10.0 × 5 | 共 45 kWh |
+| 储能逆变器 | Qixuan EC 三相 | 25.0 kW |
+| 储能电池 | Qixuan BAT 10.0 × 5 | 共 45 kWh |
 | 光伏组件 | 标准单晶硅 | 25 kWp |
-| 通信模块 | StarKernal CommMod | 4G |
+| 通信模块 | Qixuan CommMod | 4G |
 
 ## 峰谷套利模型
 

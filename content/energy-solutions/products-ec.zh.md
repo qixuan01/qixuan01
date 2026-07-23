@@ -1,16 +1,16 @@
----
-title: "StarKernal EC 储能逆变器"
+﻿---
+title: "Qixuan EC 储能逆变器"
 description: "单相3.0-6.0kW / 三相5.0-30.0kW，最高转换效率98.4%，IP66防护等级"
 weight: 1
 ---
 
 <div class="energy-page-header">
-  <div class="energy-breadcrumb"><a href="/energy-solutions/">智慧能源</a> › 产品矩阵 › StarKernal EC</div>
-  <h1>StarKernal EC 储能逆变器</h1>
+  <div class="energy-breadcrumb"><a href="/energy-solutions/">智慧能源</a> › 产品矩阵 › Qixuan EC</div>
+  <h1>Qixuan EC 储能逆变器</h1>
   <p>单相 3.0-6.0 kW　|　三相 5.0-30.0 kW</p>
 </div>
 
-![StarKernal EC 储能逆变器系统架构](images/energy-ec-inverter.svg)
+![Qixuan EC 储能逆变器系统架构](images/energy-ec-inverter.svg)
 
 ## 产品规格
 

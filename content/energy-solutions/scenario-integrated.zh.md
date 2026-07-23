@@ -1,4 +1,4 @@
----
+﻿---
 title: "光储充一体化解决方案"
 description: "70kW光伏 + 336kWh储能 + 300kW充电，全场景工商业光储充一体化系统"
 weight: 13
@@ -21,11 +21,11 @@ weight: 13
 ```
 太阳能光伏阵列 (70 kW)
       ↓
-StarKernal 混合逆变器
+Qixuan 混合逆变器
       ↓
 LiFePO4 储能系统 (336 kWh)  ←→  AI云平台
       ↓
-StarKernal EVDC 充电站 (300 kW)
+Qixuan EVDC 充电站 (300 kW)
       ↓
 电动车充电 + 电网交互 (V2G)
 ```
@@ -35,9 +35,9 @@ StarKernal EVDC 充电站 (300 kW)
 | 组件 | 型号 | 规格/数量 |
 |------|------|---------|
 | 光伏系统 | 单晶硅组件 | 70 kWp |
-| 大型逆变器 | StarKernal EC 三相 | 30 kW × 3 |
-| 储能系统 | StarKernal BAT 10.0 | 37台，共 334 kWh |
-| DC充电桩 | StarKernal EVDC 25kW | 12台，共 300 kW |
+| 大型逆变器 | Qixuan EC 三相 | 30 kW × 3 |
+| 储能系统 | Qixuan BAT 10.0 | 37台，共 334 kWh |
+| DC充电桩 | Qixuan EVDC 25kW | 12台，共 300 kW |
 | 云平台 | AI智慧能源云平台 | 含VPP接入 |
 
 ## 核心价值

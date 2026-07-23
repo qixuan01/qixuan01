@@ -1,16 +1,16 @@
----
-title: "StarKernal Hybrid Inverter"
+﻿---
+title: "Qixuan Hybrid Inverter"
 description: "Single-phase 2.0-6.0kW / Three-phase 3.0-12.0kW, peak conversion efficiency 99.0%, ultra-quiet 25dB operation"
 weight: 2
 ---
 
 <div class="energy-page-header">
-  <div class="energy-breadcrumb"><a href="/en/energy-solutions/">Smart Energy</a> › Products › StarKernal Hybrid</div>
-  <h1>StarKernal Hybrid Inverter</h1>
+  <div class="energy-breadcrumb"><a href="/en/energy-solutions/">Smart Energy</a> › Products › Qixuan Hybrid</div>
+  <h1>Qixuan Hybrid Inverter</h1>
   <p>Single-Phase 2.0-6.0 kW　|　Three-Phase 3.0-12.0 kW</p>
 </div>
 
-![StarKernal Hybrid Inverter Specifications](images/energy-hybrid-inverter-en.svg)
+![Qixuan Hybrid Inverter Specifications](images/energy-hybrid-inverter-en.svg)
 
 ## Product Highlights
 
@@ -46,7 +46,7 @@ weight: 2
 | Parameter | Specification |
 |-----------|--------------|
 | MPPT Range | Single-Phase 50-550V　\|　Three-Phase 160-1000V |
-| Battery Connection | StarKernal BAT 1-6 Units in Parallel |
+| Battery Connection | Qixuan BAT 1-6 Units in Parallel |
 | Communication Interface | WLAN / FE / RS485 |
 | Standby Power Consumption | Only **2.5W** (Three-Phase) |
 | Operating Noise | Only **25dB** |

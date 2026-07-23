@@ -1,16 +1,16 @@
----
-title: "StarKernal EVDC 直流充电桩"
+﻿---
+title: "Qixuan EVDC 直流充电桩"
 description: "12kW/25kW双功率版本，支持V2G车网互动，AI智能调度，IP66防护"
 weight: 4
 ---
 
 <div class="energy-page-header">
-  <div class="energy-breadcrumb"><a href="/energy-solutions/">智慧能源</a> › 产品矩阵 › StarKernal EVDC</div>
-  <h1>StarKernal EVDC 直流充电桩</h1>
+  <div class="energy-breadcrumb"><a href="/energy-solutions/">智慧能源</a> › 产品矩阵 › Qixuan EVDC</div>
+  <h1>Qixuan EVDC 直流充电桩</h1>
   <p>12 kW　|　25 kW　双功率版本</p>
 </div>
 
-![StarKernal EVDC V2G双向充电系统](images/energy-ev-charger.svg)
+![Qixuan EVDC V2G双向充电系统](images/energy-ev-charger.svg)
 
 ## 核心功能
 

@@ -1,6 +1,6 @@
----
+﻿---
 title: "Smart Energy Solutions"
-description: "Star Kernal (Shenzhen) Co., Ltd. - AI-Powered Solar-Storage-Charging Integration Smart Energy Solution Provider"
+description: "Qixuan Software (Shenzhen) Co., Ltd. - AI-Powered Solar-Storage-Charging Integration Smart Energy Solution Provider"
 images: ["images/solution-energy.jpg"]
 keywords: "solar storage charging,energy storage,inverter,photovoltaic,new energy,AI smart energy,VPP virtual power plant,zero carbon,dual carbon"
 ---
@@ -11,13 +11,13 @@ keywords: "solar storage charging,energy storage,inverter,photovoltaic,new energ
   <p class="energy-hub-tagline">AI-Powered · Solar-Storage-Charging Integration · Zero-Carbon Future</p>
 </div>
 
-## About Star Kernal Smart Energy
+## About Qixuan Software Smart Energy
 
-Star Kernal (Shenzhen) Co., Ltd. is a technology innovation company focused on the new energy sector. Leveraging world-class digital intelligence technology and differentiated innovative talent, we are deeply engaged in photovoltaic power generation, smart energy storage, and efficient EV charging.
+Qixuan Software (Shenzhen) Co., Ltd. is a technology innovation company focused on the new energy sector. Leveraging world-class digital intelligence technology and differentiated innovative talent, we are deeply engaged in photovoltaic power generation, smart energy storage, and efficient EV charging.
 
-Addressing the demand for large-scale, high-reliability new energy applications, Star Kernal adheres to the core philosophy of "**Ultra-Simple Deployment, Ultimate Safety, and Exceptional Experience**." Through system-level innovation, we build full-scenario solar-storage-charging solutions with high safety, high reliability, and high intelligence.
+Addressing the demand for large-scale, high-reliability new energy applications, Qixuan Software adheres to the core philosophy of "**Ultra-Simple Deployment, Ultimate Safety, and Exceptional Experience**." Through system-level innovation, we build full-scenario solar-storage-charging solutions with high safety, high reliability, and high intelligence.
 
-Aligned with the national "Dual Carbon" strategic goals, Star Kernal deeply integrates artificial intelligence with power electronics and energy storage technologies, providing comprehensively innovative smart energy solutions and driving the global green transition through new-quality productive forces.
+Aligned with the national "Dual Carbon" strategic goals, Qixuan Software deeply integrates artificial intelligence with power electronics and energy storage technologies, providing comprehensively innovative smart energy solutions and driving the global green transition through new-quality productive forces.
 
 <div class="energy-values-grid">
   <div class="energy-value-item">
@@ -55,42 +55,42 @@ Aligned with the national "Dual Carbon" strategic goals, Star Kernal deeply inte
 <div class="energy-products-grid">
   <div class="energy-product-card">
     <div class="energy-product-icon">⚡</div>
-    <h3>StarKernal EC</h3>
+    <h3>Qixuan EC</h3>
     <div class="energy-product-sub">Energy Storage Inverter</div>
     <div class="energy-product-spec">3.0 - 30.0 kW</div>
     <a href="/en/energy-solutions/products-ec/" class="energy-product-link">Learn More →</a>
   </div>
   <div class="energy-product-card">
     <div class="energy-product-icon">🔄</div>
-    <h3>StarKernal Hybrid</h3>
+    <h3>Qixuan Hybrid</h3>
     <div class="energy-product-sub">Hybrid Inverter</div>
     <div class="energy-product-spec">2.0 - 12.0 kW</div>
     <a href="/en/energy-solutions/products-hybrid/" class="energy-product-link">Learn More →</a>
   </div>
   <div class="energy-product-card">
     <div class="energy-product-icon">🔋</div>
-    <h3>StarKernal BAT</h3>
+    <h3>Qixuan BAT</h3>
     <div class="energy-product-sub">Energy Storage Battery</div>
     <div class="energy-product-spec">6.0 / 10.0 kWh</div>
     <a href="/en/energy-solutions/products-bat/" class="energy-product-link">Learn More →</a>
   </div>
   <div class="energy-product-card">
     <div class="energy-product-icon">🔌</div>
-    <h3>StarKernal EVDC</h3>
+    <h3>Qixuan EVDC</h3>
     <div class="energy-product-sub">DC EV Charger</div>
     <div class="energy-product-spec">12 / 25 kW</div>
     <a href="/en/energy-solutions/products-ev/" class="energy-product-link">Learn More →</a>
   </div>
   <div class="energy-product-card">
     <div class="energy-product-icon">🛡️</div>
-    <h3>StarKernal Gateway</h3>
+    <h3>Qixuan Gateway</h3>
     <div class="energy-product-sub">Energy Backup Cabinet</div>
     <div class="energy-product-spec">12 / 30 / 60 kW</div>
     <a href="/en/energy-solutions/platform/" class="energy-product-link">Learn More →</a>
   </div>
   <div class="energy-product-card">
     <div class="energy-product-icon">📡</div>
-    <h3>StarKernal CommMod</h3>
+    <h3>Qixuan CommMod</h3>
     <div class="energy-product-sub">Communication Module</div>
     <div class="energy-product-spec">4G / 5G LTE</div>
     <a href="/en/energy-solutions/platform/" class="energy-product-link">Learn More →</a>

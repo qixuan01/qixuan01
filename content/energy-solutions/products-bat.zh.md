@@ -1,22 +1,22 @@
----
-title: "StarKernal BAT 储能电池"
+﻿---
+title: "Qixuan BAT 储能电池"
 description: "LiFePO4磷酸铁锂电池，6.0kWh/10.0kWh，循环寿命≥10000次，IP66防护"
 weight: 3
 ---
 
 <div class="energy-page-header">
-  <div class="energy-breadcrumb"><a href="/energy-solutions/">智慧能源</a> › 产品矩阵 › StarKernal BAT</div>
-  <h1>StarKernal BAT 储能电池</h1>
+  <div class="energy-breadcrumb"><a href="/energy-solutions/">智慧能源</a> › 产品矩阵 › Qixuan BAT</div>
+  <h1>Qixuan BAT 储能电池</h1>
   <p>LiFePO4 磷酸铁锂　|　模块化并联扩展</p>
 </div>
 
-![StarKernal BAT 储能电池对比](images/energy-bat-battery.svg)
+![Qixuan BAT 储能电池对比](images/energy-bat-battery.svg)
 
 ## 产品型号
 
 <div class="energy-bat-compare">
   <div class="energy-bat-model">
-    <h3>StarKernal BAT 6.0</h3>
+    <h3>Qixuan BAT 6.0</h3>
     <div class="energy-bat-chemistry">LiFePO4 磷酸铁锂</div>
 
 | 参数 | 规格 |
@@ -31,7 +31,7 @@ weight: 3
 
   </div>
   <div class="energy-bat-model">
-    <h3>StarKernal BAT 10.0</h3>
+    <h3>Qixuan BAT 10.0</h3>
     <div class="energy-bat-chemistry">LiFePO4 磷酸铁锂</div>
 
 | 参数 | 规格 |

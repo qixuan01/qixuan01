@@ -1,4 +1,4 @@
----
+﻿---
 title: "Zero-Carbon Home Solution"
 description: "8kW solar + 16kWh storage, achieving household energy self-sufficiency >80%, zero-carbon living starts here"
 weight: 10
@@ -20,10 +20,10 @@ Designed for ordinary residential homes, combining PV generation with energy sto
 
 | Component | Model | Specification |
 |-----------|-------|--------------|
-| Hybrid Inverter | StarKernal Hybrid | Single-Phase 8.0 kW |
-| Energy Storage | StarKernal BAT 10.0 × 2 | Total 18.08 kWh |
+| Hybrid Inverter | Qixuan Hybrid | Single-Phase 8.0 kW |
+| Energy Storage | Qixuan BAT 10.0 × 2 | Total 18.08 kWh |
 | PV Modules | Standard Monocrystalline | 8 kWp |
-| Communication | StarKernal CommMod | 4G/WiFi |
+| Communication | Qixuan CommMod | 4G/WiFi |
 
 ## System Operation Logic
 

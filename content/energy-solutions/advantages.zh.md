@@ -1,6 +1,6 @@
----
+﻿---
 title: "核心优势"
-description: "星核动力技术领先与安全保障 - 极致安全、AI驱动、极简部署、超静音、高效节能、云端互联"
+description: "启煊软件技术领先与安全保障 - 极致安全、AI驱动、极简部署、超静音、高效节能、云端互联"
 weight: 6
 ---
 
@@ -10,7 +10,7 @@ weight: 6
   <p>六大核心优势，构建全场景光储充解决方案</p>
 </div>
 
-![星核动力六大核心优势](images/energy-advantages.svg)
+![启煊软件六大核心优势](images/energy-advantages.svg)
 
 ## 六大核心优势
 

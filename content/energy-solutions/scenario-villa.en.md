@@ -1,4 +1,4 @@
----
+﻿---
 title: "Villa & Large Residence Solution"
 description: "16kW solar + 32kWh storage + 7kW EV charging, full energy management for high-end residences"
 weight: 11
@@ -20,11 +20,11 @@ Designed for large homes and villas. Large-capacity PV combined with large-capac
 
 | Component | Model | Specification |
 |-----------|-------|--------------|
-| Hybrid Inverter | StarKernal Hybrid Three-Phase | 12.0 kW |
-| Energy Storage | StarKernal BAT 10.0 × 4 | Total 36 kWh |
+| Hybrid Inverter | Qixuan Hybrid Three-Phase | 12.0 kW |
+| Energy Storage | Qixuan BAT 10.0 × 4 | Total 36 kWh |
 | PV Modules | Standard Monocrystalline | 16 kWp |
-| EV Charger | StarKernal EVDC 7kW | With V2G |
-| Communication | StarKernal CommMod | 5G/WiFi |
+| EV Charger | Qixuan EVDC 7kW | With V2G |
+| Communication | Qixuan CommMod | 5G/WiFi |
 
 ## Key Features
 

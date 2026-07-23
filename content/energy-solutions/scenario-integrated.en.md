@@ -1,4 +1,4 @@
----
+﻿---
 title: "Integrated Solar-Storage-Charging Solution"
 description: "70kW solar + 336kWh storage + 300kW EV charging, full-scenario commercial solar-storage-charging integrated system"
 weight: 13
@@ -20,9 +20,9 @@ Designed for industrial parks, large commercial centers, and charging stations. 
 | Component | Model | Specification |
 |-----------|-------|--------------|
 | PV System | Monocrystalline Modules | 70 kWp |
-| Large Inverters | StarKernal EC Three-Phase | 30 kW × 3 |
-| Storage System | StarKernal BAT 10.0 | 37 units, ~334 kWh |
-| DC Chargers | StarKernal EVDC 25kW | 12 units, 300 kW total |
+| Large Inverters | Qixuan EC Three-Phase | 30 kW × 3 |
+| Storage System | Qixuan BAT 10.0 | 37 units, ~334 kWh |
+| DC Chargers | Qixuan EVDC 25kW | 12 units, 300 kW total |
 | Cloud Platform | AI Smart Energy Cloud | Includes VPP access |
 
 ## Core Value

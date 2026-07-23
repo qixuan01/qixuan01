@@ -1,22 +1,22 @@
----
-title: "StarKernal BAT Energy Storage Battery"
+﻿---
+title: "Qixuan BAT Energy Storage Battery"
 description: "LiFePO4 battery, 6.0kWh/10.0kWh, cycle life ≥10000 times, IP66 protection"
 weight: 3
 ---
 
 <div class="energy-page-header">
-  <div class="energy-breadcrumb"><a href="/en/energy-solutions/">Smart Energy</a> › Products › StarKernal BAT</div>
-  <h1>StarKernal BAT Energy Storage Battery</h1>
+  <div class="energy-breadcrumb"><a href="/en/energy-solutions/">Smart Energy</a> › Products › Qixuan BAT</div>
+  <h1>Qixuan BAT Energy Storage Battery</h1>
   <p>LiFePO₄ Lithium Iron Phosphate　|　Modular Parallel Expansion</p>
 </div>
 
-![StarKernal BAT Energy Storage Battery Comparison](images/energy-bat-battery-en.svg)
+![Qixuan BAT Energy Storage Battery Comparison](images/energy-bat-battery-en.svg)
 
 ## Product Models
 
 <div class="energy-bat-compare">
   <div class="energy-bat-model">
-    <h3>StarKernal BAT 6.0</h3>
+    <h3>Qixuan BAT 6.0</h3>
     <div class="energy-bat-chemistry">LiFePO₄ Lithium Iron Phosphate</div>
 
 | Parameter | Specification |
@@ -31,7 +31,7 @@ weight: 3
 
   </div>
   <div class="energy-bat-model">
-    <h3>StarKernal BAT 10.0</h3>
+    <h3>Qixuan BAT 10.0</h3>
     <div class="energy-bat-chemistry">LiFePO₄ Lithium Iron Phosphate</div>
 
 | Parameter | Specification |

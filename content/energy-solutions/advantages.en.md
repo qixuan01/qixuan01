@@ -1,6 +1,6 @@
----
+﻿---
 title: "Core Advantages"
-description: "Star Kernal Technology Leadership & Safety Assurance - Ultimate Safety, AI-Powered, Ultra-Simple Deployment, Ultra-Quiet, Energy Efficient, Cloud Connected"
+description: "Qixuan Software Technology Leadership & Safety Assurance - Ultimate Safety, AI-Powered, Ultra-Simple Deployment, Ultra-Quiet, Energy Efficient, Cloud Connected"
 weight: 6
 ---
 
@@ -10,7 +10,7 @@ weight: 6
   <p>Six core advantages for full-scenario solar-storage-charging solutions</p>
 </div>
 
-![Star Kernal Six Core Advantages](images/energy-advantages-en.svg)
+![Qixuan Software Six Core Advantages](images/energy-advantages-en.svg)
 
 ## Six Core Advantages
 

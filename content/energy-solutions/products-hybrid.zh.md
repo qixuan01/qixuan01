@@ -1,16 +1,16 @@
----
-title: "StarKernal Hybrid 混合逆变器"
+﻿---
+title: "Qixuan Hybrid 混合逆变器"
 description: "单相2.0-6.0kW / 三相3.0-12.0kW，最高转换效率99.0%，超静音25dB运行"
 weight: 2
 ---
 
 <div class="energy-page-header">
-  <div class="energy-breadcrumb"><a href="/energy-solutions/">智慧能源</a> › 产品矩阵 › StarKernal Hybrid</div>
-  <h1>StarKernal Hybrid 混合逆变器</h1>
+  <div class="energy-breadcrumb"><a href="/energy-solutions/">智慧能源</a> › 产品矩阵 › Qixuan Hybrid</div>
+  <h1>Qixuan Hybrid 混合逆变器</h1>
   <p>单相 2.0-6.0 kW　|　三相 3.0-12.0 kW</p>
 </div>
 
-![StarKernal Hybrid 混合逆变器规格](images/energy-hybrid-inverter.svg)
+![Qixuan Hybrid 混合逆变器规格](images/energy-hybrid-inverter.svg)
 
 ## 产品亮点
 
@@ -46,7 +46,7 @@ weight: 2
 | 参数 | 规格 |
 |------|------|
 | MPPT范围 | 单相 50-550V　\|　三相 160-1000V |
-| 电池连接 | StarKernal BAT 1-6台并联 |
+| 电池连接 | Qixuan BAT 1-6台并联 |
 | 通信接口 | WLAN / FE / RS485 |
 | 待机功耗 | 仅 **2.5W**（三相） |
 | 运行噪音 | 仅 **25dB** |
@@ -69,6 +69,6 @@ weight: 2
 三相版本待机功耗仅 **2.5W**，全年待机电量消耗极低，进一步提升系统整体经济性。
 
 ### 灵活扩展
-支持1-6台 StarKernal BAT 并联扩展，轻松从入门级配置升级至大容量储能系统，满足不同用电需求。
+支持1-6台 Qixuan BAT 并联扩展，轻松从入门级配置升级至大容量储能系统，满足不同用电需求。
 
 [返回产品矩阵](/energy-solutions/) | [联系销售](/contact/)

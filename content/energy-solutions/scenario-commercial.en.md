@@ -1,4 +1,4 @@
----
+﻿---
 title: "Small C&I Solution"
 description: "25kW solar + 48kWh storage, peak-valley arbitrage for SMEs, reducing electricity costs"
 weight: 12
@@ -20,10 +20,10 @@ Designed for small factories, shops, and office buildings. The solar-storage sys
 
 | Component | Model | Specification |
 |-----------|-------|--------------|
-| Storage Inverter | StarKernal EC Three-Phase | 25.0 kW |
-| Energy Storage | StarKernal BAT 10.0 × 5 | Total 45 kWh |
+| Storage Inverter | Qixuan EC Three-Phase | 25.0 kW |
+| Energy Storage | Qixuan BAT 10.0 × 5 | Total 45 kWh |
 | PV Modules | Standard Monocrystalline | 25 kWp |
-| Communication | StarKernal CommMod | 4G |
+| Communication | Qixuan CommMod | 4G |
 
 ## Peak-Valley Arbitrage Model
 

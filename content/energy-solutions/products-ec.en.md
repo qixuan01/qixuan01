@@ -1,16 +1,16 @@
----
-title: "StarKernal EC Energy Storage Inverter"
+﻿---
+title: "Qixuan EC Energy Storage Inverter"
 description: "Single-phase 3.0-6.0kW / Three-phase 5.0-30.0kW, peak conversion efficiency 98.4%, IP66 protection rating"
 weight: 1
 ---
 
 <div class="energy-page-header">
-  <div class="energy-breadcrumb"><a href="/en/energy-solutions/">Smart Energy</a> › Products › StarKernal EC</div>
-  <h1>StarKernal EC Energy Storage Inverter</h1>
+  <div class="energy-breadcrumb"><a href="/en/energy-solutions/">Smart Energy</a> › Products › Qixuan EC</div>
+  <h1>Qixuan EC Energy Storage Inverter</h1>
   <p>Single-Phase 3.0-6.0 kW　|　Three-Phase 5.0-30.0 kW</p>
 </div>
 
-![StarKernal EC Energy Storage Inverter](images/energy-ec-inverter-en.svg)
+![Qixuan EC Energy Storage Inverter](images/energy-ec-inverter-en.svg)
 
 ## Product Specifications
 
