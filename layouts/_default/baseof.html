@@ -1048,7 +1048,7 @@
                 dropdown.addEventListener('mouseleave', function() { menu.classList.remove('show'); });
             });
         }
-        
+
         // 移动端：下拉 toggle 直接跳转链接
         if (window.innerWidth <= 991) {
             document.querySelectorAll('.dropdown-toggle:not(#languageDropdown)').forEach(function(toggle) {
@@ -1061,40 +1061,16 @@
                 });
             });
         }
-            // 强制显示所有导航项，确保英文菜单可见
-            document.querySelectorAll('.navbar-nav .nav-item').forEach(item => {
-                item.style.setProperty('display', 'block', 'important');
-                item.style.setProperty('visibility', 'visible', 'important');
-            });
-            
-            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-                link.style.setProperty('display', 'block', 'important');
-                link.style.setProperty('visibility', 'visible', 'important');
-                link.style.setProperty('pointer-events', 'auto', 'important');
-                link.style.setProperty('opacity', '1', 'important');
-            });
-            
-            // 调试：输出菜单项数量和详细信息
-            const navItems = document.querySelectorAll('.navbar-nav .nav-item');
-            console.log('移动端菜单项数量:', navItems.length);
-            console.log('当前语言:', document.documentElement.lang || 'unknown');
-            console.log('当前URL:', window.location.href);
-            console.log('菜单项详情:');
-            navItems.forEach((item, index) => {
-                const link = item.querySelector('.nav-link');
-                console.log(`  ${index + 1}. ${link ? link.textContent.trim() : '无链接'}`);
-            });
-        }
-        
-        // 点击导航项后关闭菜单（延迟执行以允许跳转）
-        document.querySelectorAll('.nav-link').forEach(link => {
+
+        // 点击导航链接后关闭移动端菜单
+        document.querySelectorAll('.nav-link').forEach(function(link) {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 991 && this.id !== 'languageDropdown') {
-                    const navbarCollapse = document.getElementById('navbarNav');
+                    var navbarCollapse = document.getElementById('navbarNav');
                     if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-                        setTimeout(() => {
-                            const toggler = document.querySelector('.navbar-toggler');
-                            if (toggler) toggler.click();
+                        setTimeout(function() {
+                            var toggler = document.querySelector('.navbar-toggler');
+                            if (toggler) { toggler.click(); }
                         }, 100);
                     }
                 }
