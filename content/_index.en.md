@@ -1,6 +1,6 @@
 ﻿---
 title: "Shenzhen Qixuan Software Co., Ltd. - Big Data & Smart Energy Dual-Core Solutions"
-description: "Shenzhen Qixuan Software Co., Ltd. is a professional enterprise big data platform provider and AI-powered smart energy solution provider. Serving 500+ enterprise customers with 50+ intellectual properties."
+description: "Shenzhen Qixuan Software Co., Ltd. specializes in big data infrastructure, AI education and edge AI inference. Core product HadoopForge fills the Ambari+Bigtop version gap. Four product lines: Smart Energy EMS, HadoopForge Big Data, Hongyuan Edge AI, Otowyue Learn AI. Serving multiple enterprise customers with multiple independent intellectual properties."
 keywords: "Big Data Platform,Enterprise Hadoop,Spark,Kafka,Big Data Solutions,Data Analytics Platform,Business Intelligence,Star Kernal,Solar Storage Charging,Energy Storage,New Energy,AI Smart Energy"
 
 # banner
