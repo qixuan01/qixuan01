@@ -917,26 +917,26 @@
                             {{ .Name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-                            <!-- AI智慧能源云平台 放第一位 -->
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/platform/" $baseURL $langPrefix }}">
-                                <i class="fas fa-brain me-2" style="color:#16a34a;"></i>{{ if $isZH }}AI智慧能源云平台{{ else }}AI Smart Energy Cloud Platform{{ end }}
+                            <li><span class="dropdown-header">📊 {{ if $isZH }}大数据运维{{ else }}Big Data O&M{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#hadoopforge" $baseURL $langPrefix }}">
+                                <i class="fas fa-database me-2" style="color:#14b8a6;"></i>HadoopForge
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}">
-                                <i class="fas fa-cube me-2"></i>{{ if $isZH }}大数据产品概览{{ else }}Big Data Products{{ end }}
+                            <li><span class="dropdown-header">🔴 {{ if $isZH }}边缘AI推理{{ else }}Edge AI{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#edge-ai" $baseURL $langPrefix }}">
+                                <i class="fas fa-microchip me-2" style="color:#a855f7;"></i>{{ if $isZH }}鸿源加速器{{ else }}Hongyuan Accelerator{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#enterprise" $baseURL $langPrefix }}">
-                                <i class="fas fa-building me-2"></i>Redoop Enterprise
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#community" $baseURL $langPrefix }}">
-                                <i class="fas fa-users me-2"></i>{{ if $isZH }}社区版{{ else }}Community Edition{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#cloud" $baseURL $langPrefix }}">
-                                <i class="fas fa-cloud me-2"></i>{{ if $isZH }}云版本{{ else }}Cloud Edition{{ end }}
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#edge-ai" $baseURL $langPrefix }}">
+                                <i class="fas fa-terminal me-2" style="color:#a855f7;"></i>{{ if $isZH }}智能终端AI中间件{{ else }}Smart Terminal AI{{ end }}
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%scontact/" $baseURL $langPrefix }}">
-                                <i class="fas fa-download me-2"></i>{{ if $isZH }}申请试用{{ else }}Request Trial{{ end }}
+                            <li><span class="dropdown-header">🎓 {{ if $isZH }}AI伴学教育{{ else }}AI Education{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#ai-education" $baseURL $langPrefix }}">
+                                <i class="fas fa-graduation-cap me-2" style="color:#38bdf8;"></i>{{ if $isZH }}悦学智伴{{ else }}Otowyue Learn AI{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}" style="font-weight:600;">
+                                <i class="fas fa-th me-2" style="color:#14b8a6;"></i>{{ if $isZH }}在线体验 →{{ else }}Live Demo →{{ end }}
                             </a></li>
                         </ul>
                     </li>
