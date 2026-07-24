@@ -2360,11 +2360,11 @@ tr:hover {
    边缘AI推理加速 (edge-ai) — 紫色系
    ============================================================ */
 :root {
-  --edgeai-primary: #7c3aed;
-  --edgeai-light: #a855f7;
-  --edgeai-dark: #5b21b6;
-  --edgeai-gradient: linear-gradient(135deg, #7c3aed, #a855f7);
-  --edgeai-bg-light: #f5f3ff;
+  --edgeai-primary: #0369a1;
+  --edgeai-light: #0ea5e9;
+  --edgeai-dark: #075985;
+  --edgeai-gradient: linear-gradient(135deg, #0369a1, #0ea5e9);
+  --edgeai-bg-light: #f0f9ff;
 }
 
 /* 版块头部 */
@@ -2381,8 +2381,8 @@ tr:hover {
 .edge-hub-tagline { color: rgba(255,255,255,0.85); font-size: 1rem; }
 .edge-hub-badge {
   display: inline-block;
-  background: rgba(196,181,253,0.25);
-  color: #e9d5ff;
+  background: rgba(186,230,253,0.25);
+  color: #e0f2fe;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.25rem 0.75rem;
@@ -2400,7 +2400,7 @@ tr:hover {
 }
 .edge-value-item {
   background: var(--edgeai-bg-light);
-  border: 1px solid rgba(124,58,237,0.2);
+  border: 1px solid rgba(3,105,161,0.2);
   border-radius: 12px;
   padding: 1.25rem;
   text-align: center;
@@ -2420,14 +2420,14 @@ tr:hover {
 }
 .edge-product-card {
   background: white;
-  border: 2px solid rgba(124,58,237,0.15);
+  border: 2px solid rgba(3,105,161,0.15);
   border-radius: 16px;
   padding: 2rem;
   position: relative;
   transition: all 0.3s;
 }
-.edge-product-card:hover { border-color: var(--edgeai-primary); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(124,58,237,0.15); }
-.edge-product-featured { border-color: rgba(124,58,237,0.35); background: #faf5ff; }
+.edge-product-card:hover { border-color: var(--edgeai-primary); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(3,105,161,0.15); }
+.edge-product-featured { border-color: rgba(3,105,161,0.35); background: #f0f9ff; }
 .edge-product-badge {
   position: absolute; top: 1rem; right: 1rem;
   background: var(--edgeai-gradient); color: white;
@@ -2439,9 +2439,9 @@ tr:hover {
 .edge-product-sub { font-size: 0.85rem; color: #64748b; margin-bottom: 0.5rem; }
 .edge-product-spec { font-size: 0.8rem; font-weight: 600; color: var(--edgeai-primary); background: var(--edgeai-bg-light); padding: 0.2rem 0.6rem; border-radius: 8px; display: inline-block; margin-bottom: 1rem; }
 .edge-product-features { list-style: none; padding: 0; margin: 0 0 1.25rem; font-size: 0.88rem; }
-.edge-product-features li { padding: 0.3rem 0; border-bottom: 1px solid rgba(124,58,237,0.06); }
+.edge-product-features li { padding: 0.3rem 0; border-bottom: 1px solid rgba(3,105,161,0.06); }
 .edge-product-link { display: inline-block; padding: 0.6rem 1.5rem; background: var(--edgeai-gradient); color: white; border-radius: 20px; font-weight: 600; font-size: 0.88rem; text-decoration: none; transition: all 0.3s; }
-.edge-product-link:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,58,237,0.35); color: white; text-decoration: none; }
+.edge-product-link:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(3,105,161,0.35); color: white; text-decoration: none; }
 
 /* 统计行 */
 .edge-stats-row {
@@ -2471,14 +2471,14 @@ tr:hover {
 .edge-arch-layer:hover { transform: translateX(4px); }
 .edge-arch-label { font-size: 0.78rem; font-weight: 700; min-width: 80px; flex-shrink: 0; }
 .edge-arch-content { font-size: 0.88rem; line-height: 1.4; }
-.edge-arch-app { background: rgba(124,58,237,0.08); border-color: rgba(167,139,250,0.3); }
-.edge-arch-app .edge-arch-label { color: #5b21b6; }
-.edge-arch-os { background: rgba(79,70,229,0.07); border-color: rgba(129,140,248,0.3); }
-.edge-arch-os .edge-arch-label { color: #4338ca; }
-.edge-arch-accel { background: rgba(109,40,217,0.1); border-color: rgba(196,181,253,0.4); }
-.edge-arch-accel .edge-arch-label { color: #6d28d9; }
-.edge-arch-hw { background: rgba(91,33,182,0.1); border-color: rgba(167,139,250,0.5); }
-.edge-arch-hw .edge-arch-label { color: #5b21b6; }
+.edge-arch-app { background: rgba(3,105,161,0.08); border-color: rgba(125,211,252,0.3); }
+.edge-arch-app .edge-arch-label { color: #075985; }
+.edge-arch-os { background: rgba(3,105,161,0.07); border-color: rgba(129,140,248,0.3); }
+.edge-arch-os .edge-arch-label { color: #0284c7; }
+.edge-arch-accel { background: rgba(7,89,133,0.1); border-color: rgba(186,230,253,0.4); }
+.edge-arch-accel .edge-arch-label { color: #0284c7; }
+.edge-arch-hw { background: rgba(3,105,161,0.1); border-color: rgba(125,211,252,0.5); }
+.edge-arch-hw .edge-arch-label { color: #075985; }
 
 /* 产品路线图 */
 .edge-roadmap {
@@ -2489,13 +2489,13 @@ tr:hover {
 }
 .edge-roadmap-item {
   background: white;
-  border: 1px solid rgba(124,58,237,0.15);
+  border: 1px solid rgba(3,105,161,0.15);
   border-radius: 14px;
   padding: 1.25rem;
   transition: all 0.3s;
 }
 .edge-roadmap-item:hover { border-color: var(--edgeai-primary); transform: translateY(-4px); }
-.edge-roadmap-current { border-color: var(--edgeai-primary); background: #faf5ff; }
+.edge-roadmap-current { border-color: var(--edgeai-primary); background: #f0f9ff; }
 .edge-roadmap-phase { font-size: 0.72rem; font-weight: 700; color: var(--edgeai-primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
 .edge-roadmap-title { font-size: 1rem; font-weight: 700; color: var(--edgeai-dark); margin-bottom: 0.5rem; }
 .edge-roadmap-desc { font-size: 0.82rem; color: #64748b; margin-bottom: 0.75rem; line-height: 1.5; }
@@ -2510,7 +2510,7 @@ tr:hover {
 }
 .edge-scenario-card {
   background: var(--edgeai-bg-light);
-  border: 1px solid rgba(124,58,237,0.15);
+  border: 1px solid rgba(3,105,161,0.15);
   border-radius: 12px;
   padding: 1.25rem;
   text-align: center;
@@ -2530,7 +2530,7 @@ tr:hover {
 }
 .edge-highlight-card {
   background: var(--edgeai-bg-light);
-  border: 1px solid rgba(124,58,237,0.2);
+  border: 1px solid rgba(3,105,161,0.2);
   border-radius: 12px;
   padding: 1.25rem;
   text-align: center;
@@ -2547,7 +2547,7 @@ tr:hover {
 }
 .edge-component-card {
   background: white;
-  border: 1px solid rgba(124,58,237,0.15);
+  border: 1px solid rgba(3,105,161,0.15);
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s;
@@ -2585,8 +2585,8 @@ tr:hover {
 
 /* 边缘AI卡片 */
 .dual-solution-edgeai {
-  background: linear-gradient(145deg, #faf5ff, #ffffff);
-  border: 2px solid rgba(124,58,237,0.15);
+  background: linear-gradient(145deg, #f0f9ff, #ffffff);
+  border: 2px solid rgba(3,105,161,0.15);
 }
 .dual-solution-edgeai::before {
   content: '';
@@ -2598,8 +2598,8 @@ tr:hover {
 .dual-solution-edgeai h2 { color: var(--edgeai-primary); border-bottom: none; padding-bottom: 0; }
 .dual-solution-edgeai:hover { border-color: var(--edgeai-primary); }
 .dual-solution-edgeai .dual-solution-tagline { color: var(--edgeai-primary); }
-.dual-solution-btn-edgeai { background: var(--edgeai-gradient); color: white; box-shadow: 0 4px 15px rgba(124,58,237,0.3); }
-.dual-solution-btn-edgeai:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.4); color: white; text-decoration: none; }
+.dual-solution-btn-edgeai { background: var(--edgeai-gradient); color: white; box-shadow: 0 4px 15px rgba(3,105,161,0.3); }
+.dual-solution-btn-edgeai:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(3,105,161,0.4); color: white; text-decoration: none; }
 
 /* AI教育卡片 */
 .dual-solution-aiedu {
@@ -2872,7 +2872,7 @@ tr:hover {
   border-radius: 16px;
   padding: 2rem;
   margin: 1.5rem 0;
-  border: 1px solid rgba(167,139,250,0.25);
+  border: 1px solid rgba(125,211,252,0.25);
 }
 
 .about-award-header {
@@ -2882,7 +2882,7 @@ tr:hover {
 
 .about-award-badge {
   display: inline-block;
-  background: linear-gradient(135deg,#7c3aed,#a855f7);
+  background: linear-gradient(135deg,#0369a1,#0ea5e9);
   color: white;
   font-size: 0.85rem;
   font-weight: 700;
@@ -2892,7 +2892,7 @@ tr:hover {
 }
 
 .about-award-header h4 {
-  color: #c4b5fd;
+  color: #7dd3fc;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   border-bottom: none;
@@ -2913,7 +2913,7 @@ tr:hover {
 .about-award-cert {
   width: 100%;
   border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(124,58,237,0.3);
+  box-shadow: 0 8px 25px rgba(3,105,161,0.3);
 }
 
 .about-award-photos {
@@ -3283,13 +3283,13 @@ tr:hover {
   background: linear-gradient(135deg, #0d0020, #1a0035);
   border-radius: 16px;
   padding: 1.25rem;
-  border: 1px solid rgba(167,139,250,0.2);
+  border: 1px solid rgba(125,211,252,0.2);
 }
 
 .edge-product-showcase-label {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #c4b5fd;
+  color: #7dd3fc;
   letter-spacing: 0.04em;
   margin-bottom: 0.75rem;
 }
@@ -3299,7 +3299,7 @@ tr:hover {
   border-radius: 10px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.5);
   display: block;
-  border: 1px solid rgba(167,139,250,0.15);
+  border: 1px solid rgba(125,211,252,0.15);
   transition: transform 0.3s ease;
 }
 
@@ -3444,13 +3444,13 @@ tr:hover {
   background: linear-gradient(135deg, #0d0020, #1a0035);
   border-radius: 14px;
   padding: 1rem;
-  border: 1px solid rgba(167,139,250,0.2);
+  border: 1px solid rgba(125,211,252,0.2);
 }
 
 .edge-showcase-label {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #c4b5fd;
+  color: #7dd3fc;
   margin-bottom: 0.6rem;
   letter-spacing: 0.03em;
 }
@@ -3462,7 +3462,7 @@ tr:hover {
   object-position: top center;
   border-radius: 8px;
   display: block;
-  border: 1px solid rgba(167,139,250,0.15);
+  border: 1px solid rgba(125,211,252,0.15);
   transition: transform 0.3s;
 }
 

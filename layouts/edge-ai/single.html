@@ -1,6 +1,6 @@
 {{ define "main" }}
 <!-- Edge AI Single Page Header -->
-<section class="page-header" style="background: linear-gradient(rgba(91,33,182,0.85), rgba(109,40,217,0.78)), url('{{ printf "%simages/solution-space-con.jpg" $.Site.BaseURL }}') center/cover;">
+<section class="page-header" style="background: linear-gradient(rgba(3,105,161,0.85), rgba(7,89,133,0.78)), url('{{ printf "%simages/solution-space-con.jpg" $.Site.BaseURL }}') center/cover;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
@@ -28,23 +28,23 @@
             </div>
             <div class="col-lg-4">
                 <div class="sticky-top" style="top: 100px;">
-                    <div class="content-card mb-4" style="border-color: rgba(124,58,237,0.25);">
-                        <h5 class="mb-3" style="color: #5b21b6;"><i class="fas fa-list me-2" style="color:#7c3aed;"></i>{{ if eq .Site.Language.Lang "zh" }}快速导航{{ else }}Quick Navigation{{ end }}</h5>
+                    <div class="content-card mb-4" style="border-color: rgba(3,105,161,0.25);">
+                        <h5 class="mb-3" style="color: #075985;"><i class="fas fa-list me-2" style="color:#0369a1;"></i>{{ if eq .Site.Language.Lang "zh" }}快速导航{{ else }}Quick Navigation{{ end }}</h5>
                         <div class="energy-nav" id="energy-nav"></div>
                     </div>
-                    <div class="content-card mb-4" style="border-color: rgba(124,58,237,0.2); background: #f5f3ff;">
-                        <h5 class="mb-3" style="color: #5b21b6;"><i class="fas fa-envelope me-2" style="color:#7c3aed;"></i>{{ if eq .Site.Language.Lang "zh" }}咨询 & 合作{{ else }}Contact & Cooperation{{ end }}</h5>
+                    <div class="content-card mb-4" style="border-color: rgba(3,105,161,0.2); background: #f0f9ff;">
+                        <h5 class="mb-3" style="color: #075985;"><i class="fas fa-envelope me-2" style="color:#0369a1;"></i>{{ if eq .Site.Language.Lang "zh" }}咨询 & 合作{{ else }}Contact & Cooperation{{ end }}</h5>
                         <p style="font-size: 0.9rem;">{{ if eq .Site.Language.Lang "zh" }}开发板购买 · IP授权 · 定制开发{{ else }}Dev board · IP licensing · Custom development{{ end }}</p>
-                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn w-100" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;border-radius:20px;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}立即联系{{ else }}Contact Now{{ end }}</a>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn w-100" style="background:linear-gradient(135deg,#0369a1,#0ea5e9);color:white;border-radius:20px;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}立即联系{{ else }}Contact Now{{ end }}</a>
                     </div>
-                    <div class="content-card" style="border-color: rgba(124,58,237,0.2);">
-                        <h5 class="mb-3" style="color: #5b21b6;"><i class="fas fa-th me-2" style="color:#7c3aed;"></i>{{ if eq .Site.Language.Lang "zh" }}边缘AI产品线{{ else }}Edge AI Products{{ end }}</h5>
+                    <div class="content-card" style="border-color: rgba(3,105,161,0.2);">
+                        <h5 class="mb-3" style="color: #075985;"><i class="fas fa-th me-2" style="color:#0369a1;"></i>{{ if eq .Site.Language.Lang "zh" }}边缘AI产品线{{ else }}Edge AI Products{{ end }}</h5>
                         {{ $pages := (where .Site.Pages "Section" "edge-ai") }}
                         {{ range first 5 $pages }}
-                        <div class="mb-2"><a href="{{ .Permalink }}" style="color:#7c3aed;font-size:0.9rem;text-decoration:none;">→ {{ .Title }}</a></div>
+                        <div class="mb-2"><a href="{{ .Permalink }}" style="color:#0369a1;font-size:0.9rem;text-decoration:none;">→ {{ .Title }}</a></div>
                         {{ end }}
                         <div class="mt-3">
-                            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn btn-sm w-100" style="border:1px solid #7c3aed;color:#7c3aed;">{{ if eq .Site.Language.Lang "zh" }}查看全部 →{{ else }}View All →{{ end }}</a>
+                            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn btn-sm w-100" style="border:1px solid #0369a1;color:#0369a1;">{{ if eq .Site.Language.Lang "zh" }}查看全部 →{{ else }}View All →{{ end }}</a>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
     </div>
 </section>
 
-<section class="section" style="background: linear-gradient(rgba(91,33,182,0.9),rgba(109,40,217,0.9)); color: white;">
+<section class="section" style="background: linear-gradient(rgba(3,105,161,0.9),rgba(7,89,133,0.9)); color: white;">
     <div class="container text-center">
         <div class="row"><div class="col-lg-8 mx-auto">
             <h2 style="color: white; border-bottom: none;">{{ if eq .Site.Language.Lang "zh" }}有技术问题或合作意向？{{ else }}Technical Questions or Partnership Interest?{{ end }}</h2>
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             headings.forEach(function(h, i) {
                 h.id = 'sec-' + i;
                 var a = document.createElement('a');
-                a.href = '#sec-' + i; a.className = 'nav-link'; a.textContent = h.textContent; a.style.color = '#7c3aed';
+                a.href = '#sec-' + i; a.className = 'nav-link'; a.textContent = h.textContent; a.style.color = '#0369a1';
                 a.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('sec-'+i).scrollIntoView({behavior:'smooth'}); });
                 nav.appendChild(a);
             });

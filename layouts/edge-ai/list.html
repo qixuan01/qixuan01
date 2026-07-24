@@ -1,6 +1,6 @@
 {{ define "main" }}
 <!-- Edge AI Page Header -->
-<section class="page-header" style="background: linear-gradient(rgba(91,33,182,0.82), rgba(109,40,217,0.75)), url('{{ printf "%simages/solution-space-con.jpg" $.Site.BaseURL }}') center/cover;">
+<section class="page-header" style="background: linear-gradient(rgba(3,105,161,0.82), rgba(7,89,133,0.75)), url('{{ printf "%simages/solution-space-con.jpg" $.Site.BaseURL }}') center/cover;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
@@ -10,7 +10,7 @@
                         <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
                     </ol>
                 </nav>
-                <div style="display:inline-block;background:rgba(196,181,253,0.25);color:#e9d5ff;font-size:0.75rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:12px;letter-spacing:0.1em;margin-bottom:0.75rem;">🌍 全球首创 · World First</div>
+                <div style="display:inline-block;background:rgba(186,230,253,0.25);color:#e0f2fe;font-size:0.75rem;font-weight:700;padding:0.25rem 0.75rem;border-radius:12px;letter-spacing:0.1em;margin-bottom:0.75rem;">🌍 全球首创 · World First</div>
                 <h1 class="page-title">{{ .Title }}</h1>
                 <p class="page-subtitle">{{ if eq .Site.Language.Lang "zh" }}BitNet FPGA 全球首发 · RISC-V 全栈自主 · 100% 国产化{{ else }}BitNet FPGA World First · RISC-V Full-Stack · 100% Domestic{{ end }}</p>
             </div>
@@ -28,20 +28,20 @@
 </section>
 
 {{ if .Pages }}
-<section class="section" style="background: #f5f3ff;">
+<section class="section" style="background: #f0f9ff;">
     <div class="container">
         <div class="row text-center mb-4">
             <div class="col-12">
-                <h2 style="color: #5b21b6; border-bottom-color: #7c3aed;">{{ if eq .Site.Language.Lang "zh" }}深入了解各产品{{ else }}Explore Products in Detail{{ end }}</h2>
+                <h2 style="color: #075985; border-bottom-color: #0369a1;">{{ if eq .Site.Language.Lang "zh" }}深入了解各产品{{ else }}Explore Products in Detail{{ end }}</h2>
             </div>
         </div>
         <div class="row">
             {{ range .Pages }}
             <div class="col-md-6 mb-4">
-                <div class="content-card" style="border-color: rgba(124,58,237,0.2);">
-                    <h4 style="color: #5b21b6;">{{ .Title }}</h4>
+                <div class="content-card" style="border-color: rgba(3,105,161,0.2);">
+                    <h4 style="color: #075985;">{{ .Title }}</h4>
                     <p>{{ .Description }}</p>
-                    <a href="{{ .Permalink }}" class="btn" style="background: linear-gradient(135deg,#7c3aed,#a855f7); color: white; border-radius: 20px; font-weight: 600;">{{ if eq $.Site.Language.Lang "zh" }}了解详情{{ else }}Learn More{{ end }}</a>
+                    <a href="{{ .Permalink }}" class="btn" style="background: linear-gradient(135deg,#0369a1,#0ea5e9); color: white; border-radius: 20px; font-weight: 600;">{{ if eq $.Site.Language.Lang "zh" }}了解详情{{ else }}Learn More{{ end }}</a>
                 </div>
             </div>
             {{ end }}
@@ -54,9 +54,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2 style="color: #c4b5fd; border-bottom: none;">{{ if eq .Site.Language.Lang "zh" }}准备构建下一代边缘AI应用？{{ else }}Ready to Build Next-Gen Edge AI Applications?{{ end }}</h2>
+                <h2 style="color: #7dd3fc; border-bottom: none;">{{ if eq .Site.Language.Lang "zh" }}准备构建下一代边缘AI应用？{{ else }}Ready to Build Next-Gen Edge AI Applications?{{ end }}</h2>
                 <p style="color: rgba(255,255,255,0.75);">{{ if eq .Site.Language.Lang "zh" }}联系我们获取开发板、IP授权或定制开发服务{{ else }}Contact us for dev boards, IP licensing or custom development services{{ end }}</p>
-                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;border-radius:25px;font-weight:700;">{{ if eq .Site.Language.Lang "zh" }}立即联系 →{{ else }}Contact Us →{{ end }}</a>
+                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg" style="background:linear-gradient(135deg,#0369a1,#0ea5e9);color:white;border-radius:25px;font-weight:700;">{{ if eq .Site.Language.Lang "zh" }}立即联系 →{{ else }}Contact Us →{{ end }}</a>
             </div>
         </div>
     </div>

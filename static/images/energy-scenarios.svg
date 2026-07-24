@@ -5,8 +5,8 @@
       <stop offset="100%" style="stop-color:#1a3a2a"/>
     </linearGradient>
     <linearGradient id="sc1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#166534"/>
-      <stop offset="100%" style="stop-color:#15803d"/>
+      <stop offset="0%" style="stop-color:#0f5a2e"/>
+      <stop offset="100%" style="stop-color:#126835"/>
     </linearGradient>
     <linearGradient id="sc2" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1e3a5f"/>
@@ -23,7 +23,7 @@
   </defs>
 
   <rect width="860" height="280" fill="url(#scbg)" rx="12"/>
-  <text x="430" y="32" text-anchor="middle" fill="#4ade80" font-size="15" font-weight="700" letter-spacing="1">全场景能源解决方案  ·  Full-Scenario Energy Solutions</text>
+  <text x="430" y="32" text-anchor="middle" fill="#3aab60" font-size="15" font-weight="700" letter-spacing="1">全场景能源解决方案  ·  Full-Scenario Energy Solutions</text>
 
   <!-- Scenario 1: Zero-Carbon Home -->
   <rect x="20" y="50" width="190" height="205" rx="12" fill="url(#sc1)" opacity="0.9"/>
@@ -31,8 +31,8 @@
   <text x="115" y="115" text-anchor="middle" fill="white" font-size="14" font-weight="700">家庭零碳</text>
   <text x="115" y="133" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">Zero-Carbon Home</text>
   <line x1="40" y1="145" x2="190" y2="145" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="115" y="165" text-anchor="middle" fill="#4ade80" font-size="12">☀ 光伏 8 kW</text>
-  <text x="115" y="185" text-anchor="middle" fill="#4ade80" font-size="12">🔋 储能 16 kWh</text>
+  <text x="115" y="165" text-anchor="middle" fill="#3aab60" font-size="12">☀ 光伏 8 kW</text>
+  <text x="115" y="185" text-anchor="middle" fill="#3aab60" font-size="12">🔋 储能 16 kWh</text>
   <text x="115" y="205" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">自给率 &gt;80%</text>
   <text x="115" y="225" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11">年省电费 5000+元</text>
   <text x="115" y="243" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">回收期 5-7年</text>

@@ -7,8 +7,8 @@
       <stop offset="100%" style="stop-color:#2c5364"/>
     </linearGradient>
     <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#16a34a"/>
-      <stop offset="100%" style="stop-color:#22c55e"/>
+      <stop offset="0%" style="stop-color:#147a3a"/>
+      <stop offset="100%" style="stop-color:#1a9e4a"/>
     </linearGradient>
     <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1e40af"/>
@@ -27,7 +27,7 @@
   <rect width="900" height="420" fill="url(#bgGrad)" rx="12"/>
 
   <!-- Title -->
-  <text x="450" y="38" text-anchor="middle" fill="#4ade80" font-size="16" font-weight="700" letter-spacing="2">光储充一体化系统架构 · AI全链路智能能源管理</text>
+  <text x="450" y="38" text-anchor="middle" fill="#3aab60" font-size="16" font-weight="700" letter-spacing="2">光储充一体化系统架构 · AI全链路智能能源管理</text>
 
   <!-- ===== ROW 1: Energy Sources ===== -->
   <!-- Solar PV -->
@@ -60,10 +60,10 @@
 
   <!-- ===== ROW 2: Battery & Loads ===== -->
   <!-- Battery -->
-  <rect x="40" y="210" width="130" height="90" rx="10" fill="#166534" stroke="#22c55e" stroke-width="1.5"/>
+  <rect x="40" y="210" width="130" height="90" rx="10" fill="#0f5a2e" stroke="#1a9e4a" stroke-width="1.5"/>
   <text x="105" y="240" text-anchor="middle" fill="white" font-size="22">🔋</text>
   <text x="105" y="262" text-anchor="middle" fill="white" font-size="12" font-weight="600">LiFePO₄ 储能电池</text>
-  <text x="105" y="278" text-anchor="middle" fill="#4ade80" font-size="11">128-482 kWh</text>
+  <text x="105" y="278" text-anchor="middle" fill="#3aab60" font-size="11">128-482 kWh</text>
   <text x="105" y="293" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">≥10000次循环 · IP66</text>
 
   <!-- EV Charger -->
@@ -74,8 +74,8 @@
   <text x="795" y="293" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="10">AI智能调度 · -40~70°C</text>
 
   <!-- AI Cloud Platform CENTER -->
-  <rect x="290" y="195" width="320" height="120" rx="12" fill="rgba(22,163,74,0.15)" stroke="#22c55e" stroke-width="1.5"/>
-  <text x="450" y="222" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">📡 AI 智慧能源云平台</text>
+  <rect x="290" y="195" width="320" height="120" rx="12" fill="rgba(22,163,74,0.15)" stroke="#1a9e4a" stroke-width="1.5"/>
+  <text x="450" y="222" text-anchor="middle" fill="#3aab60" font-size="13" font-weight="700">📡 AI 智慧能源云平台</text>
   <text x="450" y="242" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11">WiFi / 4G / 5G 实时连接</text>
   <!-- Feature pills -->
   <rect x="305" y="252" width="82" height="22" rx="11" fill="rgba(22,163,74,0.4)"/>
@@ -90,40 +90,40 @@
   <text x="481" y="295" text-anchor="middle" fill="white" font-size="10">🔐 金融级安全</text>
 
   <!-- Arrows: Inverter → Battery -->
-  <line x1="310" y1="155" x2="170" y2="210" stroke="#22c55e" stroke-width="2" stroke-dasharray="5,3"/>
-  <polygon points="174,207 168,217 178,215" fill="#22c55e"/>
+  <line x1="310" y1="155" x2="170" y2="210" stroke="#1a9e4a" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="174,207 168,217 178,215" fill="#1a9e4a"/>
 
   <!-- Arrows: Inverter → EV -->
   <line x1="590" y1="155" x2="730" y2="210" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,3"/>
   <polygon points="726,207 732,217 722,215" fill="#3b82f6"/>
 
   <!-- Arrows: Inverter ↔ Cloud -->
-  <line x1="450" y1="150" x2="450" y2="193" stroke="#4ade80" stroke-width="2.5"/>
-  <polygon points="446,190 450,198 454,190" fill="#4ade80"/>
+  <line x1="450" y1="150" x2="450" y2="193" stroke="#3aab60" stroke-width="2.5"/>
+  <polygon points="446,190 450,198 454,190" fill="#3aab60"/>
 
   <!-- ===== ROW 3: KPI Stats ===== -->
   <rect x="25" y="330" width="850" height="70" rx="10" fill="rgba(0,0,0,0.3)"/>
 
   <!-- KPI items -->
-  <text x="95" y="360" text-anchor="middle" fill="#4ade80" font-size="18" font-weight="800">98.4%</text>
+  <text x="95" y="360" text-anchor="middle" fill="#3aab60" font-size="18" font-weight="800">98.4%</text>
   <text x="95" y="380" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">最高转换效率</text>
 
-  <text x="215" y="360" text-anchor="middle" fill="#4ade80" font-size="18" font-weight="800">200%</text>
+  <text x="215" y="360" text-anchor="middle" fill="#3aab60" font-size="18" font-weight="800">200%</text>
   <text x="215" y="380" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">直流过配能力</text>
 
-  <text x="335" y="360" text-anchor="middle" fill="#4ade80" font-size="18" font-weight="800">10ms</text>
+  <text x="335" y="360" text-anchor="middle" fill="#3aab60" font-size="18" font-weight="800">10ms</text>
   <text x="335" y="380" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">并离网切换</text>
 
-  <text x="455" y="360" text-anchor="middle" fill="#4ade80" font-size="18" font-weight="800">≥10000</text>
+  <text x="455" y="360" text-anchor="middle" fill="#3aab60" font-size="18" font-weight="800">≥10000</text>
   <text x="455" y="380" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">电池循环寿命</text>
 
-  <text x="575" y="360" text-anchor="middle" fill="#4ade80" font-size="18" font-weight="800">IP66</text>
+  <text x="575" y="360" text-anchor="middle" fill="#3aab60" font-size="18" font-weight="800">IP66</text>
   <text x="575" y="380" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">防护等级</text>
 
-  <text x="695" y="360" text-anchor="middle" fill="#4ade80" font-size="18" font-weight="800">&gt;80%</text>
+  <text x="695" y="360" text-anchor="middle" fill="#3aab60" font-size="18" font-weight="800">&gt;80%</text>
   <text x="695" y="380" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">能源自给率</text>
 
-  <text x="815" y="360" text-anchor="middle" fill="#4ade80" font-size="18" font-weight="800">25dB</text>
+  <text x="815" y="360" text-anchor="middle" fill="#3aab60" font-size="18" font-weight="800">25dB</text>
   <text x="815" y="380" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11">超静音运行</text>
 
   <!-- Dividers between KPIs -->

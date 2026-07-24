@@ -21,7 +21,7 @@
                     <p class="hero-subtitle">{{ .Description }}</p>
                     <div>
                         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#147a3a,#1a9e4a); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源{{ else }}Smart Energy{{ end }}</a>
-                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#7c3aed,#a855f7); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI{{ else }}Edge AI{{ end }}</a>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#0369a1,#0ea5e9); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI{{ else }}Edge AI{{ end }}</a>
                         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sai-education/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/ai-education/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#0284c7,#38bdf8); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}AI伴学{{ else }}AI Education{{ end }}</a>
                         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg mb-2" style="background: linear-gradient(135deg,#0f766e,#14b8a6); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}大数据{{ else }}Big Data{{ end }}</a>
                     </div>
@@ -237,10 +237,10 @@
             <div class="arch-edgeai-card">
                 <div class="arch-edgeai-card-title">🔴 鸿源边缘AI推理加速器</div>
                 <div class="arch-edgeai-card-stack">
-                    <div class="arch-edgeai-layer" style="background:rgba(124,58,237,0.25);border-color:rgba(167,139,250,0.4);">应用层 · Transformer推理引擎（QKV / Attention / FFN）</div>
-                    <div class="arch-edgeai-layer" style="background:rgba(79,70,229,0.2);border-color:rgba(129,140,248,0.35);">系统层 · HarmonyOS LiteOS（调度 / IPC / 内存）</div>
-                    <div class="arch-edgeai-layer" style="background:rgba(109,40,217,0.3);border-color:rgba(196,181,253,0.4);">加速层 · BitNet 16×16 Tile · 乘法→加减法 · 33%稀疏跳过</div>
-                    <div class="arch-edgeai-layer" style="background:rgba(91,33,182,0.35);border-color:rgba(167,139,250,0.5);">硬件层 · 安路EG4X20 FPGA · PicoRV32 RISC-V @50MHz</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(3,105,161,0.25);border-color:rgba(125,211,252,0.4);">应用层 · Transformer推理引擎（QKV / Attention / FFN）</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(3,105,161,0.2);border-color:rgba(129,140,248,0.35);">系统层 · HarmonyOS LiteOS（调度 / IPC / 内存）</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(7,89,133,0.3);border-color:rgba(186,230,253,0.4);">加速层 · BitNet 16×16 Tile · 乘法→加减法 · 33%稀疏跳过</div>
+                    <div class="arch-edgeai-layer" style="background:rgba(3,105,161,0.35);border-color:rgba(125,211,252,0.5);">硬件层 · 安路EG4X20 FPGA · PicoRV32 RISC-V @50MHz</div>
                 </div>
                 <div class="arch-edgeai-stats">
                     <span>16x 压缩</span><span>0 误差</span><span>&lt;¥200</span><span>6/6 PASS</span>
@@ -321,19 +321,19 @@
 <style>
 /* ---- Edge AI 板块 ---- */
 .arch-panel-edgeai { background: linear-gradient(180deg, #0d0020 0%, #1a0035 100%); }
-.arch-badge-edgeai { background: rgba(167,139,250,0.15); color: #c4b5fd; border: 1px solid rgba(167,139,250,0.3); }
-.arch-title-edgeai { color: #c4b5fd; }
-.arch-tag-edgeai { background: rgba(124,58,237,0.2); color: #ddd6fe; border: 1px solid rgba(124,58,237,0.3); }
-.arch-btn-edgeai { background: linear-gradient(135deg,#7c3aed,#a855f7); color: white; box-shadow: 0 4px 15px rgba(124,58,237,0.4); }
-.arch-btn-edgeai:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124,58,237,0.55); color: white; text-decoration: none; }
+.arch-badge-edgeai { background: rgba(125,211,252,0.15); color: #7dd3fc; border: 1px solid rgba(125,211,252,0.3); }
+.arch-title-edgeai { color: #7dd3fc; }
+.arch-tag-edgeai { background: rgba(3,105,161,0.2); color: #bae6fd; border: 1px solid rgba(3,105,161,0.3); }
+.arch-btn-edgeai { background: linear-gradient(135deg,#0369a1,#0ea5e9); color: white; box-shadow: 0 4px 15px rgba(3,105,161,0.4); }
+.arch-btn-edgeai:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(3,105,161,0.55); color: white; text-decoration: none; }
 
 .arch-edgeai-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 0 4% 2.5rem; max-width: 1100px; margin: 0 auto; }
-.arch-edgeai-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(167,139,250,0.2); border-radius: 14px; padding: 1.5rem; }
-.arch-edgeai-card-title { color: #e9d5ff; font-weight: 700; font-size: 1.05rem; margin-bottom: 1rem; }
+.arch-edgeai-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(125,211,252,0.2); border-radius: 14px; padding: 1.5rem; }
+.arch-edgeai-card-title { color: #e0f2fe; font-weight: 700; font-size: 1.05rem; margin-bottom: 1rem; }
 .arch-edgeai-card-stack { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
 .arch-edgeai-layer { font-size: 0.82rem; color: rgba(255,255,255,0.8); padding: 0.5rem 0.9rem; border-radius: 8px; border: 1px solid; line-height: 1.4; }
 .arch-edgeai-stats { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.arch-edgeai-stats span { font-size: 0.78rem; font-weight: 600; color: #c4b5fd; background: rgba(124,58,237,0.2); padding: 0.25rem 0.6rem; border-radius: 10px; }
+.arch-edgeai-stats span { font-size: 0.78rem; font-weight: 600; color: #7dd3fc; background: rgba(3,105,161,0.2); padding: 0.25rem 0.6rem; border-radius: 10px; }
 
 /* ---- AI Education 板块 ---- */
 .arch-panel-aiedu { background: linear-gradient(180deg, #0a1a30 0%, #0f2540 100%); }
@@ -365,7 +365,7 @@
     <div class="container">
         <h2 style="color: white; border-bottom: none; margin-bottom: 0.75rem;">{{ if eq .Site.Language.Lang "zh" }}准备开启您的数字化未来？{{ else }}Ready to Build the Future?{{ end }}</h2>
         <p style="color: rgba(255,255,255,0.6); margin-bottom: 1.5rem;">{{ if eq .Site.Language.Lang "zh" }}大数据运维 · 智慧能源 · 边缘AI推理 · AI伴学教育 — 联系我们的专业团队{{ else }}Big Data · Smart Energy · Edge AI · AI Education — Contact our professional team{{ end }}</p>
-        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI →{{ else }}Edge AI →{{ end }}</a>
+        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#0369a1,#0ea5e9);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI →{{ else }}Edge AI →{{ end }}</a>
         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#147a3a,#1a9e4a);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源 →{{ else }}Smart Energy →{{ end }}</a>
         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light mb-2" style="border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}联系我们{{ else }}Contact Us{{ end }}</a>
     </div>
