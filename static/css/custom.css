@@ -3067,3 +3067,72 @@ tr:hover {
 @media (max-width: 768px) {
   .erp-modules-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ============================================================
+   新能源版块 — EMS 平台展示区
+   ============================================================ */
+.ems-platform-showcase {
+  margin: 1.5rem 0 2rem;
+  background: linear-gradient(135deg, #052e16, #0f2d1a);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+.ems-platform-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4ade80;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.ems-platform-img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  display: block;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(34,197,94,0.15);
+}
+
+.ems-platform-showcase a:hover .ems-platform-img {
+  transform: scale(1.01);
+}
+
+.ems-platform-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.ems-platform-btn {
+  display: inline-block;
+  padding: 0.55rem 1.5rem;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: white;
+  border-radius: 25px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(22,163,74,0.35);
+}
+
+.ems-platform-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(22,163,74,0.5);
+  color: white;
+  text-decoration: none;
+}
+
+.ems-platform-btn-user {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  box-shadow: 0 4px 15px rgba(15,118,110,0.35);
+}
+
+.ems-platform-btn-user:hover {
+  box-shadow: 0 8px 25px rgba(15,118,110,0.5);
+}

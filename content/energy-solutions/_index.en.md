@@ -42,6 +42,17 @@ Aligned with the national "Dual Carbon" strategic goals, Qixuan Software deeply 
   </div>
 </div>
 
+<div class="ems-platform-showcase">
+  <div class="ems-platform-label">🖥️ EMS Smart Energy Management Platform · Real-time Monitoring</div>
+  <a href="https://emsa.qixuan.vip" target="_blank" rel="noopener">
+    <img src="/images/ems-platform.jpg" alt="EMS Smart Energy Management Platform" class="ems-platform-img">
+  </a>
+  <div class="ems-platform-links">
+    <a href="https://emsa.qixuan.vip" target="_blank" rel="noopener" class="ems-platform-btn">⚡ Admin Platform →</a>
+    <a href="https://emsu.qixuan.vip" target="_blank" rel="noopener" class="ems-platform-btn ems-platform-btn-user">🔋 User Platform →</a>
+  </div>
+</div>
+
 ---
 
 ## System Architecture Overview
