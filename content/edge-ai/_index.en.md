@@ -1,26 +1,26 @@
----
+﻿---
 title: "Edge AI Inference Acceleration"
-description: "Shenzhen Qixuan Software Co., Ltd. - Hongyuan Edge AI Inference Accelerator & Smart Terminal AI Middleware · World's First BitNet FPGA Hardware Accelerator"
-keywords: "Edge AI,FPGA accelerator,BitNet,RISC-V,Hongyuan,domestic substitution,HarmonyOS,smart terminal,embedded AI,IoT"
+description: "Shenzhen Qixuan Software Co., Ltd. - Hongyuan Edge AI Inference Accelerator & Smart Terminal AI Middleware · World's First 轻量化低功耗推理FPGA Hardware Accelerator"
+keywords: "Edge AI,FPGA accelerator,轻量化低功耗推理,RISC-V,Hongyuan,domestic substitution,HarmonyOS,smart terminal,embedded AI,IoT"
 ---
 
 <div class="edge-hub-header">
   <div class="edge-hub-badge">World First</div>
   <h1>Edge AI Inference Acceleration</h1>
-  <p class="edge-hub-tagline">BitNet FPGA World First · RISC-V Full-Stack Self-Developed · 100% Domestic</p>
+  <p class="edge-hub-tagline">轻量化低功耗推理FPGA World First · RISC-V Full-Stack Self-Developed · 100% Domestic</p>
 </div>
 
 ## The Core Problem We Solve
 
 Export controls block high-end AI chips. Traditional edge solutions cost ¥600+ BOM (Jetson Nano) and rely entirely on imported chips facing supply chain disruption.
 
-**Hongyuan's breakthrough**: BitNet W1.58 ternary quantization replaces multiplication with addition/subtraction — enabling every ¥200-class domestic FPGA to run AI Transformer inference.
+**Hongyuan's breakthrough**: 轻量化低功耗推理 lightweight low-power inference dramatically reduces compute requirements — enabling every ¥200-class domestic FPGA to run AI Transformer inference.
 
 <div class="edge-values-grid">
   <div class="edge-value-item">
     <span class="edge-value-icon">🌍</span>
     <span class="edge-value-title">World First</span>
-    <span class="edge-value-desc">BitNet FPGA Accelerator</span>
+    <span class="edge-value-desc">轻量化低功耗推理FPGA Accelerator</span>
   </div>
   <div class="edge-value-item">
     <span class="edge-value-icon">🔢</span>
@@ -49,9 +49,9 @@ Export controls block high-end AI chips. Traditional edge solutions cost ¥600+ 
     <div class="edge-product-icon">🔴</div>
     <h3>Hongyuan Edge AI Accelerator</h3>
     <div class="edge-product-sub">鸿源边缘AI推理加速器</div>
-    <div class="edge-product-spec">RISC-V + FPGA + BitNet W1.58</div>
+    <div class="edge-product-spec">RISC-V + FPGA + 轻量化低功耗推理</div>
     <ul class="edge-product-features">
-      <li>✅ World's first BitNet FPGA hardware accelerator</li>
+      <li>✅ World's first 轻量化低功耗推理FPGA hardware accelerator</li>
       <li>✅ 16x storage compression · 33% sparse skip</li>
       <li>✅ 6/6 full-chain validation passed</li>
       <li>✅ Anlogic EG4X20 + PicoRV32 RISC-V</li>

@@ -109,10 +109,10 @@ call_to_action:
       <div class="dual-solution-badge-new">World First</div>
       <div class="dual-solution-icon">🔴</div>
       <h2>Edge AI Acceleration</h2>
-      <p class="dual-solution-tagline">BitNet FPGA · RISC-V · 100% Domestic</p>
-      <p>World's first BitNet FPGA hardware accelerator. 6/6 full-chain validation passed. BOM &lt;¥200, 70%+ below Jetson. Fully self-controlled.</p>
+      <p class="dual-solution-tagline">轻量化低功耗推理FPGA · RISC-V · 100% Domestic</p>
+      <p>World's first 轻量化低功耗推理FPGA hardware accelerator. 6/6 full-chain validation passed. BOM &lt;¥200, 70%+ below Jetson. Fully self-controlled.</p>
       <ul class="dual-solution-highlights">
-        <li>✅ World's First BitNet FPGA Accelerator</li>
+        <li>✅ World's First 轻量化低功耗推理FPGA Accelerator</li>
         <li>✅ 16x Storage Compression · Zero Error</li>
         <li>✅ BOM &lt;¥200 · 100% Domestic</li>
         <li>✅ Architecture Innovation Award Winner</li>

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Products & Services"
 description: "Core products and professional services of Shenzhen Qixuan Software Co., Ltd. — Self-developed · Full-stack Controllable · Domestic Substitution"
 ---
@@ -168,7 +168,7 @@ HadoopForge is an enterprise-grade Hadoop cluster full lifecycle management plat
 
 ### Hongyuan Edge AI Inference Accelerator
 
-The world's first accelerator to deploy BitNet b1.58 quantization on FPGA hardware. BitNet W1.58 ternary quantization constrains weights to {-1, 0, +1}, replacing multiplication entirely with addition/subtraction — enabling every ¥200-class domestic FPGA to run AI Transformer inference.
+The world's first accelerator to deploy 轻量化低功耗推理 quantization on FPGA hardware. 轻量化低功耗推理 lightweight low-power inference constrains weights to 极低精度, dramatically reducing inference computation — enabling every ¥200-class domestic FPGA to run AI Transformer inference.
 
 **2025 Shenzhen RISC-V & HarmonyOS Innovation Competition · Architecture Innovation Award 🏆**
 
@@ -188,7 +188,7 @@ The world's first accelerator to deploy BitNet b1.58 quantization on FPGA hardwa
 
 - **Application**: Transformer inference engine (QKV / Multi-Head Attention / FFN full pipeline)
 - **OS**: HarmonyOS LiteOS (task scheduling / IPC / memory management)
-- **Accelerator**: BitNet 16×16 Tile array (ternary matrix multiply → add/subtract, 33% sparse skip)
+- **Accelerator**: 轻量化低功耗推理 16×16 Tile array (lightweight inference matrix multiply → add/subtract, 33% sparse skip)
 - **Hardware**: Anlogic EG4X20 FPGA (20K LUT) · PicoRV32 RISC-V @50MHz · 128MB SDRAM
 
 #### Product Roadmap & Pricing
@@ -198,7 +198,7 @@ The world's first accelerator to deploy BitNet b1.58 quantization on FPGA hardwa
 | Phase 1 (Current) | AI Inference Dev Board | Universities / Makers / R&D | Contact us |
 | Phase 2 (6–12 months) | Vision Inference Module (OV2640 + FPGA + SDK) | Industrial inspection / Security / Agriculture | Contact us |
 | Phase 3 (12–18 months) | Wi-Fi AI Edge Node | Smart factory / Agricultural IoT | Contact us |
-| Phase 4 (18–24 months) | BitNet IP Core License (RTL IP) | FPGA / SoC vendors | Contact us |
+| Phase 4 (18–24 months) | Inference Acceleration IP Core License (RTL IP) | FPGA / SoC vendors | Contact us |
 
 #### Target Applications
 - University AI hardware labs · FPGA AI course experimental platforms

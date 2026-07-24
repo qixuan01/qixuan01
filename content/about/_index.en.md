@@ -59,13 +59,13 @@ Addressing real enterprise pain points, doing the "dirty work" the community won
 
 ### Awards & Honors
 - **2025 Shenzhen RISC-V & HarmonyOS Innovation Competition · Architecture Innovation Award** — Hongyuan Edge AI Inference Accelerator
-- World's first accelerator to implement BitNet b1.58 quantization algorithm on FPGA hardware
+- World's first accelerator to implement 轻量化低功耗推理 quantization algorithm on FPGA hardware
 
 <div class="about-award-section">
   <div class="about-award-header">
     <span class="about-award-badge">🏆 2025 Architecture Innovation Award</span>
     <h4>Shenzhen RISC-V & HarmonyOS Innovation Competition</h4>
-    <p>Hongyuan Edge AI Inference Accelerator won the Architecture Innovation Award · World's first BitNet FPGA hardware accelerator</p>
+    <p>Hongyuan Edge AI Inference Accelerator won the Architecture Innovation Award · World's first 轻量化低功耗推理FPGA hardware accelerator</p>
   </div>
   <div class="about-award-images">
     <img src="/images/award-arch-innovation.png" alt="Architecture Innovation Award Certificate" class="about-award-cert">
@@ -85,7 +85,7 @@ Enterprise-grade Hadoop cluster full lifecycle management platform. First in Chi
 Fully offline + open-source + VRM digital human education AI platform. FSRS scientific memory + BKT knowledge graph. 60,000+ lines of production-grade code. Compatible with 11+ LLMs.
 
 ### Hongyuan Edge AI — Edge Inference Acceleration
-World's first BitNet FPGA accelerator. Full-stack RISC-V+FPGA+HarmonyOS LiteOS. BOM cost <¥200. 100% domestically sourced. 256×256 matrix zero error.
+World's first 轻量化低功耗推理FPGA accelerator. Full-stack RISC-V+FPGA+HarmonyOS LiteOS. BOM cost <¥200. 100% domestically sourced. 256×256 matrix zero error.
 
 ### Smart Terminal AI — Intelligent Terminal Middleware
 Edge AI tiered inference platform for IoT / industrial embedded scenarios. Three-tier progressive inference architecture. Full AI running in 606KB SRAM. Supports any RISC-V/ARM MCU.

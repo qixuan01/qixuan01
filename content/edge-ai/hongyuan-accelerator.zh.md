@@ -1,6 +1,6 @@
----
+﻿---
 title: "鸿源边缘AI推理加速器"
-description: "全球首个BitNet FPGA硬件加速器 · RISC-V + 安路FPGA + 鸿蒙LiteOS · 100%国产化 · BOM <¥200"
+description: "全球首个轻量化低功耗推理硬件加速器 · RISC-V + 安路FPGA + 鸿蒙LiteOS · 100%国产化 · BOM <¥200"
 weight: 1
 ---
 
@@ -8,15 +8,15 @@ weight: 1
   <div class="edge-breadcrumb"><a href="/edge-ai/">边缘AI推理加速</a> › 鸿源边缘AI推理加速器</div>
   <h1>鸿源边缘AI推理加速器</h1>
   <p>Hongyuan Edge AI Inference Accelerator</p>
-  <p>全球首个 BitNet FPGA 硬件加速器 · RISC-V SoC 全栈自主设计</p>
+  <p>全球首个 轻量化低功耗推理硬件加速器 · RISC-V SoC 全栈自主设计</p>
 </div>
 
 ## 产品亮点
 
-> 截至2026年6月，全球公开学术文献与专利中，BitNet专用FPGA/ASIC加速器仍属完全空白。本项目是全球率先将BitNet b1.58落地FPGA硬件的实验性平台，具备12–18个月先发窗口。
+> 截至2026年6月，全球公开学术文献与专利中，轻量化推理专用FPGA/ASIC加速器仍属完全空白。本项目是全球率先将轻量化低功耗推理落地FPGA硬件的实验性平台，具备12–18个月先发窗口。
 
 <div class="edge-product-showcase">
-  <div class="edge-product-showcase-label">🔴 鸿源边缘AI推理加速器 · 全球首个BitNet FPGA硬件加速平台</div>
+  <div class="edge-product-showcase-label">🔴 鸿源边缘AI推理加速器 · 全球首个轻量化低功耗推理FPGA硬件加速平台</div>
   <img src="/images/hongyuan-accelerator.jpg" alt="鸿源边缘AI推理加速器" class="edge-product-showcase-img">
 </div>
 
@@ -41,15 +41,15 @@ weight: 1
 
 ---
 
-## 核心创新：BitNet W1.58 三值量化加速
+## 核心创新：轻量化低功耗推理算法加速
 
-传统神经网络推理中，乘法器占FPGA面积70%+、功耗60%+。BitNet W1.58 将权重约束为 {-1, 0, +1} 三值，乘法完全退化为加减法——在20K LUT的低端FPGA上即可实现Transformer全链路推理。
+传统神经网络推理中，乘法器占FPGA面积70%+、功耗60%+。轻量化低功耗推理 将权重约束为 极低精度 三值，乘法完全退化为加减法——在20K LUT的低端FPGA上即可实现Transformer全链路推理。
 
 这是"算法-架构-电路"三位一体的协同创新。
 
-| 指标 | 传统FP16方案 | 鸿源BitNet方案 |
+| 指标 | 传统FP16方案 | 鸿源轻量化低功耗推理方案 |
 |---|---|---|
-| 权重精度 | 16-bit浮点 | 1.58-bit三值 {-1,0,+1} |
+| 权重精度 | 16-bit浮点 | ultra-low-bit三值 {-1,0,+1} |
 | 核心运算 | 乘加（MAC） | 加减法（无乘法器） |
 | 存储占用 | 基准 | 压缩16x |
 | FPGA面积 | 高 | 低（20K LUT可用） |
@@ -62,7 +62,7 @@ weight: 1
 
 | 步骤 | 验证内容 | 结果 | 关键数据 |
 |---|---|---|---|
-| Step 1 | 16×16 BitNet Tile | ✅ 256/256 PASS | 8,192 cycles，1,280个零权重自动跳过 |
+| Step 1 | 16×16 轻量化低功耗推理 Tile | ✅ 256/256 PASS | 8,192 cycles，1,280个零权重自动跳过 |
 | Step 2 | 64维 MLP 推理 | ✅ 结果正确 | 131,072 cycles，4×4 Tile循环展开 |
 | Step 3 | QKV 投影 | ✅ 全部匹配 | 24,576 cycles，3次16×16 GEMM |
 | Step 4 | 单头注意力 | ✅ 100% 匹配 | 128 cycles，近似Softmax + V加权 |
@@ -86,7 +86,7 @@ weight: 1
   </div>
   <div class="edge-arch-layer edge-arch-accel">
     <span class="edge-arch-label">加速层</span>
-    <span class="edge-arch-content">BitNet 16×16 Tile 阵列 — 三值矩阵乘法 → 加减法，稀疏跳过33%</span>
+    <span class="edge-arch-content">轻量化低功耗推理 16×16 Tile 阵列 — 三值矩阵乘法 → 加减法，稀疏跳过33%</span>
   </div>
   <div class="edge-arch-layer edge-arch-hw">
     <span class="edge-arch-label">硬件层</span>
@@ -99,7 +99,7 @@ weight: 1
 ## 知识产权与技术壁垒
 
 - **软件著作权**：16,487行代码已申请（含RTL + OS + 推理引擎）
-- **发明专利**：BitNet FPGA加速器架构专利申报中
+- **发明专利**：轻量化低功耗推理加速器架构专利申报中
 - **商业机密**：核心RTL与推理映射算法不开源
 - **开源策略**：外围驱动 + 示例开源，建立生态
 

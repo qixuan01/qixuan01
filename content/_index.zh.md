@@ -118,10 +118,10 @@ call_to_action:
       <div class="dual-solution-badge-new">全球首创</div>
       <div class="dual-solution-icon">🔴</div>
       <h2>边缘AI推理加速</h2>
-      <p class="dual-solution-tagline">BitNet FPGA · RISC-V · 100% 国产化</p>
-      <p>全球首个BitNet FPGA硬件加速器，6/6全链路验证通过，BOM &lt;¥200，比Jetson低70%+，完全自主可控。</p>
+      <p class="dual-solution-tagline">轻量化低功耗推理FPGA · RISC-V · 100% 国产化</p>
+      <p>全球首个轻量化低功耗推理硬件加速器，6/6全链路验证通过，BOM &lt;¥200，比Jetson低70%+，完全自主可控。</p>
       <ul class="dual-solution-highlights">
-        <li>✅ 全球首发 BitNet FPGA 加速器</li>
+        <li>✅ 全球首发 轻量化低功耗推理加速器</li>
         <li>✅ 16x 存储压缩 · 零误差验证</li>
         <li>✅ BOM &lt;¥200 · 100% 国产化</li>
         <li>✅ 架构创新奖得主</li>
