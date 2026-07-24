@@ -1,7 +1,8 @@
 ﻿---
 title: "大数据解决方案"
-description: "深圳市启煊软件有限公司为各行业提供专业的大数据解决方案 — 基于Apache Hadoop生态的企业级大数据平台"
+description: "启煊软件HadoopForge大数据运维平台 — Hadoop集群管理、信创国产替代、Ambari 3.0+Bigtop 3.5适配，AI运维故障预测准确率92%，服务金融、能源、通信、航天等行业"
 images: ["images/solutionBanner.jpg"]
+keywords: "大数据运维平台,HadoopForge,Hadoop集群管理,信创大数据,Ambari替代,企业大数据平台,大数据解决方案,Spark,Kafka,Flink,Hive,国产替代"
 ---
 
 <div class="bigdata-hub-header">

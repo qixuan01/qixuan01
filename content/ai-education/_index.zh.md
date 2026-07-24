@@ -1,7 +1,7 @@
----
+﻿---
 title: "AI伴学 — 悦学智伴"
 description: "深圳市启煊软件有限公司 - 悦学智伴 Otowyue Learn AI · 国内首创FSRS×数字人 · 完全离线 · 情感感知AI教育平台"
-keywords: "AI教育,悦学智伴,FSRS,数字人,情感感知,VRM,完全离线,AI伴学,个性化教育,知识图谱"
+keywords: "AI教育平台,离线AI教学,智能个性化教育,数字人教学,情感感知AI,FSRS记忆算法,K12教育,智能辅导,AI教师,自适应学习,教育数字化"
 ---
 
 <div class="edu-hub-header">

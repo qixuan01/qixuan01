@@ -1,8 +1,8 @@
 ﻿---
 title: "智慧能源解决方案"
-description: "深圳市启煊软件有限公司 - AI驱动的光储充一体化智慧能源解决方案服务商"
+description: "启煊软件EMS智慧能源管理系统 — 光储充一体化、VPP虚拟电厂、AI智能调度，助力企业新能源数字化转型与双碳目标"
 images: ["images/solution-energy.jpg"]
-keywords: "光储充,储能,逆变器,光伏,新能源,AI智慧能源,VPP虚拟电厂,零碳,双碳"
+keywords: "EMS能源管理系统,光储充一体化,VPP虚拟电厂,智慧能源,新能源数字化,光伏储能,AI智能调度,峰谷套利,双碳目标,碳中和,储能系统"
 ---
 
 <div class="energy-hub-header">

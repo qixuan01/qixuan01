@@ -1,6 +1,8 @@
 ﻿---
 title: "Big Data Solutions"
-description: "Professional big data solutions for various industries — Enterprise-level big data platform based on Apache Hadoop ecosystem"
+description: "Qixuan Software HadoopForge — Enterprise Hadoop cluster management, Ambari 3.0+Bigtop 3.5 adaptation, AI-powered O&M with 92% fault prediction accuracy. Serving finance, energy, telecom, aerospace industries."
+images: ["images/solutionBanner.jpg"]
+keywords: "Big Data O&M Platform,HadoopForge,Hadoop Cluster Management,Ambari Alternative,Xinchuang,Enterprise Big Data,Spark,Kafka,Flink,Hive,Domestic Substitution"
 ---
 
 <div class="bigdata-hub-header">

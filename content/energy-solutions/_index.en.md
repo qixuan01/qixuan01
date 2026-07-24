@@ -1,8 +1,8 @@
 ﻿---
 title: "Smart Energy Solutions"
-description: "Qixuan Software (Shenzhen) Co., Ltd. - AI-Powered Solar-Storage-Charging Integration Smart Energy Solution Provider"
+description: "Qixuan Software EMS smart energy management — solar-storage-charging integration, VPP virtual power plant, AI dispatch. Enterprise energy digitalization and dual-carbon goals."
 images: ["images/solution-energy.jpg"]
-keywords: "solar storage charging,energy storage,inverter,photovoltaic,new energy,AI smart energy,VPP virtual power plant,zero carbon,dual carbon"
+keywords: "EMS Energy Management System,Solar Storage Charging,VPP Virtual Power Plant,Smart Energy,Energy Digitalization,PV Energy Storage,AI Dispatch,Peak Valley Arbitrage,Dual Carbon,Carbon Neutral"
 ---
 
 <div class="energy-hub-header">
