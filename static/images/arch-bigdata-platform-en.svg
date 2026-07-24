@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="Arial,'Helvetica Neue',sans-serif">
   <defs>
     <linearGradient id="bbg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a0000"/><stop offset="100%" style="stop-color:#2d0a0a"/>
+      <stop offset="0%" style="stop-color:#071418"/><stop offset="100%" style="stop-color:#0a2030"/>
     </linearGradient>
     <linearGradient id="btop" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#991b1b"/><stop offset="100%" style="stop-color:#dc2626"/>
+      <stop offset="0%" style="stop-color:#134e4a"/><stop offset="100%" style="stop-color:#0f766e"/>
     </linearGradient>
   </defs>
   <rect width="760" height="440" fill="url(#bbg)" rx="14"/>
@@ -19,126 +19,126 @@
   <text x="740" y="378" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">Applications</text>
 
   <!-- Layer 1 -->
-  <rect x="14" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="14" y="56" width="100" height="40" rx="7" fill="rgba(15,118,110,0.2)" stroke="#0f766e" stroke-width="1"/>
   <text x="64" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">🏦 Business Systems</text>
   <text x="64" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">ERP/CRM/OA</text>
 
-  <rect x="124" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="124" y="56" width="100" height="40" rx="7" fill="rgba(15,118,110,0.2)" stroke="#0f766e" stroke-width="1"/>
   <text x="174" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">📡 IoT Devices</text>
   <text x="174" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Sensors/Edge Nodes</text>
 
-  <rect x="234" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="234" y="56" width="100" height="40" rx="7" fill="rgba(15,118,110,0.2)" stroke="#0f766e" stroke-width="1"/>
   <text x="284" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">🌐 Web &amp; Log Data</text>
   <text x="284" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Crawler/API/Logs</text>
 
-  <rect x="344" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="344" y="56" width="100" height="40" rx="7" fill="rgba(15,118,110,0.2)" stroke="#0f766e" stroke-width="1"/>
   <text x="394" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">📁 File Data</text>
   <text x="394" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Excel/CSV/DB</text>
 
-  <rect x="454" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="454" y="56" width="100" height="40" rx="7" fill="rgba(15,118,110,0.2)" stroke="#0f766e" stroke-width="1"/>
   <text x="504" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">🏛️ External Data</text>
   <text x="504" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Gov/Credit/Market</text>
 
-  <rect x="564" y="56" width="100" height="40" rx="7" fill="rgba(220,38,38,0.2)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="564" y="56" width="100" height="40" rx="7" fill="rgba(15,118,110,0.2)" stroke="#0f766e" stroke-width="1"/>
   <text x="614" y="72" text-anchor="middle" fill="white" font-size="10" font-weight="600">📱 Mobile Data</text>
   <text x="614" y="87" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">App/Mini Programs</text>
 
-  <line x1="380" y1="96" x2="380" y2="110" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
-  <polygon points="376,108 380,115 384,108" fill="#ef4444"/>
+  <line x1="380" y1="96" x2="380" y2="110" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,108 380,115 384,108" fill="#14b8a6"/>
 
   <!-- Layer 2 -->
-  <rect x="14" y="116" width="180" height="46" rx="7" fill="rgba(220,38,38,0.18)" stroke="#ef4444" stroke-width="1"/>
-  <text x="104" y="134" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">⚡ Kafka Message Queue</text>
+  <rect x="14" y="116" width="180" height="46" rx="7" fill="rgba(15,118,110,0.18)" stroke="#14b8a6" stroke-width="1"/>
+  <text x="104" y="134" text-anchor="middle" fill="#99f6e4" font-size="10" font-weight="600">⚡ Kafka Message Queue</text>
   <text x="104" y="150" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Real-time Stream · Million TPS</text>
 
-  <rect x="204" y="116" width="165" height="46" rx="7" fill="rgba(220,38,38,0.18)" stroke="#ef4444" stroke-width="1"/>
-  <text x="287" y="134" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🔄 Flume / Sqoop</text>
+  <rect x="204" y="116" width="165" height="46" rx="7" fill="rgba(15,118,110,0.18)" stroke="#14b8a6" stroke-width="1"/>
+  <text x="287" y="134" text-anchor="middle" fill="#99f6e4" font-size="10" font-weight="600">🔄 Flume / Sqoop</text>
   <text x="287" y="150" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Batch Collection · ETL</text>
 
-  <rect x="379" y="116" width="165" height="46" rx="7" fill="rgba(220,38,38,0.18)" stroke="#ef4444" stroke-width="1"/>
-  <text x="462" y="134" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🌊 DataX / CDC</text>
+  <rect x="379" y="116" width="165" height="46" rx="7" fill="rgba(15,118,110,0.18)" stroke="#14b8a6" stroke-width="1"/>
+  <text x="462" y="134" text-anchor="middle" fill="#99f6e4" font-size="10" font-weight="600">🌊 DataX / CDC</text>
   <text x="462" y="150" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Incremental Sync · Change Capture</text>
 
-  <rect x="554" y="116" width="190" height="46" rx="7" fill="rgba(220,38,38,0.18)" stroke="#ef4444" stroke-width="1"/>
-  <text x="649" y="134" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🔧 Data Quality Control</text>
+  <rect x="554" y="116" width="190" height="46" rx="7" fill="rgba(15,118,110,0.18)" stroke="#14b8a6" stroke-width="1"/>
+  <text x="649" y="134" text-anchor="middle" fill="#99f6e4" font-size="10" font-weight="600">🔧 Data Quality Control</text>
   <text x="649" y="150" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Cleansing · Validation · Standardize</text>
 
-  <line x1="380" y1="162" x2="380" y2="176" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
-  <polygon points="376,174 380,181 384,174" fill="#ef4444"/>
+  <line x1="380" y1="162" x2="380" y2="176" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,174 380,181 384,174" fill="#14b8a6"/>
 
   <!-- Layer 3 Core -->
-  <rect x="14" y="182" width="730" height="108" rx="10" fill="rgba(220,38,38,0.08)" stroke="#dc2626" stroke-width="1.8"/>
-  <text x="380" y="200" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">Redoop Enterprise  ·  Big Data Storage &amp; Compute Core</text>
+  <rect x="14" y="182" width="730" height="108" rx="10" fill="rgba(15,118,110,0.08)" stroke="#0f766e" stroke-width="1.8"/>
+  <text x="380" y="200" text-anchor="middle" fill="#99f6e4" font-size="12" font-weight="700">Redoop Enterprise  ·  Big Data Storage &amp; Compute Core</text>
 
-  <rect x="24" y="208" width="130" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <rect x="24" y="208" width="130" height="70" rx="7" fill="rgba(15,118,110,0.22)" stroke="#14b8a6" stroke-width="1"/>
   <text x="89" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">🗄️ HDFS</text>
   <text x="89" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Distributed Storage</text>
   <text x="89" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">PB-scale · 3 Replicas</text>
   <text x="89" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">Data Lake · Archive</text>
 
-  <rect x="162" y="208" width="130" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <rect x="162" y="208" width="130" height="70" rx="7" fill="rgba(15,118,110,0.22)" stroke="#14b8a6" stroke-width="1"/>
   <text x="227" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">⚡ Spark</text>
   <text x="227" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Batch Processing</text>
   <text x="227" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">SQL · ML · Graph</text>
   <text x="227" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">In-memory · High Performance</text>
 
-  <rect x="300" y="208" width="130" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <rect x="300" y="208" width="130" height="70" rx="7" fill="rgba(15,118,110,0.22)" stroke="#14b8a6" stroke-width="1"/>
   <text x="365" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">🌊 Flink</text>
   <text x="365" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Real-time Streaming</text>
   <text x="365" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">CEP · Millisecond Latency</text>
   <text x="365" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">Stateful · Exactly-Once</text>
 
-  <rect x="438" y="208" width="130" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <rect x="438" y="208" width="130" height="70" rx="7" fill="rgba(15,118,110,0.22)" stroke="#14b8a6" stroke-width="1"/>
   <text x="503" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">🏠 Hive / Doris</text>
   <text x="503" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Data Warehouse</text>
   <text x="503" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">OLAP · Ad-hoc Query</text>
   <text x="503" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">Layered Model · DWS/ADS</text>
 
-  <rect x="576" y="208" width="158" height="70" rx="7" fill="rgba(220,38,38,0.22)" stroke="#ef4444" stroke-width="1"/>
+  <rect x="576" y="208" width="158" height="70" rx="7" fill="rgba(15,118,110,0.22)" stroke="#14b8a6" stroke-width="1"/>
   <text x="655" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="600">🤖 HBase + ML</text>
   <text x="655" y="244" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Real-time DB + AI</text>
   <text x="655" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">ms Read/Write · Model Train</text>
   <text x="655" y="271" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">Feature Eng · Inference</text>
 
-  <line x1="380" y1="290" x2="380" y2="304" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
-  <polygon points="376,302 380,309 384,302" fill="#ef4444"/>
+  <line x1="380" y1="290" x2="380" y2="304" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,302 380,309 384,302" fill="#14b8a6"/>
 
   <!-- Layer 4 -->
-  <rect x="14" y="310" width="170" height="44" rx="7" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="14" y="310" width="170" height="44" rx="7" fill="rgba(15,118,110,0.15)" stroke="#0f766e" stroke-width="1"/>
   <text x="99" y="328" text-anchor="middle" fill="white" font-size="10" font-weight="600">🔐 Security · Data Governance</text>
   <text x="99" y="344" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Ranger · Catalog · Lineage</text>
 
-  <rect x="194" y="310" width="170" height="44" rx="7" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="194" y="310" width="170" height="44" rx="7" fill="rgba(15,118,110,0.15)" stroke="#0f766e" stroke-width="1"/>
   <text x="279" y="328" text-anchor="middle" fill="white" font-size="10" font-weight="600">🚀 API Service · Data Sharing</text>
   <text x="279" y="344" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">REST / GraphQL / Subscribe</text>
 
-  <rect x="374" y="310" width="170" height="44" rx="7" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="374" y="310" width="170" height="44" rx="7" fill="rgba(15,118,110,0.15)" stroke="#0f766e" stroke-width="1"/>
   <text x="459" y="328" text-anchor="middle" fill="white" font-size="10" font-weight="600">📈 Metrics Management</text>
   <text x="459" y="344" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Business KPIs · North Star</text>
 
-  <rect x="554" y="310" width="190" height="44" rx="7" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="1"/>
+  <rect x="554" y="310" width="190" height="44" rx="7" fill="rgba(15,118,110,0.15)" stroke="#0f766e" stroke-width="1"/>
   <text x="649" y="328" text-anchor="middle" fill="white" font-size="10" font-weight="600">🔍 Search · Tag · Portrait</text>
   <text x="649" y="344" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">ES · User Tags · 360° Profile</text>
 
   <!-- Layer 5 -->
-  <rect x="14"  y="368" width="130" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
-  <text x="79"  y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">📉 Risk Control</text>
+  <rect x="14"  y="368" width="130" height="38" rx="7" fill="rgba(15,118,110,0.12)" stroke="#0d9488" stroke-width="1"/>
+  <text x="79"  y="384" text-anchor="middle" fill="#99f6e4" font-size="10" font-weight="600">📉 Risk Control</text>
   <text x="79"  y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">Finance · Insurance</text>
 
-  <rect x="154" y="368" width="130" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
-  <text x="219" y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🎯 Precision Marketing</text>
+  <rect x="154" y="368" width="130" height="38" rx="7" fill="rgba(15,118,110,0.12)" stroke="#0d9488" stroke-width="1"/>
+  <text x="219" y="384" text-anchor="middle" fill="#99f6e4" font-size="10" font-weight="600">🎯 Precision Marketing</text>
   <text x="219" y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">Recommendation · Ads</text>
 
-  <rect x="294" y="368" width="130" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
-  <text x="359" y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🏭 Smart Manufacturing</text>
+  <rect x="294" y="368" width="130" height="38" rx="7" fill="rgba(15,118,110,0.12)" stroke="#0d9488" stroke-width="1"/>
+  <text x="359" y="384" text-anchor="middle" fill="#99f6e4" font-size="10" font-weight="600">🏭 Smart Manufacturing</text>
   <text x="359" y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">Quality · Predictive Maint.</text>
 
-  <rect x="434" y="368" width="130" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
-  <text x="499" y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">🏙️ Smart City</text>
+  <rect x="434" y="368" width="130" height="38" rx="7" fill="rgba(15,118,110,0.12)" stroke="#0d9488" stroke-width="1"/>
+  <text x="499" y="384" text-anchor="middle" fill="#99f6e4" font-size="10" font-weight="600">🏙️ Smart City</text>
   <text x="499" y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">Traffic · Gov · Civic</text>
 
-  <rect x="574" y="368" width="170" height="38" rx="7" fill="rgba(220,38,38,0.12)" stroke="#b91c1c" stroke-width="1"/>
-  <text x="659" y="384" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">📊 BI &amp; Decision Support</text>
+  <rect x="574" y="368" width="170" height="38" rx="7" fill="rgba(15,118,110,0.12)" stroke="#0d9488" stroke-width="1"/>
+  <text x="659" y="384" text-anchor="middle" fill="#99f6e4" font-size="10" font-weight="600">📊 BI &amp; Decision Support</text>
   <text x="659" y="399" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="9">Reports · Dashboard · AI Insight</text>
 
   <rect x="14" y="416" width="730" height="14" rx="5" fill="rgba(0,0,0,0.3)"/>
