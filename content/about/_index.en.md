@@ -13,7 +13,7 @@ Core technology routes: Apache Ambari Ecosystem · RISC-V+FPGA Heterogeneous Com
 
 ## Company Milestones
 
-### 2018 — Founded
+### 2020 — Founded
 Shenzhen Qixuan Software Co., Ltd. established in Longgang, Shenzhen, focusing on self-developed big data infrastructure software
 
 ### 2023 — HadoopForge Project Launch

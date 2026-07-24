@@ -1,4 +1,4 @@
-baseURL = 'https://www.qixuan.vip/'
+﻿baseURL = 'https://www.qixuan.vip/'
 defaultContentLanguage = 'zh'
 defaultContentLanguageInSubdir = false
 title = '深圳市启煊软件有限公司'
@@ -153,7 +153,7 @@ robots = "index,follow"
 [params.company]
   name = "深圳市启煊软件有限公司"
   legalName = "深圳市启煊软件有限公司"
-  foundingDate = "2018"
+  foundingDate = "2020"
   logo = "images/logo.png"
 
 [markup]
