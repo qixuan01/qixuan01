@@ -2973,3 +2973,97 @@ tr:hover {
   .about-award-images { grid-template-columns: 1fr; }
   .about-partners-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ============================================================
+   产品页 — ERP 模块网格 & 宽版体验卡片
+   ============================================================ */
+
+/* ERP 宽版卡片 — 跨两列 */
+.demo-card-wide {
+  grid-column: span 2;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.demo-card-wide .demo-card-icon { font-size: 1.75rem; flex-shrink: 0; }
+.demo-card-wide .demo-card-title { font-size: 1rem; }
+.demo-card-wide .demo-card-desc { margin-bottom: 0.5rem; }
+
+/* ERP 平台预览图 */
+.demo-card-preview {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(234,88,12,0.2);
+  margin: 0.5rem 0;
+  object-fit: cover;
+  max-height: 220px;
+  transition: transform 0.3s ease;
+}
+
+.demo-card:hover .demo-card-preview {
+  transform: scale(1.02);
+}
+
+/* ERP 模块网格 */
+.erp-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.erp-module-card {
+  background: white;
+  border: 1px solid rgba(234,88,12,0.15);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+}
+
+.erp-module-card:hover {
+  border-color: #ea580c;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(234,88,12,0.12);
+}
+
+.erp-module-icon {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.erp-module-card h4 {
+  color: #9a3412;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.erp-module-card p {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.erp-module-card ul {
+  padding-left: 1.1rem;
+  margin: 0;
+  font-size: 0.83rem;
+  color: #64748b;
+}
+
+.erp-module-card ul li {
+  padding: 0.2rem 0;
+}
+
+@media (max-width: 992px) {
+  .demo-card-wide { grid-column: span 1; flex-direction: column; }
+  .erp-modules-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .erp-modules-grid { grid-template-columns: 1fr; }
+}

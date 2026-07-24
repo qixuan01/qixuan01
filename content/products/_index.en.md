@@ -8,10 +8,11 @@ description: "Core products and professional services of Shenzhen Qixuan Softwar
 ## Live Demo
 
 <div class="demo-cards-grid">
-  <a href="https://erp.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-erp">
+  <a href="https://erp.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-erp demo-card-wide">
     <div class="demo-card-icon">🏢</div>
     <div class="demo-card-title">SME ERP Platform</div>
     <div class="demo-card-desc">All-in-one enterprise resource management — inventory, finance, HR</div>
+    <img src="/images/erp-platform.jpg" alt="ERP Platform Interface" class="demo-card-preview">
     <div class="demo-card-url">erp.qixuan.vip →</div>
   </a>
   <a href="https://hds.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-hadoop">
@@ -292,3 +293,94 @@ Tech stack: **Ollama + Sherpa-ONNX + MeloTTS + VRM + FSRS**
 - Reduces 50% of repetitive teacher workload, 60% teaching efficiency improvement
 
 [Learn More →](/en/ai-education/)
+
+
+---
+
+## <span id="digital-transformation">Digital Transformation Program</span>
+
+### SME All-in-One ERP Platform
+
+Targeting the core pain points of SME digital transformation, Qixuan Software delivers a ready-to-use integrated ERP solution. Combining **inventory management, financial management, HR, CRM, and procurement** into one platform — built on industry best practices to help businesses shift from "experience-driven" to "data-driven" operations.
+
+![ERP Platform Interface](/images/erp-platform.jpg)
+
+#### Five Core Modules
+
+<div class="erp-modules-grid">
+  <div class="erp-module-card">
+    <div class="erp-module-icon">📦</div>
+    <h4>Inventory Management</h4>
+    <p>Full-chain integration of purchasing, sales, and warehouse operations. Real-time inventory visibility, automatic replenishment suggestions, 30%+ improvement in inventory turnover.</p>
+    <ul>
+      <li>Multi-warehouse / multi-batch management</li>
+      <li>Barcode / scan operations</li>
+      <li>Stock alerts and auto-replenishment</li>
+      <li>Complete in/out traceability</li>
+    </ul>
+  </div>
+  <div class="erp-module-card">
+    <div class="erp-module-icon">💰</div>
+    <h4>Financial Management</h4>
+    <p>Integrated general ledger, AR/AP, cost accounting, and profit analysis. Real-time sync with business data, automatic financial reports, 60%+ improvement in month-end closing efficiency.</p>
+    <ul>
+      <li>General ledger management</li>
+      <li>Automated AR/AP reconciliation</li>
+      <li>Multi-dimensional cost analysis</li>
+      <li>Automatic financial statement generation</li>
+    </ul>
+  </div>
+  <div class="erp-module-card">
+    <div class="erp-module-icon">👥</div>
+    <h4>Human Resources</h4>
+    <p>Digital management of employee records, attendance, payroll, and performance. 50% improvement in HR processing efficiency, employee self-service reduces repetitive work.</p>
+    <ul>
+      <li>Full employee lifecycle management</li>
+      <li>Smart scheduling and attendance</li>
+      <li>Automated payroll calculation</li>
+      <li>Performance appraisal and OKR</li>
+    </ul>
+  </div>
+  <div class="erp-module-card">
+    <div class="erp-module-icon">🤝</div>
+    <h4>CRM</h4>
+    <p>Full-cycle management of leads, follow-ups, contracts, and after-sales. Industry best-practice funnel model, average 25%+ improvement in sales conversion rates.</p>
+    <ul>
+      <li>Lead → Opportunity → Contract funnel</li>
+      <li>Customer profiling and segmentation</li>
+      <li>Sales forecasting and analytics</li>
+      <li>After-sales ticket tracking</li>
+    </ul>
+  </div>
+  <div class="erp-module-card">
+    <div class="erp-module-icon">🔗</div>
+    <h4>Procurement & Supply Chain</h4>
+    <p>Fully digital supplier management, RFQ, purchase orders, and receiving. Supplier rating system, 10-15% procurement cost reduction, improved on-time delivery.</p>
+    <ul>
+      <li>Supplier profiles and ratings</li>
+      <li>Online RFQ management</li>
+      <li>PO full-cycle tracking</li>
+      <li>Receiving inspection and QC</li>
+    </ul>
+  </div>
+</div>
+
+#### Industry Best Practice Results
+
+| Area | Traditional Approach | Qixuan ERP | Improvement |
+|---|---|---|---|
+| Inventory | Manual Excel, delayed info | Real-time visibility, auto alerts | 30%+ turnover improvement |
+| Month-end Close | Manual 1-2 week process | Real-time sync, close anytime | 60% faster closing |
+| Procurement | Offline approvals, opaque | Online approvals, full audit trail | 10-15% cost reduction |
+| Sales | Scattered data, hard to track | Visual funnel, real-time dashboard | 25%+ conversion lift |
+| HR | Manual attendance/payroll | Automated calculation, self-service | 50% efficiency gain |
+
+#### Editions & Pricing
+
+| Edition | Company Size | Core Features | Price |
+|---|---|---|---|
+| Startup | 1-20 people | Inventory + Basic Finance | ¥3,600/year |
+| Growth | 20-100 people | All modules + CRM | ¥9,800/year |
+| Professional | 100-500 people | All modules + Custom + Private | On request |
+
+[Try ERP Platform →](https://erp.qixuan.vip){target="_blank"}　　[Contact Us for a Solution →](/en/contact/)
