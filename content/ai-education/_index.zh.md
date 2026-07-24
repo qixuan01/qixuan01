@@ -43,6 +43,17 @@ keywords: "AI教育,悦学智伴,FSRS,数字人,情感感知,VRM,完全离线,AI
 
 ## 五大核心创新
 
+<div class="edu-platform-showcase">
+  <div class="edu-platform-label">🎓 悦学智伴 · Otowyue Learn AI · 国内首创FSRS×数字人AI教育平台</div>
+  <a href="https://edu.qixuan.vip" target="_blank" rel="noopener">
+    <img src="/images/ai-edu-platform.jpg" alt="悦学智伴AI教育平台界面" class="edu-platform-img">
+  </a>
+  <div class="edu-platform-links">
+    <a href="https://edu.qixuan.vip" target="_blank" rel="noopener" class="edu-platform-btn">🎓 在线体验 →</a>
+    <a href="/contact/" class="edu-platform-btn edu-platform-btn-secondary">申请学校试点 →</a>
+  </div>
+</div>
+
 <div class="edu-features-grid">
   <div class="edu-feature-card">
     <div class="edu-feature-icon">🎭</div>

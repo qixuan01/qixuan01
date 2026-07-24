@@ -3360,3 +3360,131 @@ tr:hover {
     max-height: 140px;
   }
 }
+
+
+/* ============================================================
+   AI教育版块 — 平台展示区
+   ============================================================ */
+.edu-platform-showcase {
+  margin: 1.5rem 0 2rem;
+  background: linear-gradient(135deg, #0a1a30, #0f2540);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid rgba(56,189,248,0.2);
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edu-platform-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #7dd3fc;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.edu-platform-img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  display: block;
+  border: 1px solid rgba(56,189,248,0.15);
+  transition: transform 0.3s ease;
+}
+
+.edu-platform-showcase a:hover .edu-platform-img { transform: scale(1.01); }
+
+.edu-platform-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.edu-platform-btn {
+  display: inline-block;
+  padding: 0.55rem 1.5rem;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: white;
+  border-radius: 25px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(2,132,199,0.35);
+}
+
+.edu-platform-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(2,132,199,0.5); color: white; text-decoration: none; }
+
+.edu-platform-btn-secondary {
+  background: rgba(255,255,255,0.1);
+  box-shadow: none;
+  border: 1px solid rgba(125,211,252,0.3);
+  color: #7dd3fc;
+}
+
+.edu-platform-btn-secondary:hover { background: rgba(255,255,255,0.18); box-shadow: none; color: white; }
+
+/* 边缘AI双列展示 */
+.edge-dual-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edge-showcase-item {
+  background: linear-gradient(135deg, #0d0020, #1a0035);
+  border-radius: 14px;
+  padding: 1rem;
+  border: 1px solid rgba(167,139,250,0.2);
+}
+
+.edge-showcase-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #c4b5fd;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.03em;
+}
+
+.edge-showcase-img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 8px;
+  display: block;
+  border: 1px solid rgba(167,139,250,0.15);
+  transition: transform 0.3s;
+}
+
+.edge-showcase-item a:hover .edge-showcase-img { transform: scale(1.02); }
+
+/* 在线体验卡片 — 带预览图样式 */
+.demo-card-with-preview {
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.demo-card-with-preview .demo-card-preview {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .edge-dual-showcase { grid-template-columns: 1fr; }
+  .edu-platform-img { max-height: 240px; }
+}

@@ -935,6 +935,11 @@
                                 <i class="fas fa-graduation-cap me-2" style="color:#38bdf8;"></i>{{ if $isZH }}悦学智伴{{ else }}Otowyue Learn AI{{ end }}
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
+                            <li><span class="dropdown-header">🏢 {{ if $isZH }}数字化变革{{ else }}Digital Transformation{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#digital-transformation" $baseURL $langPrefix }}">
+                                <i class="fas fa-chart-line me-2" style="color:#ea580c;"></i>{{ if $isZH }}中小企业 ERP 平台{{ else }}SME ERP Platform{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}" style="font-weight:600;">
                                 <i class="fas fa-th me-2" style="color:#14b8a6;"></i>{{ if $isZH }}在线体验 →{{ else }}Live Demo →{{ end }}
                             </a></li>

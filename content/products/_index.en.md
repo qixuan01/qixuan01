@@ -15,22 +15,25 @@ description: "Core products and professional services of Shenzhen Qixuan Softwar
     <img src="/images/erp-platform.jpg" alt="ERP Platform Interface" class="demo-card-preview">
     <div class="demo-card-url">erp.qixuan.vip →</div>
   </a>
-  <a href="https://hds.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-hadoop">
+  <a href="https://hds.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-hadoop demo-card-with-preview">
     <div class="demo-card-icon">📊</div>
     <div class="demo-card-title">HadoopForge Platform</div>
     <div class="demo-card-desc">Enterprise Hadoop cluster intelligent O&amp;M and automated deployment</div>
+    <img src="/images/hadoopforge-platform.jpg" alt="HadoopForge Platform Interface" class="demo-card-preview">
     <div class="demo-card-url">hds.qixuan.vip →</div>
   </a>
-  <a href="https://edu.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-edu">
+  <a href="https://edu.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-edu demo-card-with-preview">
     <div class="demo-card-icon">🎓</div>
     <div class="demo-card-title">Otowyue Learn AI</div>
     <div class="demo-card-desc">FSRS × Digital Human · China First · Fully Offline AI Education</div>
+    <img src="/images/ai-edu-platform.jpg" alt="Otowyue Learn AI Platform" class="demo-card-preview">
     <div class="demo-card-url">edu.qixuan.vip →</div>
   </a>
-  <a href="https://emsa.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-ems">
+  <a href="https://emsa.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-ems demo-card-with-preview">
     <div class="demo-card-icon">⚡</div>
     <div class="demo-card-title">EMS Admin Platform</div>
     <div class="demo-card-desc">AI-powered solar-storage-charging energy management system (admin)</div>
+    <img src="/images/ems-platform.jpg" alt="EMS Admin Platform Interface" class="demo-card-preview">
     <div class="demo-card-url">emsa.qixuan.vip →</div>
   </a>
   <a href="https://emsu.qixuan.vip" target="_blank" rel="noopener" class="demo-card demo-card-ems">

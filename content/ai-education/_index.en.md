@@ -43,6 +43,17 @@ Existing AI education products share three core flaws: generic AI lacks teaching
 
 ## Five Core Innovations
 
+<div class="edu-platform-showcase">
+  <div class="edu-platform-label">🎓 Otowyue Learn AI · China's First FSRS × Digital Human AI Education Platform</div>
+  <a href="https://edu.qixuan.vip" target="_blank" rel="noopener">
+    <img src="/images/ai-edu-platform.jpg" alt="Otowyue Learn AI Platform Interface" class="edu-platform-img">
+  </a>
+  <div class="edu-platform-links">
+    <a href="https://edu.qixuan.vip" target="_blank" rel="noopener" class="edu-platform-btn">🎓 Try Live →</a>
+    <a href="/en/contact/" class="edu-platform-btn edu-platform-btn-secondary">Apply for School Pilot →</a>
+  </div>
+</div>
+
 <div class="edu-features-grid">
   <div class="edu-feature-card">
     <div class="edu-feature-icon">🎭</div>
