@@ -101,7 +101,6 @@ HadoopForge is an enterprise-grade Hadoop cluster full lifecycle management plat
 - **Completely free**
 
 ### <span id="enterprise">Enterprise Edition</span>
-- ¥800–1,500 / node / year
 - Professional commercial support team (phone, IM, email, on-site)
 - Highest priority 7×24 fault response
 - Expert support: planning / implementation / proactive inspection / fault investigation / knowledge transfer / critical period coverage
@@ -125,7 +124,6 @@ HadoopForge is an enterprise-grade Hadoop cluster full lifecycle management plat
 - Digital transformation strategy consulting
 
 ### Implementation Services
-- ¥1,500–2,500 / person-day
 - HadoopForge cluster deployment
 - Migration from legacy Ambari / Cloudera environments
 - System integration and custom development
@@ -197,10 +195,10 @@ The world's first accelerator to deploy BitNet b1.58 quantization on FPGA hardwa
 
 | Phase | Product | Target Customer | Price |
 |---|---|---|---|
-| Phase 1 (Current) | AI Inference Dev Board | Universities / Makers / R&D | ¥499–799 |
-| Phase 2 (6–12 months) | Vision Inference Module (OV2640 + FPGA + SDK) | Industrial inspection / Security / Agriculture | ¥1,299 |
-| Phase 3 (12–18 months) | Wi-Fi AI Edge Node | Smart factory / Agricultural IoT | ¥1,999+SaaS |
-| Phase 4 (18–24 months) | BitNet IP Core License (RTL IP) | FPGA / SoC vendors | ¥1M+ |
+| Phase 1 (Current) | AI Inference Dev Board | Universities / Makers / R&D | Contact us |
+| Phase 2 (6–12 months) | Vision Inference Module (OV2640 + FPGA + SDK) | Industrial inspection / Security / Agriculture | Contact us |
+| Phase 3 (12–18 months) | Wi-Fi AI Edge Node | Smart factory / Agricultural IoT | Contact us |
+| Phase 4 (18–24 months) | BitNet IP Core License (RTL IP) | FPGA / SoC vendors | Contact us |
 
 #### Target Applications
 - University AI hardware labs · FPGA AI course experimental platforms
@@ -240,9 +238,9 @@ The inference scheduler automatically selects the optimal path based on query co
 - **FPGA Acceleration Module** (optional) — Compresses inference latency to under 200ms, theoretical 50x speedup
 
 #### Business Model
-- SDK licensing: ¥5–20 / device (tiered by volume)
-- Cloud LLM inference service: ¥0.01 / call
-- Custom development: ¥50K–500K / project
+- SDK licensing: tiered by device volume — contact us
+- Cloud LLM inference service: per-call billing — contact us
+- Custom development: contact us
 
 [Learn More →](/en/edge-ai/smart-terminal/)
 
@@ -286,9 +284,9 @@ Tech stack: **Ollama + Sherpa-ONNX + MeloTTS + VRM + FSRS**
 
 | Edition | Target Customer | Pricing |
 |---|---|---|
-| ToB Institutional | K-12 schools / Training institutions / Corporate | ¥50K–200K / year (SaaS) |
-| ToC Family | Students / Individual learners | ¥39–99 / month |
-| ToG Government | Education bureaus / Rural revitalization | ¥500K–2M / project (fully private) |
+| ToB Institutional | K-12 schools / Training institutions / Corporate | Contact us |
+| ToC Family | Students / Individual learners | Contact us |
+| ToG Government | Education bureaus / Rural revitalization | Contact us |
 
 #### Social Impact
 - Covering 200+ rural schools, benefiting 100,000+ students — advancing educational equity
@@ -382,8 +380,8 @@ Targeting the core pain points of SME digital transformation, Qixuan Software de
 
 | Edition | Company Size | Core Features | Price |
 |---|---|---|---|
-| Startup | 1-20 people | Inventory + Basic Finance | ¥3,600/year |
-| Growth | 20-100 people | All modules + CRM | ¥9,800/year |
-| Professional | 100-500 people | All modules + Custom + Private | On request |
+| Startup | 1-20 people | Inventory + Basic Finance | Contact us |
+| Growth | 20-100 people | All modules + CRM | Contact us |
+| Professional | 100-500 people | All modules + Custom + Private | Contact us |
 
 [Try ERP Platform →](https://erp.qixuan.vip){target="_blank"}　　[Contact Us for a Solution →](/en/contact/)
