@@ -17,6 +17,11 @@ IoT设备部署后面临"最后一公里"困境：设备状态不透明，运维
 
 **Smart Terminal AI** 填补"端侧跑不了模型、纯云端不可靠"之间的产品空白，让每一台MCU设备都能用自然语言回答"你现在状态怎么样？"。
 
+<div class="edge-product-showcase">
+  <div class="edge-product-showcase-label">🟠 智能终端AI中间件 · RISC-V + LiteOS 三层推理架构</div>
+  <img src="/images/smart-terminal-ai.jpg" alt="智能终端AI中间件系统架构" class="edge-product-showcase-img">
+</div>
+
 ---
 
 ## 核心数据

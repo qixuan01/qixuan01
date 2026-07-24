@@ -17,6 +17,11 @@ IoT devices face a "last mile" problem after deployment: device state is opaque,
 
 **Smart Terminal AI** fills the gap between "can't run models on-device" and "pure cloud is unreliable" — letting every MCU device answer "what's your current status?" in natural language.
 
+<div class="edge-product-showcase">
+  <div class="edge-product-showcase-label">🟠 Smart Terminal AI Middleware · RISC-V + LiteOS 3-Tier Inference Architecture</div>
+  <img src="/images/smart-terminal-ai.jpg" alt="Smart Terminal AI Middleware Architecture" class="edge-product-showcase-img">
+</div>
+
 ---
 
 ## Key Metrics

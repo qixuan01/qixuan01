@@ -15,6 +15,11 @@ weight: 1
 
 > 截至2026年6月，全球公开学术文献与专利中，BitNet专用FPGA/ASIC加速器仍属完全空白。本项目是全球率先将BitNet b1.58落地FPGA硬件的实验性平台，具备12–18个月先发窗口。
 
+<div class="edge-product-showcase">
+  <div class="edge-product-showcase-label">🔴 鸿源边缘AI推理加速器 · 全球首个BitNet FPGA硬件加速平台</div>
+  <img src="/images/hongyuan-accelerator.jpg" alt="鸿源边缘AI推理加速器" class="edge-product-showcase-img">
+</div>
+
 <div class="edge-highlights-grid">
   <div class="edge-highlight-card">
     <span class="edge-highlight-num">16x</span>

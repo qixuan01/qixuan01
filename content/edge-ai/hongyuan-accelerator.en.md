@@ -15,6 +15,11 @@ weight: 1
 
 > As of June 2026, no BitNet-specific FPGA/ASIC accelerators exist in global academic literature or patents. This project is the world's first experimental platform to deploy BitNet b1.58 on FPGA hardware, with a 12–18 month first-mover advantage.
 
+<div class="edge-product-showcase">
+  <div class="edge-product-showcase-label">🔴 Hongyuan Edge AI Inference Accelerator · World's First BitNet FPGA Hardware Accelerator</div>
+  <img src="/images/hongyuan-accelerator.jpg" alt="Hongyuan Edge AI Inference Accelerator" class="edge-product-showcase-img">
+</div>
+
 <div class="edge-highlights-grid">
   <div class="edge-highlight-card">
     <span class="edge-highlight-num">16x</span>

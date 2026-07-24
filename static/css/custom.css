@@ -3273,3 +3273,36 @@ tr:hover {
 @media (max-width: 576px) {
   .bigdata-ecosystem-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ============================================================
+   边缘AI产品页 — 产品图片展示区
+   ============================================================ */
+.edge-product-showcase {
+  margin: 1.5rem 0 2rem;
+  background: linear-gradient(135deg, #0d0020, #1a0035);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid rgba(167,139,250,0.2);
+}
+
+.edge-product-showcase-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #c4b5fd;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.edge-product-showcase-img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  display: block;
+  border: 1px solid rgba(167,139,250,0.15);
+  transition: transform 0.3s ease;
+}
+
+.edge-product-showcase-img:hover {
+  transform: scale(1.01);
+}
