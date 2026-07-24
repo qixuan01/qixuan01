@@ -3306,3 +3306,57 @@ tr:hover {
 .edge-product-showcase-img:hover {
   transform: scale(1.01);
 }
+
+
+/* ============================================================
+   全站产品展示图片 — 统一比例约束与协调
+   ============================================================ */
+
+/* 通用：所有平台展示图最大高度限制，保持 16:9 比例 */
+.hds-platform-img,
+.ems-platform-img,
+.edge-product-showcase-img,
+.erp-showcase-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ERP 宽版卡片预览图高度限制 */
+.demo-card-preview {
+  max-height: 180px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* 展示区容器统一最大宽度，避免全屏过宽 */
+.hds-platform-showcase,
+.ems-platform-showcase,
+.edge-product-showcase {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* hover 放大效果统一 */
+.hds-platform-showcase a:hover .hds-platform-img,
+.ems-platform-showcase a:hover .ems-platform-img,
+.edge-product-showcase:hover .edge-product-showcase-img {
+  transform: scale(1.015);
+  transition: transform 0.3s ease;
+}
+
+/* 响应式：小屏限制高度 */
+@media (max-width: 768px) {
+  .hds-platform-img,
+  .ems-platform-img,
+  .edge-product-showcase-img {
+    max-height: 220px;
+  }
+  .demo-card-preview {
+    max-height: 140px;
+  }
+}
