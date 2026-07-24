@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="'PingFang SC','Microsoft YaHei',Arial,sans-serif">
   <defs>
     <linearGradient id="ebg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#052e16"/>
-      <stop offset="100%" style="stop-color:#14532d"/>
+      <stop offset="0%" style="stop-color:#041e10"/>
+      <stop offset="100%" style="stop-color:#0e4d28"/>
     </linearGradient>
     <linearGradient id="etop" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#15803d"/>
-      <stop offset="100%" style="stop-color:#16a34a"/>
+      <stop offset="0%" style="stop-color:#126835"/>
+      <stop offset="100%" style="stop-color:#147a3a"/>
     </linearGradient>
     <linearGradient id="ecard" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#166534"/>
-      <stop offset="100%" style="stop-color:#14532d"/>
+      <stop offset="0%" style="stop-color:#0f5a2e"/>
+      <stop offset="100%" style="stop-color:#0e4d28"/>
     </linearGradient>
     <filter id="eglow">
       <feGaussianBlur stdDeviation="2" result="blur"/>
@@ -52,96 +52,96 @@
   <text x="559" y="97" text-anchor="middle" fill="white" font-size="18">🔥</text>
   <text x="559" y="114" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">备用发电</text>
 
-  <rect x="614" y="74" width="130" height="52" rx="8" fill="rgba(22,163,74,0.25)" stroke="#22c55e" stroke-width="1.5"/>
+  <rect x="614" y="74" width="130" height="52" rx="8" fill="rgba(18,130,58,0.20)" stroke="#1a9e4a" stroke-width="1.5"/>
   <text x="679" y="94" text-anchor="middle" fill="white" font-size="12" font-weight="600">数据采集</text>
-  <text x="679" y="110" text-anchor="middle" fill="#4ade80" font-size="10">IoT / SCADA</text>
+  <text x="679" y="110" text-anchor="middle" fill="#3db86a" font-size="10">IoT / SCADA</text>
   <text x="679" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">传感器 · 电表 · 协议转换</text>
 
   <!-- Arrow down -->
-  <line x1="380" y1="126" x2="380" y2="142" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4,2"/>
-  <polygon points="376,140 380,147 384,140" fill="#4ade80"/>
+  <line x1="380" y1="126" x2="380" y2="142" stroke="#3db86a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,140 380,147 384,140" fill="#3db86a"/>
 
   <!-- ── Layer 2: EMS Core (center box) ── -->
-  <rect x="14" y="148" width="730" height="145" rx="10" fill="rgba(22,163,74,0.08)" stroke="#22c55e" stroke-width="1.8" filter="url(#eglow)"/>
-  <text x="380" y="168" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">🧠  EMS 能源管理中枢  ·  Energy Management System Core</text>
+  <rect x="14" y="148" width="730" height="145" rx="10" fill="rgba(22,163,74,0.08)" stroke="#1a9e4a" stroke-width="1.8" filter="url(#eglow)"/>
+  <text x="380" y="168" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="700">🧠  EMS 能源管理中枢  ·  Energy Management System Core</text>
 
   <!-- 5 EMS modules -->
-  <rect x="26" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#16a34a" stroke-width="1"/>
-  <text x="90" y="200" text-anchor="middle" fill="#4ade80" font-size="18">📊</text>
+  <rect x="26" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#147a3a" stroke-width="1"/>
+  <text x="90" y="200" text-anchor="middle" fill="#3db86a" font-size="18">📊</text>
   <text x="90" y="218" text-anchor="middle" fill="white" font-size="11" font-weight="600">能源数据中台</text>
   <text x="90" y="234" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">实时采集 · 存储</text>
   <text x="90" y="248" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">多源融合 · 质量管理</text>
   <text x="90" y="262" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">时序数据库 / 数据湖</text>
 
-  <rect x="166" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#16a34a" stroke-width="1"/>
-  <text x="230" y="200" text-anchor="middle" fill="#4ade80" font-size="18">🧮</text>
+  <rect x="166" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#147a3a" stroke-width="1"/>
+  <text x="230" y="200" text-anchor="middle" fill="#3db86a" font-size="18">🧮</text>
   <text x="230" y="218" text-anchor="middle" fill="white" font-size="11" font-weight="600">AI预测分析</text>
   <text x="230" y="234" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">负荷预测 · 光伏预测</text>
   <text x="230" y="248" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">峰谷价差预测</text>
   <text x="230" y="262" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">深度学习模型</text>
 
-  <rect x="306" y="178" width="148" height="100" rx="8" fill="rgba(34,197,94,0.25)" stroke="#22c55e" stroke-width="1.5"/>
-  <text x="380" y="198" text-anchor="middle" fill="#4ade80" font-size="18">⚙</text>
+  <rect x="306" y="178" width="148" height="100" rx="8" fill="rgba(26,158,74,0.20)" stroke="#1a9e4a" stroke-width="1.5"/>
+  <text x="380" y="198" text-anchor="middle" fill="#3db86a" font-size="18">⚙</text>
   <text x="380" y="216" text-anchor="middle" fill="white" font-size="12" font-weight="700">智能调度引擎</text>
   <text x="380" y="232" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">充放电策略优化</text>
   <text x="380" y="246" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">峰谷套利 · VPP调度</text>
   <text x="380" y="260" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">需量控制 · 碳管理</text>
-  <text x="380" y="274" text-anchor="middle" fill="#4ade80" font-size="9">10ms级响应</text>
+  <text x="380" y="274" text-anchor="middle" fill="#3db86a" font-size="9">10ms级响应</text>
 
-  <rect x="466" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#16a34a" stroke-width="1"/>
-  <text x="530" y="200" text-anchor="middle" fill="#4ade80" font-size="18">🛡️</text>
+  <rect x="466" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#147a3a" stroke-width="1"/>
+  <text x="530" y="200" text-anchor="middle" fill="#3db86a" font-size="18">🛡️</text>
   <text x="530" y="218" text-anchor="middle" fill="white" font-size="11" font-weight="600">安全与运维</text>
   <text x="530" y="234" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">设备健康监测</text>
   <text x="530" y="248" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">故障预警 · 远程运维</text>
   <text x="530" y="262" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">AFCI · 消防联动</text>
 
-  <rect x="606" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#16a34a" stroke-width="1"/>
-  <text x="670" y="200" text-anchor="middle" fill="#4ade80" font-size="18">🔗</text>
+  <rect x="606" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#147a3a" stroke-width="1"/>
+  <text x="670" y="200" text-anchor="middle" fill="#3db86a" font-size="18">🔗</text>
   <text x="670" y="218" text-anchor="middle" fill="white" font-size="11" font-weight="600">VPP虚拟电厂</text>
   <text x="670" y="234" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">电力市场接入</text>
   <text x="670" y="248" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">调峰调频服务</text>
   <text x="670" y="262" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">OpenAPI · 碳交易</text>
 
   <!-- Arrow down -->
-  <line x1="380" y1="293" x2="380" y2="308" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4,2"/>
-  <polygon points="376,306 380,313 384,306" fill="#4ade80"/>
+  <line x1="380" y1="293" x2="380" y2="308" stroke="#3db86a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,306 380,313 384,306" fill="#3db86a"/>
 
   <!-- ── Layer 3: Applications ── -->
   <text x="16" y="326" fill="rgba(255,255,255,0.4)" font-size="10">应用服务层</text>
-  <rect x="14" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="14" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="83" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">📱 智能App监控</text>
   <text x="83" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">实时监控 · 远程控制</text>
 
-  <rect x="162" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="162" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="231" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">☁️ 云端大屏展示</text>
   <text x="231" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">能源驾驶舱 · 可视化</text>
 
-  <rect x="310" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="310" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="379" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">💰 收益分析报告</text>
   <text x="379" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">节电 · 碳减排 · ROI</text>
 
-  <rect x="458" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="458" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="527" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">🏭 工商业能管</text>
   <text x="527" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">需量控制 · 合规报告</text>
 
-  <rect x="606" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="606" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="675" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">🌍 碳资产管理</text>
   <text x="675" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">GEC绿证 · 碳积分</text>
 
   <!-- ── KPI bar ── -->
   <rect x="14" y="390" width="730" height="36" rx="8" fill="rgba(0,0,0,0.35)"/>
-  <text x="90"  y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">98.4%</text>
+  <text x="90"  y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">98.4%</text>
   <text x="90"  y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">逆变效率</text>
   <line x1="168" y1="396" x2="168" y2="420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="230" y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">10ms</text>
+  <text x="230" y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">10ms</text>
   <text x="230" y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">切换响应</text>
   <line x1="308" y1="396" x2="308" y2="420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="380" y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">&gt;80%</text>
+  <text x="380" y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">&gt;80%</text>
   <text x="380" y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">能源自给率</text>
   <line x1="452" y1="396" x2="452" y2="420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="528" y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">VPP</text>
+  <text x="528" y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">VPP</text>
   <text x="528" y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">虚拟电厂收益</text>
   <line x1="600" y1="396" x2="600" y2="420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="675" y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">双碳</text>
+  <text x="675" y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">双碳</text>
   <text x="675" y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">碳中和支撑</text>
 </svg>

@@ -1,4 +1,4 @@
-/* 星核动力科技自定义样式 - 增强event主题 - 版本 20241217-3 */
+﻿/* 星核动力科技自定义样式 - 增强event主题 - 版本 20241217-3 */
 
 /* 主色调 - 靛青/青色系 */
 :root {
@@ -1353,15 +1353,15 @@ tr:hover {
    ============================================================ */
 
 :root {
-  --energy-primary: #16a34a;
-  --energy-primary-light: #22c55e;
-  --energy-primary-dark: #15803d;
-  --energy-primary-darker: #166534;
-  --energy-gradient: linear-gradient(135deg, #16a34a, #22c55e);
-  --energy-gradient-dark: linear-gradient(135deg, #166534, #16a34a);
+  --energy-primary: #147a3a;
+  --energy-primary-light: #1a9e4a;
+  --energy-primary-dark: #0f5a2e;
+  --energy-primary-darker: #0a3d1f;
+  --energy-gradient: linear-gradient(135deg, #147a3a, #1a9e4a);
+  --energy-gradient-dark: linear-gradient(135deg, #0a3d1f, #147a3a);
   --energy-bg-light: #f0fdf4;
   --energy-bg-mid: #dcfce7;
-  --energy-accent: #4ade80;
+  --energy-accent: #3db86a;
 }
 
 /* ---- 首页双版块入口 ---- */
@@ -1535,12 +1535,12 @@ tr:hover {
 .dual-solution-btn-energy {
   background: var(--energy-gradient);
   color: white;
-  box-shadow: 0 4px 15px rgba(22,163,74,0.3);
+  box-shadow: 0 4px 15px rgba(20,122,58,0.22);
 }
 
 .dual-solution-btn-energy:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(22,163,74,0.4);
+  box-shadow: 0 8px 25px rgba(20,122,58,0.32);
   color: white;
   text-decoration: none;
 }
@@ -2848,10 +2848,10 @@ tr:hover {
   background: linear-gradient(145deg, #f0fdf4, #ffffff);
   border-color: rgba(22,163,74,0.2);
 }
-.demo-card-ems::before { background: linear-gradient(90deg, #16a34a, #22c55e); }
+.demo-card-ems::before { background: linear-gradient(90deg, #147a3a, #1a9e4a); }
 .demo-card-ems .demo-card-title { color: #166534; }
-.demo-card-ems .demo-card-url { background: rgba(22,163,74,0.1); color: #16a34a; }
-.demo-card-ems:hover { border-color: #16a34a; }
+.demo-card-ems .demo-card-url { background: rgba(22,163,74,0.1); color: #147a3a; }
+.demo-card-ems:hover { border-color: #147a3a; }
 
 @media (max-width: 1100px) {
   .demo-cards-grid { grid-template-columns: repeat(3, 1fr); }
@@ -3077,7 +3077,7 @@ tr:hover {
   background: linear-gradient(135deg, #052e16, #0f2d1a);
   border-radius: 16px;
   padding: 1.5rem;
-  border: 1px solid rgba(34,197,94,0.2);
+  border: 1px solid rgba(26,158,74,0.15);
 }
 
 .ems-platform-label {
@@ -3094,7 +3094,7 @@ tr:hover {
   box-shadow: 0 8px 30px rgba(0,0,0,0.5);
   display: block;
   transition: transform 0.3s ease;
-  border: 1px solid rgba(34,197,94,0.15);
+  border: 1px solid rgba(26,158,74,0.12);
 }
 
 .ems-platform-showcase a:hover .ems-platform-img {
@@ -3111,19 +3111,19 @@ tr:hover {
 .ems-platform-btn {
   display: inline-block;
   padding: 0.55rem 1.5rem;
-  background: linear-gradient(135deg, #16a34a, #22c55e);
+  background: linear-gradient(135deg, #147a3a, #1a9e4a);
   color: white;
   border-radius: 25px;
   font-size: 0.88rem;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(22,163,74,0.35);
+  box-shadow: 0 4px 15px rgba(20,122,58,0.28);
 }
 
 .ems-platform-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(22,163,74,0.5);
+  box-shadow: 0 8px 25px rgba(20,122,58,0.40);
   color: white;
   text-decoration: none;
 }

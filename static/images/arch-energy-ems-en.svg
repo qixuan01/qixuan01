@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="Arial,'Helvetica Neue',sans-serif">
   <defs>
     <linearGradient id="ebg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#052e16"/><stop offset="100%" style="stop-color:#14532d"/>
+      <stop offset="0%" style="stop-color:#041e10"/><stop offset="100%" style="stop-color:#0e4d28"/>
     </linearGradient>
     <linearGradient id="etop" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#15803d"/><stop offset="100%" style="stop-color:#16a34a"/>
+      <stop offset="0%" style="stop-color:#126835"/><stop offset="100%" style="stop-color:#147a3a"/>
     </linearGradient>
     <filter id="eg"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
@@ -39,93 +39,93 @@
   <text x="559" y="97" text-anchor="middle" fill="white" font-size="18">🔥</text>
   <text x="559" y="114" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="600">Backup Gen</text>
 
-  <rect x="614" y="74" width="130" height="52" rx="8" fill="rgba(22,163,74,0.25)" stroke="#22c55e" stroke-width="1.5"/>
+  <rect x="614" y="74" width="130" height="52" rx="8" fill="rgba(18,130,58,0.20)" stroke="#1a9e4a" stroke-width="1.5"/>
   <text x="679" y="94" text-anchor="middle" fill="white" font-size="11" font-weight="600">Data Acquisition</text>
-  <text x="679" y="110" text-anchor="middle" fill="#4ade80" font-size="10">IoT / SCADA</text>
+  <text x="679" y="110" text-anchor="middle" fill="#3db86a" font-size="10">IoT / SCADA</text>
   <text x="679" y="122" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Sensors · Meters · Protocol</text>
 
-  <line x1="380" y1="126" x2="380" y2="142" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4,2"/>
-  <polygon points="376,140 380,147 384,140" fill="#4ade80"/>
+  <line x1="380" y1="126" x2="380" y2="142" stroke="#3db86a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,140 380,147 384,140" fill="#3db86a"/>
 
   <!-- EMS Core -->
-  <rect x="14" y="148" width="730" height="145" rx="10" fill="rgba(22,163,74,0.08)" stroke="#22c55e" stroke-width="1.8" filter="url(#eg)"/>
-  <text x="380" y="168" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">🧠  EMS Core  ·  Intelligent Energy Management &amp; Dispatch Engine</text>
+  <rect x="14" y="148" width="730" height="145" rx="10" fill="rgba(22,163,74,0.08)" stroke="#1a9e4a" stroke-width="1.8" filter="url(#eg)"/>
+  <text x="380" y="168" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="700">🧠  EMS Core  ·  Intelligent Energy Management &amp; Dispatch Engine</text>
 
-  <rect x="26" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#16a34a" stroke-width="1"/>
-  <text x="90" y="200" text-anchor="middle" fill="#4ade80" font-size="18">📊</text>
+  <rect x="26" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#147a3a" stroke-width="1"/>
+  <text x="90" y="200" text-anchor="middle" fill="#3db86a" font-size="18">📊</text>
   <text x="90" y="218" text-anchor="middle" fill="white" font-size="11" font-weight="600">Energy Data Hub</text>
   <text x="90" y="234" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Real-time Collection</text>
   <text x="90" y="248" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Multi-source Fusion</text>
   <text x="90" y="262" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">Time-series DB / Data Lake</text>
 
-  <rect x="166" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#16a34a" stroke-width="1"/>
-  <text x="230" y="200" text-anchor="middle" fill="#4ade80" font-size="18">🧮</text>
+  <rect x="166" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#147a3a" stroke-width="1"/>
+  <text x="230" y="200" text-anchor="middle" fill="#3db86a" font-size="18">🧮</text>
   <text x="230" y="218" text-anchor="middle" fill="white" font-size="11" font-weight="600">AI Forecasting</text>
   <text x="230" y="234" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Load &amp; PV Prediction</text>
   <text x="230" y="248" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Price Forecasting</text>
   <text x="230" y="262" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8">Deep Learning Models</text>
 
-  <rect x="306" y="178" width="148" height="100" rx="8" fill="rgba(34,197,94,0.25)" stroke="#22c55e" stroke-width="1.5"/>
-  <text x="380" y="198" text-anchor="middle" fill="#4ade80" font-size="18">⚙</text>
+  <rect x="306" y="178" width="148" height="100" rx="8" fill="rgba(26,158,74,0.20)" stroke="#1a9e4a" stroke-width="1.5"/>
+  <text x="380" y="198" text-anchor="middle" fill="#3db86a" font-size="18">⚙</text>
   <text x="380" y="216" text-anchor="middle" fill="white" font-size="12" font-weight="700">Smart Dispatch Engine</text>
   <text x="380" y="232" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Charge/Discharge Optimization</text>
   <text x="380" y="246" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Peak-Valley Arbitrage · VPP</text>
   <text x="380" y="260" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="9">Demand Control · Carbon Mgmt</text>
-  <text x="380" y="274" text-anchor="middle" fill="#4ade80" font-size="9">10ms Response</text>
+  <text x="380" y="274" text-anchor="middle" fill="#3db86a" font-size="9">10ms Response</text>
 
-  <rect x="466" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#16a34a" stroke-width="1"/>
-  <text x="530" y="200" text-anchor="middle" fill="#4ade80" font-size="18">🛡️</text>
+  <rect x="466" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#147a3a" stroke-width="1"/>
+  <text x="530" y="200" text-anchor="middle" fill="#3db86a" font-size="18">🛡️</text>
   <text x="530" y="218" text-anchor="middle" fill="white" font-size="11" font-weight="600">Safety &amp; O&amp;M</text>
   <text x="530" y="234" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Device Health Monitor</text>
   <text x="530" y="248" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Fault Alert · Remote O&amp;M</text>
   <text x="530" y="262" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">AFCI · Fire Linkage</text>
 
-  <rect x="606" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#16a34a" stroke-width="1"/>
-  <text x="670" y="200" text-anchor="middle" fill="#4ade80" font-size="18">🔗</text>
+  <rect x="606" y="178" width="128" height="100" rx="8" fill="rgba(22,163,74,0.2)" stroke="#147a3a" stroke-width="1"/>
+  <text x="670" y="200" text-anchor="middle" fill="#3db86a" font-size="18">🔗</text>
   <text x="670" y="218" text-anchor="middle" fill="white" font-size="11" font-weight="600">VPP Platform</text>
   <text x="670" y="234" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Power Market Access</text>
   <text x="670" y="248" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Frequency Regulation</text>
   <text x="670" y="262" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">OpenAPI · Carbon Trading</text>
 
-  <line x1="380" y1="293" x2="380" y2="308" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4,2"/>
-  <polygon points="376,306 380,313 384,306" fill="#4ade80"/>
+  <line x1="380" y1="293" x2="380" y2="308" stroke="#3db86a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="376,306 380,313 384,306" fill="#3db86a"/>
 
   <!-- Application Layer -->
   <text x="16" y="326" fill="rgba(255,255,255,0.4)" font-size="10">Application Layer</text>
-  <rect x="14" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="14" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="83" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">📱 Smart App Monitor</text>
   <text x="83" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Real-time · Remote Control</text>
 
-  <rect x="162" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="162" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="231" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">☁️ Cloud Dashboard</text>
   <text x="231" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Energy Cockpit · Visualization</text>
 
-  <rect x="310" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="310" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="379" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">💰 Revenue Analytics</text>
   <text x="379" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Savings · Carbon · ROI</text>
 
-  <rect x="458" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="458" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="527" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">🏭 C&amp;I Energy Mgmt</text>
   <text x="527" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Demand Control · Compliance</text>
 
-  <rect x="606" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1"/>
+  <rect x="606" y="332" width="138" height="44" rx="7" fill="rgba(22,163,74,0.15)" stroke="#147a3a" stroke-width="1"/>
   <text x="675" y="349" text-anchor="middle" fill="white" font-size="10" font-weight="600">🌍 Carbon Asset Mgmt</text>
   <text x="675" y="364" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">GEC Green Cert · Carbon Credits</text>
 
   <!-- KPI bar -->
   <rect x="14" y="390" width="730" height="36" rx="8" fill="rgba(0,0,0,0.35)"/>
-  <text x="90"  y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">98.4%</text>
+  <text x="90"  y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">98.4%</text>
   <text x="90"  y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Inverter Efficiency</text>
   <line x1="168" y1="396" x2="168" y2="420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="230" y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">10ms</text>
+  <text x="230" y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">10ms</text>
   <text x="230" y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Grid Switchover</text>
   <line x1="308" y1="396" x2="308" y2="420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="380" y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">&gt;80%</text>
+  <text x="380" y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">&gt;80%</text>
   <text x="380" y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Energy Self-Sufficiency</text>
   <line x1="452" y1="396" x2="452" y2="420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="528" y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">VPP</text>
+  <text x="528" y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">VPP</text>
   <text x="528" y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Virtual Power Plant</text>
   <line x1="600" y1="396" x2="600" y2="420" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-  <text x="675" y="408" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="800">Dual Carbon</text>
+  <text x="675" y="408" text-anchor="middle" fill="#3db86a" font-size="13" font-weight="800">Dual Carbon</text>
   <text x="675" y="421" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9">Carbon Neutral Support</text>
 </svg>

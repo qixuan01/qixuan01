@@ -1,4 +1,4 @@
-{{ define "main" }}
+﻿{{ define "main" }}
 <!-- Hero Section - 四图轮播 -->
 <section class="hero-section hero-carousel" id="heroSection">
     <div class="hero-slide active" id="heroSlide0" style="background-image: url('{{ printf "%simages/solution-space-con.jpg" $.Site.BaseURL }}');">
@@ -20,7 +20,7 @@
                     <h1 class="hero-title">{{ .Site.Title }}</h1>
                     <p class="hero-subtitle">{{ .Description }}</p>
                     <div>
-                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#16a34a,#22c55e); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源{{ else }}Smart Energy{{ end }}</a>
+                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#147a3a,#1a9e4a); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源{{ else }}Smart Energy{{ end }}</a>
                         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#7c3aed,#a855f7); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI{{ else }}Edge AI{{ end }}</a>
                         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sai-education/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/ai-education/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#0284c7,#38bdf8); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}AI伴学{{ else }}AI Education{{ end }}</a>
                         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg mb-2" style="background: linear-gradient(135deg,#0f766e,#14b8a6); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}大数据{{ else }}Big Data{{ end }}</a>
@@ -120,7 +120,7 @@
 <style>
 /* ---- 架构板块基础 ---- */
 .arch-panel { padding: 0; overflow: hidden; }
-.arch-panel-energy { background: linear-gradient(180deg, #071a0f 0%, #0a2415 50%, #071a0f 100%); }
+.arch-panel-energy { background: linear-gradient(180deg, #050f08 0%, #091509 50%, #050f08 100%); }
 .arch-panel-bigdata { background: linear-gradient(180deg, #071418 0%, #0a1e25 50%, #071418 100%); }
 
 /* ---- 文字头部行 ---- */
@@ -139,7 +139,7 @@
     margin-bottom: 1.1rem;
     text-transform: uppercase;
 }
-.arch-badge-energy { background: rgba(34,197,94,0.12); color: #86efac; border: 1px solid rgba(34,197,94,0.25); }
+.arch-badge-energy { background: rgba(26,158,74,0.12); color: #6bc98a; border: 1px solid rgba(26,158,74,0.22); }
 .arch-badge-bigdata { background: rgba(20,184,166,0.12); color: #99f6e4; border: 1px solid rgba(20,184,166,0.25); }
 
 .arch-title {
@@ -151,7 +151,7 @@
     letter-spacing: -0.01em;
 }
 .arch-title::after { display: none !important; }
-.arch-title-energy { color: #86efac; }
+.arch-title-energy { color: #6bc98a; }
 .arch-title-bigdata { color: #99f6e4; }
 
 .arch-desc {
@@ -178,7 +178,7 @@
     border-radius: 20px;
     line-height: 1.4;
 }
-.arch-tag-energy { background: rgba(22,163,74,0.18); color: #86efac; border: 1px solid rgba(22,163,74,0.25); }
+.arch-tag-energy { background: rgba(18,130,58,0.15); color: #6bc98a; border: 1px solid rgba(18,130,58,0.22); }
 .arch-tag-bigdata { background: rgba(15,118,110,0.18); color: #5eead4; border: 1px solid rgba(15,118,110,0.25); }
 
 /* ---- 按钮 ---- */
@@ -191,8 +191,8 @@
     text-decoration: none;
     transition: all 0.3s ease;
 }
-.arch-btn-energy { background: linear-gradient(135deg,#16a34a,#22c55e); color: white; box-shadow: 0 4px 15px rgba(22,163,74,0.35); }
-.arch-btn-energy:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(22,163,74,0.5); color: white; text-decoration: none; }
+.arch-btn-energy { background: linear-gradient(135deg,#147a3a,#1a9e4a); color: white; box-shadow: 0 4px 15px rgba(20,122,58,0.30); }
+.arch-btn-energy:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(20,122,58,0.45); color: white; text-decoration: none; }
 .arch-btn-bigdata { background: linear-gradient(135deg,#0f766e,#14b8a6); color: white; box-shadow: 0 4px 15px rgba(15,118,110,0.35); }
 .arch-btn-bigdata:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(15,118,110,0.5); color: white; text-decoration: none; }
 
@@ -366,7 +366,7 @@
         <h2 style="color: white; border-bottom: none; margin-bottom: 0.75rem;">{{ if eq .Site.Language.Lang "zh" }}准备开启您的数字化未来？{{ else }}Ready to Build the Future?{{ end }}</h2>
         <p style="color: rgba(255,255,255,0.6); margin-bottom: 1.5rem;">{{ if eq .Site.Language.Lang "zh" }}大数据运维 · 智慧能源 · 边缘AI推理 · AI伴学教育 — 联系我们的专业团队{{ else }}Big Data · Smart Energy · Edge AI · AI Education — Contact our professional team{{ end }}</p>
         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI →{{ else }}Edge AI →{{ end }}</a>
-        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#16a34a,#22c55e);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源 →{{ else }}Smart Energy →{{ end }}</a>
+        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#147a3a,#1a9e4a);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源 →{{ else }}Smart Energy →{{ end }}</a>
         <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light mb-2" style="border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}联系我们{{ else }}Contact Us{{ end }}</a>
     </div>
 </section>
