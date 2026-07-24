@@ -65,9 +65,9 @@
 </script>
 
 <!-- Section Title -->
-<section style="padding: 2.5rem 0 0; background: #0f172a; text-align: center;">
+<section style="padding: 2.5rem 0 0; background: #0a0f1e; text-align: center;">
     <h2 style="color: white; border-bottom: none; font-size: 1.8rem; margin-bottom: 0.5rem;">{{ if eq .Site.Language.Lang "zh" }}我们的四大核心业务{{ else }}Our Four Core Business Lines{{ end }}</h2>
-    <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-bottom: 0; padding-bottom: 2rem;">{{ if eq .Site.Language.Lang "zh" }}大数据运维 · 智慧能源 · 边缘AI推理 · AI伴学教育 — 自主研发·全栈可控·国产替代{{ else }}Big Data · Smart Energy · Edge AI · AI Education — Self-developed · Full-stack Controllable · Domestic Substitution{{ end }}</p>
+    <p style="color: rgba(255,255,255,0.45); font-size: 0.95rem; margin-bottom: 0; padding-bottom: 2rem;">{{ if eq .Site.Language.Lang "zh" }}大数据运维 · 智慧能源 · 边缘AI推理 · AI伴学教育 — 自主研发·全栈可控·国产替代{{ else }}Big Data · Smart Energy · Edge AI · AI Education — Self-developed · Full-stack Controllable · Domestic Substitution{{ end }}</p>
 </section>
 
 <!-- Energy Architecture: 文字在上，图在下 -->
@@ -120,8 +120,8 @@
 <style>
 /* ---- 架构板块基础 ---- */
 .arch-panel { padding: 0; overflow: hidden; }
-.arch-panel-energy { background: linear-gradient(180deg, #052e16 0%, #0f2d1a 100%); }
-.arch-panel-bigdata { background: linear-gradient(180deg, #042f2e 0%, #0d3330 100%); }
+.arch-panel-energy { background: linear-gradient(180deg, #071a0f 0%, #0a2415 50%, #071a0f 100%); }
+.arch-panel-bigdata { background: linear-gradient(180deg, #071418 0%, #0a1e25 50%, #071418 100%); }
 
 /* ---- 文字头部行 ---- */
 .arch-header-row {
@@ -131,33 +131,36 @@
 
 .arch-badge {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    padding: 0.3rem 1rem;
+    padding: 0.3rem 1.1rem;
     border-radius: 20px;
-    letter-spacing: 0.06em;
-    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.1rem;
+    text-transform: uppercase;
 }
-.arch-badge-energy { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
-.arch-badge-bigdata { background: rgba(20,184,166,0.15); color: #5eead4; border: 1px solid rgba(20,184,166,0.3); }
+.arch-badge-energy { background: rgba(34,197,94,0.12); color: #86efac; border: 1px solid rgba(34,197,94,0.25); }
+.arch-badge-bigdata { background: rgba(20,184,166,0.12); color: #99f6e4; border: 1px solid rgba(20,184,166,0.25); }
 
 .arch-title {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.9rem;
     border-bottom: none !important;
     line-height: 1.3;
+    letter-spacing: -0.01em;
 }
 .arch-title::after { display: none !important; }
-.arch-title-energy { color: #4ade80; }
-.arch-title-bigdata { color: #5eead4; }
+.arch-title-energy { color: #86efac; }
+.arch-title-bigdata { color: #99f6e4; }
 
 .arch-desc {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.65);
-    max-width: 680px;
+    font-size: 0.97rem;
+    color: rgba(255,255,255,0.72);
+    max-width: 700px;
     margin: 0 auto 1.5rem;
-    line-height: 1.7;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
 }
 
 /* ---- 标签行 ---- */
