@@ -16,6 +16,74 @@ images: ["images/solutionBanner.jpg"]
 
 深圳市启煊软件有限公司为各行业提供专业的大数据解决方案，助力企业数字化转型。基于Apache Hadoop生态构建企业级大数据平台，支持海量数据处理、实时分析和智能决策。
 
+## HadoopForge — 大数据平台管理中枢
+
+<div class="hds-platform-showcase">
+  <div class="hds-platform-label">📊 HadoopForge 企业级Hadoop集群智能运维平台 · 实时管理界面</div>
+  <a href="https://hds.qixuan.vip" target="_blank" rel="noopener">
+    <img src="/images/hadoopforge-platform.jpg" alt="HadoopForge大数据平台界面" class="hds-platform-img">
+  </a>
+  <div class="hds-platform-links">
+    <a href="https://hds.qixuan.vip" target="_blank" rel="noopener" class="hds-platform-btn">📊 在线体验 HadoopForge →</a>
+    <a href="/products/#hadoopforge" class="hds-platform-btn hds-platform-btn-secondary">了解产品详情 →</a>
+  </div>
+</div>
+
+## 大数据生态全景
+
+Apache Hadoop 生态经过近二十年演进，已形成涵盖**数据采集、存储、计算、治理、应用**五大层次的完整技术栈。HadoopForge 在此基础上做了关键的企业级增强——国内首个完成 Ambari 3.0.0 + Bigtop 3.5.0 适配，Hive 4.0.1 率先兼容。
+
+<div class="bigdata-ecosystem-grid">
+  <div class="bigdata-eco-card">
+    <div class="bigdata-eco-icon">📥</div>
+    <h4>数据采集层</h4>
+    <div class="bigdata-eco-tags">
+      <span>Kafka</span><span>Flume</span><span>Sqoop</span><span>Canal</span><span>Flink CDC</span>
+    </div>
+    <p>实时流式采集 + 批量离线同步，支持 MySQL/Oracle/PostgreSQL 等数据库 CDC 变更捕获，日均处理能力 PB 级。</p>
+  </div>
+  <div class="bigdata-eco-card">
+    <div class="bigdata-eco-icon">🗄️</div>
+    <h4>存储层</h4>
+    <div class="bigdata-eco-tags">
+      <span>HDFS</span><span>HBase</span><span>Kudu</span><span>Hudi</span><span>Iceberg</span>
+    </div>
+    <p>分布式文件系统 + 列式存储 + 湖仓一体。HDFS 三副本高可用，HBase 毫秒级随机读写，Hudi/Iceberg 支持数据湖 ACID 事务。</p>
+  </div>
+  <div class="bigdata-eco-card">
+    <div class="bigdata-eco-icon">⚙️</div>
+    <h4>计算层</h4>
+    <div class="bigdata-eco-tags">
+      <span>Spark 3.5</span><span>Hive 4.0</span><span>Flink</span><span>Doris</span><span>ClickHouse</span>
+    </div>
+    <p>批流一体计算引擎矩阵。Spark 大规模批处理、Flink 毫秒级流计算、Doris/ClickHouse 亚秒级 OLAP 分析，满足不同时效需求。</p>
+  </div>
+  <div class="bigdata-eco-card">
+    <div class="bigdata-eco-icon">🛡️</div>
+    <h4>治理与安全层</h4>
+    <div class="bigdata-eco-tags">
+      <span>Ranger</span><span>Atlas</span><span>Kerberos</span><span>OpenLDAP</span>
+    </div>
+    <p>数据血缘追踪、权限细粒度管控、数据质量监控全覆盖。金融级安全体系，满足等保三级和信创合规要求。</p>
+  </div>
+  <div class="bigdata-eco-card">
+    <div class="bigdata-eco-icon">🔧</div>
+    <h4>运维管理层</h4>
+    <div class="bigdata-eco-tags">
+      <span>Ambari 3.0</span><span>Bigtop 3.5</span><span>Prometheus</span><span>Grafana</span>
+    </div>
+    <p>HadoopForge 核心层：可视化集群编排、AI 智能运维（LSTM+孤立森林）、故障预测准确率 92%，部署成功率 98%。</p>
+  </div>
+  <div class="bigdata-eco-card">
+    <div class="bigdata-eco-icon">📊</div>
+    <h4>应用分析层</h4>
+    <div class="bigdata-eco-tags">
+      <span>Superset</span><span>Zeppelin</span><span>Jupyter</span><span>自定义BI</span>
+    </div>
+    <p>数据可视化大屏、交互式分析笔记本、机器学习平台，将海量数据转化为业务洞察和决策支持。</p>
+  </div>
+</div>
+
 ## 平台架构总览
 
 ![企业级大数据平台五层架构](images/arch-bigdata-platform.svg)

@@ -3136,3 +3136,140 @@ tr:hover {
 .ems-platform-btn-user:hover {
   box-shadow: 0 8px 25px rgba(15,118,110,0.5);
 }
+
+
+/* ============================================================
+   大数据版块 — HadoopForge 平台展示 & 生态网格
+   ============================================================ */
+.hds-platform-showcase {
+  margin: 1.5rem 0 2rem;
+  background: linear-gradient(135deg, #042f2e, #0d3330);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(20,184,166,0.2);
+}
+
+.hds-platform-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5eead4;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.hds-platform-img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  display: block;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(20,184,166,0.15);
+}
+
+.hds-platform-showcase a:hover .hds-platform-img {
+  transform: scale(1.01);
+}
+
+.hds-platform-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.hds-platform-btn {
+  display: inline-block;
+  padding: 0.55rem 1.5rem;
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  color: white;
+  border-radius: 25px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(15,118,110,0.4);
+}
+
+.hds-platform-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(15,118,110,0.55);
+  color: white;
+  text-decoration: none;
+}
+
+.hds-platform-btn-secondary {
+  background: rgba(255,255,255,0.12);
+  box-shadow: none;
+  border: 1px solid rgba(94,234,212,0.3);
+  color: #5eead4;
+}
+
+.hds-platform-btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
+  box-shadow: none;
+  color: white;
+}
+
+/* 大数据生态网格 */
+.bigdata-ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.bigdata-eco-card {
+  background: white;
+  border: 1px solid rgba(15,118,110,0.15);
+  border-radius: 14px;
+  padding: 1.4rem;
+  transition: all 0.3s;
+}
+
+.bigdata-eco-card:hover {
+  border-color: #0f766e;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(15,118,110,0.12);
+}
+
+.bigdata-eco-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.bigdata-eco-card h4 {
+  color: #134e4a;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.bigdata-eco-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.bigdata-eco-tags span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #0f766e;
+  background: rgba(15,118,110,0.08);
+  padding: 0.15rem 0.55rem;
+  border-radius: 10px;
+  border: 1px solid rgba(15,118,110,0.2);
+}
+
+.bigdata-eco-card p {
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .bigdata-ecosystem-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+  .bigdata-ecosystem-grid { grid-template-columns: 1fr; }
+}
