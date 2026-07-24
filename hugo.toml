@@ -1,4 +1,4 @@
-baseURL = 'https://www.qixuan.vip/'
+﻿baseURL = 'https://www.qixuan.vip/'
 defaultContentLanguage = 'zh'
 defaultContentLanguageInSubdir = false
 title = '深圳市启煊软件有限公司'
@@ -146,7 +146,7 @@ robots = "index,follow"
 [params.social]
   email = "axel@qixuan.vip"
   phone = "18923719468"
-  address = "深圳市龙岗区龙岗街道祥情世纪城市广场二楼"
+  address = "深圳市龙岗区龙城街道龙平西路28号龙平西路28号"
   wechat = "深圳市启煊软件有限公司"
 
 # 公司信息

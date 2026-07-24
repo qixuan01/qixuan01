@@ -1,4 +1,4 @@
----
+﻿---
 title: "About Us"
 description: "Shenzhen Qixuan Software Co., Ltd. — Self-developed · Full-stack Controllable · Domestic Substitution"
 ---
@@ -124,7 +124,7 @@ Fully based on Apache open-source ecosystem, supporting Loongson, Kylin OS, Red 
 
 ### Headquarters
 **Shenzhen Qixuan Software Co., Ltd.**  
-Address: Longcheng Street, Longgang District, Shenzhen  
+Address: No. 28, Longping West Road, Longcheng Street, Longgang District, Shenzhen  
 Email: axel@qixuan.vip  
 Website: https://www.qixuan.vip
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Contact Us"
 description: "Contact Shenzhen Qixuan Software Co., Ltd. for HadoopForge and enterprise big data solutions"
 ---
@@ -8,7 +8,7 @@ description: "Contact Shenzhen Qixuan Software Co., Ltd. for HadoopForge and ent
 ## Headquarters
 
 ### Shenzhen Qixuan Software Co., Ltd.
-**Address**: Longcheng Street, Longgang District, Shenzhen, China  
+**Address**: No. 28, Longping West Road, Longcheng Street, Longgang District, Shenzhen, China  
 **Email**: axel@qixuan.vip  
 **Website**: https://www.qixuan.vip  
 
