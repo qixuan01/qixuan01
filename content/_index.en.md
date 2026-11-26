@@ -73,6 +73,11 @@ call_to_action:
     enable: true
     label: "Contact Us"
     link: "contact"
+seoTitle: "Qixuan Software · Wenqu DataOps-AI & HodoopForge Data Lake"
+seoDescription: "Qixuan Software powers education data intelligence and real-time lakehouse with Wenqu DataOps-AI and HodoopForge Data Lake, alongside HadoopForge, edge AI and AI education."
+seoKeywords: "Wenqu DataOps-AI,HodoopForge Data Lake,Education Data Intelligence,DataOps,Real-time Lakehouse,Kerberos,HadoopForge,Big Data O&M,Edge AI,AI Education,Qixuan Software"
+ogImage: "images/hadoopforge-platform.jpg"
+
 ---
 
 <div class="dual-solutions-section">

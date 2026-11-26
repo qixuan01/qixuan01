@@ -3,6 +3,12 @@ title: "智慧能源解决方案"
 description: "启煊软件EMS智慧能源管理系统 — 光储充一体化、VPP虚拟电厂、AI智能调度，助力企业新能源数字化转型与双碳目标"
 images: ["images/solution-energy.jpg"]
 keywords: "EMS能源管理系统,光储充一体化,VPP虚拟电厂,智慧能源,新能源数字化,光伏储能,AI智能调度,峰谷套利,双碳目标,碳中和,储能系统"
+seoTitle: "智慧能源 EMS · 光储充一体化与虚拟电厂"
+seoDescription: "启煊智慧能源 EMS 覆盖光伏、储能、充电桩与 VPP 虚拟电厂，AI 智能调度、峰谷套利、碳资产管理，服务家庭、工商业与园区。"
+seoKeywords: "智慧能源,EMS能源管理系统,光储充一体化,VPP虚拟电厂,储能逆变器,混合逆变器,储能电池,直流充电桩,AI调度,双碳,零碳园区"
+ogImage: "images/ems-platform.jpg"
+schemaType: "Service"
+
 ---
 
 <div class="energy-hub-header">

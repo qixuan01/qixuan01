@@ -3,6 +3,12 @@ title: "大数据解决方案"
 description: "启煊软件HadoopForge大数据运维平台 — Hadoop集群管理、信创国产替代、Ambari 3.0+Bigtop 3.5适配，AI运维故障预测准确率92%，服务金融、能源、通信、航天等行业"
 images: ["images/solutionBanner.jpg"]
 keywords: "大数据运维平台,HadoopForge,Hadoop集群管理,信创大数据,Ambari替代,企业大数据平台,大数据解决方案,Spark,Kafka,Flink,Hive,国产替代"
+seoTitle: "大数据解决方案 · HadoopForge 企业级集群运维"
+seoDescription: "基于 HadoopForge 与 Apache Ambari 3.0.0 + Bigtop 3.5.0，提供 Hadoop 集群部署、Hive 4.0.1 适配、AI 运维、Kerberos 安全与信创国产替代。"
+seoKeywords: "大数据解决方案,HadoopForge,Hadoop集群管理,Ambari,Bigtop,Hive 4.0.1,Spark,Kafka,Flink,大数据运维,信创大数据,国产替代"
+ogImage: "images/hadoopforge-platform.jpg"
+schemaType: "Service"
+
 ---
 
 <div class="bigdata-hub-header">

@@ -1,6 +1,12 @@
 ﻿---
 title: "Products & Services"
 description: "Core products and professional services of Shenzhen Qixuan Software Co., Ltd. — Self-developed · Full-stack Controllable · Domestic Substitution"
+seoTitle: "Products · Wenqu DataOps-AI & HodoopForge Data Lake"
+seoDescription: "Qixuan product matrix: Wenqu DataOps-AI, HodoopForge Data Lake, HadoopForge big data O&M, Hongyuan edge AI accelerator, Otowyue Learn AI and SME ERP."
+seoKeywords: "Wenqu DataOps-AI,HodoopForge Data Lake,HadoopForge,Big Data O&M,Edge AI,FPGA Accelerator,AI Education,Otowyue Learn AI,SME ERP,Domestic Substitution"
+ogImage: "images/hadoopforge-platform.jpg"
+keywords: "Wenqu DataOps-AI,HodoopForge Data Lake,HadoopForge,Big Data O&M,Edge AI,FPGA Accelerator,AI Education,Otowyue Learn AI,SME ERP,Domestic Substitution"
+
 ---
 
 

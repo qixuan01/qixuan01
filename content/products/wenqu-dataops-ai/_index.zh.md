@@ -1,7 +1,35 @@
 ---
 title: "问渠 DataOps-AI"
 description: "问渠 DataOps-AI · 教育数据智能闭环平台 — 从课堂到数据，从数据回到课堂，全链路闭环的教育数字化解决方案"
+seoTitle: "问渠 DataOps-AI · 教育数据智能闭环平台"
+seoDescription: "问渠 DataOps-AI 打通教学应用、DataOps 数据运营、数据与模型底座、安全交付四层能力，覆盖 RAG 教学、BKT 掌握度、湖仓治理、模型评测与等保合规。"
+seoKeywords: "问渠DataOps-AI,教育数据智能,教育数据湖,DataOps,DataOps平台,教育大数据,RAG教学,BKT掌握度,数据治理,湖仓一体,等保三级,多租户,AI教育平台"
 keywords: "问渠,DataOps,AI教育平台,教育数据湖,EduLake,RAG教学,BKT掌握度,教育智能,数据治理,DataOps平台"
+ogImage: "images/ai-edu-platform.jpg"
+schemaType: "SoftwareApplication"
+applicationCategory: "BusinessApplication"
+operatingSystem: "Linux, Docker, Kubernetes"
+softwareVersion: "2026-11-26"
+featureList:
+  - "教育数据智能闭环"
+  - "RAG 教学对话与引用"
+  - "BKT 掌握度与薄弱点"
+  - "DataOps 资产、质量、血缘、SLO"
+  - "湖仓一体与实时入湖"
+  - "等保三级技术自检与隐私闭环"
+faq:
+  - q: "问渠 DataOps-AI 是什么？"
+    a: "问渠 DataOps-AI 是面向教育行业的数据智能闭环平台，把教学应用、DataOps 数据运营、数据与模型底座、安全交付四层能力打通，覆盖课堂对话、练习、报告、湖仓治理与模型评测全链路。"
+  - q: "它和传统教育 BI 有什么区别？"
+    a: "传统 BI 主要做报表展示；问渠把数据资产、质量门禁、字段级血缘、SLO、数据产品、NL2SQL Copilot 与教学业务连成闭环，让数据结论回到教师和学生的日常教学。"
+  - q: "学生隐私和数据安全如何保障？"
+    a: "支持本人数据导出与删除、匿名化与脱敏、≥180 天留存策略、SHA-256 哈希链操作审计；应用层多租户与四级角色隔离，等保三级技术自检 84.8%。"
+  - q: "是否支持私有化和信创环境？"
+    a: "支持私有化部署，完全基于 Apache 开源生态，可运行在国产芯片与操作系统上；数据平台可按需启用 Kerberos、TLS 与租户隔离。"
+  - q: "如何接入现有教务或课程系统？"
+    a: "提供 LTI 1.3、xAPI、SCORM、教务与物流 Webhook、S3/MinIO 等集成接口，课程、章节、知识点与练习数据可按标准导入。"
+  - q: "交付周期和验证方式是什么？"
+    a: "按学校或机构规模分阶段交付，提供 360 项自动化测试、SCA/SBOM、备份恢复演练以及 Qixuan CloudBuild 发布回滚机制。"
 ---
 
 ## 平台定位

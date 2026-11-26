@@ -1,6 +1,12 @@
 ﻿---
 title: "About Us"
 description: "Shenzhen Qixuan Software Co., Ltd. — Self-developed · Full-stack Controllable · Domestic Substitution"
+seoTitle: "About Qixuan Software · Self-developed · Full-stack · Domestic Substitution"
+seoDescription: "Shenzhen Qixuan Software focuses on big data infrastructure, AI education, edge AI and smart energy, with 80,000+ lines of proprietary code, 500+ customers and 50+ IP assets."
+seoKeywords: "Qixuan Software,Shenzhen Software Company,Big Data Infrastructure,AI Education,Edge AI,Smart Energy,Domestic Substitution,Self-developed"
+ogImage: "images/logo-large.png"
+keywords: "Qixuan Software,Shenzhen Software Company,Big Data Infrastructure,AI Education,Edge AI,Smart Energy,Domestic Substitution,Self-developed"
+
 ---
 
 # About Shenzhen Qixuan Software Co., Ltd.

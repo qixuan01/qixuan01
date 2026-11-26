@@ -1,24 +1,47 @@
 User-agent: *
 Allow: /
-
-# 禁止抓取的路径
 Disallow: /admin/
 Disallow: /private/
 Disallow: /*.json$
-Disallow: /*.xml$
+Disallow: /cdn-cgi/
 
 # 站点地图
-Sitemap: {{ .Site.BaseURL }}sitemap.xml
+Sitemap: {{ "sitemap.xml" | absURL }}
+Sitemap: {{ "zh/sitemap.xml" | absURL }}
+Sitemap: {{ "en/sitemap.xml" | absURL }}
 
 # 搜索引擎特定规则
 User-agent: Googlebot
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
 
 User-agent: Baiduspider
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 1
+
+# 百度移动/PC 适配：忽略地图查询参数产生的重复页面
+Clean-param: lang&embed /maps/
 
 User-agent: Sogou web spider
 Allow: /
+Crawl-delay: 1
 
 User-agent: 360Spider
 Allow: /
+Crawl-delay: 1
+
+User-agent: YisouSpider
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bytespider
+Allow: /
+Crawl-delay: 1

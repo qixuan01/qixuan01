@@ -3,31 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {{ range .Data.Pages }}
   {{ if not .Params.private }}
+  {{- $priority := 0.5 -}}
+  {{- $changefreq := "monthly" -}}
+  {{- if .IsHome -}}
+    {{- $priority = 1.0 -}}{{- $changefreq = "weekly" -}}
+  {{- else if and (eq .Section "products") (or (strings.Contains .RelPermalink "products/wenqu-dataops-ai") (strings.Contains .RelPermalink "products/hodoopforge")) -}}
+    {{- $priority = 0.95 -}}{{- $changefreq = "weekly" -}}
+  {{- else if eq .Section "products" -}}
+    {{- $priority = 0.9 -}}{{- $changefreq = "weekly" -}}
+  {{- else if in (slice "solutions" "energy-solutions" "edge-ai" "ai-education") .Section -}}
+    {{- $priority = 0.85 -}}{{- $changefreq = "monthly" -}}
+  {{- else if eq .Section "docs" -}}
+    {{- $priority = 0.7 -}}{{- $changefreq = "monthly" -}}
+  {{- else if eq .Section "cases" -}}
+    {{- $priority = 0.75 -}}{{- $changefreq = "monthly" -}}
+  {{- else if eq .Section "about" -}}
+    {{- $priority = 0.6 -}}{{- $changefreq = "yearly" -}}
+  {{- else if eq .Section "contact" -}}
+    {{- $priority = 0.6 -}}{{- $changefreq = "yearly" -}}
+  {{- else if eq .Section "news" -}}
+    {{- $priority = 0.55 -}}{{- $changefreq = "weekly" -}}
+  {{- end -}}
   <url>
     <loc>{{ .Permalink }}</loc>
-    {{ if not .Lastmod.IsZero }}
+    {{- if not .Lastmod.IsZero }}
     <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
-    {{ end }}
-    {{ with .Sitemap.ChangeFreq }}
-    <changefreq>{{ . }}</changefreq>
-    {{ end }}
-    {{ if ge .Sitemap.Priority 0.0 }}
-    <priority>{{ .Sitemap.Priority }}</priority>
-    {{ end }}
-    {{ if .IsTranslated }}
-    {{ range .Translations }}
-    <xhtml:link
-      rel="alternate"
-      hreflang="{{ .Language.Lang }}"
-      href="{{ .Permalink }}"
-      />
-    {{ end }}
-    <xhtml:link
-      rel="alternate"
-      hreflang="{{ .Language.Lang }}"
-      href="{{ .Permalink }}"
-      />
-    {{ end }}
+    {{- end }}
+    <changefreq>{{ $changefreq }}</changefreq>
+    <priority>{{ $priority }}</priority>
+    {{- $xdefault := .Permalink -}}
+    {{- range .AllTranslations }}{{ if eq .Language.Lang "zh" }}{{ $xdefault = .Permalink }}{{ end }}{{ end -}}
+    {{- range .AllTranslations }}
+    <xhtml:link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+    {{- end }}
+    {{- if not .IsTranslated }}
+    <xhtml:link rel="alternate" hreflang="{{ .Site.Language.Lang }}" href="{{ .Permalink }}" />
+    {{- end }}
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ $xdefault }}" />
   </url>
   {{ end }}
   {{ end }}

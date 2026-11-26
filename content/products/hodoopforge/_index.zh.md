@@ -1,7 +1,35 @@
 ---
 title: "HodoopForge 数据湖"
 description: "HodoopForge 数据湖平台 — 容器级高可用 · Kerberos 数据面 · 实时入湖 · Kafka-Flink-Iceberg 全链路"
+seoTitle: "HodoopForge 数据湖 · 容器级高可用湖仓平台"
+seoDescription: "HodoopForge 数据湖基于 Kafka 到 Flink 到 Iceberg 实时入湖，提供 Kerberos 数据面、HDFS NameNode HA、Spark/Hive 查询、Prometheus 监控与 77 张湖表对齐。"
+seoKeywords: "HodoopForge,数据湖,湖仓一体,实时入湖,Kafka,Flink,Iceberg,Kerberos,HDFS NameNode HA,Hadoop,Spark,Hive,数据治理,容器级高可用"
 keywords: "HodoopForge,数据湖,Iceberg,Kafka,Flink,Hadoop,Kerberos,HDFS,大数据平台,实时入湖,数据仓库"
+ogImage: "images/hadoopforge-platform.jpg"
+schemaType: "SoftwareApplication"
+applicationCategory: "BusinessApplication"
+operatingSystem: "Linux, Docker"
+softwareVersion: "2026-11-26"
+featureList:
+  - "容器级高可用与 HDFS NameNode HA"
+  - "Kafka 到 Flink 到 Iceberg 实时入湖"
+  - "Kerberos 数据面与防呆守护"
+  - "77 张 Iceberg 湖表对齐"
+  - "Spark/Hive 查询与 Prometheus 监控"
+  - "运维 Runbook 与自动化自愈"
+faq:
+  - q: "HodoopForge 数据湖是什么？"
+    a: "HodoopForge 数据湖是容器级高可用湖仓底座，提供 Kafka 到 Flink 到 Iceberg 的实时入湖、Spark/Hive 查询、Kerberos 数据面、HDFS NameNode HA 与 Prometheus 监控。"
+  - q: "它和 CDH 或传统 Ambari 集群有什么区别？"
+    a: "HodoopForge 面向 Apache Bigtop 3.5.0 生态，使用 Ambari 3.0.0 管理，但通过 Kerberos guard 锁定数据面配置；不依赖 Cloudera 商业版，支持国产化环境。"
+  - q: "Kerberos 如何保障数据安全？"
+    a: "HDFS、HBase、Hive、YARN、Flink、Kafka、Spark 已启用 Kerberos；MIT KDC 主备、服务 keytab、客户端 kinit，guard 每 30 秒检测配置漂移并恢复。"
+  - q: "HDFS NameNode HA 如何工作？"
+    a: "bigtop-hostname3 为 Active、bigtop-hostname0 为 Standby，配置 3 个 JournalNode、2 个 ZKFC 和 3 个 DataNode，nameservice 为 qixuandata，支持自动故障切换与手动回滚。"
+  - q: "Iceberg 湖表如何保证一致性？"
+    a: "77/77 湖表 Location 对齐，Flink 单写入方配合 Exactly-Once 与 20 秒 checkpoint，ACID 快照可回溯，旧仓库保留用于回滚。"
+  - q: "支持哪些查询和监控能力？"
+    a: "提供 Spark ThriftServer 10016、HiveServer2 10000 与 HMS 9083；Prometheus 主备 12/12 targets、22 条告警规则与 Alertmanager 集群。"
 ---
 
 ## 平台定位

@@ -3,6 +3,12 @@ title: "Big Data Solutions"
 description: "Qixuan Software HadoopForge — Enterprise Hadoop cluster management, Ambari 3.0+Bigtop 3.5 adaptation, AI-powered O&M with 92% fault prediction accuracy. Serving finance, energy, telecom, aerospace industries."
 images: ["images/solutionBanner.jpg"]
 keywords: "Big Data O&M Platform,HadoopForge,Hadoop Cluster Management,Ambari Alternative,Xinchuang,Enterprise Big Data,Spark,Kafka,Flink,Hive,Domestic Substitution"
+seoTitle: "Big Data Solutions · HadoopForge Enterprise Cluster O&M"
+seoDescription: "HadoopForge on Apache Ambari 3.0.0 + Bigtop 3.5.0 delivers Hadoop deployment, Hive 4.0.1 adaptation, AI O&M, Kerberos security and domestic substitution."
+seoKeywords: "Big Data Solutions,HadoopForge,Hadoop Cluster Management,Ambari,Bigtop,Hive 4.0.1,Spark,Kafka,Flink,Big Data O&M,Domestic Substitution"
+ogImage: "images/hadoopforge-platform.jpg"
+schemaType: "Service"
+
 ---
 
 <div class="bigdata-hub-header">

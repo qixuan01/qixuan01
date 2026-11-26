@@ -2,6 +2,12 @@
 title: "边缘AI推理加速"
 description: "深圳市启煊软件有限公司 - 鸿源边缘AI推理加速器 & 智能终端AI中间件 · 全球首个轻量化低功耗推理硬件加速器"
 keywords: "边缘AI,FPGA加速器,轻量化低功耗推理,RISC-V,鸿源,国产替代,HarmonyOS,智能终端,嵌入式AI,IoT"
+seoTitle: "边缘AI推理 · 鸿源FPGA加速器与智能终端中间件"
+seoDescription: "鸿源边缘AI推理加速器将轻量化低功耗推理落到国产FPGA，BOM <¥200、16x 压缩、零误差；智能终端AI中间件让 MCU 离线运行自然语言交互。"
+seoKeywords: "边缘AI,FPGA加速器,轻量化推理,RISC-V,国产FPGA,端侧AI,嵌入式AI,智能终端,AI中间件,离线推理,鸿蒙LiteOS"
+ogImage: "images/hongyuan-accelerator.jpg"
+schemaType: "Service"
+
 ---
 
 <div class="edge-hub-header">

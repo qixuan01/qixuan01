@@ -3,6 +3,12 @@ title: "Smart Energy Solutions"
 description: "Qixuan Software EMS smart energy management — solar-storage-charging integration, VPP virtual power plant, AI dispatch. Enterprise energy digitalization and dual-carbon goals."
 images: ["images/solution-energy.jpg"]
 keywords: "EMS Energy Management System,Solar Storage Charging,VPP Virtual Power Plant,Smart Energy,Energy Digitalization,PV Energy Storage,AI Dispatch,Peak Valley Arbitrage,Dual Carbon,Carbon Neutral"
+seoTitle: "Smart Energy EMS · Solar-Storage-Charging & VPP"
+seoDescription: "Qixuan Smart Energy EMS integrates PV, storage, EV charging and VPP with AI dispatch, peak-valley arbitrage and carbon asset management for homes, businesses and parks."
+seoKeywords: "Smart Energy,EMS,Energy Management System,Solar Storage Charging,VPP,Energy Storage Inverter,Hybrid Inverter,Battery,DC EV Charger,AI Dispatch,Carbon Neutrality"
+ogImage: "images/ems-platform.jpg"
+schemaType: "Service"
+
 ---
 
 <div class="energy-hub-header">

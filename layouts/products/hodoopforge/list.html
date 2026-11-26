@@ -59,7 +59,20 @@
 
 <section class="qs-product-content">
   <div class="qs-shell">
-    <div class="qs-prose">{{ .Content }}</div>
+    <div class="qs-prose">
+      {{ .Content }}
+      {{ with .Params.faq }}
+      <section class="qs-faq">
+        <h2>{{ if $isZH }}常见问题{{ else }}Frequently Asked Questions{{ end }}</h2>
+        {{ range . }}
+        <details class="qs-faq-item">
+          <summary>{{ .q }}</summary>
+          <div class="qs-faq-a">{{ .a | markdownify }}</div>
+        </details>
+        {{ end }}
+      </section>
+      {{ end }}
+    </div>
   </div>
 </section>
 {{ end }}

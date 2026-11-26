@@ -1,6 +1,12 @@
 ﻿---
 title: "Customer Cases"
 description: "Shenzhen Qixuan Software Co., Ltd. successful customer implementation cases"
+seoTitle: "Customer Cases · Big Data / AI Education / Edge AI / Smart Energy"
+seoDescription: "Qixuan Software case studies across finance, manufacturing, energy, telecom, aerospace, government and research institutes."
+seoKeywords: "Big Data Cases,AI Education Cases,Edge AI Cases,Smart Energy Cases,Financial Big Data,Manufacturing Big Data,Domestic Substitution"
+ogImage: "images/band.jpg"
+keywords: "Big Data Cases,AI Education Cases,Edge AI Cases,Smart Energy Cases,Financial Big Data,Manufacturing Big Data,Domestic Substitution"
+
 ---
 
 # Customer Cases

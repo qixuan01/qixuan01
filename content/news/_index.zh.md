@@ -2,6 +2,12 @@
 title: "新闻动态"
 description: "深圳市启煊软件有限公司最新动态、行业资讯和技术分享"
 date: 2024-12-17
+seoTitle: "新闻动态 · 大数据 / AI教育 / 边缘AI / 智慧能源"
+seoDescription: "启煊软件公司新闻、行业资讯与技术分享，覆盖大数据平台、数据湖、AI教育、边缘AI与智慧能源。"
+seoKeywords: "启煊软件新闻,大数据资讯,AI教育资讯,边缘AI,智慧能源,数据治理,行业动态"
+ogImage: "images/band.jpg"
+keywords: "启煊软件新闻,大数据资讯,AI教育资讯,边缘AI,智慧能源,数据治理,行业动态"
+
 ---
 
 # 新闻动态

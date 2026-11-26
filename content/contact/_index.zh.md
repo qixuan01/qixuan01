@@ -1,6 +1,12 @@
 ﻿---
 title: "联系我们"
 description: "深圳市启煊软件有限公司联系方式"
+seoTitle: "联系我们 · 获取产品演示与解决方案"
+seoDescription: "联系深圳市启煊软件有限公司，获取问渠 DataOps-AI、HodoopForge 数据湖、HadoopForge、悦学智伴、鸿源边缘AI 与智慧能源 EMS 的产品演示与方案。"
+seoKeywords: "联系启煊软件,产品演示,大数据方案,AI教育方案,边缘AI方案,智慧能源方案,深圳龙岗"
+ogImage: "images/logo-large.png"
+keywords: "联系启煊软件,产品演示,大数据方案,AI教育方案,边缘AI方案,智慧能源方案,深圳龙岗"
+
 ---
 
 # 联系我们

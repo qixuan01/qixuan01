@@ -2,6 +2,12 @@
 title: "AI Education — Otowyue Learn AI"
 description: "Shenzhen Qixuan Software Co., Ltd. - Otowyue Learn AI · China's first FSRS×Digital Human integration · Fully offline · Emotion-aware AI education platform"
 keywords: "AI Education Platform,Offline AI Teaching,Personalized Learning,Digital Human Teacher,Emotion-aware AI,FSRS Algorithm,K-12 Education,Intelligent Tutoring,AI Teacher,Adaptive Learning,Education Digitalization"
+seoTitle: "AI Education · Otowyue Learn AI FSRS × Digital Human"
+seoDescription: "Otowyue Learn AI is China’s first platform deeply integrating FSRS and VRM digital humans, fully offline with 92% emotion recognition and 93%+ memory retention for K-12 and training."
+seoKeywords: "AI Education,Otowyue Learn AI,FSRS,Digital Human,Offline AI Education,Smart Education,K-12,Personalized Learning,Emotion Sensing,VRM"
+ogImage: "images/ai-edu-platform.jpg"
+schemaType: "Service"
+
 ---
 
 <div class="edu-hub-header">

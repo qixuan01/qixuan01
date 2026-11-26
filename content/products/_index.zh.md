@@ -1,6 +1,12 @@
 ﻿---
 title: "产品与服务"
 description: "深圳市启煊软件有限公司核心产品与专业服务 — 自主研发·全栈可控·国产替代"
+seoTitle: "产品与服务 · 问渠 DataOps-AI 与 HodoopForge 数据湖"
+seoDescription: "启煊软件产品矩阵：问渠 DataOps-AI 教育数据智能闭环、HodoopForge 数据湖、HadoopForge 大数据运维、鸿源边缘AI加速器、悦学智伴AI教育、中小企业ERP。"
+seoKeywords: "问渠DataOps-AI,HodoopForge数据湖,HadoopForge,大数据运维,边缘AI,FPGA加速器,AI伴学,悦学智伴,中小企业ERP,信创,国产替代"
+ogImage: "images/hadoopforge-platform.jpg"
+keywords: "问渠DataOps-AI,HodoopForge数据湖,HadoopForge,大数据运维,边缘AI,FPGA加速器,AI伴学,悦学智伴,中小企业ERP,信创,国产替代"
+
 ---
 
 

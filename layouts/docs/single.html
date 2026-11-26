@@ -23,7 +23,7 @@
   <div class="qs-shell">
     <div class="qs-docs-layout">
       <aside class="qs-docs-sidebar">
-        <h3>{{ .CurrentSection.Title }}</h3>
+        <div class="qs-docs-sidebar-title">{{ .CurrentSection.Title }}</div>
         {{ range $siblings }}
         <a href="{{ .RelPermalink }}" class="{{ if eq .RelPermalink $.RelPermalink }}is-active{{ end }}">{{ .Title }}</a>
         {{ end }}

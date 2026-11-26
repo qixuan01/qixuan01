@@ -7,7 +7,8 @@ hasCJKLanguage = true
 summaryLength = 70
 pagination.pagerSize = 6
 enableRobotsTXT = true
-enableGitInfo = false
+enableGitInfo = true
+disableKinds = ["taxonomy", "term"]
 
 [languages]
   [languages.zh]
@@ -16,8 +17,8 @@ enableGitInfo = false
     title = '深圳市启煊软件有限公司 - 自主研发·全栈可控·国产替代'
     contentDir = 'content'
     [languages.zh.params]
-      description = "启煊软件提供HadoopForge大数据运维平台、离线AI教育平台悦学智伴、轻量化边缘AI推理加速器、光储充EMS智慧能源管理系统及中小企业ERP数字化解决方案。专注信创国产替代，服务企业数字化转型。"
-      keywords = "大数据运维平台,HadoopForge,Hadoop集群管理,信创大数据,企业大数据平台,Ambari替代方案,AI教育平台,离线AI教学,智能个性化教育,数字人教学,边缘AI推理,轻量化AI推理,FPGA边缘计算,端侧AI,嵌入式AI推理,EMS能源管理系统,VPP虚拟电厂,光储充一体化,智慧能源EMS,新能源数字化,中小企业ERP,进销存管理,企业数字化转型,国产替代,自主研发,启煊软件"
+      description = "启煊软件提供问渠 DataOps-AI 教育数据智能闭环、HodoopForge 数据湖、HadoopForge 大数据运维、鸿源边缘AI推理加速器、悦学智伴AI教育、智慧能源EMS与中小企业ERP解决方案，坚持自主研发、全栈可控、国产替代。"
+      keywords = "问渠DataOps-AI,HodoopForge数据湖,教育数据智能,DataOps,教育大数据,湖仓一体,实时入湖,Kerberos,HadoopForge,Hadoop集群管理,信创大数据,国产替代,边缘AI,FPGA加速器,AI伴学,悦学智伴,智慧能源EMS,光储充,VPP虚拟电厂,中小企业ERP,启煊软件"
     
   [languages.en]
     languageName = 'English'
@@ -25,8 +26,8 @@ enableGitInfo = false
     title = 'Shenzhen Qixuan Software Co., Ltd. - Self-developed · Full-stack Controllable · Domestic Substitution'
     contentDir = 'content'
     [languages.en.params]
-      description = "Qixuan Software provides HadoopForge big data O&M platform, Otowyue Learn offline AI education, lightweight edge AI inference accelerators, smart energy EMS system, and SME ERP digital transformation solutions. Specializing in domestic substitution and enterprise digitalization."
-      keywords = "Big Data O&M Platform,HadoopForge,Hadoop Cluster Management,Ambari Alternative,Xinchuang Big Data,Enterprise Big Data Platform,AI Education Platform,Offline AI Teaching,Personalized Learning,Digital Human Education,Edge AI Inference,Lightweight AI Inference,FPGA Edge Computing,On-device AI,Embedded AI,EMS Energy Management System,VPP Virtual Power Plant,Solar Storage Charging,Smart Energy,SME ERP,Inventory Management System,Digital Transformation,Domestic Substitution,Qixuan Software"
+      description = "Qixuan Software provides Wenqu DataOps-AI education data intelligence, HodoopForge Data Lake, HadoopForge big data O&M, Hongyuan edge AI accelerator, Otowyue Learn AI, smart energy EMS and SME ERP solutions — self-developed, full-stack controllable and built for domestic substitution."
+      keywords = "Wenqu DataOps-AI,HodoopForge Data Lake,Education Data Intelligence,DataOps,Education Big Data,Lakehouse,Real-time Ingestion,Kerberos,HadoopForge,Hadoop Cluster Management,Xinchuang Big Data,Domestic Substitution,Edge AI,FPGA Accelerator,AI Education,Otowyue Learn AI,Smart Energy EMS,Solar Storage Charging,VPP,SME ERP,Qixuan Software"
 
 [languages.zh.menu]
   [[languages.zh.menu.main]]
@@ -104,29 +105,44 @@ enableGitInfo = false
 
 [params]
 # 基本参数
-description = "深圳市启煊软件有限公司是一家专注于大数据基础设施、AI教育、边缘AI推理的科技企业，坚持自主研发、全栈可控的技术路线。核心产品线覆盖大数据智能运维、AI教育创新、边缘AI推理加速、智能终端中间件四大领域，80,000+行全栈自主代码，Apache Ambari生态、RISC-V+FPGA异构计算、AI数字人教育技术路线"
+description = "启煊软件提供问渠 DataOps-AI 教育数据智能闭环、HodoopForge 数据湖、HadoopForge 大数据运维、鸿源边缘AI推理加速器、悦学智伴AI教育、智慧能源EMS与中小企业ERP解决方案，坚持自主研发、全栈可控、国产替代。"
 author = "深圳市启煊软件有限公司"
 
 # SEO优化
-keywords = "大数据运维,HadoopForge,Apache Ambari,Hadoop集群管理,AI教育,悦学智伴,边缘AI推理,BitNet,FPGA加速器,RISC-V,智能终端,国产替代,信创,启煊软件"
-robots = "index,follow"
+keywords = "问渠DataOps-AI,HodoopForge数据湖,教育数据智能,DataOps,教育大数据,湖仓一体,实时入湖,Kerberos,HadoopForge,Hadoop集群管理,信创大数据,国产替代,边缘AI,FPGA加速器,AI伴学,悦学智伴,智慧能源EMS,光储充,VPP虚拟电厂,中小企业ERP,启煊软件"
+robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+
+# SEO / 搜索引擎接入
+[params.seo]
+  brandName = "启煊软件"
+  brandNameEn = "Qixuan Software"
+  defaultImage = "images/hadoopforge-platform.jpg"
+  # 百度搜索资源平台「自动推送」：true 开启（仅生产环境生效）
+  baiduPush = true
+  # 以下验证码在对应站长平台获取后填入；留空不输出
+  baiduVerification = ""
+  googleVerification = ""
+  bingVerification = ""
+  sogouVerification = ""
+  qihooVerification = ""
+  bytedanceVerification = ""
+
+# 分析工具（填入 ID 后自动启用）
+googleAnalytics = ""
+baiduAnalytics = ""
 
 # Open Graph / 社交媒体分享
 [params.og]
   siteName = "深圳市启煊软件有限公司"
   locale = "zh_CN"
   type = "website"
-  image = "images/logo.png"
-
-# 分析工具 (可选配置)
-# googleAnalytics = "G-XXXXXXXXXX"  # 替换为实际的Google Analytics ID
-# baiduAnalytics = "xxxxxxxxxxxxxxxx"  # 替换为实际的百度统计ID
+  image = "images/hadoopforge-platform.jpg"
 
 # 社交媒体
 [params.social]
   email = "axel@qixuan.vip"
   phone = "18923719468"
-  address = "深圳市龙岗区龙城街道龙平西路28号龙平西路28号"
+  address = "深圳市龙岗区龙城街道龙平西路28号"
   wechat = "深圳市启煊软件有限公司"
 
 # 公司信息
@@ -148,6 +164,9 @@ robots = "index,follow"
       strikethrough = true
       table = true
       taskList = true
+  [markup.highlight]
+    style = "github-dark"
+    noClasses = true
 
 # URL处理配置
 canonifyURLs = true
@@ -179,3 +198,8 @@ ignoreLogs = ['warning-partial-superfluous-prefix']
   [caches.assets]
     dir = ":resourceDir/_gen"
     maxAge = "720h"
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
+  filename = 'sitemap.xml'

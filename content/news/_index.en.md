@@ -2,6 +2,12 @@
 title: "News & Updates"
 description: "Latest news, industry insights and technical sharing from Shenzhen Qixuan Software Co., Ltd."
 date: 2024-12-17
+seoTitle: "News · Big Data / AI Education / Edge AI / Smart Energy"
+seoDescription: "Qixuan Software company news, industry updates and technical notes on big data, lakehouse, AI education, edge AI and smart energy."
+seoKeywords: "Qixuan News,Big Data News,AI Education News,Edge AI,Smart Energy,Data Governance,Industry Updates"
+ogImage: "images/band.jpg"
+keywords: "Qixuan News,Big Data News,AI Education News,Edge AI,Smart Energy,Data Governance,Industry Updates"
+
 ---
 
 # News & Updates

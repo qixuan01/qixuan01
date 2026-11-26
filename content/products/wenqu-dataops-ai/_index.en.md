@@ -1,7 +1,35 @@
 ---
 title: "Wenqu DataOps-AI"
 description: "Wenqu DataOps-AI · Education Data Intelligence Platform — A full-loop education digitalization solution from classroom to data and back"
+seoTitle: "Wenqu DataOps-AI · Education Data Intelligence Platform"
+seoDescription: "Wenqu DataOps-AI connects teaching application, DataOps, data and model foundation, and secure delivery — covering RAG teaching, BKT mastery, lakehouse governance, model evaluation and Dengbao compliance."
+seoKeywords: "Wenqu DataOps-AI,Education Data Intelligence,Education Data Lake,DataOps,DataOps Platform,Education Big Data,RAG Teaching,BKT Mastery,Data Governance,Lakehouse,Dengbao Level 3,Multi-tenant,AI Education Platform"
 keywords: "Wenqu,DataOps,AI Education Platform,EduLake,RAG Teaching,BKT Mastery,Education Intelligence,Data Governance"
+ogImage: "images/ai-edu-platform.jpg"
+schemaType: "SoftwareApplication"
+applicationCategory: "BusinessApplication"
+operatingSystem: "Linux, Docker, Kubernetes"
+softwareVersion: "2026-11-26"
+featureList:
+  - "Education data intelligence loop"
+  - "RAG teaching chat with citations"
+  - "BKT mastery and weak points"
+  - "DataOps assets, quality, lineage and SLO"
+  - "Lakehouse and real-time ingestion"
+  - "Dengbao Level 3 self-check and privacy loop"
+faq:
+  - q: "What is Wenqu DataOps-AI?"
+    a: "Wenqu DataOps-AI is an education data intelligence loop that connects four layers: teaching application, DataOps, data and model foundation, and secure delivery. It covers classroom chat, practice, reports, lakehouse governance and model evaluation."
+  - q: "How is it different from a traditional education BI tool?"
+    a: "Traditional BI mainly displays reports. Wenqu connects data assets, quality gates, field-level lineage, SLO, data products, NL2SQL Copilot and teaching operations into one loop, so insights return to teachers and students."
+  - q: "How is student privacy protected?"
+    a: "The platform supports personal data export and deletion, anonymisation and masking, a 180-day-plus retention policy and a SHA-256 hash-chain audit. Application-level multi-tenancy and four role levels isolate schools."
+  - q: "Does it support private deployment and domestic IT stacks?"
+    a: "Yes. It supports private deployment on the Apache open-source ecosystem and can run on domestic chips and operating systems. Kerberos, TLS and tenant isolation can be enabled as needed."
+  - q: "Can it integrate with existing academic and course systems?"
+    a: "It provides LTI 1.3, xAPI, SCORM, academic and logistics webhooks, and S3/MinIO integration. Courses, chapters, knowledge points and practice data can be imported to standards."
+  - q: "How is delivery validated?"
+    a: "Delivery is phased by school or institution size, with 360 automated tests, SCA/SBOM, backup and recovery drills, and Qixuan CloudBuild release and rollback."
 ---
 
 ## What It Is

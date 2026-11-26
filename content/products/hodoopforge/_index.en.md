@@ -1,7 +1,35 @@
 ---
 title: "HodoopForge Data Lake"
 description: "HodoopForge Data Lake Platform — Container-level HA · Kerberos Data Plane · Real-time Lakehouse · Kafka-Flink-Iceberg Full Stack"
+seoTitle: "HodoopForge Data Lake · Container-grade HA Lakehouse"
+seoDescription: "HodoopForge Data Lake delivers Kafka to Flink to Iceberg real-time ingestion, a Kerberos data plane, HDFS NameNode HA, Spark/Hive queries, Prometheus monitoring and 77 aligned lake tables."
+seoKeywords: "HodoopForge,Data Lake,Lakehouse,Real-time Ingestion,Kafka,Flink,Iceberg,Kerberos,HDFS NameNode HA,Hadoop,Spark,Hive,Data Governance,Container HA"
 keywords: "HodoopForge,Data Lake,Iceberg,Kafka,Flink,Hadoop,Kerberos,HDFS,Big Data Platform,Real-time Ingestion,Data Warehouse"
+ogImage: "images/hadoopforge-platform.jpg"
+schemaType: "SoftwareApplication"
+applicationCategory: "BusinessApplication"
+operatingSystem: "Linux, Docker"
+softwareVersion: "2026-11-26"
+featureList:
+  - "Container-grade HA and HDFS NameNode HA"
+  - "Kafka to Flink to Iceberg real-time ingestion"
+  - "Kerberos data plane and guard protection"
+  - "77 aligned Iceberg lake tables"
+  - "Spark/Hive queries and Prometheus monitoring"
+  - "Operations runbooks and automated self-healing"
+faq:
+  - q: "What is HodoopForge Data Lake?"
+    a: "HodoopForge Data Lake is a container-grade, highly available lakehouse foundation with Kafka to Flink to Iceberg real-time ingestion, Spark/Hive queries, a Kerberos data plane, HDFS NameNode HA and Prometheus monitoring."
+  - q: "How is it different from CDH or a traditional Ambari cluster?"
+    a: "HodoopForge targets the Apache Bigtop 3.5.0 ecosystem and uses Ambari 3.0.0 for management, while a Kerberos guard locks the data-plane configuration. It does not depend on Cloudera commercial editions and supports domestic IT stacks."
+  - q: "How does Kerberos protect data?"
+    a: "HDFS, HBase, Hive, YARN, Flink, Kafka and Spark have Kerberos enabled. MIT KDC runs primary/standby with service keytabs and client kinit, and the guard detects and restores configuration drift every 30 seconds."
+  - q: "How does HDFS NameNode HA work?"
+    a: "bigtop-hostname3 is Active and bigtop-hostname0 is Standby, with 3 JournalNodes, 2 ZKFC and 3 DataNodes under nameservice qixuandata, supporting automatic failover and manual rollback."
+  - q: "How does Iceberg keep lake tables consistent?"
+    a: "All 77 lake table locations are aligned. Flink uses a single writer, exactly-once and 20-second checkpoints, with ACID snapshots for traceability and the old warehouse retained for rollback."
+  - q: "What query and monitoring capabilities are included?"
+    a: "Spark ThriftServer 10016, HiveServer2 10000 and HMS 9083 are available. Prometheus runs primary/standby with 12/12 targets, 22 alert rules and an Alertmanager cluster."
 ---
 
 ## What It Is

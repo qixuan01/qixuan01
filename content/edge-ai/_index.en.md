@@ -2,6 +2,12 @@
 title: "Edge AI Inference Acceleration"
 description: "Shenzhen Qixuan Software Co., Ltd. - Hongyuan Edge AI Inference Accelerator & Smart Terminal AI Middleware · World's First 轻量化低功耗推理FPGA Hardware Accelerator"
 keywords: "Edge AI,FPGA accelerator,轻量化低功耗推理,RISC-V,Hongyuan,domestic substitution,HarmonyOS,smart terminal,embedded AI,IoT"
+seoTitle: "Edge AI Inference · Hongyuan FPGA Accelerator & Smart Terminal"
+seoDescription: "The Hongyuan edge AI accelerator brings lightweight low-power inference to domestic FPGAs with sub-$30 BOM, 16x compression and zero error; smart terminal middleware runs offline NLU on MCUs."
+seoKeywords: "Edge AI,FPGA Accelerator,Lightweight Inference,RISC-V,Domestic FPGA,On-device AI,Embedded AI,Smart Terminal,AI Middleware,Offline Inference,HarmonyOS LiteOS"
+ogImage: "images/hongyuan-accelerator.jpg"
+schemaType: "Service"
+
 ---
 
 <div class="edge-hub-header">

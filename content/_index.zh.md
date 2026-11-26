@@ -82,6 +82,11 @@ call_to_action:
     enable: true
     label: "立即联系"
     link: "contact"
+seoTitle: "启煊软件 · 问渠 DataOps-AI 与 HodoopForge 数据湖"
+seoDescription: "启煊软件以问渠 DataOps-AI 与 HodoopForge 数据湖为双引擎，提供教育数据智能闭环、实时湖仓、Kerberos 数据面、HadoopForge 大数据运维、边缘AI推理与AI伴学解决方案。"
+seoKeywords: "问渠DataOps-AI,HodoopForge数据湖,教育数据智能,DataOps,实时湖仓,Kerberos,HadoopForge,大数据运维,边缘AI推理,AI伴学,国产替代,启煊软件"
+ogImage: "images/hadoopforge-platform.jpg"
+
 ---
 
 <div class="dual-solutions-section">

@@ -1,6 +1,12 @@
 ﻿---
 title: "Contact Us"
 description: "Contact Shenzhen Qixuan Software Co., Ltd. for HadoopForge and enterprise big data solutions"
+seoTitle: "Contact Us · Request a Product Demo"
+seoDescription: "Contact Shenzhen Qixuan Software for demos and solutions across Wenqu DataOps-AI, HodoopForge Data Lake, HadoopForge, Otowyue Learn AI, Hongyuan Edge AI and Smart Energy EMS."
+seoKeywords: "Contact Qixuan Software,Product Demo,Big Data Solutions,AI Education Solutions,Edge AI Solutions,Smart Energy Solutions,Shenzhen"
+ogImage: "images/logo-large.png"
+keywords: "Contact Qixuan Software,Product Demo,Big Data Solutions,AI Education Solutions,Edge AI Solutions,Smart Energy Solutions,Shenzhen"
+
 ---
 
 # Contact Us
