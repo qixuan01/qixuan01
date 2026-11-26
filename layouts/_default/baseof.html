@@ -151,6 +151,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 产品展示 / 交互地图 -->
+    <link rel="stylesheet" href="{{ "css/map-showcase.css" | relURL }}">
     <!-- 自定义CSS -->
     <style>
         :root {
@@ -244,6 +246,8 @@
             padding: 0.6rem;
             margin-top: 0.4rem;
             min-width: 220px;
+            max-height: calc(100vh - 96px);
+            overflow-y: auto;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
 
@@ -361,37 +365,67 @@
                 border-radius: 0 0 12px 12px;
                 padding: 0.5rem 0;
                 margin-top: 0.3rem;
+                max-height: calc(100vh - 72px);
+                overflow-y: auto;
+                overscroll-behavior: contain;
             }
 
             .navbar-nav .nav-link {
-                padding: 0.55rem 1rem !important;
+                padding: 0.6rem 1rem !important;
                 border-radius: 0;
                 border-bottom: 1px solid rgba(255,255,255,0.05);
-                font-size: 0.9rem;
+                font-size: 0.94rem;
             }
 
-            .dropdown-toggle:not(#languageDropdown)::after { display: none !important; }
-            .dropdown-menu:not([aria-labelledby="languageDropdown"]) { display: none !important; }
+            .navbar .nav-flagship .nav-link::before {
+                margin-right: 8px;
+            }
 
+            /* 移动端：所有下拉菜单内联展开，不再隐藏 */
+            .navbar-nav .dropdown-menu,
             .dropdown-menu[aria-labelledby="languageDropdown"] {
                 position: static !important;
-                box-shadow: none !important;
-                border: none !important;
-                background: rgba(255,255,255,0.05) !important;
-                margin: 0 !important;
-                padding: 0 !important;
+                float: none !important;
+                display: none;
+                width: 100% !important;
+                min-width: 0 !important;
+                margin: 0.15rem 0 0.4rem !important;
+                padding: 0.35rem 0 0.5rem 0.85rem !important;
+                border: 0 !important;
+                border-left: 2px solid rgba(34, 211, 238, 0.35) !important;
                 border-radius: 0 !important;
+                background: rgba(255,255,255,0.035) !important;
+                box-shadow: none !important;
                 opacity: 1 !important;
                 transform: none !important;
                 visibility: visible !important;
-                pointer-events: all !important;
+                pointer-events: auto !important;
             }
 
-            .dropdown-menu[aria-labelledby="languageDropdown"] .dropdown-item {
-                padding: 0.5rem 1.5rem !important;
+            .navbar-nav .dropdown-menu.show,
+            .dropdown-menu[aria-labelledby="languageDropdown"].show {
+                display: block;
+            }
+
+            .navbar-nav .dropdown-header {
+                padding: 0.55rem 0.75rem 0.2rem;
+                color: rgba(255,255,255,0.45);
+            }
+
+            .navbar-nav .dropdown-item {
+                padding: 0.5rem 0.75rem !important;
                 font-size: 0.88rem !important;
-                color: rgba(255,255,255,0.6) !important;
-                border-radius: 0 !important;
+                color: rgba(255,255,255,0.72) !important;
+                border-radius: 6px !important;
+            }
+
+            .navbar-nav .dropdown-item:hover {
+                color: #fff !important;
+                background: rgba(255,255,255,0.08) !important;
+            }
+
+            .dropdown-toggle::after {
+                display: inline-block !important;
             }
         }
         
@@ -838,8 +872,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ .Site.BaseURL }}">
-                <img src="{{ printf "%simages/logo.png" $.Site.BaseURL }}" alt="{{ if eq .Site.Language.Lang "zh" }}启煊软件{{ else }}Qixuan Software{{ end }}">
+            <a class="navbar-brand" href="{{ "" | relLangURL }}">
+                <img src="{{ "images/logo.png" | relURL }}" alt="{{ if eq .Site.Language.Lang "zh" }}启煊软件{{ else }}Qixuan Software{{ end }}">
                 <span class="brand-name">{{ if eq .Site.Language.Lang "zh" }}启煊软件{{ else }}Qixuan{{ end }}</span><span class="brand-dot"></span>
             </a>
             <button class="navbar-toggler" type="button" id="navbarToggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -849,156 +883,113 @@
                 <!-- 统一的导航菜单 - 桌面端和移动端共用 -->
                 <ul class="navbar-nav ms-auto">
                     {{ range .Site.Menus.main }}
-                    {{- $baseURL := $.Site.BaseURL -}}
                     {{- $isZH := eq $.Site.Language.Lang "zh" -}}
-                    {{- $langPrefix := cond $isZH "" "en/" -}}
-                    {{ if eq .Identifier "bigdata-solutions" }}
-                    <!-- 大数据 下拉菜单 - 已合并到产品 -->
-                    {{ else if eq .Identifier "energy-solutions" }}
-                    <!-- 新能源 下拉菜单 - 已合并到产品 -->
-                    {{ else if eq .Identifier "products" }}
-                    <!-- 产品 下拉菜单（含全产品线） -->
+                    {{ if eq .Identifier "products" }}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="{{ "products/" | relLangURL }}" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ .Name }}
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="productsDropdown" style="min-width:260px;">
-                            {{/* ---- DataOps + 数据湖 ---- */}}
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown" style="min-width:286px;">
+                            <li><a class="dropdown-item" href="{{ "products/" | relLangURL }}" style="font-weight:600;">
+                                <i class="fas fa-th" style="color:#14b8a6;"></i>{{ if $isZH }}产品总览与在线体验{{ else }}Product Overview & Live Demo{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><span class="dropdown-header">🌊 {{ if $isZH }}数据智能{{ else }}Data Intelligence{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/wenqu-dataops-ai/" $baseURL $langPrefix }}">
-                                <i class="fas fa-brain me-2" style="color:#22d3ee;"></i>{{ if $isZH }}问渠 DataOps-AI{{ else }}Wenqu DataOps-AI{{ end }}
+                            <li><a class="dropdown-item" href="{{ "products/wenqu-dataops-ai/" | relLangURL }}">
+                                <i class="fas fa-brain" style="color:#22d3ee;"></i>{{ if $isZH }}问渠 DataOps-AI{{ else }}Wenqu DataOps-AI{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/hodoopforge/" $baseURL $langPrefix }}">
-                                <i class="fas fa-layer-group me-2" style="color:#5ea0ff;"></i>{{ if $isZH }}HodoopForge 数据湖{{ else }}HodoopForge Data Lake{{ end }}
-                            </a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            {{/* ---- 大数据解决方案 ---- */}}
-                            <li><span class="dropdown-header">📊 {{ if $isZH }}大数据解决方案{{ else }}Big Data Solutions{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/" $baseURL $langPrefix }}">
-                                <i class="fas fa-database me-2" style="color:#14b8a6;"></i>{{ if $isZH }}大数据解决方案总览{{ else }}Big Data Solutions{{ end }}
+                            <li><a class="dropdown-item" href="{{ "products/hodoopforge/" | relLangURL }}">
+                                <i class="fas fa-layer-group" style="color:#5ea0ff;"></i>{{ if $isZH }}HodoopForge 数据湖{{ else }}HodoopForge Data Lake{{ end }}
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            {{/* ---- 新能源 ---- */}}
+                            <li><span class="dropdown-header">📊 {{ if $isZH }}大数据{{ else }}Big Data{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ "solutions/" | relLangURL }}">
+                                <i class="fas fa-database" style="color:#14b8a6;"></i>{{ if $isZH }}大数据解决方案总览{{ else }}Big Data Solutions{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ "products/" | relLangURL }}#hadoopforge">
+                                <i class="fas fa-server" style="color:#14b8a6;"></i>{{ if $isZH }}HadoopForge 平台{{ else }}HadoopForge Platform{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><span class="dropdown-header">⚡ {{ if $isZH }}新能源{{ else }}Smart Energy{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/" $baseURL $langPrefix }}">
-                                <i class="fas fa-solar-panel me-2" style="color:#16a34a;"></i>{{ if $isZH }}新能源解决方案总览{{ else }}Smart Energy Overview{{ end }}
+                            <li><a class="dropdown-item" href="{{ "energy-solutions/" | relLangURL }}">
+                                <i class="fas fa-solar-panel" style="color:#16a34a;"></i>{{ if $isZH }}新能源解决方案总览{{ else }}Smart Energy Overview{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-ec/" $baseURL $langPrefix }}">
-                                <i class="fas fa-bolt me-2" style="color:#16a34a;"></i>{{ if $isZH }}储能逆变器 EC{{ else }}Energy Storage Inverter EC{{ end }}
+                            <li><a class="dropdown-item" href="{{ "energy-solutions/products-ec/" | relLangURL }}">
+                                <i class="fas fa-bolt" style="color:#16a34a;"></i>{{ if $isZH }}储能逆变器 EC{{ else }}Energy Storage Inverter EC{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-hybrid/" $baseURL $langPrefix }}">
-                                <i class="fas fa-exchange-alt me-2" style="color:#16a34a;"></i>{{ if $isZH }}混合逆变器 Hybrid{{ else }}Hybrid Inverter{{ end }}
+                            <li><a class="dropdown-item" href="{{ "energy-solutions/products-hybrid/" | relLangURL }}">
+                                <i class="fas fa-exchange-alt" style="color:#16a34a;"></i>{{ if $isZH }}混合逆变器 Hybrid{{ else }}Hybrid Inverter{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-bat/" $baseURL $langPrefix }}">
-                                <i class="fas fa-battery-full me-2" style="color:#16a34a;"></i>{{ if $isZH }}储能电池 BAT{{ else }}Energy Storage Battery BAT{{ end }}
+                            <li><a class="dropdown-item" href="{{ "energy-solutions/products-bat/" | relLangURL }}">
+                                <i class="fas fa-battery-full" style="color:#16a34a;"></i>{{ if $isZH }}储能电池 BAT{{ else }}Energy Storage Battery BAT{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-ev/" $baseURL $langPrefix }}">
-                                <i class="fas fa-charging-station me-2" style="color:#16a34a;"></i>{{ if $isZH }}直流充电桩 EVDC{{ else }}DC EV Charger EVDC{{ end }}
+                            <li><a class="dropdown-item" href="{{ "energy-solutions/products-ev/" | relLangURL }}">
+                                <i class="fas fa-charging-station" style="color:#16a34a;"></i>{{ if $isZH }}直流充电桩 EVDC{{ else }}DC EV Charger EVDC{{ end }}
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            {{/* ---- 边缘AI ---- */}}
                             <li><span class="dropdown-header">🔵 {{ if $isZH }}边缘AI推理{{ else }}Edge AI{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sedge-ai/" $baseURL $langPrefix }}">
-                                <i class="fas fa-microchip me-2" style="color:#0ea5e9;"></i>{{ if $isZH }}边缘AI产品线总览{{ else }}Edge AI Overview{{ end }}
+                            <li><a class="dropdown-item" href="{{ "edge-ai/" | relLangURL }}">
+                                <i class="fas fa-microchip" style="color:#0ea5e9;"></i>{{ if $isZH }}边缘AI产品线总览{{ else }}Edge AI Overview{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sedge-ai/hongyuan-accelerator/" $baseURL $langPrefix }}">
-                                <i class="fas fa-rocket me-2" style="color:#0ea5e9;"></i>{{ if $isZH }}鸿源加速器{{ else }}Hongyuan Accelerator{{ end }}
+                            <li><a class="dropdown-item" href="{{ "edge-ai/hongyuan-accelerator/" | relLangURL }}">
+                                <i class="fas fa-rocket" style="color:#0ea5e9;"></i>{{ if $isZH }}鸿源加速器{{ else }}Hongyuan Accelerator{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sedge-ai/smart-terminal/" $baseURL $langPrefix }}">
-                                <i class="fas fa-terminal me-2" style="color:#0ea5e9;"></i>{{ if $isZH }}智能终端AI中间件{{ else }}Smart Terminal AI{{ end }}
+                            <li><a class="dropdown-item" href="{{ "edge-ai/smart-terminal/" | relLangURL }}">
+                                <i class="fas fa-terminal" style="color:#0ea5e9;"></i>{{ if $isZH }}智能终端AI中间件{{ else }}Smart Terminal AI{{ end }}
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            {{/* ---- AI伴学 ---- */}}
                             <li><span class="dropdown-header">🎓 {{ if $isZH }}AI伴学教育{{ else }}AI Education{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sai-education/" $baseURL $langPrefix }}">
-                                <i class="fas fa-graduation-cap me-2" style="color:#38bdf8;"></i>{{ if $isZH }}悦学智伴{{ else }}Otowyue Learn AI{{ end }}
+                            <li><a class="dropdown-item" href="{{ "ai-education/" | relLangURL }}">
+                                <i class="fas fa-graduation-cap" style="color:#38bdf8;"></i>{{ if $isZH }}悦学智伴{{ else }}Otowyue Learn AI{{ end }}
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            {{/* ---- ERP ---- */}}
                             <li><span class="dropdown-header">🏢 {{ if $isZH }}数字化变革{{ else }}Digital Transformation{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#digital-transformation" $baseURL $langPrefix }}">
-                                <i class="fas fa-chart-line me-2" style="color:#ea580c;"></i>{{ if $isZH }}中小企业 ERP 平台{{ else }}SME ERP Platform{{ end }}
+                            <li><a class="dropdown-item" href="{{ "products/" | relLangURL }}#digital-transformation">
+                                <i class="fas fa-chart-line" style="color:#ea580c;"></i>{{ if $isZH }}中小企业 ERP 平台{{ else }}SME ERP Platform{{ end }}
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}" style="font-weight:600;">
-                                <i class="fas fa-th me-2" style="color:#14b8a6;"></i>{{ if $isZH }}在线体验 →{{ else }}Live Demo →{{ end }}
+                            <li><a class="dropdown-item" href="{{ "products/" | relLangURL }}" style="font-weight:600;">
+                                <i class="fas fa-th" style="color:#14b8a6;"></i>{{ if $isZH }}全部产品与在线体验 →{{ else }}All Products & Live Demo →{{ end }}
                             </a></li>
                         </ul>
+                    </li>
+                    {{ else if eq .Identifier "wenqu-dataops-ai" }}
+                    <li class="nav-item nav-flagship">
+                        <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                    </li>
+                    {{ else if eq .Identifier "hodoopforge" }}
+                    <li class="nav-item nav-flagship nav-flagship--lake">
+                        <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
                     </li>
                     {{ else if eq .Identifier "solutions" }}
-                    <!-- 解决方案 下拉菜单 -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%ssolutions/" $baseURL $langPrefix }}" id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ .Name }}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
-                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/" $baseURL $langPrefix }}">
-                                <i class="fas fa-database me-2" style="color:#14b8a6;"></i>{{ if $isZH }}大数据解决方案总览{{ else }}Big Data Solutions Overview{{ end }}
-                            </a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/banking/" $baseURL $langPrefix }}">
-                                <i class="fas fa-university me-2" style="color:#14b8a6;"></i>{{ if $isZH }}银行业{{ else }}Banking{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/automotive/" $baseURL $langPrefix }}">
-                                <i class="fas fa-car me-2" style="color:#14b8a6;"></i>{{ if $isZH }}汽车工业{{ else }}Automotive{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/insurance/" $baseURL $langPrefix }}">
-                                <i class="fas fa-shield-alt me-2" style="color:#14b8a6;"></i>{{ if $isZH }}保险业{{ else }}Insurance{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/energy/" $baseURL $langPrefix }}">
-                                <i class="fas fa-bolt me-2" style="color:#14b8a6;"></i>{{ if $isZH }}能源行业{{ else }}Energy{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/telecommunications/" $baseURL $langPrefix }}">
-                                <i class="fas fa-broadcast-tower me-2" style="color:#14b8a6;"></i>{{ if $isZH }}通信行业{{ else }}Telecom{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/aerospace/" $baseURL $langPrefix }}">
-                                <i class="fas fa-rocket me-2" style="color:#14b8a6;"></i>{{ if $isZH }}航天航空{{ else }}Aerospace{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/smart-city/" $baseURL $langPrefix }}">
-                                <i class="fas fa-city me-2" style="color:#14b8a6;"></i>{{ if $isZH }}智慧城市{{ else }}Smart City{{ end }}
-                            </a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ "solutions/" | relLangURL }}">{{ .Name }}</a></li>
                     {{ else if eq .Identifier "about" }}
-                    <!-- 关于我们 下拉菜单 -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%sabout/" $baseURL $langPrefix }}" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="{{ "about/" | relLangURL }}" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ .Name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/" $baseURL $langPrefix }}">
-                                <i class="fas fa-info-circle me-2"></i>{{ if $isZH }}公司介绍{{ else }}Company Introduction{{ end }}
+                            <li><a class="dropdown-item" href="{{ "about/" | relLangURL }}">
+                                <i class="fas fa-info-circle"></i>{{ if $isZH }}公司介绍{{ else }}Company Introduction{{ end }}
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/#values" $baseURL $langPrefix }}">
-                                <i class="fas fa-heart me-2"></i>{{ if $isZH }}核心价值观{{ else }}Core Values{{ end }}
+                            <li><a class="dropdown-item" href="{{ "about/" | relLangURL }}#values">
+                                <i class="fas fa-heart"></i>{{ if $isZH }}核心价值观{{ else }}Core Values{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/#technology" $baseURL $langPrefix }}">
-                                <i class="fas fa-cogs me-2"></i>{{ if $isZH }}技术实力{{ else }}Technical Strength{{ end }}
+                            <li><a class="dropdown-item" href="{{ "about/" | relLangURL }}#technology">
+                                <i class="fas fa-cogs"></i>{{ if $isZH }}技术实力{{ else }}Technical Strength{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/#partners" $baseURL $langPrefix }}">
-                                <i class="fas fa-handshake me-2"></i>{{ if $isZH }}合作伙伴{{ else }}Partners{{ end }}
+                            <li><a class="dropdown-item" href="{{ "about/" | relLangURL }}#partners">
+                                <i class="fas fa-handshake"></i>{{ if $isZH }}合作伙伴{{ else }}Partners{{ end }}
                             </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sabout/#global" $baseURL $langPrefix }}">
-                                <i class="fas fa-globe me-2"></i>{{ if $isZH }}全球服务{{ else }}Global Service{{ end }}
+                            <li><a class="dropdown-item" href="{{ "about/" | relLangURL }}#global">
+                                <i class="fas fa-globe"></i>{{ if $isZH }}全球服务{{ else }}Global Service{{ end }}
                             </a></li>
                         </ul>
                     </li>
-                    {{ else if eq .Identifier "home" }}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ printf "%s%s" $baseURL $langPrefix }}">{{ .Name }}</a>
-                    </li>
-                    {{ else if eq .Identifier "cases" }}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ printf "%s%scases/" $baseURL $langPrefix }}">{{ .Name }}</a>
-                    </li>
-                    {{ else if eq .Identifier "contact" }}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ printf "%s%scontact/" $baseURL $langPrefix }}">{{ .Name }}</a>
-                    </li>
                     {{ else }}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ printf "%s%s" $baseURL .URL }}">{{ .Name }}</a>
+                        <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
                     </li>
                     {{ end }}
                     {{ end }}
@@ -1010,18 +1001,26 @@
                             {{ if eq .Site.Language.Lang "zh" }}中文{{ else }}English{{ end }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            {{ range .Translations }}
+                            <li>
+                                <a class="dropdown-item" href="{{ .RelPermalink }}">
+                                    <i class="fas fa-language me-2"></i>{{ .Language.LanguageName }}
+                                </a>
+                            </li>
+                            {{ else }}
                             {{ if eq .Site.Language.Lang "zh" }}
                             <li>
-                                <a class="dropdown-item" href="{{ printf "%sen/" $.Site.BaseURL }}">
+                                <a class="dropdown-item" href="{{ "en/" | relURL }}">
                                     <i class="fas fa-language me-2"></i>English
                                 </a>
                             </li>
                             {{ else }}
                             <li>
-                                <a class="dropdown-item" href="{{ printf "%s" $.Site.BaseURL }}">
+                                <a class="dropdown-item" href="{{ "" | relURL }}">
                                     <i class="fas fa-language me-2"></i>中文
                                 </a>
                             </li>
+                            {{ end }}
                             {{ end }}
                         </ul>
                     </li>
@@ -1030,14 +1029,16 @@
         </div>
     </nav>
 
-    {{ block "main" . }}{{ end }}
+    <main id="main-content">
+        {{ block "main" . }}{{ end }}
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>{{ if eq .Site.Language.Lang "zh" }}深圳市启煊软件有限公司{{ else }}Shenzhen Qixuan Software Co., Ltd.{{ end }}</h5>
+                    <div class="footer-title" style="font-size:1.25rem;font-weight:500;margin-bottom:.5rem;">{{ if eq .Site.Language.Lang "zh" }}深圳市启煊软件有限公司{{ else }}Shenzhen Qixuan Software Co., Ltd.{{ end }}</div>
                     <p>{{ if eq .Site.Language.Lang "zh" }}自主研发 · 全栈可控 · 国产替代{{ else }}Self-developed · Full-stack Controllable · Domestic Substitution{{ end }}</p>
                 </div>
                 <div class="col-md-6 text-end">
@@ -1068,23 +1069,12 @@
             });
         }
 
-        // 移动端：下拉 toggle 直接跳转链接
-        if (window.innerWidth <= 991) {
-            document.querySelectorAll('.dropdown-toggle:not(#languageDropdown)').forEach(function(toggle) {
-                toggle.addEventListener('click', function(e) {
-                    if (this.href && this.href !== '#' && !this.href.endsWith('#')) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        window.location.href = this.href;
-                    }
-                });
-            });
-        }
+        // 移动端：下拉菜单由 Bootstrap 点击展开，菜单内的“总览”链接负责跳转
 
-        // 点击导航链接后关闭移动端菜单
+        // 点击导航链接后关闭移动端菜单（下拉开关除外，交给 Bootstrap 展开）
         document.querySelectorAll('.nav-link').forEach(function(link) {
             link.addEventListener('click', function() {
-                if (window.innerWidth <= 991 && this.id !== 'languageDropdown') {
+                if (window.innerWidth <= 991 && this.id !== 'languageDropdown' && !this.classList.contains('dropdown-toggle')) {
                     var navbarCollapse = document.getElementById('navbarNav');
                     if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                         setTimeout(function() {

@@ -1,7 +1,7 @@
 ﻿---
-title: "深圳市启煊软件有限公司 - 大数据 & 智慧能源双核解决方案"
-description: "深圳市启煊软件有限公司是专注大数据基础设施、AI教育、边缘AI推理的科技企业，自主研发、全栈可控。核心产品 HadoopForge 填补 Ambari+Bigtop 版本空白，同时提供智慧能源、悦学智伴AI教育、鸿源边缘AI推理等多条产品线，服务多家企业客户，拥有多项自主知识产权。"
-keywords: "大数据平台,Hadoop企业版,Spark,Kafka,大数据解决方案,数据分析平台,商业智能,启煊软件,光储充,储能逆变器,新能源,AI智慧能源"
+title: "深圳市启煊软件有限公司 - 问渠 DataOps-AI & HodoopForge 数据湖"
+description: "启煊软件以问渠 DataOps-AI 与 HodoopForge 数据湖为双引擎，提供教育数据智能闭环、实时湖仓、Kerberos 数据面、HadoopForge 大数据运维、边缘AI推理与AI伴学解决方案。两张交互地图一屏看懂平台全貌。"
+keywords: "问渠DataOps-AI,HodoopForge数据湖,教育数据智能,DataOps平台,实时湖仓,Kerberos,HadoopForge,大数据运维,边缘AI推理,AI伴学,国产替代,启煊软件"
 
 # banner
 banner:

@@ -1,62 +1,65 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if eq .Site.Language.Lang "zh" }}HodoopForge 数据湖 · 交互地图{{ else }}HodoopForge Data Lake · Interactive Map{{ end }} - {{ .Site.Title }}</title>
-<meta name="description" content="{{ .Description }}">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%;overflow:hidden;background:#070d18;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
-  .topnav{
-    position:fixed;top:0;left:0;right:0;z-index:999;
-    display:flex;align-items:center;gap:12px;
-    padding:0 18px;height:44px;
-    background:rgba(7,13,24,0.96);
-    border-bottom:1px solid rgba(94,160,255,0.2);
-    backdrop-filter:blur(12px);
-  }
-  .topnav a{text-decoration:none;}
-  .back-btn{
-    display:inline-flex;align-items:center;gap:6px;
-    color:rgba(255,255,255,0.65);font-size:12.5px;
-    padding:4px 10px;border-radius:6px;
-    border:1px solid rgba(255,255,255,0.12);
-    transition:all 0.18s;
-  }
-  .back-btn:hover{color:#fff;border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);}
-  .nav-logo{
-    display:flex;align-items:center;gap:8px;
-    color:rgba(255,255,255,0.9);font-size:13.5px;font-weight:650;
-  }
-  .nav-logo img{height:22px;border-radius:4px;}
-  .nav-title{
-    margin-left:auto;
-    color:#5ea0ff;font-size:12.5px;font-weight:650;letter-spacing:0.04em;
-  }
-  .map-frame{
-    position:fixed;top:44px;left:0;right:0;bottom:0;
-    border:none;width:100%;height:calc(100% - 44px);
-    display:block;
-  }
-</style>
-</head>
-<body>
-<nav class="topnav">
-  <a class="back-btn" href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sproducts/" .Site.BaseURL }}{{ else }}{{ printf "%sen/products/" .Site.BaseURL }}{{ end }}">
-    ← {{ if eq .Site.Language.Lang "zh" }}产品{{ else }}Products{{ end }}
-  </a>
-  <a class="nav-logo" href="{{ if eq .Site.Language.Lang "zh" }}{{ .Site.BaseURL }}{{ else }}{{ printf "%sen/" .Site.BaseURL }}{{ end }}">
-    <img src="{{ printf "%simages/logo.png" .Site.BaseURL }}" alt="logo">
-    {{ if eq .Site.Language.Lang "zh" }}启煊软件{{ else }}Qixuan{{ end }}
-  </a>
-  <span class="nav-title">{{ if eq .Site.Language.Lang "zh" }}HodoopForge 数据湖 · 交互地图{{ else }}HodoopForge Data Lake · Map{{ end }}</span>
-</nav>
-<iframe
-  class="map-frame"
-  src="{{ printf "%smaps/hodoopforge-lake-map.html" .Site.BaseURL }}"
-  title="{{ if eq .Site.Language.Lang "zh" }}HodoopForge 数据湖交互地图{{ else }}HodoopForge Data Lake Interactive Map{{ end }}"
-  allowfullscreen>
-</iframe>
-</body>
-</html>
+{{ define "main" }}
+{{- $isZH := eq .Site.Language.Lang "zh" -}}
+{{- $mapURL := "maps/hodoopforge-lake-map.html?lang=zh&embed=1" | relURL -}}
+{{- $mapFull := "maps/hodoopforge-lake-map.html?lang=zh" | relURL -}}
+{{- if not $isZH -}}
+  {{- $mapURL = "maps/hodoopforge-lake-map.html?lang=en&embed=1" | relURL -}}
+  {{- $mapFull = "maps/hodoopforge-lake-map.html?lang=en" | relURL -}}
+{{- end -}}
+
+<section class="qs-product-hero qs-product-hero--lake">
+  <div class="qs-shell">
+    <nav class="qs-breadcrumb" aria-label="breadcrumb">
+      <a href="{{ "" | relLangURL }}">{{ if $isZH }}首页{{ else }}Home{{ end }}</a>
+      <span>/</span>
+      <a href="{{ "products/" | relLangURL }}">{{ if $isZH }}产品{{ else }}Products{{ end }}</a>
+      <span>/</span>
+      <span>{{ .Title }}</span>
+    </nav>
+    <div class="qs-eyebrow">{{ if $isZH }}容器级高可用 · Kerberos 数据面{{ else }}Container HA · Kerberos Data Plane{{ end }}</div>
+    <h1>{{ .Title }}</h1>
+    <p class="qs-lead">{{ if $isZH }}Kafka → Flink → Iceberg 实时入湖全链路，Kerberos 覆盖 7 个数据面服务，HDFS NameNode HA，防呆守护锁定配置漂移，77 张 Iceberg 湖表全部对齐。22 个服务节点把端口、命令、指标与 Runbook 一次摊开。{{ else }}Kafka → Flink → Iceberg real-time ingestion with Kerberos across 7 data-plane services, HDFS NameNode HA, a guard that locks configuration drift and 77 aligned Iceberg tables. 22 service nodes expose ports, commands, metrics and runbooks in one view.{{ end }}</p>
+    <div class="qs-product-stats">
+      <span><b>7/7</b> {{ if $isZH }}核心服务 UP{{ else }}core services UP{{ end }}</span>
+      <span><b>77</b> {{ if $isZH }}Iceberg 表对齐{{ else }}Iceberg tables aligned{{ end }}</span>
+      <span><b>408+</b> Checkpoint</span>
+      <span><b>12/12</b> Prometheus targets</span>
+      <span><b>3+2</b> {{ if $isZH }}DN + NN HA{{ else }}DN + NN HA{{ end }}</span>
+    </div>
+    <div class="qs-product-actions">
+      <a class="qs-btn qs-btn--blue" href="#interactive-map">{{ if $isZH }}查看数据湖地图 ↓{{ else }}View lake map ↓{{ end }}</a>
+      <a class="qs-btn qs-btn--ghost" href="{{ "contact/" | relLangURL }}">{{ if $isZH }}获取方案与演示{{ else }}Request a demo{{ end }}</a>
+      <a class="qs-btn qs-btn--ghost" href="{{ "products/" | relLangURL }}">← {{ if $isZH }}返回产品{{ else }}Back to products{{ end }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="qs-product-map" id="interactive-map">
+  <div class="qs-shell">
+    <div class="qs-map-toolbar">
+      <div>
+        <div class="qs-eyebrow" style="margin-bottom:8px;color:var(--qs-blue);background:rgba(94,160,255,.08);border-color:rgba(94,160,255,.24);">{{ if $isZH }}动态交互地图{{ else }}Live Interactive Map{{ end }}</div>
+        <div style="color:var(--qs-muted);font-size:0.86rem;">{{ if $isZH }}点击服务节点查看状态、入口、指标、命令与文档；支持实时/查询/认证/值班四条高亮路径。{{ else }}Click a service node for status, endpoints, metrics, commands and docs; four highlight paths cover real-time, query, auth and on-call checks.{{ end }}</div>
+      </div>
+      <div class="qs-map-actions">
+        <a class="qs-btn qs-btn--ghost" href="{{ $mapFull }}" target="_blank" rel="noopener">{{ if $isZH }}全屏打开 ↗{{ else }}Open full screen ↗{{ end }}</a>
+        <a class="qs-btn qs-btn--ghost" href="{{ "docs/hodoopforge/" | relLangURL }}">{{ if $isZH }}技术文档 →{{ else }}Technical docs →{{ end }}</a>
+      </div>
+    </div>
+    <div class="qs-map-shell">
+      <iframe class="qs-map-frame" src="{{ $mapURL }}" title="{{ if $isZH }}HodoopForge 数据湖交互地图{{ else }}HodoopForge Data Lake interactive map{{ end }}" loading="lazy" allowfullscreen></iframe>
+    </div>
+    <div class="qs-map-hint">
+      <span><i class="qs-dot"></i>{{ if $isZH }}正常{{ else }}OK{{ end }}</span>
+      <span><i class="qs-dot" style="background:#f5c451;box-shadow:0 0 0 3px rgba(245,196,81,.12)"></i>{{ if $isZH }}注意{{ else }}Attention{{ end }}</span>
+      <span><i class="qs-dot" style="background:#a78bfa;box-shadow:0 0 0 3px rgba(167,139,250,.12)"></i>{{ if $isZH }}规划{{ else }}Planned{{ end }}</span>
+    </div>
+  </div>
+</section>
+
+<section class="qs-product-content">
+  <div class="qs-shell">
+    <div class="qs-prose">{{ .Content }}</div>
+  </div>
+</section>
+{{ end }}

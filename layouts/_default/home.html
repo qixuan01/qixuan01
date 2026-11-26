@@ -1,374 +1,231 @@
 ﻿{{ define "main" }}
-<!-- Hero Section - 四图轮播 -->
-<section class="hero-section hero-carousel" id="heroSection">
-    <div class="hero-slide active" id="heroSlide0" style="background-image: url('{{ printf "%simages/solution-space-con.jpg" $.Site.BaseURL }}');">
-        <div class="hero-slide-overlay" style="background: rgba(15,118,110,0.52);"></div>
+{{- $isZH := eq .Site.Language.Lang "zh" -}}
+{{- $wenquURL := "products/wenqu-dataops-ai/" | relLangURL -}}
+{{- $lakeURL := "products/hodoopforge/" | relLangURL -}}
+{{- $wenquMap := "maps/wenqu-interactive-map.html?lang=zh&embed=1" | relURL -}}
+{{- $lakeMap := "maps/hodoopforge-lake-map.html?lang=zh&embed=1" | relURL -}}
+{{- $wenquMapFull := "maps/wenqu-interactive-map.html?lang=zh" | relURL -}}
+{{- $lakeMapFull := "maps/hodoopforge-lake-map.html?lang=zh" | relURL -}}
+{{- if not $isZH -}}
+  {{- $wenquMap = "maps/wenqu-interactive-map.html?lang=en&embed=1" | relURL -}}
+  {{- $lakeMap = "maps/hodoopforge-lake-map.html?lang=en&embed=1" | relURL -}}
+  {{- $wenquMapFull = "maps/wenqu-interactive-map.html?lang=en" | relURL -}}
+  {{- $lakeMapFull = "maps/hodoopforge-lake-map.html?lang=en" | relURL -}}
+{{- end -}}
+
+<!-- ============================== HERO ============================== -->
+<section class="qs-hero">
+  <div class="qs-shell qs-hero-inner">
+    <div class="qs-eyebrow">{{ if $isZH }}自主研发 · 全栈可控 · 国产替代{{ else }}Self-developed · Full-stack · Domestic Substitution{{ end }}</div>
+    <h1>
+      {{ if $isZH }}让数据流动，<span class="qs-shine">让 AI 落地</span>{{ else }}Where Data Flows,<br><span class="qs-shine">AI Delivers</span>{{ end }}
+    </h1>
+    <p class="qs-hero-sub">
+      {{ if $isZH }}以 <strong>问渠 DataOps-AI</strong> 与 <strong>HodoopForge 数据湖</strong> 为双引擎，把教育数据、实时湖仓、模型评测与安全合规连成一条可验证的闭环。两张交互地图，一屏看清平台全貌。{{ else }}Powered by <strong>Wenqu DataOps-AI</strong> and <strong>HodoopForge Data Lake</strong>, we connect education data, real-time lakehouse, model evaluation and compliance into one verifiable loop. Two interactive maps show the whole platform at a glance.{{ end }}
+    </p>
+    <div class="qs-hero-actions">
+      <a class="qs-btn qs-btn--cyan" href="{{ $wenquURL }}">{{ if $isZH }}进入问渠 DataOps-AI{{ else }}Explore Wenqu DataOps-AI{{ end }} →</a>
+      <a class="qs-btn qs-btn--blue" href="{{ $lakeURL }}">{{ if $isZH }}进入 HodoopForge 数据湖{{ else }}Explore HodoopForge Data Lake{{ end }} →</a>
+      <a class="qs-btn qs-btn--ghost" href="#maps">{{ if $isZH }}先看交互地图{{ else }}View the maps first{{ end }} ↓</a>
     </div>
-    <div class="hero-slide" id="heroSlide1" style="background-image: url('{{ printf "%simages/energy-hero-bg.png" $.Site.BaseURL }}');">
-        <div class="hero-slide-overlay" style="background: rgba(10,60,25,0.52);"></div>
+    <div class="qs-hero-stats">
+      <span class="qs-hero-stat"><b>360</b> {{ if $isZH }}测试通过{{ else }}tests passed{{ end }}</span>
+      <span class="qs-hero-stat"><b>77</b> {{ if $isZH }}Iceberg 湖表{{ else }}Iceberg tables{{ end }}</span>
+      <span class="qs-hero-stat"><b>7/7</b> {{ if $isZH }}核心服务 UP{{ else }}core services UP{{ end }}</span>
+      <span class="qs-hero-stat"><b>84.8%</b> {{ if $isZH }}等保技术自检{{ else }}Dengbao self-check{{ end }}</span>
     </div>
-    <div class="hero-slide" id="heroSlide2" style="background-image: url('{{ printf "%simages/banner-edge-ai.png" $.Site.BaseURL }}'); background-size: cover; background-position: center top; background-repeat: no-repeat; background-color: #0a0a1a;">
-        <div class="hero-slide-overlay" style="background: rgba(5,5,30,0.58);"></div>
-    </div>
-    <div class="hero-slide" id="heroSlide3" style="background-image: url('{{ printf "%simages/banner-ai-edu.png" $.Site.BaseURL }}'); background-size: cover; background-position: center top; background-repeat: no-repeat; background-color: #0a1a10;">
-        <div class="hero-slide-overlay" style="background: rgba(5,15,8,0.58);"></div>
-    </div>
-    <div class="hero-content-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto text-center">
-                    <h1 class="hero-title">{{ .Site.Title }}</h1>
-                    <p class="hero-subtitle">{{ .Description }}</p>
-                    <div>
-                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#0e6b7a,#0f8a9a); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源{{ else }}Smart Energy{{ end }}</a>
-                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#0369a1,#0ea5e9); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI{{ else }}Edge AI{{ end }}</a>
-                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sai-education/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/ai-education/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg me-2 mb-2" style="background: linear-gradient(135deg,#0284c7,#38bdf8); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}AI伴学{{ else }}AI Education{{ end }}</a>
-                        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}" class="btn btn-lg mb-2" style="background: linear-gradient(135deg,#0f766e,#14b8a6); color: white; border-radius: 25px; font-weight: 600;">{{ if eq .Site.Language.Lang "zh" }}大数据{{ else }}Big Data{{ end }}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="hero-dots">
-        <span class="hero-dot active" onclick="goToSlide(0)" title="{{ if eq .Site.Language.Lang "zh" }}大数据{{ else }}Big Data{{ end }}"></span>
-        <span class="hero-dot" onclick="goToSlide(1)" title="{{ if eq .Site.Language.Lang "zh" }}新能源{{ else }}New Energy{{ end }}"></span>
-        <span class="hero-dot" onclick="goToSlide(2)" title="{{ if eq .Site.Language.Lang "zh" }}边缘AI{{ else }}Edge AI{{ end }}"></span>
-        <span class="hero-dot" onclick="goToSlide(3)" title="{{ if eq .Site.Language.Lang "zh" }}AI伴学{{ else }}AI Education{{ end }}"></span>
-    </div>
+  </div>
 </section>
 
-<style>
-.hero-carousel { position: relative; min-height: 600px; display: flex; align-items: center; color: white; margin-top: 60px; overflow: hidden; }
-.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 0; }
-.hero-slide.active { opacity: 1; z-index: 1; }
-.hero-slide-overlay { position: absolute; inset: 0; }
-.hero-content-wrap { position: relative; z-index: 2; width: 100%; padding: 4rem 0; }
-.hero-dots { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; gap: 10px; }
-.hero-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.6); }
-.hero-dot.active { background: white; transform: scale(1.2); }
-</style>
-
-<script>
-(function() {
-    var current = 0, total = 4, timer;
-    function goToSlide(n) {
-        var s = document.querySelectorAll('.hero-slide'), d = document.querySelectorAll('.hero-dot');
-        s[current].classList.remove('active'); d[current].classList.remove('active');
-        current = n % total;
-        s[current].classList.add('active'); d[current].classList.add('active');
-        clearInterval(timer); startAuto();
-    }
-    function startAuto() { timer = setInterval(function(){ goToSlide((current+1)%total); }, 5000); }
-    window.goToSlide = goToSlide;
-    document.addEventListener('DOMContentLoaded', startAuto);
-})();
-</script>
-
-<!-- Section Title -->
-<section style="padding: 2.5rem 0 0; background: #0a0f1e; text-align: center;">
-    <h2 style="color: white; border-bottom: none; font-size: 1.8rem; margin-bottom: 0.5rem;">{{ if eq .Site.Language.Lang "zh" }}我们的四大核心业务{{ else }}Our Four Core Business Lines{{ end }}</h2>
-    <p style="color: rgba(255,255,255,0.45); font-size: 0.95rem; margin-bottom: 0; padding-bottom: 2rem;">{{ if eq .Site.Language.Lang "zh" }}大数据运维 · 智慧能源 · 边缘AI推理 · AI伴学教育 — 自主研发·全栈可控·国产替代{{ else }}Big Data · Smart Energy · Edge AI · AI Education — Self-developed · Full-stack Controllable · Domestic Substitution{{ end }}</p>
-</section>
-
-<!-- Energy Architecture: 文字在上，图在下 -->
-<section class="arch-panel arch-panel-energy">
-    <div class="container-fluid px-0">
-        <!-- 文字行 -->
-        <div class="arch-header-row arch-header-energy">
-            <div class="arch-badge arch-badge-energy">NEW · 智慧新能源</div>
-            <h2 class="arch-title arch-title-energy">{{ if eq .Site.Language.Lang "zh" }}新能源EMS · 智慧能源管理系统{{ else }}Smart Energy EMS · Energy Management System{{ end }}</h2>
-            <p class="arch-desc">{{ if eq .Site.Language.Lang "zh" }}以EMS为能源底座，融合光伏、储能、充电桩、VPP虚拟电厂，AI全链路调度，构建零碳智慧能源新底座。{{ else }}EMS as the energy foundation — integrating PV, storage, EV charging, VPP with AI full-chain dispatch for zero-carbon smart energy.{{ end }}</p>
-            <div class="arch-points-row">
-                <span class="arch-point-tag arch-tag-energy">⚡ AI智能调度 · 峰谷套利</span>
-                <span class="arch-point-tag arch-tag-energy">🔋 光储充一体 · VPP虚拟电厂</span>
-                <span class="arch-point-tag arch-tag-energy">🌿 碳资产管理 · 双碳目标</span>
-                <span class="arch-point-tag arch-tag-energy">☁️ 云端EMS · OpenAPI生态</span>
-                <span class="arch-point-tag arch-tag-energy">10ms 响应 · 98.4% 逆变效率</span>
-            </div>
-            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="arch-btn arch-btn-energy">{{ if eq .Site.Language.Lang "zh" }}探索智慧能源解决方案 →{{ else }}Explore Smart Energy →{{ end }}</a>
-        </div>
-        <!-- 架构图行 -->
-        <div class="arch-diagram-row">
-            <img src="{{ printf "%simages/%s" $.Site.BaseURL (cond (eq .Site.Language.Lang "zh") "arch-energy-ems.svg" "arch-energy-ems-en.svg") }}" alt="{{ if eq .Site.Language.Lang "zh" }}新能源EMS智慧能源管理系统架构{{ else }}Smart Energy EMS Architecture{{ end }}" class="arch-diagram-full">
-        </div>
+<!-- ============================== INTERACTIVE MAPS ============================== -->
+<section class="qs-map-section" id="maps">
+  <div class="qs-shell">
+    <div class="qs-section-head">
+      <div class="qs-eyebrow">{{ if $isZH }}两张动态地图 · 主页主打{{ else }}Two Live Maps · Homepage Feature{{ end }}</div>
+      <h2 class="qs-section-title">{{ if $isZH }}一屏看懂 <span class="qs-shine">平台全貌</span>{{ else }}See the <span class="qs-shine">Whole Platform</span> on One Screen{{ end }}</h2>
+      <p class="qs-section-sub">{{ if $isZH }}下面两张地图分别对应两个旗舰产品。点击节点查看它做什么、证据在哪、边界是什么；悬停预览、点击固定、支持搜索与角色导览。地图可直接缩放、切换深浅色与专注模式。{{ else }}The two maps below cover the two flagship products. Click any node to see what it does, where the evidence is and where the boundary lies. Hover to preview, click to pin, search and follow role-based tours. Zoom, theme switching and focus mode are built in.{{ end }}</p>
     </div>
-</section>
 
-<!-- Big Data Architecture: 文字在上，图在下 -->
-<section class="arch-panel arch-panel-bigdata">
-    <div class="container-fluid px-0">
-        <!-- 文字行 -->
-        <div class="arch-header-row arch-header-bigdata">
-            <div class="arch-badge arch-badge-bigdata">企业级大数据</div>
-            <h2 class="arch-title arch-title-bigdata">{{ if eq .Site.Language.Lang "zh" }}HadoopForge · 企业级Hadoop智能运维平台{{ else }}HadoopForge · Enterprise Hadoop Intelligent O&M Platform{{ end }}</h2>
-            <p class="arch-desc">{{ if eq .Site.Language.Lang "zh" }}国内首个完成Ambari 3.0.0 + Bigtop 3.5.0适配，Hive 4.0.1 率先兼容，AI运维故障预测准确率92%，500+节点·12个月·0生产事故。{{ else }}China's first to complete Ambari 3.0.0 + Bigtop 3.5.0 adaptation. Hive 4.0.1 first-mover. AI fault prediction 92% accuracy. 500+ nodes · 12 months · 0 production incidents.{{ end }}</p>
-            <div class="arch-points-row">
-                <span class="arch-point-tag arch-tag-bigdata">📊 Hadoop · Spark · Kafka · Flink</span>
-                <span class="arch-point-tag arch-tag-bigdata">🏦 金融级安全 · Kerberos + Ranger</span>
-                <span class="arch-point-tag arch-tag-bigdata">🤖 机器学习平台 · AI驱动决策</span>
-                <span class="arch-point-tag arch-tag-bigdata">500+ 企业客户 · 50+ 知识产权</span>
-            </div>
-            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%ssolutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/solutions/" $.Site.BaseURL }}{{ end }}" class="arch-btn arch-btn-bigdata">{{ if eq .Site.Language.Lang "zh" }}探索大数据平台 →{{ else }}Explore Big Data Platform →{{ end }}</a>
+    <div class="qs-map-block" id="map-wenqu">
+      <div class="qs-map-block-head">
+        <div>
+          <div class="qs-map-block-kicker">{{ if $isZH }}旗舰一 · 教育数据智能闭环{{ else }}Flagship 1 · Education Data Intelligence{{ end }}</div>
+          <h3>🧠 {{ if $isZH }}问渠 DataOps-AI · 解决方案交互地图{{ else }}Wenqu DataOps-AI · Interactive Solution Map{{ end }}</h3>
+          <p>{{ if $isZH }}38 个节点覆盖教学应用、DataOps、数据与模型底座、模型/安全/交付横向能力。{{ else }}38 nodes across teaching application, DataOps, data & model foundation, and model/security/delivery.{{ end }}</p>
         </div>
-        <!-- 架构图行 -->
-        <div class="arch-diagram-row">
-            <img src="{{ printf "%simages/%s" $.Site.BaseURL (cond (eq .Site.Language.Lang "zh") "arch-bigdata-platform.svg" "arch-bigdata-platform-en.svg") }}" alt="{{ if eq .Site.Language.Lang "zh" }}企业级大数据平台架构{{ else }}Enterprise Big Data Platform Architecture{{ end }}" class="arch-diagram-full">
+        <div class="qs-map-actions">
+          <a class="qs-btn qs-btn--ghost" href="{{ $wenquMapFull }}" target="_blank" rel="noopener">{{ if $isZH }}全屏打开 ↗{{ else }}Open full screen ↗{{ end }}</a>
+          <a class="qs-btn qs-btn--ghost" href="{{ $wenquURL }}">{{ if $isZH }}产品详情 →{{ else }}Product details →{{ end }}</a>
         </div>
+      </div>
+      <div class="qs-map-shell">
+        <iframe
+          class="qs-map-frame"
+          src="{{ $wenquMap }}"
+          title="{{ if $isZH }}问渠 DataOps-AI 交互地图{{ else }}Wenqu DataOps-AI interactive map{{ end }}"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+      <div class="qs-map-hint">
+        <span><i class="qs-dot"></i>{{ if $isZH }}绿色 = 已上线{{ else }}Green = live{{ end }}</span>
+        <span><i class="qs-dot" style="background:#fbbf24;box-shadow:0 0 0 3px rgba(251,191,36,.12)"></i>{{ if $isZH }}黄色 = 部分/边界{{ else }}Amber = partial / boundary{{ end }}</span>
+        <span><i class="qs-dot" style="background:#a78bfa;box-shadow:0 0 0 3px rgba(167,139,250,.12)"></i>{{ if $isZH }}紫色 = 设计/待接{{ else }}Indigo = design / pending{{ end }}</span>
+        <span class="qs-mobile-only">{{ if $isZH }}手机上可左右滑动查看完整地图 →{{ else }}Swipe horizontally to see the full map →{{ end }}</span>
+      </div>
     </div>
-</section>
 
-<style>
-/* ---- 架构板块基础 ---- */
-.arch-panel { padding: 0; overflow: hidden; }
-.arch-panel-energy { background: linear-gradient(180deg, #050f14 0%, #080f18 50%, #050f14 100%); }
-.arch-panel-bigdata { background: linear-gradient(180deg, #071418 0%, #0a1e25 50%, #071418 100%); }
-
-/* ---- 文字头部行 ---- */
-.arch-header-row {
-    padding: 2.5rem 5% 2rem;
-    text-align: center;
-}
-
-.arch-badge {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 0.3rem 1.1rem;
-    border-radius: 20px;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.1rem;
-    text-transform: uppercase;
-}
-.arch-badge-energy { background: rgba(14,107,122,0.12); color: #5ec8d8; border: 1px solid rgba(26,158,74,0.22); }
-.arch-badge-bigdata { background: rgba(20,184,166,0.12); color: #99f6e4; border: 1px solid rgba(20,184,166,0.25); }
-
-.arch-title {
-    font-size: 1.85rem;
-    font-weight: 700;
-    margin-bottom: 0.9rem;
-    border-bottom: none !important;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-}
-.arch-title::after { display: none !important; }
-.arch-title-energy { color: #5ec8d8; }
-.arch-title-bigdata { color: #99f6e4; }
-
-.arch-desc {
-    font-size: 0.97rem;
-    color: rgba(255,255,255,0.72);
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
-    line-height: 1.8;
-    letter-spacing: 0.01em;
-}
-
-/* ---- 标签行 ---- */
-.arch-points-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    justify-content: center;
-    margin-bottom: 1.75rem;
-}
-.arch-point-tag {
-    font-size: 0.82rem;
-    font-weight: 500;
-    padding: 0.35rem 0.9rem;
-    border-radius: 20px;
-    line-height: 1.4;
-}
-.arch-tag-energy { background: rgba(14,107,122,0.15); color: #5ec8d8; border: 1px solid rgba(18,130,58,0.22); }
-.arch-tag-bigdata { background: rgba(15,118,110,0.18); color: #5eead4; border: 1px solid rgba(15,118,110,0.25); }
-
-/* ---- 按钮 ---- */
-.arch-btn {
-    display: inline-block;
-    padding: 0.7rem 2rem;
-    border-radius: 25px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.arch-btn-energy { background: linear-gradient(135deg,#0e6b7a,#0f8a9a); color: white; box-shadow: 0 4px 15px rgba(14,107,122,0.30); }
-.arch-btn-energy:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(20,122,58,0.45); color: white; text-decoration: none; }
-.arch-btn-bigdata { background: linear-gradient(135deg,#0f766e,#14b8a6); color: white; box-shadow: 0 4px 15px rgba(15,118,110,0.35); }
-.arch-btn-bigdata:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(15,118,110,0.5); color: white; text-decoration: none; }
-
-/* ---- 架构图行 ---- */
-.arch-diagram-row { padding: 0 3% 2.5rem; }
-.arch-diagram-full {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
-    transform: none !important;
-}
-.arch-diagram-full:hover { transform: none !important; box-shadow: 0 12px 40px rgba(0,0,0,0.5) !important; }
-
-@media (max-width: 768px) {
-    .arch-header-row { padding: 2rem 4% 1.5rem; }
-    .arch-title { font-size: 1.4rem; }
-    .arch-diagram-row { padding: 0 2% 2rem; }
-}
-</style>
-
-<!-- Edge AI Panel -->
-<section class="arch-panel arch-panel-edgeai">
-    <div class="container-fluid px-0">
-        <div class="arch-header-row arch-header-edgeai">
-            <div class="arch-badge arch-badge-edgeai">🌍 全球首创 · World First</div>
-            <h2 class="arch-title arch-title-edgeai">{{ if eq .Site.Language.Lang "zh" }}鸿源边缘AI推理加速器 · 全球首个 轻量化低功耗推理硬件加速器{{ else }}Hongyuan Edge AI Accelerator · World's First 轻量化低功耗推理FPGA Hardware Accelerator{{ end }}</h2>
-            <p class="arch-desc">{{ if eq .Site.Language.Lang "zh" }}轻量化低功耗推理算法将乘法替换为加减法，让每块 ¥200 级国产 FPGA 都能运行 AI Transformer。6/6 全链路验证通过，256/256 矩阵零误差，100% 国产化。{{ else }}轻量化低功耗推理 lightweight low-power inference dramatically reduces compute requirements — enabling every ¥200-class domestic FPGA to run AI Transformer. 6/6 full-chain validation, 256/256 zero error, 100% domestic components.{{ end }}</p>
-            <div class="arch-points-row">
-                <span class="arch-point-tag arch-tag-edgeai">🔴 16x 存储压缩 · 33% 稀疏跳过</span>
-                <span class="arch-point-tag arch-tag-edgeai">✅ 6/6 全链路验证 · 零误差</span>
-                <span class="arch-point-tag arch-tag-edgeai">💰 BOM &lt;¥200 · Jetson低70%+</span>
-                <span class="arch-point-tag arch-tag-edgeai">🇨🇳 安路FPGA + RISC-V + 鸿蒙LiteOS · 100%国产</span>
-                <span class="arch-point-tag arch-tag-edgeai">🏆 架构创新奖 · 12–18月先发优势</span>
-            </div>
-            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="arch-btn arch-btn-edgeai">{{ if eq .Site.Language.Lang "zh" }}探索边缘AI产品 →{{ else }}Explore Edge AI Products →{{ end }}</a>
+    <div class="qs-map-block" id="map-lake">
+      <div class="qs-map-block-head">
+        <div>
+          <div class="qs-map-block-kicker">{{ if $isZH }}旗舰二 · 容器级高可用数据湖{{ else }}Flagship 2 · Container-grade HA Data Lake{{ end }}</div>
+          <h3>🌊 {{ if $isZH }}HodoopForge 数据湖 · 服务交互地图{{ else }}HodoopForge Data Lake · Interactive Service Map{{ end }}</h3>
+          <p>{{ if $isZH }}22 个服务节点覆盖 Kafka、Flink、Iceberg、Kerberos、HDFS HA、监控与防呆守护。{{ else }}22 service nodes covering Kafka, Flink, Iceberg, Kerberos, HDFS HA, monitoring and the guard.{{ end }}</p>
         </div>
-        <div class="arch-diagram-row arch-edgeai-cards">
-            <div class="arch-edgeai-card">
-                <div class="arch-edgeai-card-title">🔴 鸿源边缘AI推理加速器</div>
-                <div class="arch-edgeai-card-stack">
-                    <div class="arch-edgeai-layer" style="background:rgba(3,105,161,0.22);border-color:rgba(125,211,252,0.35);">应用层 · Transformer推理引擎（QKV / Attention / FFN）</div>
-                    <div class="arch-edgeai-layer" style="background:rgba(2,132,199,0.18);border-color:rgba(186,230,253,0.30);">系统层 · HarmonyOS LiteOS（调度 / IPC / 内存）</div>
-                    <div class="arch-edgeai-layer" style="background:rgba(7,89,133,0.28);border-color:rgba(125,211,252,0.38);">加速层 · 轻量化低功耗推理 16×16 Tile · 乘法→加减法 · 33%稀疏跳过</div>
-                    <div class="arch-edgeai-layer" style="background:rgba(3,105,161,0.32);border-color:rgba(186,230,253,0.45);">硬件层 · 安路EG4X20 FPGA · PicoRV32 RISC-V @50MHz</div>
-                </div>
-                <div class="arch-edgeai-stats">
-                    <span>16x 压缩</span><span>0 误差</span><span>&lt;¥200</span><span>6/6 PASS</span>
-                </div>
-            </div>
-            <div class="arch-edgeai-card">
-                <div class="arch-edgeai-card-title">🔵 智能终端AI中间件</div>
-                <div class="arch-edgeai-card-stack">
-                    <div class="arch-edgeai-layer" style="background:rgba(7,89,133,0.20);border-color:rgba(125,211,252,0.30);">Tier 3 · 云端LLM（WiFi） · &lt;3s · 复杂语义</div>
-                    <div class="arch-edgeai-layer" style="background:rgba(3,105,161,0.22);border-color:rgba(186,230,253,0.35);">Tier 2 · 规则引擎NLP · &lt;500ms · 19种意图 · 离线</div>
-                    <div class="arch-edgeai-layer" style="background:rgba(2,132,199,0.25);border-color:rgba(125,211,252,0.38);">Tier 1 · 关键词匹配 · &lt;100ms · Flash存储 · 128KB峰值</div>
-                    <div class="arch-edgeai-layer" style="background:rgba(7,89,133,0.30);border-color:rgba(186,230,253,0.42);">硬件 · Hi3863 WS63 RISC-V @240MHz · LiteOS</div>
-                </div>
-                <div class="arch-edgeai-stats">
-                    <span>128KB SRAM</span><span>&lt;100ms</span><span>3,500+ 行</span><span>已验证</span>
-                </div>
-            </div>
+        <div class="qs-map-actions">
+          <a class="qs-btn qs-btn--ghost" href="{{ $lakeMapFull }}" target="_blank" rel="noopener">{{ if $isZH }}全屏打开 ↗{{ else }}Open full screen ↗{{ end }}</a>
+          <a class="qs-btn qs-btn--ghost" href="{{ $lakeURL }}">{{ if $isZH }}产品详情 →{{ else }}Product details →{{ end }}</a>
         </div>
+      </div>
+      <div class="qs-map-shell">
+        <iframe
+          class="qs-map-frame"
+          src="{{ $lakeMap }}"
+          title="{{ if $isZH }}HodoopForge 数据湖交互地图{{ else }}HodoopForge Data Lake interactive map{{ end }}"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+      <div class="qs-map-hint">
+        <span><i class="qs-dot"></i>{{ if $isZH }}绿色 = 正常{{ else }}Green = normal{{ end }}</span>
+        <span><i class="qs-dot" style="background:#f5c451;box-shadow:0 0 0 3px rgba(245,196,81,.12)"></i>{{ if $isZH }}黄色 = 注意{{ else }}Amber = attention{{ end }}</span>
+        <span><i class="qs-dot" style="background:#a78bfa;box-shadow:0 0 0 3px rgba(167,139,250,.12)"></i>{{ if $isZH }}紫色 = 规划{{ else }}Indigo = planned{{ end }}</span>
+        <span>{{ if $isZH }}提示：地图内可按实时、查询、认证、值班四条路径高亮。{{ else }}Tip: highlight real-time, query, auth or on-call paths inside the map.{{ end }}</span>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- AI Education Panel -->
-<section class="arch-panel arch-panel-aiedu">
-    <div class="container-fluid px-0">
-        <div class="arch-header-row arch-header-aiedu">
-            <div class="arch-badge arch-badge-aiedu">🎓 国内首创 · China First</div>
-            <h2 class="arch-title arch-title-aiedu">{{ if eq .Site.Language.Lang "zh" }}悦学智伴 · FSRS × 数字人 · 有温度的AI老师{{ else }}Otowyue Learn AI · FSRS × Digital Human · AI Teacher with Soul{{ end }}</h2>
-            <p class="arch-desc">{{ if eq .Site.Language.Lang "zh" }}国内首创 FSRS × VRM 数字人深度融合，完全离线部署，情感感知引擎92%准确率。让每一个孩子都拥有有温度的智能教师。{{ else }}China's first FSRS × VRM digital human integration. Fully offline. 92% emotion sensing accuracy. Every child deserves an AI teacher with soul.{{ end }}</p>
-            <div class="arch-points-row">
-                <span class="arch-point-tag arch-tag-aiedu">❤️ 92% 情绪识别准确率 · &lt;800ms响应</span>
-                <span class="arch-point-tag arch-tag-aiedu">🧠 FSRS记忆算法 · 93%+ 保留率 · 效率3x</span>
-                <span class="arch-point-tag arch-tag-aiedu">🤖 VRM数字人 · 11+ LLM兼容 · 无供应商锁定</span>
-                <span class="arch-point-tag arch-tag-aiedu">🔒 完全离线 · 数据不出设备 · 符合GB/T标准</span>
-            </div>
-            <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sai-education/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/ai-education/" $.Site.BaseURL }}{{ end }}" class="arch-btn arch-btn-aiedu">{{ if eq .Site.Language.Lang "zh" }}探索AI伴学 →{{ else }}Explore AI Education →{{ end }}</a>
-        </div>
-        <div class="arch-diagram-row arch-aiedu-cards">
-            <div class="arch-aiedu-feature">
-                <div class="arch-aiedu-feature-icon">🎭</div>
-                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}情感感知引擎{{ else }}Emotion Sensing{{ end }}</div>
-                <div class="arch-aiedu-feature-stat">92%</div>
-                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}文本/语音/表情三通道融合识别{{ else }}Text/Voice/Expression 3-channel{{ end }}</div>
-            </div>
-            <div class="arch-aiedu-feature">
-                <div class="arch-aiedu-feature-icon">🧠</div>
-                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}FSRS记忆算法{{ else }}FSRS Memory{{ end }}</div>
-                <div class="arch-aiedu-feature-stat">93%+</div>
-                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}MIT科学记忆 · 保留率提升42%{{ else }}MIT algorithm · 42% retention boost{{ end }}</div>
-            </div>
-            <div class="arch-aiedu-feature">
-                <div class="arch-aiedu-feature-icon">🗺️</div>
-                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}知识图谱导航{{ else }}Knowledge Graph{{ end }}</div>
-                <div class="arch-aiedu-feature-stat">K-12</div>
-                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}可视化脉络 · 薄弱点精准定位{{ else }}Visual pathways · Weakness targeting{{ end }}</div>
-            </div>
-            <div class="arch-aiedu-feature">
-                <div class="arch-aiedu-feature-icon">👥</div>
-                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}四角色AI协作{{ else }}4-Role AI Team{{ end }}</div>
-                <div class="arch-aiedu-feature-stat">×4</div>
-                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}教师/答疑/顾问/心理辅导协同{{ else }}Teacher/Q&A/Advisor/Counselor{{ end }}</div>
-            </div>
-            <div class="arch-aiedu-feature">
-                <div class="arch-aiedu-feature-icon">🤖</div>
-                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}VRM数字人{{ else }}VRM Digital Human{{ end }}</div>
-                <div class="arch-aiedu-feature-stat">&lt;800ms</div>
-                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}拟人化 · 11+大模型 · 音素评测{{ else }}Humanized · 11+ LLMs · Phoneme eval{{ end }}</div>
-            </div>
-            <div class="arch-aiedu-feature">
-                <div class="arch-aiedu-feature-icon">🔒</div>
-                <div class="arch-aiedu-feature-title">{{ if eq .Site.Language.Lang "zh" }}完全离线{{ else }}Fully Offline{{ end }}</div>
-                <div class="arch-aiedu-feature-stat">100%</div>
-                <div class="arch-aiedu-feature-desc">{{ if eq .Site.Language.Lang "zh" }}数据不出设备 · Apache 2.0开源{{ else }}Data on-device · Apache 2.0 open{{ end }}</div>
-            </div>
-        </div>
+<!-- ============================== FLAGSHIP PRODUCTS ============================== -->
+<section class="qs-section qs-section--alt">
+  <div class="qs-shell">
+    <div class="qs-section-head">
+      <div class="qs-eyebrow">{{ if $isZH }}双引擎 · 两大旗舰{{ else }}Twin Engines · Two Flagships{{ end }}</div>
+      <h2 class="qs-section-title">{{ if $isZH }}从课堂数据到实时湖仓，<span class="qs-shine">一条完整链路</span>{{ else }}From Classroom Data to a <span class="qs-shine">Real-time Lakehouse</span>{{ end }}</h2>
+      <p class="qs-section-sub">{{ if $isZH }}上层是教育数据智能闭环，下层是容器级高可用数据湖。每个结论都能在地图上找到证据、入口与边界。{{ else }}The upper layer is an education data intelligence loop; the lower layer is a container-grade HA data lake. Every claim has evidence, an entry point and a boundary on the map.{{ end }}</p>
     </div>
-</section>
 
-<style>
-/* ---- Edge AI 板块 ---- */
-.arch-panel-edgeai { background: linear-gradient(180deg, #0d0020 0%, #1a0035 100%); }
-.arch-badge-edgeai { background: rgba(125,211,252,0.15); color: #7dd3fc; border: 1px solid rgba(125,211,252,0.3); }
-.arch-title-edgeai { color: #7dd3fc; }
-.arch-tag-edgeai { background: rgba(3,105,161,0.2); color: #bae6fd; border: 1px solid rgba(3,105,161,0.3); }
-.arch-btn-edgeai { background: linear-gradient(135deg,#0369a1,#0ea5e9); color: white; box-shadow: 0 4px 15px rgba(3,105,161,0.4); }
-.arch-btn-edgeai:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(3,105,161,0.55); color: white; text-decoration: none; }
+    <div class="qs-flagship-grid">
+      <a class="qs-flagship" href="{{ $wenquURL }}">
+        <div class="qs-flagship-top">
+          <span class="qs-flagship-badge">{{ if $isZH }}教育数据智能闭环{{ else }}Education Data Intelligence Loop{{ end }}</span>
+          <span class="qs-flagship-icon">🧠</span>
+        </div>
+        <h3>{{ if $isZH }}问渠 DataOps-AI{{ else }}Wenqu DataOps-AI{{ end }}</h3>
+        <div class="qs-flagship-sub">HodoopForge × EduLake × Edumind × Wenqu AI</div>
+        <p>{{ if $isZH }}从课堂到数据，从数据回到课堂。教学应用、DataOps、数据与模型底座、安全交付四层架构，38 个可交互节点。{{ else }}From classroom to data and back. Four layers — teaching application, DataOps, data & model foundation, security & delivery — with 38 interactive nodes.{{ end }}</p>
+        <div class="qs-flagship-tags">
+          <span>360 {{ if $isZH }}测试{{ else }}tests{{ end }}</span>
+          <span>66 {{ if $isZH }}湖仓表{{ else }}lake tables{{ end }}</span>
+          <span>{{ if $isZH }}等保自检{{ else }}Dengbao{{ end }} 84.8%</span>
+          <span>{{ if $isZH }}多租户 · 隐私闭环{{ else }}multi-tenant · privacy{{ end }}</span>
+        </div>
+        <div class="qs-flagship-link">{{ if $isZH }}查看产品与交互地图 →{{ else }}View product & interactive map →{{ end }}</div>
+      </a>
 
-.arch-edgeai-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 0 4% 2.5rem; max-width: 1100px; margin: 0 auto; }
-.arch-edgeai-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(125,211,252,0.2); border-radius: 14px; padding: 1.5rem; }
-.arch-edgeai-card-title { color: #e0f2fe; font-weight: 700; font-size: 1.05rem; margin-bottom: 1rem; }
-.arch-edgeai-card-stack { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
-.arch-edgeai-layer { font-size: 0.82rem; color: rgba(255,255,255,0.8); padding: 0.5rem 0.9rem; border-radius: 8px; border: 1px solid; line-height: 1.4; }
-.arch-edgeai-stats { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.arch-edgeai-stats span { font-size: 0.78rem; font-weight: 600; color: #7dd3fc; background: rgba(3,105,161,0.2); padding: 0.25rem 0.6rem; border-radius: 10px; }
-
-/* ---- AI Education 板块 ---- */
-.arch-panel-aiedu { background: linear-gradient(180deg, #0a1a30 0%, #0f2540 100%); }
-.arch-badge-aiedu { background: rgba(56,189,248,0.15); color: #7dd3fc; border: 1px solid rgba(56,189,248,0.3); }
-.arch-title-aiedu { color: #7dd3fc; }
-.arch-tag-aiedu { background: rgba(14,165,233,0.2); color: #bae6fd; border: 1px solid rgba(14,165,233,0.3); }
-.arch-btn-aiedu { background: linear-gradient(135deg,#0284c7,#38bdf8); color: white; box-shadow: 0 4px 15px rgba(2,132,199,0.4); }
-.arch-btn-aiedu:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(2,132,199,0.55); color: white; text-decoration: none; }
-
-.arch-aiedu-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; padding: 0 4% 2.5rem; max-width: 1100px; margin: 0 auto; }
-.arch-aiedu-feature { background: rgba(255,255,255,0.05); border: 1px solid rgba(56,189,248,0.2); border-radius: 14px; padding: 1.5rem; text-align: center; transition: all 0.3s; }
-.arch-aiedu-feature:hover { border-color: rgba(56,189,248,0.5); background: rgba(255,255,255,0.08); }
-.arch-aiedu-feature-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-.arch-aiedu-feature-title { font-size: 0.9rem; font-weight: 700; color: #7dd3fc; margin-bottom: 0.25rem; }
-.arch-aiedu-feature-stat { font-size: 1.75rem; font-weight: 800; color: #38bdf8; margin-bottom: 0.25rem; line-height: 1.2; }
-.arch-aiedu-feature-desc { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
-
-@media (max-width: 768px) {
-    .arch-edgeai-cards { grid-template-columns: 1fr; }
-    .arch-aiedu-cards { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-    .arch-aiedu-cards { grid-template-columns: 1fr; }
-}
-</style>
-
-<!-- Contact CTA -->
-<section style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 3rem 0; text-align: center;">
-    <div class="container">
-        <h2 style="color: white; border-bottom: none; margin-bottom: 0.75rem;">{{ if eq .Site.Language.Lang "zh" }}准备开启您的数字化未来？{{ else }}Ready to Build the Future?{{ end }}</h2>
-        <p style="color: rgba(255,255,255,0.6); margin-bottom: 1.5rem;">{{ if eq .Site.Language.Lang "zh" }}大数据运维 · 智慧能源 · 边缘AI推理 · AI伴学教育 — 联系我们的专业团队{{ else }}Big Data · Smart Energy · Edge AI · AI Education — Contact our professional team{{ end }}</p>
-        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sedge-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/edge-ai/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#0369a1,#0ea5e9);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}边缘AI →{{ else }}Edge AI →{{ end }}</a>
-        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%senergy-solutions/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/energy-solutions/" $.Site.BaseURL }}{{ end }}" class="btn me-2 mb-2" style="background:linear-gradient(135deg,#0e6b7a,#0f8a9a);color:white;border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}智慧能源 →{{ else }}Smart Energy →{{ end }}</a>
-        <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light mb-2" style="border-radius:25px;padding:0.65rem 1.5rem;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}联系我们{{ else }}Contact Us{{ end }}</a>
+      <a class="qs-flagship qs-flagship--lake" href="{{ $lakeURL }}">
+        <div class="qs-flagship-top">
+          <span class="qs-flagship-badge">{{ if $isZH }}容器级高可用 · 实时入湖{{ else }}Container HA · Real-time Ingestion{{ end }}</span>
+          <span class="qs-flagship-icon">🌊</span>
+        </div>
+        <h3>{{ if $isZH }}HodoopForge 数据湖{{ else }}HodoopForge Data Lake{{ end }}</h3>
+        <div class="qs-flagship-sub">Kafka → Flink → Iceberg · Kerberos</div>
+        <p>{{ if $isZH }}Kafka → Flink → Iceberg 全链路，Kerberos 7 服务，HDFS NN HA，防呆守护，77 张湖表全部对齐。22 个服务节点、端口、命令与文档一图直达。{{ else }}Kafka → Flink → Iceberg full chain, Kerberos on 7 services, HDFS NN HA, guard protection and 77 aligned lake tables. 22 service nodes with ports, commands and docs on one map.{{ end }}</p>
+        <div class="qs-flagship-tags">
+          <span>7/7 {{ if $isZH }}服务{{ else }}services{{ end }}</span>
+          <span>Checkpoint 408+</span>
+          <span>77 Iceberg</span>
+          <span>HDFS NN HA</span>
+        </div>
+        <div class="qs-flagship-link">{{ if $isZH }}查看产品与数据湖地图 →{{ else }}View product & lake map →{{ end }}</div>
+      </a>
     </div>
+  </div>
 </section>
 
+<!-- ============================== BUSINESS LINES ============================== -->
+<section class="qs-section">
+  <div class="qs-shell">
+    <div class="qs-section-head">
+      <div class="qs-eyebrow">{{ if $isZH }}产品矩阵 · 四大业务线{{ else }}Product Matrix · Four Business Lines{{ end }}</div>
+      <h2 class="qs-section-title">{{ if $isZH }}两条数据主线，<span class="qs-shine">四大业务场景</span>{{ else }}Two Data Mainlines, <span class="qs-shine">Four Business Scenarios</span>{{ end }}</h2>
+      <p class="qs-section-sub">{{ if $isZH }}新能源、大数据、边缘 AI、AI 伴学已全部归入「产品」菜单，作为产品子目录呈现。{{ else }}Smart Energy, Big Data, Edge AI and AI Education are now grouped under the Products menu as product sub-directories.{{ end }}</p>
+    </div>
+
+    <div class="qs-biz-grid">
+      <a class="qs-biz qs-biz--energy" href="{{ "energy-solutions/" | relLangURL }}">
+        <div class="qs-biz-icon">⚡</div>
+        <h3>{{ if $isZH }}新能源 EMS{{ else }}Smart Energy EMS{{ end }}</h3>
+        <p>{{ if $isZH }}光储充一体化、VPP 虚拟电厂与 AI 调度，覆盖家庭、工商业与园区场景。{{ else }}Solar-storage-charging integration, VPP and AI dispatch for homes, businesses and parks.{{ end }}</p>
+        <span class="qs-biz-tag">{{ if $isZH }}产品 › 新能源 →{{ else }}Products › Smart Energy →{{ end }}</span>
+      </a>
+      <a class="qs-biz qs-biz--data" href="{{ "solutions/" | relLangURL }}">
+        <div class="qs-biz-icon">📊</div>
+        <h3>{{ if $isZH }}大数据平台{{ else }}Big Data Platform{{ end }}</h3>
+        <p>{{ if $isZH }}HadoopForge 企业级集群运维，Ambari 3.0.0 + Bigtop 3.5.0 完整适配，AI 运维大脑。{{ else }}HadoopForge enterprise cluster O&M with Ambari 3.0.0 + Bigtop 3.5.0 and an AI O&M brain.{{ end }}</p>
+        <span class="qs-biz-tag">{{ if $isZH }}产品 › 大数据 →{{ else }}Products › Big Data →{{ end }}</span>
+      </a>
+      <a class="qs-biz qs-biz--edge" href="{{ "edge-ai/" | relLangURL }}">
+        <div class="qs-biz-icon">🔵</div>
+        <h3>{{ if $isZH }}边缘 AI 推理{{ else }}Edge AI Inference{{ end }}</h3>
+        <p>{{ if $isZH }}鸿源 FPGA 加速器与智能终端 AI 中间件，低功耗、完全离线、100% 国产化。{{ else }}Hongyuan FPGA accelerator and smart-terminal AI middleware — low power, fully offline, 100% domestic.{{ end }}</p>
+        <span class="qs-biz-tag">{{ if $isZH }}产品 › 边缘AI →{{ else }}Products › Edge AI →{{ end }}</span>
+      </a>
+      <a class="qs-biz qs-biz--edu" href="{{ "ai-education/" | relLangURL }}">
+        <div class="qs-biz-icon">🎓</div>
+        <h3>{{ if $isZH }}AI 伴学教育{{ else }}AI Education{{ end }}</h3>
+        <p>{{ if $isZH }}悦学智伴：FSRS × VRM 数字人，完全离线部署，92% 情绪识别准确率。{{ else }}Otowyue Learn AI: FSRS × VRM digital human, fully offline, 92% emotion recognition accuracy.{{ end }}</p>
+        <span class="qs-biz-tag">{{ if $isZH }}产品 › AI伴学 →{{ else }}Products › AI Education →{{ end }}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TRUST ============================== -->
+<section class="qs-section qs-section--alt">
+  <div class="qs-shell">
+    <div class="qs-section-head">
+      <div class="qs-eyebrow">{{ if $isZH }}为什么选择启煊{{ else }}Why Qixuan{{ end }}</div>
+      <h2 class="qs-section-title">{{ if $isZH }}不是概念演示，<span class="qs-shine">是跑在生产里的系统</span>{{ else }}Not a Concept Demo — <span class="qs-shine">Systems Running in Production</span>{{ end }}</h2>
+    </div>
+    <div class="qs-trust-grid">
+      <div class="qs-trust">
+        <b>{{ if $isZH }}全栈自研{{ else }}Full-stack self-developed{{ end }}</b>
+        <span>{{ if $isZH }}80,000+ 行自主代码，覆盖数据平台、教学应用、模型评测与运维自动化。{{ else }}80,000+ lines of proprietary code across data platform, teaching application, model evaluation and operations automation.{{ end }}</span>
+      </div>
+      <div class="qs-trust">
+        <b>{{ if $isZH }}生产验证{{ else }}Production-proven{{ end }}</b>
+        <span>{{ if $isZH }}360 项测试通过、77 张湖表对齐、7/7 核心服务 UP、Checkpoint 408+。{{ else }}360 tests passed, 77 lake tables aligned, 7/7 core services UP and 408+ checkpoints.{{ end }}</span>
+      </div>
+      <div class="qs-trust">
+        <b>{{ if $isZH }}安全合规{{ else }}Security & compliance{{ end }}</b>
+        <span>{{ if $isZH }}等保三级技术自检 84.8%，隐私导出/删除、留存 ≥180 天、SHA-256 审计链。{{ else }}Dengbao Level 3 technical self-check 84.8%, privacy export/delete, ≥180-day retention and a SHA-256 audit chain.{{ end }}</span>
+      </div>
+      <div class="qs-trust">
+        <b>{{ if $isZH }}国产替代{{ else }}Domestic substitution{{ end }}</b>
+        <span>{{ if $isZH }}完全基于 Apache 开源生态，支持国产芯片与操作系统，无厂商锁定。{{ else }}Built entirely on the Apache open-source ecosystem, supporting domestic chips and operating systems with no vendor lock-in.{{ end }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA ============================== -->
+<section class="qs-cta">
+  <div class="qs-shell">
+    <h2>{{ if $isZH }}准备开启您的数据与 AI 闭环？{{ else }}Ready to Build Your Data & AI Loop?{{ end }}</h2>
+    <p>{{ if $isZH }}联系我们获取问渠 DataOps-AI、HodoopForge 数据湖、HadoopForge、悦学智伴与鸿源边缘 AI 的产品演示与方案。{{ else }}Contact us for demos and solutions across Wenqu DataOps-AI, HodoopForge Data Lake, HadoopForge, Otowyue Learn AI and Hongyuan Edge AI.{{ end }}</p>
+    <div class="qs-hero-actions" style="margin-bottom:0;">
+      <a class="qs-btn qs-btn--cyan" href="{{ "contact/" | relLangURL }}">{{ if $isZH }}立即联系 →{{ else }}Contact us →{{ end }}</a>
+      <a class="qs-btn qs-btn--ghost" href="{{ "products/" | relLangURL }}">{{ if $isZH }}查看全部产品{{ else }}View all products{{ end }}</a>
+    </div>
+  </div>
+</section>
 {{ end }}

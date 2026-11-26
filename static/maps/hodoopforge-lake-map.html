@@ -121,24 +121,33 @@
   footer{margin-top:22px;border-top:1px solid var(--line);padding-top:12px;color:var(--faint);font-size:11.5px;
     display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between}
   footer code{color:var(--codeink);background:var(--code);padding:2px 6px;border-radius:5px}
-  .site-back{position:fixed;right:14px;bottom:14px;z-index:80;display:inline-flex;
-    align-items:center;gap:6px;padding:7px 12px;border-radius:999px;
-    background:linear-gradient(135deg,rgba(94,160,255,.18),rgba(55,224,176,.12));
-    border:1px solid var(--line);color:var(--accent);
-    font-size:12px;box-shadow:0 8px 28px rgba(0,0,0,.35);text-decoration:none}
-  .site-back:hover{background:var(--hover);text-decoration:none}
-  .prod-back{position:fixed;left:14px;bottom:14px;z-index:80;display:inline-flex;
-    align-items:center;gap:6px;padding:7px 12px;border-radius:999px;
-    background:var(--panel);border:1px solid var(--line);color:var(--ink);
-    font-size:12px;box-shadow:0 8px 28px rgba(0,0,0,.35);text-decoration:none}
+  @media(max-width:980px){.main{grid-template-columns:1fr}.panel{position:static;order:2}}
+  @media(max-width:640px){.app{padding:0 12px 32px}.brand h1{font-size:17px}.brand .sub{display:none}.meta{display:none}
+    .topbar{gap:10px;padding:8px 0}
+    .searchbox{order:4;flex:1 1 100%;max-width:none}
+    .metabar{gap:8px;margin-bottom:10px}
+    .chain{padding-bottom:8px}
+    .toolbar{gap:8px;margin-bottom:10px}
+    .filters button,.tours button{padding:6px 9px;font-size:11px}
+    .layer{padding:12px}
+    .panel{padding:12px}
+  }
+  .prod-back{position:fixed;left:14px;bottom:14px;z-index:80;display:inline-flex;align-items:center;gap:6px;
+    padding:7px 12px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    font-size:12px;box-shadow:0 8px 28px rgba(0,0,0,.35);text-decoration:none;backdrop-filter:blur(10px)}
   .prod-back:hover{background:var(--hover);text-decoration:none}
-  @media(max-width:980px){.main{grid-template-columns:1fr}.panel{position:static;order:-1}}
-  @media(max-width:640px){.app{padding:0 12px 32px}.brand h1{font-size:17px}.brand .sub{display:none}.meta{display:none}}
+  .site-back{position:fixed;right:14px;bottom:14px;z-index:80;display:inline-flex;align-items:center;gap:6px;
+    padding:7px 12px;border-radius:999px;background:linear-gradient(135deg,rgba(94,160,255,.18),rgba(55,224,176,.12));
+    border:1px solid var(--line);color:var(--accent);font-size:12px;box-shadow:0 8px 28px rgba(0,0,0,.35);
+    text-decoration:none;backdrop-filter:blur(10px)}
+  .site-back:hover{background:var(--hover);text-decoration:none}
+  body.embedded .prod-back,body.embedded .site-back{display:none}
+  body.embedded .app{padding-bottom:24px}
 </style>
 </head>
 <body>
-<a class="prod-back" href="/products/hodoopforge/">← 返回产品页</a>
-<a class="site-back" href="/">🏠 启煊软件官网</a>
+<a class="prod-back" id="prodBack" href="/products/hodoopforge/">← 返回产品</a>
+<a class="site-back" id="siteBack" href="/">🏠 启煊软件官网</a>
 <div class="app">
   <header class="topbar">
     <div class="brand">
@@ -150,7 +159,7 @@
     </div>
     <div class="searchbox">
       <span class="mag">⌕</span>
-      <input id="q" placeholder="搜索服务、端口、命令、文档…" autocomplete="off">
+      <input id="q" placeholder="搜索服务、端口、命令、文档…" autocomplete="off" aria-label="搜索服务、端口、命令、文档">
       <kbd>/</kbd>
     </div>
     <button class="iconbtn" id="theme" title="切换明暗主题">◐</button>
@@ -171,11 +180,11 @@
     <div class="grid" id="grid"></div>
     <aside class="panel" id="panel">
       <div class="kicker">HODOOPFORGE</div>
-      <h3>点击任意节点</h3>
-      <div class="dsub">查看状态、入口、指标、命令与文档。</div>
-      <div class="desc">本页数据已内嵌，可直接通过 <b>file://</b> 或任意静态服务器打开，不依赖 lake-map-data.json 的 fetch。</div>
-      <div class="sec">快速路径</div>
-      <ul class="clean">
+      <h3 id="panelTitle">点击任意节点</h3>
+      <div class="dsub" id="panelSub">查看状态、入口、指标、命令与文档。</div>
+      <div class="desc" id="panelDesc">本页数据已内嵌，可直接通过 <b>file://</b> 或任意静态服务器打开，不依赖 lake-map-data.json 的 fetch。</div>
+      <div class="sec" id="panelSec">快速路径</div>
+      <ul class="clean" id="panelList">
         <li>实时链路：Kafka → Flink → Iceberg</li>
         <li>查询链路：Spark/Hive → Iceberg/HDFS</li>
         <li>认证与防呆：KDC → 服务 keytab → guard</li>
@@ -183,9 +192,9 @@
     </aside>
   </main>
 
-  <footer>
+  <footer id="mapFooter">
     <div>数据快照：<code>lake-map-data.json</code> · 生成：<code>scripts/gen_lake_map_data.py</code> · 版本：2026-11-26 Kerberos</div>
-    <div><a href="ARCHITECTURE.md">架构</a> · <a href="CURRENT_STATE.md">当前状态</a> · <a href="KERBEROS_GUARD.md">防呆守护</a></div>
+    <div id="footerLinks"><a href="/docs/hodoopforge/architecture/">架构</a> · <a href="/docs/hodoopforge/current-state/">当前状态</a> · <a href="/docs/hodoopforge/kerberos-guard/">防呆守护</a></div>
   </footer>
 </div>
 
@@ -822,10 +831,55 @@
  ]
 }
 </script>
+<script src="hodoopforge-map-en.js"></script>
 <script>
 (function(){
   "use strict";
   var DATA = JSON.parse(document.getElementById("lake-map-data").textContent);
+  var LANG=(function(){var m=/[?&]lang=(en|zh)/i.exec(location.search);if(m)return m[1].toLowerCase();return (document.documentElement.lang||'zh').toLowerCase().indexOf('en')===0?'en':'zh';})();
+  var EN=window.HODOOPFORGE_EN||null;
+  document.documentElement.lang=LANG==='en'?'en':'zh-CN';
+  if(window.self!==window.top){document.body.classList.add('embedded');}
+  if(LANG==='en'&&EN){
+    DATA.title=EN.title||DATA.title; DATA.subtitle=EN.subtitle||DATA.subtitle;
+    if(EN.summary){DATA.summary=(DATA.summary||[]).map(function(s,i){return Object.assign({},s,EN.summary[i]||{});});}
+    if(EN.flow){DATA.flow=(DATA.flow||[]).map(function(f){return Object.assign({},f,EN.flow[f.id]||{});});}
+    if(EN.layers){DATA.layers=(DATA.layers||[]).map(function(l){
+      var nl=Object.assign({},l,EN.layers[l.id]||{});
+      nl.nodes=(l.nodes||[]).map(function(n){return Object.assign({},n,(EN.layers[l.id]&&EN.layers[l.id].nodes&&EN.layers[l.id].nodes[n.id])||{});});
+      return nl;
+    });}
+  }
+  var ZH_UI={
+    search:'搜索服务、端口、命令、文档…',
+    all:'全部',clear:'清除高亮',flow:'FLOW',
+    entry:'入口',metrics:'指标',commands:'命令',docs:'文档',copy:'复制',copied:'已复制',
+    tours:{realtime:'实时链路',query:'查询链路',security:'Kerberos 认证',ops:'值班检查'},
+    panelTitle:'点击任意节点',panelSub:'查看状态、入口、指标、命令与文档。',
+    panelDesc:'本页数据已内嵌，可直接通过 <b>file://</b> 或任意静态服务器打开，不依赖 lake-map-data.json 的 fetch。',
+    panelSec:'快速路径',
+    panelList:'<li>实时链路：Kafka → Flink → Iceberg</li><li>查询链路：Spark/Hive → Iceberg/HDFS</li><li>认证与防呆：KDC → 服务 keytab → guard</li>',
+    footer:'数据快照：<code>lake-map-data.json</code> · 生成：<code>scripts/gen_lake_map_data.py</code> · 版本：2026-11-26 Kerberos',
+    footerLinks:'<a href="/docs/hodoopforge/architecture/">架构</a> · <a href="/docs/hodoopforge/current-state/">当前状态</a> · <a href="/docs/hodoopforge/kerberos-guard/">防呆守护</a>',
+    back:'← 返回产品',site:'🏠 启煊软件官网',themeTitle:'切换明暗主题'
+  };
+  var UI=(LANG==='en'&&EN&&EN.ui)?EN.ui:ZH_UI;
+  function applyUI(){
+    document.title=DATA.title||document.title;
+    document.getElementById('q').placeholder=UI.search;
+    document.getElementById('panelTitle').innerHTML=UI.panelTitle;
+    document.getElementById('panelSub').innerHTML=UI.panelSub;
+    document.getElementById('panelDesc').innerHTML=UI.panelDesc;
+    document.getElementById('panelSec').innerHTML=UI.panelSec;
+    document.getElementById('panelList').innerHTML=UI.panelList;
+    document.getElementById('mapFooter').firstElementChild.innerHTML=UI.footer;
+    document.getElementById('footerLinks').innerHTML=UI.footerLinks;
+    document.getElementById('prodBack').textContent=UI.back;
+    document.getElementById('prodBack').href=LANG==='en'?'/en/products/hodoopforge/':'/products/hodoopforge/';
+    document.getElementById('siteBack').textContent=UI.site;
+    document.getElementById('siteBack').href=LANG==='en'?'/en/':'/';
+    document.getElementById('theme').title=UI.themeTitle;
+  }
   var STATUS = {ok:"正常",warn:"注意",bad:"异常",plan:"规划",off:"未启用"};
   var TOURS = {
     realtime:["kdc","kafka","flink","iceberg","hdfs"],
@@ -852,17 +906,32 @@
     return "";
   }
   function docHref(d){
-    var s=String(d||"");
-    s=s.replace(/^docs\//,"");
-    return "./"+s;
+    var s=String(d||'').replace(/^docs\//,'').replace(/\.md$/,'').toLowerCase();
+    var map={
+      'architecture':'architecture','current_state':'current-state','kerberos_enablement':'kerberos-enablement',
+      'kerberos_guard':'kerberos-guard','lan_access_guide':'lan-access-guide','hive_mysql_ha':'hive-mysql-ha',
+      'flink_ops_runbook':'flink-ops-runbook','monitoring_prometheus':'monitoring-prometheus',
+      'rebuild_runbook':'rebuild-runbook','operations_automation':'operations-automation',
+      'management_model':'management-model','readme':'readme','manifest':'manifest',
+      'kafka_external_access':'kafka-external-access','platform_tech_user_manual':'platform-tech-user-manual'
+    };
+    return '/docs/hodoopforge/'+(map[s]||'architecture')+'/';
+  }
+  var DOC_LABELS={
+    zh:{architecture:'架构总览',current_state:'当前状态',kerberos_enablement:'Kerberos 数据面配置',kerberos_guard:'Kerberos 防呆守护',lan_access_guide:'局域网访问指南',hive_mysql_ha:'Hive Metastore MySQL 高可用',flink_ops_runbook:'Flink 运维手册',monitoring_prometheus:'Prometheus 监控',rebuild_runbook:'重建手册',operations_automation:'运维自动化',management_model:'管理模式',readme:'交接参考包说明',manifest:'文件清单与校验',kafka_external_access:'Kafka 外部访问',platform_tech_user_manual:'平台技术与用户手册'},
+    en:{architecture:'Architecture Overview',current_state:'Current State',kerberos_enablement:'Kerberos Data Plane',kerberos_guard:'Kerberos Guard',lan_access_guide:'LAN Access Guide',hive_mysql_ha:'Hive Metastore MySQL HA',flink_ops_runbook:'Flink Operations Runbook',monitoring_prometheus:'Prometheus Monitoring',rebuild_runbook:'Rebuild Runbook',operations_automation:'Operations Automation',management_model:'Management Model',readme:'Handover Pack README',manifest:'Manifest & Checksums',kafka_external_access:'Kafka External Access',platform_tech_user_manual:'Platform Technical Manual'}
+  };
+  function docLabel(d){
+    var s=String(d||'').replace(/^docs\//,'').replace(/\.md$/,'').toLowerCase();
+    return (DOC_LABELS[LANG]||DOC_LABELS.zh)[s]||d;
   }
   function copyText(t,btn){
     if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(t).then(function(){if(btn){btn.textContent="已复制";setTimeout(function(){btn.textContent="复制";},1200);}});
+      navigator.clipboard.writeText(t).then(function(){if(btn){btn.textContent=UI.copied;setTimeout(function(){btn.textContent=UI.copy;},1200);}});
     }else{
       var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();
       try{document.execCommand("copy");}catch(e){}document.body.removeChild(ta);
-      if(btn){btn.textContent="已复制";setTimeout(function(){btn.textContent="复制";},1200);}
+      if(btn){btn.textContent=UI.copied;setTimeout(function(){btn.textContent=UI.copy;},1200);}
     }
   }
 
@@ -896,7 +965,7 @@
 
   function renderFilters(){
     var box=document.getElementById("filters");
-    var all=document.createElement("button");all.textContent="全部";all.dataset.layer="all";all.className="active";
+    var all=document.createElement("button");all.textContent=UI.all;all.dataset.layer="all";all.className="active";
     box.appendChild(all);
     (DATA.layers||[]).forEach(function(l){
       var b=document.createElement("button");b.textContent=l.name;b.dataset.layer=l.name;box.appendChild(b);
@@ -910,11 +979,11 @@
 
   function renderTours(){
     var box=document.getElementById("tours");
-    var labels={realtime:"实时链路",query:"查询链路",security:"Kerberos 认证",ops:"值班检查"};
+    var labels=UI.tours;
     Object.keys(TOURS).forEach(function(k){
-      var b=document.createElement("button");b.textContent=labels[k];b.dataset.tour=k;box.appendChild(b);
+      var b=document.createElement("button");b.textContent=labels[k]||k;b.dataset.tour=k;box.appendChild(b);
     });
-    var clear=document.createElement("button");clear.textContent="清除高亮";clear.dataset.tour="";box.appendChild(clear);
+    var clear=document.createElement("button");clear.textContent=UI.clear;clear.dataset.tour="";box.appendChild(clear);
     box.addEventListener("click",function(e){
       var b=e.target.closest("button"); if(!b) return;
       var k=b.dataset.tour;
@@ -949,25 +1018,25 @@
     selected=id;
     document.querySelectorAll(".card").forEach(function(c){c.classList.toggle("sel",c.dataset.id===id);});
     var panel=document.getElementById("panel");
-    var html='<div class="kicker">'+esc(layerOf(id)||"FLOW")+'</div>'+
+    var html='<div class="kicker">'+esc(layerOf(id)||UI.flow)+'</div>'+
       '<h3><span class="dot st-'+esc(n.status||"off")+'" style="display:inline-block;margin-right:8px"></span>'+esc(n.name||id)+'</h3>'+
       '<div class="dsub">'+esc(n.sub||"")+'</div>';
     var kv="";
-    (n.endpoints||[]).forEach(function(e){kv+='<div class="k">入口</div><div><code>'+esc(e)+'</code></div>';});
+    (n.endpoints||[]).forEach(function(e){kv+='<div class="k">'+esc(UI.entry)+'</div><div><code>'+esc(e)+'</code></div>';});
     if(kv){html+='<div class="kv">'+kv+'</div>';}
     if(n.desc){html+='<div class="desc">'+esc(n.desc)+'</div>';}
     if((n.metrics||[]).length){
-      html+='<div class="sec">指标</div><ul class="clean">'+n.metrics.map(function(m){return "<li>"+esc(m)+"</li>";}).join("")+'</ul>';
+      html+='<div class="sec">'+esc(UI.metrics)+'</div><ul class="clean">'+n.metrics.map(function(m){return "<li>"+esc(m)+"</li>";}).join("")+'</ul>';
     }
     if((n.commands||[]).length){
-      html+='<div class="sec">命令</div>';
+      html+='<div class="sec">'+esc(UI.commands)+'</div>';
       n.commands.forEach(function(c){
-        html+='<div class="cmd"><span>'+esc(c)+'</span><button data-cmd="'+esc(c)+'">复制</button></div>';
+        html+='<div class="cmd"><span>'+esc(c)+'</span><button data-cmd="'+esc(c)+'">'+esc(UI.copy)+'</button></div>';
       });
     }
     if((n.docs||[]).length){
-      html+='<div class="sec">文档</div><div class="docs">'+n.docs.map(function(d){
-        return '<a href="'+esc(docHref(d))+'" target="_blank" rel="opener">'+esc(d)+'</a>';
+      html+='<div class="sec">'+esc(UI.docs)+'</div><div class="docs">'+n.docs.map(function(d){
+        return '<a href="'+esc(docHref(d))+'" title="'+esc(d)+'" target="_blank" rel="opener">'+esc(docLabel(d))+'</a>';
       }).join("")+'</div>';
     }
     panel.innerHTML=html;
@@ -1028,7 +1097,7 @@
     if(e.key==="Escape"){clearTour();document.getElementById("q").value="";applyFilter();}
   });
 
-  renderSummary();renderFlow();renderFilters();renderTours();renderLayers();
+  applyUI();renderSummary();renderFlow();renderFilters();renderTours();renderLayers();
 })();
 </script>
 </body>

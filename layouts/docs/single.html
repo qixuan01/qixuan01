@@ -1,0 +1,39 @@
+{{ define "main" }}
+{{- $isZH := eq .Site.Language.Lang "zh" -}}
+{{- $siblings := .CurrentSection.Pages.ByWeight -}}
+
+<section class="qs-docs-hero">
+  <div class="qs-shell">
+    <nav class="qs-breadcrumb">
+      <a href="{{ "" | relLangURL }}">{{ if $isZH }}首页{{ else }}Home{{ end }}</a>
+      <span>/</span>
+      <a href="{{ "docs/" | relLangURL }}">{{ if $isZH }}技术文档{{ else }}Technical Docs{{ end }}</a>
+      <span>/</span>
+      <a href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>
+      <span>/</span>
+      <span>{{ .Title }}</span>
+    </nav>
+    <div class="qs-eyebrow">{{ .CurrentSection.Title }}</div>
+    <h1>{{ .Title }}</h1>
+    <p>{{ with .Description }}{{ . }}{{ else }}{{ if $isZH }}技术参考文档。{{ else }}Technical reference. {{ end }}{{ end }}</p>
+  </div>
+</section>
+
+<section class="qs-docs-body">
+  <div class="qs-shell">
+    <div class="qs-docs-layout">
+      <aside class="qs-docs-sidebar">
+        <h3>{{ .CurrentSection.Title }}</h3>
+        {{ range $siblings }}
+        <a href="{{ .RelPermalink }}" class="{{ if eq .RelPermalink $.RelPermalink }}is-active{{ end }}">{{ .Title }}</a>
+        {{ end }}
+        <hr style="border-color:#e5edf7;margin:12px 0;">
+        <a href="{{ "docs/" | relLangURL }}">← {{ if $isZH }}文档中心{{ else }}Docs home{{ end }}</a>
+      </aside>
+      <article class="qs-docs-content">
+        <div class="qs-prose">{{ .Content }}</div>
+      </article>
+    </div>
+  </div>
+</section>
+{{ end }}

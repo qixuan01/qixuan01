@@ -1,0 +1,56 @@
+{{ define "main" }}
+{{- $isZH := eq .Site.Language.Lang "zh" -}}
+{{- $sections := where .Pages "IsSection" true -}}
+{{- $pages := where .Pages "IsSection" false -}}
+
+<section class="qs-docs-hero">
+  <div class="qs-shell">
+    <nav class="qs-breadcrumb">
+      <a href="{{ "" | relLangURL }}">{{ if $isZH }}首页{{ else }}Home{{ end }}</a>
+      <span>/</span>
+      {{ if .Parent.IsHome }}
+        <span>{{ .Title }}</span>
+      {{ else }}
+        <a href="{{ "docs/" | relLangURL }}">{{ if $isZH }}技术文档{{ else }}Technical Docs{{ end }}</a>
+        <span>/</span>
+        <span>{{ .Title }}</span>
+      {{ end }}
+    </nav>
+    <div class="qs-eyebrow">{{ if $isZH }}技术文档中心{{ else }}Technical Documentation{{ end }}</div>
+    <h1>{{ .Title }}</h1>
+    <p>{{ with .Description }}{{ . }}{{ else }}{{ if $isZH }}问渠 DataOps-AI 与 HodoopForge 数据湖的技术参考文档。{{ else }}Engineering references for Wenqu DataOps-AI and HodoopForge Data Lake.{{ end }}{{ end }}</p>
+  </div>
+</section>
+
+<section class="qs-docs-body">
+  <div class="qs-shell">
+    {{ if $sections }}
+    <div class="qs-docs-grid">
+      {{ range $sections.ByWeight }}
+      <a class="qs-docs-card" href="{{ .RelPermalink }}">
+        <h3>{{ .Title }}</h3>
+        <p>{{ .Description }}</p>
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ if $pages }}
+    <div class="qs-docs-list">
+      {{ range $pages.ByWeight }}
+      <a href="{{ .RelPermalink }}">
+        <strong>{{ .Title }}</strong>
+        <span>{{ if $isZH }}阅读 →{{ else }}Read →{{ end }}</span>
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ with .Content }}
+    <div class="qs-docs-content" style="margin-top:24px;">
+      <div class="qs-prose">{{ . }}</div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

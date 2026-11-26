@@ -1,7 +1,7 @@
 ﻿---
-title: "Shenzhen Qixuan Software Co., Ltd. - Big Data & Smart Energy Dual-Core Solutions"
-description: "Shenzhen Qixuan Software Co., Ltd. specializes in big data infrastructure, AI education and edge AI inference. Core product HadoopForge fills the Ambari+Bigtop version gap. Four product lines: Smart Energy EMS, HadoopForge Big Data, Hongyuan Edge AI, Otowyue Learn AI. Serving multiple enterprise customers with multiple independent intellectual properties."
-keywords: "Big Data Platform,Enterprise Hadoop,Spark,Kafka,Big Data Solutions,Data Analytics Platform,Business Intelligence,Star Kernal,Solar Storage Charging,Energy Storage,New Energy,AI Smart Energy"
+title: "Shenzhen Qixuan Software Co., Ltd. - Wenqu DataOps-AI & HodoopForge Data Lake"
+description: "Qixuan Software powers education data intelligence and real-time lakehouse with two flagship platforms: Wenqu DataOps-AI and HodoopForge Data Lake, alongside HadoopForge big data O&M, edge AI inference and AI education. Two interactive maps show the whole platform at a glance."
+keywords: "Wenqu DataOps-AI,HodoopForge Data Lake,Education Data Intelligence,DataOps Platform,Real-time Lakehouse,Kerberos,HadoopForge,Big Data O&M,Edge AI,AI Education,Domestic Substitution,Qixuan Software"
 
 # banner
 banner:

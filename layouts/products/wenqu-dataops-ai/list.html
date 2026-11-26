@@ -1,62 +1,66 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if eq .Site.Language.Lang "zh" }}问渠 DataOps-AI · 解决方案交互地图{{ else }}Wenqu DataOps-AI · Interactive Solution Map{{ end }} - {{ .Site.Title }}</title>
-<meta name="description" content="{{ .Description }}">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%;overflow:hidden;background:#08111f;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
-  .topnav{
-    position:fixed;top:0;left:0;right:0;z-index:999;
-    display:flex;align-items:center;gap:12px;
-    padding:0 18px;height:44px;
-    background:rgba(8,17,31,0.96);
-    border-bottom:1px solid rgba(34,211,238,0.18);
-    backdrop-filter:blur(12px);
-  }
-  .topnav a{text-decoration:none;}
-  .back-btn{
-    display:inline-flex;align-items:center;gap:6px;
-    color:rgba(255,255,255,0.65);font-size:12.5px;
-    padding:4px 10px;border-radius:6px;
-    border:1px solid rgba(255,255,255,0.12);
-    transition:all 0.18s;
-  }
-  .back-btn:hover{color:#fff;border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);}
-  .nav-logo{
-    display:flex;align-items:center;gap:8px;
-    color:rgba(255,255,255,0.9);font-size:13.5px;font-weight:650;
-  }
-  .nav-logo img{height:22px;border-radius:4px;}
-  .nav-title{
-    margin-left:auto;
-    color:#22d3ee;font-size:12.5px;font-weight:650;letter-spacing:0.04em;
-  }
-  .map-frame{
-    position:fixed;top:44px;left:0;right:0;bottom:0;
-    border:none;width:100%;height:calc(100% - 44px);
-    display:block;
-  }
-</style>
-</head>
-<body>
-<nav class="topnav">
-  <a class="back-btn" href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sproducts/" .Site.BaseURL }}{{ else }}{{ printf "%sen/products/" .Site.BaseURL }}{{ end }}">
-    ← {{ if eq .Site.Language.Lang "zh" }}产品{{ else }}Products{{ end }}
-  </a>
-  <a class="nav-logo" href="{{ if eq .Site.Language.Lang "zh" }}{{ .Site.BaseURL }}{{ else }}{{ printf "%sen/" .Site.BaseURL }}{{ end }}">
-    <img src="{{ printf "%simages/logo.png" .Site.BaseURL }}" alt="logo">
-    {{ if eq .Site.Language.Lang "zh" }}启煊软件{{ else }}Qixuan{{ end }}
-  </a>
-  <span class="nav-title">{{ if eq .Site.Language.Lang "zh" }}问渠 DataOps-AI · 解决方案交互地图{{ else }}Wenqu DataOps-AI · Solution Map{{ end }}</span>
-</nav>
-<iframe
-  class="map-frame"
-  src="{{ printf "%smaps/wenqu-interactive-map.html" .Site.BaseURL }}"
-  title="{{ if eq .Site.Language.Lang "zh" }}问渠解决方案交互地图{{ else }}Wenqu Solution Interactive Map{{ end }}"
-  allowfullscreen>
-</iframe>
-</body>
-</html>
+{{ define "main" }}
+{{- $isZH := eq .Site.Language.Lang "zh" -}}
+{{- $mapURL := "maps/wenqu-interactive-map.html?lang=zh&embed=1" | relURL -}}
+{{- $mapFull := "maps/wenqu-interactive-map.html?lang=zh" | relURL -}}
+{{- if not $isZH -}}
+  {{- $mapURL = "maps/wenqu-interactive-map.html?lang=en&embed=1" | relURL -}}
+  {{- $mapFull = "maps/wenqu-interactive-map.html?lang=en" | relURL -}}
+{{- end -}}
+
+<section class="qs-product-hero">
+  <div class="qs-shell">
+    <nav class="qs-breadcrumb" aria-label="breadcrumb">
+      <a href="{{ "" | relLangURL }}">{{ if $isZH }}首页{{ else }}Home{{ end }}</a>
+      <span>/</span>
+      <a href="{{ "products/" | relLangURL }}">{{ if $isZH }}产品{{ else }}Products{{ end }}</a>
+      <span>/</span>
+      <span>{{ .Title }}</span>
+    </nav>
+    <div class="qs-eyebrow">{{ if $isZH }}教育数据智能闭环 · 四层架构{{ else }}Education Data Intelligence Loop · Four Layers{{ end }}</div>
+    <h1>{{ .Title }}</h1>
+    <p class="qs-lead">{{ if $isZH }}从课堂到数据，从数据回到课堂。以 HodoopForge × EduLake × Edumind × 问渠智伴构建全链路教育数字化闭环，38 个交互节点把教学应用、DataOps、数据与模型底座、安全交付一次讲清。{{ else }}From classroom to data and back. HodoopForge × EduLake × Edumind × Wenqu AI form a full-loop education digitalisation architecture; 38 interactive nodes explain teaching application, DataOps, the data & model foundation and secure delivery in one view.{{ end }}</p>
+    <div class="qs-product-stats">
+      <span><b>360</b> {{ if $isZH }}测试通过{{ else }}tests passed{{ end }}</span>
+      <span><b>105 PG</b> {{ if $isZH }}业务表{{ else }}business tables{{ end }}</span>
+      <span><b>66</b> {{ if $isZH }}Iceberg 湖表{{ else }}Iceberg tables{{ end }}</span>
+      <span><b>84.8%</b> {{ if $isZH }}等保技术自检{{ else }}Dengbao self-check{{ end }}</span>
+      <span><b>≥180</b> {{ if $isZH }}天留存{{ else }}-day retention{{ end }}</span>
+    </div>
+    <div class="qs-product-actions">
+      <a class="qs-btn qs-btn--cyan" href="#interactive-map">{{ if $isZH }}查看交互地图 ↓{{ else }}View interactive map ↓{{ end }}</a>
+      <a class="qs-btn qs-btn--ghost" href="{{ "contact/" | relLangURL }}">{{ if $isZH }}获取方案与演示{{ else }}Request a demo{{ end }}</a>
+      <a class="qs-btn qs-btn--ghost" href="{{ "products/" | relLangURL }}">← {{ if $isZH }}返回产品{{ else }}Back to products{{ end }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="qs-product-map" id="interactive-map">
+  <div class="qs-shell">
+    <div class="qs-map-toolbar">
+      <div>
+        <div class="qs-eyebrow" style="margin-bottom:8px;">{{ if $isZH }}动态交互地图{{ else }}Live Interactive Map{{ end }}</div>
+        <div style="color:var(--qs-muted);font-size:0.86rem;">{{ if $isZH }}点击节点查看能力、证据、文档与边界；支持搜索、导览、深浅色与专注模式。{{ else }}Click a node for capability, evidence, docs and boundaries. Search, tours, theme and focus mode are built in.{{ end }}</div>
+      </div>
+      <div class="qs-map-actions">
+        <a class="qs-btn qs-btn--ghost" href="{{ $mapFull }}" target="_blank" rel="noopener">{{ if $isZH }}全屏打开 ↗{{ else }}Open full screen ↗{{ end }}</a>
+        <a class="qs-btn qs-btn--ghost" href="{{ "docs/wenqu/" | relLangURL }}">{{ if $isZH }}技术文档 →{{ else }}Technical docs →{{ end }}</a>
+      </div>
+    </div>
+    <div class="qs-map-shell">
+      <iframe class="qs-map-frame" src="{{ $mapURL }}" title="{{ if $isZH }}问渠 DataOps-AI 交互地图{{ else }}Wenqu DataOps-AI interactive map{{ end }}" loading="lazy" allowfullscreen></iframe>
+    </div>
+    <div class="qs-map-hint">
+      <span><i class="qs-dot"></i>{{ if $isZH }}绿色 = 已上线{{ else }}Green = live{{ end }}</span>
+      <span><i class="qs-dot" style="background:#fbbf24;box-shadow:0 0 0 3px rgba(251,191,36,.12)"></i>{{ if $isZH }}黄色 = 部分/边界{{ else }}Amber = partial / boundary{{ end }}</span>
+      <span><i class="qs-dot" style="background:#a78bfa;box-shadow:0 0 0 3px rgba(167,139,250,.12)"></i>{{ if $isZH }}紫色 = 设计/待接{{ else }}Indigo = design / pending{{ end }}</span>
+      <span class="qs-mobile-only">{{ if $isZH }}手机上可左右滑动查看完整地图 →{{ else }}Swipe horizontally to see the full map →{{ end }}</span>
+    </div>
+  </div>
+</section>
+
+<section class="qs-product-content">
+  <div class="qs-shell">
+    <div class="qs-prose">{{ .Content }}</div>
+  </div>
+</section>
+{{ end }}

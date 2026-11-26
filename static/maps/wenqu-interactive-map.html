@@ -2,7 +2,6 @@
 <!doctype html>
 <html lang="zh-CN" data-theme="dark">
 <head>
-<!-- base href removed for static hosting -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="dark light" />
@@ -138,30 +137,46 @@
     .mapwrap{padding:8px 4px}
     .searchmeta{display:none}
   }
+  @media (max-width: 640px){
+    .topbar{gap:8px;padding:8px 10px}
+    .brand h1{font-size:14.5px;white-space:normal}
+    .brand .sub{display:none}
+    .searchbox{order:5;flex:1 1 100%;max-width:none}
+    .searchbox input{padding-right:36px}
+    .searchbox kbd{display:none}
+    .iconbtn{width:34px;height:34px;font-size:14px}
+    .statusbar{padding:6px 10px;gap:5px;font-size:11px}
+    .statusbar .chip:nth-child(n+4){display:none}
+    .toolbar{padding:6px 10px;gap:6px}
+    .filter{padding:3px 9px;font-size:11px}
+    .legend{display:none}
+    .mapwrap{padding:6px 2px 16px;justify-content:flex-start}
+    svg.map{width:820px;min-width:820px;max-width:none}
+    aside{padding:12px 12px 26px}
+    .learning-back{left:8px;bottom:8px;padding:5px 9px;font-size:11px}
+  }
 
   .learning-back{position:fixed;left:14px;bottom:14px;z-index:80;display:inline-flex;
     align-items:center;gap:6px;padding:7px 12px;border-radius:999px;
     background:var(--panel);border:1px solid var(--line2);color:var(--ink);
     font-size:12px;box-shadow:var(--shadow);text-decoration:none}
   .learning-back:hover{background:var(--hover);text-decoration:none}
-  .site-back{position:fixed;right:14px;bottom:14px;z-index:80;display:inline-flex;
-    align-items:center;gap:6px;padding:7px 12px;border-radius:999px;
-    background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,140,248,.18));
-    border:1px solid var(--line2);color:var(--accent);
-    font-size:12px;box-shadow:var(--shadow);text-decoration:none}
-  .site-back:hover{background:var(--hover);text-decoration:none;color:var(--ink)}
+  body.embedded .learning-back{display:none}
+  body.embedded .statusbar .ext-link{display:none}
+  body.embedded .topbar{padding-top:8px;padding-bottom:8px}
+  body.embedded .app{min-height:0}
+  body.embedded .mapwrap{padding-bottom:26px}
 </style>
 </head>
 <body data-doc-root="..">
-<a class="learning-back" href="/products/wenqu-dataops-ai/">← 返回产品页</a>
-<a class="site-back" href="/">🏠 启煊软件官网</a>
+<a class="learning-back" id="backLink" href="/products/wenqu-dataops-ai/">← 返回产品</a>
 <div class="app">
   <header class="topbar">
     <div class="brand">
       <span class="mark">渠</span>
       <div>
-        <h1>问渠 · 解决方案交互地图</h1>
-        <div class="sub">HodoopForge × EduLake × Edumind × 问渠智伴 · 2026-11-26 生产基线</div>
+        <h1 id="mapTitle">问渠 · 解决方案交互地图</h1>
+        <div class="sub" id="mapSub">HodoopForge × EduLake × Edumind × 问渠智伴 · 2026-11-26 生产基线</div>
       </div>
     </div>
     <div class="searchbox">
@@ -174,32 +189,17 @@
     <button class="iconbtn" id="themebtn" title="切换深浅色" aria-label="切换深浅色">◐</button>
   </header>
 
-  <div class="statusbar" aria-label="当前运行态">
-    <span class="chip ok"><span class="live"></span>发布 <b>2b397e05</b></span>
-    <span class="chip ok">测试 <b>360 passed</b></span>
-    <span class="chip ok">等保技术自检 <b>84.8%</b></span>
-    <span class="chip">数据资产 <b>105 PG · 66 Iceberg</b></span>
-    <span class="chip ok">隐私/留存/审计 <b>已闭环</b></span>
-    <span class="chip ok">镜像 <b>GPU + 6 安全补丁</b></span>
-    <span class="chip ext">外部 <b>等保测评 · Kerberos · 万人在线</b></span>
-    <a class="chip" href="../../ref/wenqu-solution-learning/index.html">系统学习包 →</a>
-  </div>
+  <div class="statusbar" id="statusbar" aria-label="当前运行态"></div>
 
   <div class="toolbar">
-    <span class="label">图层</span>
-    <button class="filter active" data-group="all" type="button">全部</button>
-    <button class="filter" data-group="learn" type="button">教学应用</button>
-    <button class="filter" data-group="ops" type="button">DataOps</button>
-    <button class="filter" data-group="plat" type="button">数据平台</button>
-    <button class="filter" data-group="rail" type="button">横向/安全</button>
+    <span class="label" id="layerLabel">图层</span>
+    <button class="filter active" data-group="all" type="button" data-i18n="layerAll">全部</button>
+    <button class="filter" data-group="learn" type="button" data-i18n="layerLearn">教学应用</button>
+    <button class="filter" data-group="ops" type="button" data-i18n="layerOps">DataOps</button>
+    <button class="filter" data-group="plat" type="button" data-i18n="layerPlat">数据平台</button>
+    <button class="filter" data-group="rail" type="button" data-i18n="layerRail">横向/安全</button>
     <span class="spacer"></span>
-    <div class="legend">
-      <span><i style="background:var(--ok)"></i>已上线</span>
-      <span><i style="background:var(--warn)"></i>部分/边界</span>
-      <span><i style="background:var(--accent2)"></i>设计/待接</span>
-      <span><i style="background:var(--bad)"></i>缺口</span>
-      <span><i style="background:var(--ext)"></i>外部依赖</span>
-    </div>
+    <div class="legend" id="legend"></div>
   </div>
 
   <div class="main">
@@ -207,14 +207,14 @@
       <svg class="map" id="map" viewBox="0 0 1560 1010" role="group" aria-label="问渠解决方案交互地图"></svg>
     </div>
     <aside>
-      <h2>读图</h2>
-      <p class="howto">点节点看<b>它做什么、证据在哪、边界是什么</b>；鼠标悬停可预览，点击固定。<br>
+      <h2 id="readTitle">读图</h2>
+      <p class="howto" id="howto">点节点看<b>它做什么、证据在哪、边界是什么</b>；鼠标悬停可预览，点击固定。<br>
       绿色=已上线，黄色=部分/边界，靛蓝=设计/待接，红色=缺口，灰色=外部依赖。数据流上的光点表示实时/批处理链路。</p>
       <div class="detail" id="detail" aria-live="polite"></div>
-      <h2 style="margin-top:18px">导览</h2>
+      <h2 id="toursTitle" style="margin-top:18px">导览</h2>
       <div class="tours" id="tours"></div>
-      <h2 style="margin-top:18px">当前口径</h2>
-      <p class="howto" style="font-size:11.8px">
+      <h2 id="currentTitle" style="margin-top:18px">当前口径</h2>
+      <p class="howto" id="currentText" style="font-size:11.8px">
         发布 <b>2b397e05</b>；镜像 <b>open-llm-vtuber-app:gpu</b>（含 aiohttp/cryptography/python-multipart/urllib3/pyjwt/pillow 补丁）；
         等保三级<b>技术自检 84.8%</b>，正式测评仍需第三方；数据平台 Kerberos/TLS/租户隔离仍待平台窗口。
       </p>
@@ -230,6 +230,7 @@
   <button id="tstop" type="button">结束</button>
 </div>
 
+<script src="wenqu-map-en.js"></script>
 <script>
 /* ========================= 数据模型 ========================= */
 var STATUS = {
@@ -504,6 +505,72 @@ var EDGES = [
   ['r-release','r-docs',''], ['r-docs','l-entry','',0]
 ];
 
+/* ========================= 语言与界面文案 ========================= */
+var LANG=(function(){var m=/[?&]lang=(en|zh)/i.exec(location.search);if(m)return m[1].toLowerCase();return (document.documentElement.lang||'zh').toLowerCase().indexOf('en')===0?'en':'zh';})();
+var EN=window.WENQU_EN||null;
+document.documentElement.lang = LANG==='en'?'en':'zh-CN';
+if(window.self!==window.top){document.body.classList.add('embedded');}
+
+var ZH_UI={
+  title:'问渠 · 解决方案交互地图',
+  sub:'HodoopForge × EduLake × Edumind × 问渠智伴 · 2026-11-26 生产基线',
+  back:'← 返回产品',
+  search:'查找：RAG、BKT、多租户、隐私、Iceberg、SLO、等保…',
+  statusbar:'<span class="chip ok"><span class="live"></span>发布 <b>2b397e05</b></span>'+
+    '<span class="chip ok">测试 <b>360 passed</b></span>'+
+    '<span class="chip ok">等保技术自检 <b>84.8%</b></span>'+
+    '<span class="chip">数据资产 <b>105 PG · 66 Iceberg</b></span>'+
+    '<span class="chip ok">隐私/留存/审计 <b>已闭环</b></span>'+
+    '<span class="chip ok">镜像 <b>GPU + 6 安全补丁</b></span>'+
+    '<span class="chip ext">外部 <b>等保测评 · Kerberos · 万人在线</b></span>'+
+    '<a class="chip ext-link" href="/products/wenqu-dataops-ai/">产品详情 →</a>',
+  legend:[{t:'已上线',c:'var(--ok)'},{t:'部分/边界',c:'var(--warn)'},{t:'设计/待接',c:'var(--accent2)'},{t:'缺口',c:'var(--bad)'},{t:'外部依赖',c:'var(--ext)'}],
+  layerLabel:'图层',layerAll:'全部',layerLearn:'教学应用',layerOps:'DataOps',layerPlat:'数据平台',layerRail:'横向/安全',
+  readTitle:'读图',toursTitle:'导览',currentTitle:'当前口径',
+  howto:'点节点看<b>它做什么、证据在哪、边界是什么</b>；鼠标悬停可预览，点击固定。<br>绿色=已上线，黄色=部分/边界，靛蓝=设计/待接，红色=缺口，灰色=外部依赖。数据流上的光点表示实时/批处理链路。',
+  currentText:'发布 <b>2b397e05</b>；镜像 <b>open-llm-vtuber-app:gpu</b>（含 aiohttp/cryptography/python-multipart/urllib3/pyjwt/pillow 补丁）；等保三级<b>技术自检 84.8%</b>，正式测评仍需第三方；数据平台 Kerberos/TLS/租户隔离仍待平台窗口。',
+  startKicker:'从这里开始',startH3:'点一个节点',
+  startP1:'左边是<b>教学应用</b>，中间是<b>DataOps 数据运营</b>，下面是<b>数据与模型底座</b>，右边是<b>模型/安全/交付横向能力</b>。',
+  startP2:'节点颜色表示当前状态；数据流上的光点表示真实/规划链路。点开节点可看证据、文档和边界。',
+  startP3:'快捷键：<b>/</b> 搜索，<b>Esc</b> 取消选中。导览按钮可按角色自动播放。',
+  keyMetrics:'关键口径',evidence:'证据 / 入口',boundaries:'边界 / 还没做到',readMore:'深入阅读',
+  focusTitle:'专注模式：隐藏右侧面板',themeTitle:'切换深浅色',searchAria:'在地图中查找',
+  tourStep:function(label,i,n){return '<b>'+label+'</b> · 第 '+i+'/'+n+' 步';},
+  prev:'← 上一步',next:'下一步 →',auto:'▶ 自动',pause:'⏸ 暂停',stop:'结束'
+};
+
+var UI=(LANG==='en'&&EN&&EN.ui)?EN.ui:ZH_UI;
+if(LANG==='en'&&EN){
+  if(EN.status)Object.keys(EN.status).forEach(function(k){if(STATUS[k])STATUS[k].t=EN.status[k].t;});
+  GROUPS.forEach(function(g){if(EN.groups&&EN.groups[g.id])Object.assign(g,EN.groups[g.id]);});
+  NODES.forEach(function(n){if(EN.nodes&&EN.nodes[n.id])Object.assign(n,EN.nodes[n.id]);});
+}
+function applyUI(){
+  document.title=UI.title;
+  document.getElementById('mapTitle').textContent=UI.title;
+  document.getElementById('mapSub').textContent=UI.sub;
+  document.getElementById('backLink').textContent=UI.back;
+  document.getElementById('backLink').href=LANG==='en'?'/en/products/wenqu-dataops-ai/':'/products/wenqu-dataops-ai/';
+  document.getElementById('search').placeholder=UI.search;
+  document.getElementById('search').setAttribute('aria-label',UI.searchAria);
+  document.getElementById('focusbtn').title=UI.focusTitle;
+  document.getElementById('themebtn').title=UI.themeTitle;
+  document.getElementById('statusbar').innerHTML=UI.statusbar;
+  document.getElementById('legend').innerHTML=UI.legend.map(function(x){return '<span><i style="background:'+x.c+'"></i>'+esc(x.t)+'</span>';}).join('');
+  document.getElementById('layerLabel').textContent=UI.layerLabel;
+  document.getElementById('readTitle').textContent=UI.readTitle;
+  document.getElementById('toursTitle').textContent=UI.toursTitle;
+  document.getElementById('currentTitle').textContent=UI.currentTitle;
+  document.getElementById('howto').innerHTML=UI.howto;
+  document.getElementById('currentText').innerHTML=UI.currentText;
+  var lm={all:UI.layerAll,learn:UI.layerLearn,ops:UI.layerOps,plat:UI.layerPlat,rail:UI.layerRail};
+  document.querySelectorAll('.filter').forEach(function(b){b.textContent=lm[b.dataset.group]||b.textContent;});
+  document.getElementById('tprev').textContent=UI.prev;
+  document.getElementById('tnext').textContent=UI.next;
+  document.getElementById('tauto').textContent=UI.auto;
+  document.getElementById('tstop').textContent=UI.stop;
+}
+
 /* ========================= 渲染 ========================= */
 var NS='http://www.w3.org/2000/svg';
 var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -527,10 +594,10 @@ GROUPS.forEach(function(g){
   text(gGroups,g.x+20,g.y+25,g.label,'grptitle');
   text(gGroups,g.x+20,g.y+42,g.sub,'grpsub');
   if(g.id==='learn'){
-    text(gGroups,g.x+20,g.y+g.h-22,'学生/教师 → 课程 / 对话 / 练习 → 报告 → 数据湖 → 反哺教学','axis');
+    text(gGroups,g.x+20,g.y+g.h-22,g.axis||'学生/教师 → 课程 / 对话 / 练习 → 报告 → 数据湖 → 反哺教学','axis');
   }
   if(g.id==='ops'){
-    text(gGroups,g.x+20,g.y+g.h-22,'PG → Kafka → Flink → Iceberg → Spark → 质量/血缘/SLO/数据产品','axis');
+    text(gGroups,g.x+20,g.y+g.h-22,g.axis||'PG → Kafka → Flink → Iceberg → Spark → 质量/血缘/SLO/数据产品','axis');
   }
 });
 
@@ -597,25 +664,40 @@ var detail=document.getElementById('detail');
 var docRoot=(document.body.getAttribute('data-doc-root')||'..').replace(/\/$/,'');
 
 function groupLabel(id){for(var i=0;i<GROUPS.length;i++){if(GROUPS[i].id===id)return GROUPS[i].label;}return '';}
+var DOC_BASE='/docs/wenqu/';
+var DOC_RULES=[
+  [/security|privacy|compliance|dengbao|identity|multitenancy|retention/i,'security-compliance/','安全、隐私与等保','Security, Privacy & Compliance'],
+  [/rag|model|sft|asr|tts|function\/29|function\/58/i,'ai-and-model/','模型、RAG 与语音','Models, RAG & Speech'],
+  [/teaching|solution\/02|function\/47|function\/59|function\/40|course/i,'teaching-application/','教学应用全流程','Teaching Application'],
+  [/cicd|cloudbuild|operations|integration|lms|meetings|webhook|thirdpart\/(00|03|04|07)|function\/(52|57)/i,'operations-and-delivery/','运维与交付','Operations & Delivery'],
+  [/dataops|function\/15|function\/30|data-design\/01|datalake|iceberg|kafka|flink/i,'data-platform/','数据平台与 DataOps','Data Platform & DataOps'],
+  [/architecture|function\/50/i,'architecture/','四层架构与数据流','Architecture & Data Flow'],
+  [/overview|README/i,'overview/','方案总览与边界','Solution Overview & Boundaries']
+];
 function docHref(path){
   if(/^https?:/.test(path)) return path;
-  return docRoot+'/'+path.replace(/^\/+/,'');
+  for(var i=0;i<DOC_RULES.length;i++){if(DOC_RULES[i][0].test(path)) return DOC_BASE+DOC_RULES[i][1];}
+  return DOC_BASE;
+}
+function docLabel(path){
+  for(var i=0;i<DOC_RULES.length;i++){if(DOC_RULES[i][0].test(path)) return LANG==='en'?DOC_RULES[i][3]:DOC_RULES[i][2];}
+  return path;
 }
 function renderDetail(n){
   var html='<div class="kicker">'+esc(groupLabel(n.g))+'</div><h3>'+esc(n.label)+'</h3><div class="en">'+esc(n.en)+'</div>';
   html+='<div class="badge '+n.status+'"><span class="dot"></span>'+STATUS[n.status].t+'</div>';
   html+='<p style="margin-top:10px">'+esc(n.what)+'</p>';
-  if(n.chips&&n.chips.length){html+='<dl><dt>关键口径</dt><dd>'+n.chips.map(function(c){return '<span class="chip" style="margin:2px 4px 0 0;display:inline-block">'+esc(c)+'</span>';}).join('')+'</dd></dl>';}
-  if(n.evidence){html+='<dl><dt>证据 / 入口</dt><dd><span class="path">'+esc(n.evidence)+'</span></dd></dl>';}
-  if(n.docs&&n.docs.length){html+='<dl><dt>深入阅读</dt><dd class="doclinks">'+n.docs.map(function(d){return '<a href="'+esc(docHref(d))+'">'+esc(d)+'</a>';}).join('')+'</dd></dl>';}
-  if(n.gaps&&n.gaps.length){html+='<dl><dt>边界 / 还没做到</dt><dd><ul>'+n.gaps.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></dd></dl>';}
+  if(n.chips&&n.chips.length){html+='<dl><dt>'+esc(UI.keyMetrics)+'</dt><dd>'+n.chips.map(function(c){return '<span class="chip" style="margin:2px 4px 0 0;display:inline-block">'+esc(c)+'</span>';}).join('')+'</dd></dl>';}
+  if(n.evidence){html+='<dl><dt>'+esc(UI.evidence)+'</dt><dd><span class="path">'+esc(n.evidence)+'</span></dd></dl>';}
+  if(n.docs&&n.docs.length){html+='<dl><dt>'+esc(UI.readMore)+'</dt><dd class="doclinks">'+n.docs.map(function(d){return '<a href="'+esc(docHref(d))+'" title="'+esc(d)+'">'+esc(docLabel(d))+'</a>';}).join('')+'</dd></dl>';}
+  if(n.gaps&&n.gaps.length){html+='<dl><dt>'+esc(UI.boundaries)+'</dt><dd><ul>'+n.gaps.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></dd></dl>';}
   detail.innerHTML=html;
 }
 function resetDetail(){
-  detail.innerHTML='<div class="kicker">从这里开始</div><h3>点一个节点</h3>'+
-    '<p>左边是<b>教学应用</b>，中间是<b>DataOps 数据运营</b>，下面是<b>数据与模型底座</b>，右边是<b>模型/安全/交付横向能力</b>。</p>'+
-    '<p>节点颜色表示当前状态；数据流上的光点表示真实/规划链路。点开节点可看证据、文档和边界。</p>'+
-    '<p style="font-size:12px;color:var(--faint)">快捷键：<b>/</b> 搜索，<b>Esc</b> 取消选中。导览按钮可按角色自动播放。</p>';
+  detail.innerHTML='<div class="kicker">'+esc(UI.startKicker)+'</div><h3>'+esc(UI.startH3)+'</h3>'+
+    '<p>'+UI.startP1+'</p>'+
+    '<p>'+UI.startP2+'</p>'+
+    '<p style="font-size:12px;color:var(--faint)">'+UI.startP3+'</p>';
 }
 function preview(id){
   var n=nodeById[id]; if(!n) return;
@@ -696,6 +778,7 @@ var TOURS=[
   {label:'数据治理与模型发布', steps:['d-assets','d-quality','d-slo','r-eval','r-gate','r-release']},
   {label:'安全合规与隐私', steps:['l-entry','r-auth','l-privacy','d-audit','r-compliance','r-obs']}
 ];
+if(LANG==='en'&&EN&&EN.tours){TOURS=EN.tours;}
 var tourbar=document.getElementById('tourbar');
 var tourstep=document.getElementById('tourstep');
 var tour=null, ti=0, autoTimer=null;
@@ -722,19 +805,20 @@ function renderTour(){
     p.classList.toggle('dim',!on);p.classList.toggle('hi',on);
     p.setAttribute('marker-end',on?'url(#arH)':'url(#ar)');
   });
-  tourstep.innerHTML='<b>'+esc(tour.label)+'</b> · 第 '+(ti+1)+'/'+tour.steps.length+' 步';
+  tourstep.innerHTML=UI.tourStep(esc(tour.label),ti+1,tour.steps.length);
 }
 function nextTour(){ if(tour&&ti<tour.steps.length-1){ti++;renderTour();}else{stopTour();} }
 function prevTour(){ if(tour&&ti>0){ti--;renderTour();} }
 function stopTour(){ stopAuto();tour=null;tourbar.classList.remove('on');document.querySelectorAll('.node').forEach(function(g){g.classList.remove('hit');});applyGroup(activeGroup);resetHighlight();resetDetail(); }
-function stopAuto(){ if(autoTimer){clearInterval(autoTimer);autoTimer=null;} var b=document.getElementById('tauto'); if(b) b.textContent='▶ 自动'; }
-function startAuto(){ if(!tour) return; stopAuto(); document.getElementById('tauto').textContent='⏸ 暂停'; autoTimer=setInterval(nextTour,4500); }
+function stopAuto(){ if(autoTimer){clearInterval(autoTimer);autoTimer=null;} var b=document.getElementById('tauto'); if(b) b.textContent=UI.auto; }
+function startAuto(){ if(!tour) return; stopAuto(); document.getElementById('tauto').textContent=UI.pause; autoTimer=setInterval(nextTour,4500); }
 document.getElementById('tnext').addEventListener('click',function(){nextTour();});
 document.getElementById('tprev').addEventListener('click',function(){prevTour();});
 document.getElementById('tstop').addEventListener('click',stopTour);
 document.getElementById('tauto').addEventListener('click',function(){ if(autoTimer) stopAuto(); else startAuto(); });
 
 /* ========================= 初始化 ========================= */
+applyUI();
 applyGroup('all');
 resetDetail();
 if(location.hash){
