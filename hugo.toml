@@ -120,7 +120,7 @@ robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:
   # 百度搜索资源平台「自动推送」：true 开启（仅生产环境生效）
   baiduPush = true
   # 以下验证码在对应站长平台获取后填入；留空不输出
-  baiduVerification = ""
+  baiduVerification = "codeva-X3Y1LduE7E"
   googleVerification = ""
   bingVerification = ""
   sogouVerification = ""
