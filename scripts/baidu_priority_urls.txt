@@ -1,0 +1,24 @@
+# Baidu API push priority list.
+# Baidu quota for a new site is often only 6 URLs/day.
+# The workflow pushes the first N entries (default 6); put new or important
+# pages at the top. Lines starting with # are ignored.
+#
+# Already pushed manually on 2026-11-26:
+#   /, /products/, /products/wenqu-dataops-ai/, /products/hodoopforge/,
+#   /solutions/, /energy-solutions/
+#
+# Next priority (unpushed):
+https://www.qixuan.vip/edge-ai/
+https://www.qixuan.vip/ai-education/
+https://www.qixuan.vip/docs/
+https://www.qixuan.vip/cases/
+https://www.qixuan.vip/about/
+https://www.qixuan.vip/contact/
+#
+# Core pages (already pushed, kept for later re-push):
+https://www.qixuan.vip/
+https://www.qixuan.vip/products/
+https://www.qixuan.vip/products/wenqu-dataops-ai/
+https://www.qixuan.vip/products/hodoopforge/
+https://www.qixuan.vip/solutions/
+https://www.qixuan.vip/energy-solutions/

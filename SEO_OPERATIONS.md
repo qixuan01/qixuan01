@@ -64,6 +64,37 @@ Clean-param: lang&embed /maps/
    - `https://www.qixuan.vip/edge-ai/`
    - `https://www.qixuan.vip/ai-education/`
 
+### 百度 API 自动推送
+
+站点已接入每日自动推送任务：
+
+- 脚本：`scripts/baidu_push.py`
+- 优先 URL 列表：`scripts/baidu_priority_urls.txt`
+- 工作流：`.github/workflows/baidu-push.yml`
+- 每天北京时间 09:30 运行，也可在 GitHub Actions 页面手动触发
+- 百度新站配额通常只有 **6 条/天**，脚本按列表顺序逐条推送，配额用完自动停止
+- Token 只从环境变量 `BAIDU_PUSH_TOKEN` 读取，不写入仓库
+
+**一次性配置（必须）：**
+
+GitHub 仓库 → Settings → Secrets and variables → Actions → New repository secret：
+
+```text
+Name:  BAIDU_PUSH_TOKEN
+Value: 百度搜索资源平台提供的准入密钥
+```
+
+配置后可在 Actions → **Baidu URL Push** → Run workflow 手动测试一次。
+
+新增重点页面时，把 URL 加到 `scripts/baidu_priority_urls.txt` 顶部，次日自动推送；也可以手动运行脚本：
+
+```bash
+BAIDU_PUSH_TOKEN=xxxx python3 scripts/baidu_push.py \
+  --file scripts/baidu_priority_urls.txt --max 6
+```
+
+> 注意：Token 属于账号凭证，不要提交到 Git、不要写进公开文档或前端代码。
+
 ---
 
 ## 3. Google Search Console
@@ -156,6 +187,7 @@ baiduAnalytics = "xxxxxxxxxxxxxxxx"
 - [ ] `https://www.qixuan.vip/zh/sitemap.xml` 可访问
 - [ ] `https://www.qixuan.vip/en/sitemap.xml` 可访问
 - [ ] 百度验证通过
+- [ ] `BAIDU_PUSH_TOKEN` 已加入 GitHub Actions Secrets
 - [ ] Google 验证通过
 - [ ] 两个旗舰产品页已请求收录
 - [ ] Rich Results Test 通过 FAQ / SoftwareApplication
