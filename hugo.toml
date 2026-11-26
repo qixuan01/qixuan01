@@ -117,7 +117,7 @@ robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:
   brandName = "启煊软件"
   brandNameEn = "Qixuan Software"
   # 品牌短词 / 别名，会自动追加到全站关键词
-  brandAliases = ["启煊", "Qixuan"]
+  brandAliases = ["启煊"]
   defaultImage = "images/hadoopforge-platform.jpg"
   # 百度搜索资源平台「自动推送」：true 开启（仅生产环境生效）
   baiduPush = true

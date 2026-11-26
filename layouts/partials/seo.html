@@ -30,12 +30,12 @@
 {{- if not $keywords }}{{ $keywords = .Site.Params.keywords }}{{ end -}}
 {{- if reflect.IsSlice $keywords }}{{ $keywords = delimit $keywords ", " }}{{ end -}}
 {{- if $keywords -}}
-  {{- if not (strings.Contains $keywords $brand) }}{{ $keywords = printf "%s,%s" $keywords $brand }}{{ end -}}
-  {{- if and (not $isZH) (not (strings.Contains $keywords "启煊软件")) }}{{ $keywords = printf "%s,启煊软件" $keywords }}{{ end -}}
+  {{- if not (in (split $keywords ",") $brand) }}{{ $keywords = printf "%s,%s" $keywords $brand }}{{ end -}}
+  {{- if and (not $isZH) (not (in (split $keywords ",") "启煊软件")) }}{{ $keywords = printf "%s,启煊软件" $keywords }}{{ end -}}
   {{- $aliases := slice "启煊" -}}
   {{- if not $isZH }}{{ $aliases = slice "Qixuan" "启煊" }}{{ end -}}
-  {{- range $aliases }}{{ if and . (not (strings.Contains $keywords .)) }}{{ $keywords = printf "%s,%s" $keywords . }}{{ end }}{{ end -}}
-  {{- range $seo.brandAliases }}{{ if and . (not (strings.Contains $keywords .)) }}{{ $keywords = printf "%s,%s" $keywords . }}{{ end }}{{ end -}}
+  {{- range $aliases }}{{ if and . (not (in (split $keywords ",") .)) }}{{ $keywords = printf "%s,%s" $keywords . }}{{ end }}{{ end -}}
+  {{- range $seo.brandAliases }}{{ if and . (not (in (split $keywords ",") .)) }}{{ $keywords = printf "%s,%s" $keywords . }}{{ end }}{{ end -}}
 {{- else -}}
   {{- $keywords = $brand -}}
 {{- end -}}
