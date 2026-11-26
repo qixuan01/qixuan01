@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /zh/sitemap.xml
+Allow: /en/sitemap.xml
 Disallow: /admin/
 Disallow: /private/
 Disallow: /*.json$
@@ -13,6 +16,9 @@ Sitemap: {{ "en/sitemap.xml" | absURL }}
 # 搜索引擎特定规则
 User-agent: Googlebot
 Allow: /
+Allow: /sitemap.xml
+Allow: /zh/sitemap.xml
+Allow: /en/sitemap.xml
 Disallow: /admin/
 Disallow: /private/
 
