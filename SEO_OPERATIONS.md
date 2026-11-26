@@ -178,6 +178,18 @@ baiduAnalytics = "xxxxxxxxxxxxxxxx"
 - 产品页持续补充：客户问题、实施步骤、对比表、FAQ。
 - 文档页保持更新，长尾流量通常来自技术文档。
 
+### 品牌词
+
+品牌词 **启煊软件 / Qixuan Software** 会自动加入：
+
+- 所有页面 `<title>` 后缀（首页标题直接以“启煊软件”开头）
+- 所有页面 `meta keywords`
+- Organization 结构化数据 `name` / `alternateName` / `legalName`
+- SoftwareApplication 结构化数据 `brand`
+- 首页描述、关于页、页脚
+
+英文页面会同时包含 `Qixuan Software` 和 `启煊软件`，便于中英文品牌实体关联。
+
 ---
 
 ## 7. 上线后检查清单

@@ -29,6 +29,12 @@
 {{- if not $keywords }}{{ with .CurrentSection }}{{ $keywords = .Params.keywords }}{{ end }}{{ end -}}
 {{- if not $keywords }}{{ $keywords = .Site.Params.keywords }}{{ end -}}
 {{- if reflect.IsSlice $keywords }}{{ $keywords = delimit $keywords ", " }}{{ end -}}
+{{- if $keywords -}}
+  {{- if not (strings.Contains $keywords $brand) }}{{ $keywords = printf "%s,%s" $keywords $brand }}{{ end -}}
+  {{- if and (not $isZH) (not (strings.Contains $keywords "启煊软件")) }}{{ $keywords = printf "%s,启煊软件" $keywords }}{{ end -}}
+{{- else -}}
+  {{- $keywords = $brand -}}
+{{- end -}}
 
 {{- $img := .Params.ogImage -}}
 {{- if not $img }}{{ with .Params.images }}{{ $img = index . 0 }}{{ end }}{{ end -}}
@@ -137,6 +143,7 @@
   "@type" "Organization"
   "@id" $orgID
   "name" .Site.Params.company.name
+  "alternateName" (slice "启煊软件" "Qixuan Software" "深圳市启煊软件有限公司")
   "legalName" .Site.Params.company.legalName
   "url" .Site.BaseURL
   "logo" (dict "@type" "ImageObject" "url" $logoURL)
@@ -166,6 +173,7 @@
   "@id" $websiteID
   "url" .Site.BaseURL
   "name" .Site.Title
+  "alternateName" (slice "启煊软件" "Qixuan Software")
   "description" .Site.Params.description
   "inLanguage" .Site.Language.Lang
   "publisher" (dict "@id" $orgID)
@@ -226,6 +234,7 @@
     "name" .Title
     "description" $desc
     "url" .Permalink
+    "brand" (dict "@type" "Brand" "name" (cond $isZH "启煊软件" "Qixuan Software"))
     "applicationCategory" (default "BusinessApplication" .Params.applicationCategory)
     "operatingSystem" (default "Linux, Docker" .Params.operatingSystem)
     "inLanguage" .Site.Language.Lang
