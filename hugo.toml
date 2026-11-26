@@ -121,7 +121,7 @@ robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:
   baiduPush = true
   # 以下验证码在对应站长平台获取后填入；留空不输出
   baiduVerification = "codeva-X3Y1LduE7E"
-  googleVerification = ""
+  googleVerification = "wkv_HWJU9aYpwes2MjBYcEFxsQNvHRtgQbpiMssVB1A"
   bingVerification = ""
   sogouVerification = ""
   qihooVerification = ""
