@@ -180,7 +180,7 @@ baiduAnalytics = "xxxxxxxxxxxxxxxx"
 
 ### 品牌词
 
-品牌词 **启煊软件 / Qixuan Software** 会自动加入：
+品牌词 **启煊软件 / 启煊 / Qixuan Software / Qixuan** 会自动加入：
 
 - 所有页面 `<title>` 后缀（首页标题直接以“启煊软件”开头）
 - 所有页面 `meta keywords`
@@ -188,7 +188,7 @@ baiduAnalytics = "xxxxxxxxxxxxxxxx"
 - SoftwareApplication 结构化数据 `brand`
 - 首页描述、关于页、页脚
 
-英文页面会同时包含 `Qixuan Software` 和 `启煊软件`，便于中英文品牌实体关联。
+英文页面会同时包含 `Qixuan Software`、`Qixuan`、`启煊软件`、`启煊`，便于中英文品牌实体关联。品牌别名可在 `hugo.toml` 的 `params.seo.brandAliases` 中维护。
 
 ---
 

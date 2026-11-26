@@ -18,7 +18,7 @@ disableKinds = ["taxonomy", "term"]
     contentDir = 'content'
     [languages.zh.params]
       description = "启煊软件提供问渠 DataOps-AI 教育数据智能闭环、HodoopForge 数据湖、HadoopForge 大数据运维、鸿源边缘AI推理加速器、悦学智伴AI教育、智慧能源EMS与中小企业ERP解决方案，坚持自主研发、全栈可控、国产替代。"
-      keywords = "问渠DataOps-AI,HodoopForge数据湖,教育数据智能,DataOps,教育大数据,湖仓一体,实时入湖,Kerberos,HadoopForge,Hadoop集群管理,信创大数据,国产替代,边缘AI,FPGA加速器,AI伴学,悦学智伴,智慧能源EMS,光储充,VPP虚拟电厂,中小企业ERP,启煊软件"
+      keywords = "问渠DataOps-AI,HodoopForge数据湖,教育数据智能,DataOps,教育大数据,湖仓一体,实时入湖,Kerberos,HadoopForge,Hadoop集群管理,信创大数据,国产替代,边缘AI,FPGA加速器,AI伴学,悦学智伴,智慧能源EMS,光储充,VPP虚拟电厂,中小企业ERP,启煊软件,启煊"
     
   [languages.en]
     languageName = 'English'
@@ -27,7 +27,7 @@ disableKinds = ["taxonomy", "term"]
     contentDir = 'content'
     [languages.en.params]
       description = "Qixuan Software provides Wenqu DataOps-AI education data intelligence, HodoopForge Data Lake, HadoopForge big data O&M, Hongyuan edge AI accelerator, Otowyue Learn AI, smart energy EMS and SME ERP solutions — self-developed, full-stack controllable and built for domestic substitution."
-      keywords = "Wenqu DataOps-AI,HodoopForge Data Lake,Education Data Intelligence,DataOps,Education Big Data,Lakehouse,Real-time Ingestion,Kerberos,HadoopForge,Hadoop Cluster Management,Xinchuang Big Data,Domestic Substitution,Edge AI,FPGA Accelerator,AI Education,Otowyue Learn AI,Smart Energy EMS,Solar Storage Charging,VPP,SME ERP,Qixuan Software"
+      keywords = "Wenqu DataOps-AI,HodoopForge Data Lake,Education Data Intelligence,DataOps,Education Big Data,Lakehouse,Real-time Ingestion,Kerberos,HadoopForge,Hadoop Cluster Management,Xinchuang Big Data,Domestic Substitution,Edge AI,FPGA Accelerator,AI Education,Otowyue Learn AI,Smart Energy EMS,Solar Storage Charging,VPP,SME ERP,Qixuan Software,Qixuan,启煊"
 
 [languages.zh.menu]
   [[languages.zh.menu.main]]
@@ -109,13 +109,15 @@ description = "启煊软件提供问渠 DataOps-AI 教育数据智能闭环、Ho
 author = "深圳市启煊软件有限公司"
 
 # SEO优化
-keywords = "问渠DataOps-AI,HodoopForge数据湖,教育数据智能,DataOps,教育大数据,湖仓一体,实时入湖,Kerberos,HadoopForge,Hadoop集群管理,信创大数据,国产替代,边缘AI,FPGA加速器,AI伴学,悦学智伴,智慧能源EMS,光储充,VPP虚拟电厂,中小企业ERP,启煊软件"
+keywords = "问渠DataOps-AI,HodoopForge数据湖,教育数据智能,DataOps,教育大数据,湖仓一体,实时入湖,Kerberos,HadoopForge,Hadoop集群管理,信创大数据,国产替代,边缘AI,FPGA加速器,AI伴学,悦学智伴,智慧能源EMS,光储充,VPP虚拟电厂,中小企业ERP,启煊软件,启煊"
 robots = "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
 
 # SEO / 搜索引擎接入
 [params.seo]
   brandName = "启煊软件"
   brandNameEn = "Qixuan Software"
+  # 品牌短词 / 别名，会自动追加到全站关键词
+  brandAliases = ["启煊", "Qixuan"]
   defaultImage = "images/hadoopforge-platform.jpg"
   # 百度搜索资源平台「自动推送」：true 开启（仅生产环境生效）
   baiduPush = true

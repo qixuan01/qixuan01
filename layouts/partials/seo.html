@@ -32,6 +32,10 @@
 {{- if $keywords -}}
   {{- if not (strings.Contains $keywords $brand) }}{{ $keywords = printf "%s,%s" $keywords $brand }}{{ end -}}
   {{- if and (not $isZH) (not (strings.Contains $keywords "启煊软件")) }}{{ $keywords = printf "%s,启煊软件" $keywords }}{{ end -}}
+  {{- $aliases := slice "启煊" -}}
+  {{- if not $isZH }}{{ $aliases = slice "Qixuan" "启煊" }}{{ end -}}
+  {{- range $aliases }}{{ if and . (not (strings.Contains $keywords .)) }}{{ $keywords = printf "%s,%s" $keywords . }}{{ end }}{{ end -}}
+  {{- range $seo.brandAliases }}{{ if and . (not (strings.Contains $keywords .)) }}{{ $keywords = printf "%s,%s" $keywords . }}{{ end }}{{ end -}}
 {{- else -}}
   {{- $keywords = $brand -}}
 {{- end -}}
@@ -143,7 +147,7 @@
   "@type" "Organization"
   "@id" $orgID
   "name" .Site.Params.company.name
-  "alternateName" (slice "启煊软件" "Qixuan Software" "深圳市启煊软件有限公司")
+  "alternateName" (slice "启煊软件" "启煊" "Qixuan Software" "Qixuan" "深圳市启煊软件有限公司")
   "legalName" .Site.Params.company.legalName
   "url" .Site.BaseURL
   "logo" (dict "@type" "ImageObject" "url" $logoURL)
@@ -173,7 +177,7 @@
   "@id" $websiteID
   "url" .Site.BaseURL
   "name" .Site.Title
-  "alternateName" (slice "启煊软件" "Qixuan Software")
+  "alternateName" (slice "启煊软件" "启煊" "Qixuan Software" "Qixuan")
   "description" .Site.Params.description
   "inLanguage" .Site.Language.Lang
   "publisher" (dict "@id" $orgID)
