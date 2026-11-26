@@ -86,7 +86,7 @@
 <link rel="alternate" hreflang="x-default" href="{{ $xdefault }}">
 
 {{/* ---------- verification ---------- */}}
-{{- with $seo.baiduVerification }}<meta name="baidu-site-verification" content="{{ . }}">{{ end }}
+{{- with $seo.baiduVerification }}<!-- htmlmin:ignore --><meta name="baidu-site-verification" content="{{ . }}" /><!-- htmlmin:ignore -->{{ end }}
 {{- with $seo.googleVerification }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
 {{- with $seo.bingVerification }}<meta name="msvalidate.01" content="{{ . }}">{{ end }}
 {{- with $seo.sogouVerification }}<meta name="sogou_site_verification" content="{{ . }}">{{ end }}

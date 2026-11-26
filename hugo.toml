@@ -177,8 +177,8 @@ ignoreLogs = ['warning-partial-superfluous-prefix']
 
 # 性能优化
 [minify]
+  disableHTML = true
   disableCSS = false
-  disableHTML = false
   disableJS = false
   disableJSON = false
   disableSVG = false
