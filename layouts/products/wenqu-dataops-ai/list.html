@@ -1,271 +1,62 @@
-{{ define "main" }}
-{{- $isZH := eq .Site.Language.Lang "zh" -}}
-{{- $baseURL := .Site.BaseURL -}}
-
-<!-- Page Header -->
-<section class="page-header" style="background: linear-gradient(135deg, rgba(8,17,31,0.92) 0%, rgba(14,26,43,0.88) 50%, rgba(34,211,238,0.12) 100%), url('{{ printf "%simages/solution-smartcity.jpg" $baseURL }}') center/cover; padding-top: 7rem; padding-bottom: 4rem;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 mx-auto text-center">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-center" style="background:rgba(255,255,255,0.08); border-radius:20px; padding:0.4rem 1rem; display:inline-flex;">
-                        <li class="breadcrumb-item"><a href="{{ if $isZH }}{{ $baseURL }}{{ else }}{{ printf "%sen/" $baseURL }}{{ end }}" style="color:rgba(255,255,255,0.75);">{{ if $isZH }}首页{{ else }}Home{{ end }}</a></li>
-                        <li class="breadcrumb-item"><a href="{{ if $isZH }}{{ printf "%sproducts/" $baseURL }}{{ else }}{{ printf "%sen/products/" $baseURL }}{{ end }}" style="color:rgba(255,255,255,0.75);">{{ if $isZH }}产品{{ else }}Products{{ end }}</a></li>
-                        <li class="breadcrumb-item active" style="color:rgba(255,255,255,0.9);">{{ .Title }}</li>
-                    </ol>
-                </nav>
-                <div style="display:inline-flex;align-items:center;gap:8px;margin:1rem 0 0.75rem;">
-                    <span style="background:linear-gradient(135deg,rgba(34,211,238,0.25),rgba(139,140,248,0.2));color:#22d3ee;font-size:0.72rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:999px;letter-spacing:0.1em;border:1px solid rgba(34,211,238,0.3);">{{ if $isZH }}教育数据智能闭环{{ else }}Education DataOps Loop{{ end }}</span>
-                    <span style="background:rgba(52,211,153,0.15);color:#34d399;font-size:0.72rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:999px;letter-spacing:0.1em;border:1px solid rgba(52,211,153,0.3);">{{ if $isZH }}生产基线 2026-11-26{{ else }}Production 2026-11-26{{ end }}</span>
-                </div>
-                <h1 class="page-title" style="font-size:2.6rem; letter-spacing:0.03em;">{{ if $isZH }}问渠 DataOps-AI{{ else }}Wenqu DataOps-AI{{ end }}</h1>
-                <p class="page-subtitle" style="font-size:1.1rem; color:rgba(255,255,255,0.8);">
-                    {{ if $isZH }}HodoopForge × EduLake × Edumind × 问渠智伴 · 从课堂到数据，从数据回到课堂{{ else }}HodoopForge × EduLake × Edumind × Wenqu AI · From Classroom to Data, Back to Classroom{{ end }}
-                </p>
-                <!-- 核心指标条 -->
-                <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:1.5rem;">
-                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">{{ if $isZH }}360 测试通过{{ else }}360 Tests Passed{{ end }}</span>
-                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">{{ if $isZH }}105 业务表{{ else }}105 Business Tables{{ end }}</span>
-                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">{{ if $isZH }}66 湖仓表{{ else }}66 Lake Tables{{ end }}</span>
-                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">{{ if $isZH }}等保自检 84.8%{{ else }}Security Self-check 84.8%{{ end }}</span>
-                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">{{ if $isZH }}16 课程 · 637 章{{ else }}16 Courses · 637 Chapters{{ end }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 产品定位一句话 -->
-<section style="background:linear-gradient(180deg,#08111f,#0e1a2b); padding:3rem 0 2rem;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 mx-auto text-center">
-                <p style="font-size:1.15rem;color:#9db0c8;line-height:1.9;max-width:780px;margin:0 auto;">
-                    {{ if $isZH }}
-                    问渠不是"一个聊天机器人"，而是<strong style="color:#e8f1fb;">一条从课堂到数据、再从数据回到课堂的教育数据智能闭环</strong>：<br>学生使用 → 教学应用 → 业务库 + Kafka → EduLake 湖仓 + DataOps → 模型评测/RAG → 更准的回答与教学建议 → 循环优化
-                    {{ else }}
-                    Wenqu is not "just a chatbot" — it is an <strong style="color:#e8f1fb;">intelligent education data loop</strong>: Student interaction → Teaching App → PostgreSQL + Kafka → EduLake + DataOps → Model Eval / RAG → Better answers & teaching insights → Continuous improvement
-                    {{ end }}
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 四层架构 -->
-<section style="background:#0e1a2b; padding:3rem 0;">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-12 text-center">
-                <h2 style="color:#e8f1fb; border-bottom:1px solid rgba(34,211,238,0.3); padding-bottom:0.75rem; display:inline-block; font-size:1.6rem;">{{ if $isZH }}四层架构设计{{ else }}Four-Layer Architecture{{ end }}</h2>
-            </div>
-        </div>
-        <div class="row g-3">
-            <!-- L4 -->
-            <div class="col-md-6 col-lg-3">
-                <div style="background:linear-gradient(180deg,rgba(34,211,238,0.07),rgba(34,211,238,0.03));border:1px solid rgba(34,211,238,0.22);border-radius:14px;padding:1.5rem;height:100%;">
-                    <div style="font-size:0.68rem;letter-spacing:0.14em;color:#22d3ee;font-weight:750;margin-bottom:6px;">L4</div>
-                    <h3 style="font-size:1rem;color:#e8f1fb;margin:0 0 0.5rem;">{{ if $isZH }}问渠智伴 · 教学应用{{ else }}Wenqu AI · Teaching App{{ end }}</h3>
-                    <p style="font-size:0.82rem;color:#9db0c8;line-height:1.65;margin:0;">{{ if $isZH }}课程、对话、练习、任务、报告 — 学生/教师/管理员三条主线，VRM 数字人 + RAG + BKT 全链路{{ else }}Courses, Dialogue, Practice, Tasks, Reports — 3 user flows: Student / Teacher / Admin{{ end }}</p>
-                    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:0.75rem;">
-                        <span style="background:rgba(34,211,238,0.12);color:#22d3ee;font-size:0.68rem;padding:2px 7px;border-radius:999px;">FastAPI + React</span>
-                        <span style="background:rgba(34,211,238,0.12);color:#22d3ee;font-size:0.68rem;padding:2px 7px;border-radius:999px;">VRM 数字人</span>
-                        <span style="background:rgba(34,211,238,0.12);color:#22d3ee;font-size:0.68rem;padding:2px 7px;border-radius:999px;">BKT 掌握度</span>
-                    </div>
-                </div>
-            </div>
-            <!-- L3 -->
-            <div class="col-md-6 col-lg-3">
-                <div style="background:linear-gradient(180deg,rgba(139,140,248,0.07),rgba(139,140,248,0.03));border:1px solid rgba(139,140,248,0.26);border-radius:14px;padding:1.5rem;height:100%;">
-                    <div style="font-size:0.68rem;letter-spacing:0.14em;color:#8b8cf8;font-weight:750;margin-bottom:6px;">L3</div>
-                    <h3 style="font-size:1rem;color:#e8f1fb;margin:0 0 0.5rem;">{{ if $isZH }}Edumind · 教育大模型底座{{ else }}Edumind · Education LLM{{ end }}</h3>
-                    <p style="font-size:0.82rem;color:#9db0c8;line-height:1.65;margin:0;">{{ if $isZH }}基座模型、SFT/QLoRA、评测门禁、RAG 引用、GPU ASR 语音{{ else }}Base model, SFT/QLoRA fine-tuning, evaluation gate, RAG citation, GPU ASR speech{{ end }}</p>
-                    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:0.75rem;">
-                        <span style="background:rgba(139,140,248,0.12);color:#8b8cf8;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Ollama GPU</span>
-                        <span style="background:rgba(139,140,248,0.12);color:#8b8cf8;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Qdrant RAG</span>
-                        <span style="background:rgba(139,140,248,0.12);color:#8b8cf8;font-size:0.68rem;padding:2px 7px;border-radius:999px;">faster-whisper</span>
-                    </div>
-                </div>
-            </div>
-            <!-- L2 -->
-            <div class="col-md-6 col-lg-3">
-                <div style="background:linear-gradient(180deg,rgba(52,211,153,0.07),rgba(52,211,153,0.03));border:1px solid rgba(52,211,153,0.22);border-radius:14px;padding:1.5rem;height:100%;">
-                    <div style="font-size:0.68rem;letter-spacing:0.14em;color:#34d399;font-weight:750;margin-bottom:6px;">L2</div>
-                    <h3 style="font-size:1rem;color:#e8f1fb;margin:0 0 0.5rem;">{{ if $isZH }}EduLake · DataOps 治理{{ else }}EduLake · DataOps{{ end }}</h3>
-                    <p style="font-size:0.82rem;color:#9db0c8;line-height:1.65;margin:0;">{{ if $isZH }}资产目录、质量门禁、血缘分析、SLO、NL2SQL Copilot、数据产品 API{{ else }}Asset catalog, quality gate, lineage analysis, SLO, NL2SQL Copilot, data product APIs{{ end }}</p>
-                    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:0.75rem;">
-                        <span style="background:rgba(52,211,153,0.12);color:#34d399;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Iceberg 湖仓</span>
-                        <span style="background:rgba(52,211,153,0.12);color:#34d399;font-size:0.68rem;padding:2px 7px;border-radius:999px;">ODS/DWD/DWS/ADS</span>
-                        <span style="background:rgba(52,211,153,0.12);color:#34d399;font-size:0.68rem;padding:2px 7px;border-radius:999px;">血缘图谱</span>
-                    </div>
-                </div>
-            </div>
-            <!-- L1 -->
-            <div class="col-md-6 col-lg-3">
-                <div style="background:linear-gradient(180deg,rgba(148,163,184,0.07),rgba(148,163,184,0.03));border:1px solid rgba(148,163,184,0.18);border-radius:14px;padding:1.5rem;height:100%;">
-                    <div style="font-size:0.68rem;letter-spacing:0.14em;color:#94a3b8;font-weight:750;margin-bottom:6px;">L1</div>
-                    <h3 style="font-size:1rem;color:#e8f1fb;margin:0 0 0.5rem;">{{ if $isZH }}HodoopForge · 大数据底座{{ else }}HodoopForge · Big Data Foundation{{ end }}</h3>
-                    <p style="font-size:0.82rem;color:#9db0c8;line-height:1.65;margin:0;">{{ if $isZH }}HDFS/YARN/Hive/Spark/Flink/Kafka/Ranger/Ambari — Kerberos 安全体系，容器级 HA{{ else }}HDFS / YARN / Hive / Spark / Flink / Kafka / Ranger / Ambari — Kerberos security, container HA{{ end }}</p>
-                    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:0.75rem;">
-                        <span style="background:rgba(148,163,184,0.12);color:#94a3b8;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Kerberos</span>
-                        <span style="background:rgba(148,163,184,0.12);color:#94a3b8;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Kafka RF3</span>
-                        <span style="background:rgba(148,163,184,0.12);color:#94a3b8;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Flink Exactly-Once</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- DataOps 核心能力 -->
-<section style="background:linear-gradient(180deg,#0e1a2b,#122238); padding:3rem 0;">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-12 text-center">
-                <h2 style="color:#e8f1fb; border-bottom:1px solid rgba(139,140,248,0.3); padding-bottom:0.75rem; display:inline-block; font-size:1.6rem;">{{ if $isZH }}DataOps 核心能力{{ else }}DataOps Core Capabilities{{ end }}</h2>
-            </div>
-        </div>
-        <div class="row g-3">
-            {{ $capabilities := slice
-                (dict "icon" "📊" "color" "#34d399" "bg" "rgba(52,211,153,0.1)" "border" "rgba(52,211,153,0.25)"
-                      "zh_title" "资产目录 · 数据契约"  "en_title" "Assets · Data Contracts"
-                      "zh_desc" "资产登记、域/层/敏感级检索、字段契约与数据要素登记——回答这张表是什么、谁能用"
-                      "en_desc" "Asset registration, domain/tier/sensitivity search, field contracts — answers what is this table and who can use it")
-                (dict "icon" "✅" "color" "#fbbf24" "bg" "rgba(251,191,36,0.1)" "border" "rgba(251,191,36,0.25)"
-                      "zh_title" "质量门禁" "en_title" "Quality Gate"
-                      "zh_desc" "质量规则检查空值/重复/范围，门禁阻断 DWS/ADS，质量结论可下钻到表/分区/规则"
-                      "en_desc" "Quality rules check nulls/duplicates/ranges; gate blocks DWS/ADS pipeline; drilldown to table/partition/rule")
-                (dict "icon" "🔗" "color" "#22d3ee" "bg" "rgba(34,211,238,0.1)" "border" "rgba(34,211,238,0.25)"
-                      "zh_title" "血缘 · 影响分析" "en_title" "Lineage · Impact"
-                      "zh_desc" "作业级+字段级血缘，改口径前看下游影响，支持影响面 API 与可视化"
-                      "en_desc" "Job-level and field-level lineage; check downstream impact before schema changes; impact API and visualization")
-                (dict "icon" "🤖" "color" "#8b8cf8" "bg" "rgba(139,140,248,0.1)" "border" "rgba(139,140,248,0.25)"
-                      "zh_title" "Copilot · NL2SQL" "en_title" "Copilot · NL2SQL"
-                      "zh_desc" "自然语言问数，语义层对齐指标后生成受控 SQL，只允许白名单表与 SELECT"
-                      "en_desc" "Natural language query, semantic-layer-aligned controlled SQL generation; whitelist tables and SELECT only")
-                (dict "icon" "📈" "color" "#fb7185" "bg" "rgba(251,113,133,0.1)" "border" "rgba(251,113,133,0.25)"
-                      "zh_title" "SLO · 事件 · 降级" "en_title" "SLO · Incidents · Degradation"
-                      "zh_desc" "RAG/质量/模型错误预算，自动降级与恢复，事件可确认、可追踪 owner"
-                      "en_desc" "RAG/quality/model error budgets, auto-degradation and recovery, events with owner tracking")
-                (dict "icon" "🛡️" "color" "#94a3b8" "bg" "rgba(148,163,184,0.1)" "border" "rgba(148,163,184,0.25)"
-                      "zh_title" "治理 · PII · 合规" "en_title" "Governance · PII · Compliance"
-                      "zh_desc" "PII 路径、脱敏策略、隐私图谱、等保三级技术自检 84.8%，导出/删除/审计哈希链"
-                      "en_desc" "PII paths, masking policies, privacy graph; security level-3 self-check 84.8%; export/delete/audit hash chain")
-            }}
-            {{ range $capabilities }}
-            <div class="col-md-6 col-lg-4">
-                <div style="background:{{ .bg }};border:1px solid {{ .border }};border-radius:12px;padding:1.25rem;height:100%;">
-                    <div style="font-size:1.5rem;margin-bottom:0.5rem;">{{ .icon }}</div>
-                    <h4 style="font-size:0.95rem;color:#e8f1fb;margin:0 0 0.4rem;">{{ if $isZH }}{{ .zh_title }}{{ else }}{{ .en_title }}{{ end }}</h4>
-                    <p style="font-size:0.8rem;color:#9db0c8;line-height:1.6;margin:0;">{{ if $isZH }}{{ .zh_desc }}{{ else }}{{ .en_desc }}{{ end }}</p>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-    </div>
-</section>
-
-<!-- 交互地图 iframe 嵌入 -->
-<section style="background:#08111f; padding:2.5rem 0 0;">
-    <div class="container-fluid px-0">
-        <div class="row mb-3">
-            <div class="col-12 text-center">
-                <h2 style="color:#e8f1fb; font-size:1.6rem; margin-bottom:0.4rem;">{{ if $isZH }}解决方案全景交互地图{{ else }}Interactive Solution Map{{ end }}</h2>
-                <p style="color:#9db0c8; font-size:0.9rem; margin-bottom:0.75rem;">
-                    {{ if $isZH }}点击节点查看详情 · 绿色=已上线 · 黄色=部分/边界 · 靛蓝=设计/待接 · 红色=缺口{{ else }}Click nodes for details · Green=Live · Yellow=Partial · Indigo=Design · Red=Gap{{ end }}
-                </p>
-                <a href="/maps/wenqu-interactive-map.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(34,211,238,0.15),rgba(139,140,248,0.12));color:#22d3ee;border:1px solid rgba(34,211,238,0.3);border-radius:999px;padding:0.4rem 1.1rem;font-size:0.8rem;font-weight:600;text-decoration:none;margin-bottom:1rem;">
-                    ⛶ {{ if $isZH }}全屏查看{{ else }}Full Screen{{ end }}
-                </a>
-            </div>
-        </div>
-        <div style="width:100%;background:#08111f;border-top:1px solid rgba(34,211,238,0.15);">
-            <iframe
-                src="/maps/wenqu-interactive-map.html"
-                style="width:100%;height:88vh;min-height:640px;border:none;display:block;"
-                title="{{ if $isZH }}问渠解决方案交互地图{{ else }}Wenqu Solution Interactive Map{{ end }}"
-                loading="lazy"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-</section>
-
-<!-- 教学应用亮点 -->
-<section style="background:#0e1a2b; padding:3rem 0;">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-12 text-center">
-                <h2 style="color:#e8f1fb; border-bottom:1px solid rgba(34,211,238,0.3); padding-bottom:0.75rem; display:inline-block; font-size:1.6rem;">{{ if $isZH }}教学应用全景{{ else }}Teaching Application Overview{{ end }}</h2>
-                <p style="color:#9db0c8;font-size:0.88rem;margin-top:0.5rem;">{{ if $isZH }}L4 层已上线功能 · 生产基线 2b397e05{{ else }}L4 Layer Live Features · Production baseline 2b397e05{{ end }}</p>
-            </div>
-        </div>
-        <div class="row g-3">
-            {{ $features := slice
-                (dict "icon" "🔐" "zh" "入口 · 认证 · 多校" "en" "Entry · Auth · Multi-tenant" "detail_zh" "JWT 120分钟、token_version 撤销；四级+自定义角色；平台管理员可切校" "detail_en" "JWT 120min, token_version revocation; 4-tier + custom roles; cross-school switching")
-                (dict "icon" "📚" "zh" "课程 · 章节 · 知识点" "en" "Course / Chapter / KP" "detail_zh" "16 门课程、637 章、635 知识点；SCORM 兼容；支持富文本和导入导出" "detail_en" "16 courses, 637 chapters, 635 KPs; SCORM compatible; rich text, import/export")
-                (dict "icon" "💬" "zh" "教学对话 + RAG" "en" "Teaching Dialogue + RAG" "detail_zh" "教材 RAG 引用、多轮/打断/降级；GPU 语音转写 + 说话人分离；VRM 口型同步" "detail_en" "Textbook RAG citation, multi-turn/interruption/fallback; GPU ASR + diarization; VRM lip-sync")
-                (dict "icon" "🧩" "zh" "练习 · BKT 掌握度" "en" "Practice · BKT Mastery" "detail_zh" "答题落库、BKT 掌握度评估、薄弱点识别与复习优先级排序" "detail_en" "Answer persistence, BKT mastery estimation, weakness identification, review priority ranking")
-                (dict "icon" "📊" "zh" "学习报告 · 成就" "en" "Learning Reports · Achievements" "detail_zh" "五页签学习报告、成就/积分系统、PDF/HTML 导出；学习增益不编造" "detail_en" "5-tab learning report, achievement/points system, PDF/HTML export; no fabricated metrics")
-                (dict "icon" "🎓" "zh" "课堂互动 + 任务扩展" "en" "Classroom + Task Engine" "detail_zh" "签到/投票/抢答/讨论；任务/分组/证书/直播/批阅/克隆" "detail_en" "Attendance/poll/buzzer/discussion; tasks/groups/certificates/livestream/grading/clone")
-                (dict "icon" "🎥" "zh" "互动视频" "en" "Interactive Video" "detail_zh" "时间点测验/批注/知识点/投票；替换视频不丢成绩；弹幕、虚拟剪辑、版本保留" "detail_en" "Timed quizzes/annotations/KPs/polls; replace video without losing scores; danmaku, virtual clips")
-                (dict "icon" "🔒" "zh" "隐私 · 留存 · 审计" "en" "Privacy · Retention · Audit" "detail_zh" "本人数据导出/删除申请，≥180 天留存，SHA-256 操作审计哈希链" "detail_en" "Data export/deletion request, ≥180d retention, SHA-256 operation audit hash chain")
-            }}
-            {{ range $features }}
-            <div class="col-md-6 col-lg-3">
-                <div style="background:rgba(14,26,43,0.8);border:1px solid rgba(120,170,255,0.12);border-radius:12px;padding:1.1rem;height:100%;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(34,211,238,0.35)'" onmouseout="this.style.borderColor='rgba(120,170,255,0.12)'">
-                    <div style="font-size:1.3rem;margin-bottom:0.4rem;">{{ .icon }}</div>
-                    <h5 style="font-size:0.88rem;font-weight:650;color:#e8f1fb;margin:0 0 0.35rem;">{{ if $isZH }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</h5>
-                    <p style="font-size:0.76rem;color:#9db0c8;line-height:1.6;margin:0;">{{ if $isZH }}{{ .detail_zh }}{{ else }}{{ .detail_en }}{{ end }}</p>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-    </div>
-</section>
-
-<!-- 数据底座技术栈 -->
-<section style="background:#122238; padding:2.5rem 0;">
-    <div class="container">
-        <div class="row mb-3">
-            <div class="col-12 text-center">
-                <h2 style="color:#e8f1fb; font-size:1.4rem; margin-bottom:0.4rem;">{{ if $isZH }}数据与模型底座技术栈{{ else }}Data & Model Technology Stack{{ end }}</h2>
-            </div>
-        </div>
-        <div class="row g-2 justify-content-center">
-            {{ $stack := slice
-                (dict "name" "PostgreSQL" "sub" "105 tables · OLTP" "c" "#34d399")
-                (dict "name" "Redis" "sub" "Cache · Rate Limit" "c" "#fb7185")
-                (dict "name" "Qdrant" "sub" "Vector DB · RAG" "c" "#22d3ee")
-                (dict "name" "Kafka" "sub" "RF3 · Event Bus" "c" "#fbbf24")
-                (dict "name" "Flink" "sub" "Streaming · Exactly-Once" "c" "#8b8cf8")
-                (dict "name" "Iceberg -ha" "sub" "66 Tables · ACID" "c" "#34d399")
-                (dict "name" "Spark Thrift" "sub" "Query Engine" "c" "#22d3ee")
-                (dict "name" "Ollama GPU" "sub" "LLM · ASR · TTS" "c" "#fb7185")
-            }}
-            {{ range $stack }}
-            <div class="col-6 col-md-3 col-lg-auto">
-                <div style="background:rgba(10,18,34,0.7);border:1px solid rgba(120,170,255,0.14);border-radius:10px;padding:0.75rem 1rem;text-align:center;min-width:120px;">
-                    <div style="font-weight:650;font-size:0.88rem;color:#e8f1fb;">{{ .name }}</div>
-                    <div style="font-size:0.72rem;color:{{ .c }};margin-top:3px;">{{ .sub }}</div>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section style="background:linear-gradient(135deg,#08111f,#0e1a2b,rgba(34,211,238,0.08)); padding:3.5rem 0; text-align:center;">
-    <div class="container">
-        <div class="col-lg-8 mx-auto">
-            <h2 style="color:#e8f1fb; border-bottom:none; font-size:1.7rem;">{{ if $isZH }}申请产品演示与合作洽谈{{ else }}Request a Demo or Partner Inquiry{{ end }}</h2>
-            <p style="color:#9db0c8; font-size:0.95rem; margin:0.75rem 0 1.5rem;">{{ if $isZH }}问渠 DataOps-AI 支持学校、教培机构、政府教育局定制化部署与集成{{ else }}Wenqu DataOps-AI supports customized deployment for schools, tutoring institutions, and government education bureaus{{ end }}</p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-                <a href="{{ if $isZH }}{{ printf "%scontact/" $baseURL }}{{ else }}{{ printf "%sen/contact/" $baseURL }}{{ end }}" style="background:linear-gradient(135deg,#22d3ee,#8b8cf8);color:#04121f;font-weight:700;padding:0.75rem 2rem;border-radius:999px;text-decoration:none;font-size:0.95rem;">{{ if $isZH }}立即联系 →{{ else }}Contact Us →{{ end }}</a>
-                <a href="/maps/wenqu-interactive-map.html" target="_blank" rel="noopener" style="background:transparent;color:#22d3ee;border:1.5px solid rgba(34,211,238,0.5);font-weight:600;padding:0.75rem 2rem;border-radius:999px;text-decoration:none;font-size:0.95rem;">{{ if $isZH }}查看全景地图{{ else }}View Full Map{{ end }}</a>
-            </div>
-        </div>
-    </div>
-</section>
-{{ end }}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if eq .Site.Language.Lang "zh" }}问渠 DataOps-AI · 解决方案交互地图{{ else }}Wenqu DataOps-AI · Interactive Solution Map{{ end }} - {{ .Site.Title }}</title>
+<meta name="description" content="{{ .Description }}">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;overflow:hidden;background:#08111f;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+  .topnav{
+    position:fixed;top:0;left:0;right:0;z-index:999;
+    display:flex;align-items:center;gap:12px;
+    padding:0 18px;height:44px;
+    background:rgba(8,17,31,0.96);
+    border-bottom:1px solid rgba(34,211,238,0.18);
+    backdrop-filter:blur(12px);
+  }
+  .topnav a{text-decoration:none;}
+  .back-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    color:rgba(255,255,255,0.65);font-size:12.5px;
+    padding:4px 10px;border-radius:6px;
+    border:1px solid rgba(255,255,255,0.12);
+    transition:all 0.18s;
+  }
+  .back-btn:hover{color:#fff;border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.07);}
+  .nav-logo{
+    display:flex;align-items:center;gap:8px;
+    color:rgba(255,255,255,0.9);font-size:13.5px;font-weight:650;
+  }
+  .nav-logo img{height:22px;border-radius:4px;}
+  .nav-title{
+    margin-left:auto;
+    color:#22d3ee;font-size:12.5px;font-weight:650;letter-spacing:0.04em;
+  }
+  .map-frame{
+    position:fixed;top:44px;left:0;right:0;bottom:0;
+    border:none;width:100%;height:calc(100% - 44px);
+    display:block;
+  }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a class="back-btn" href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%sproducts/" .Site.BaseURL }}{{ else }}{{ printf "%sen/products/" .Site.BaseURL }}{{ end }}">
+    ← {{ if eq .Site.Language.Lang "zh" }}产品{{ else }}Products{{ end }}
+  </a>
+  <a class="nav-logo" href="{{ if eq .Site.Language.Lang "zh" }}{{ .Site.BaseURL }}{{ else }}{{ printf "%sen/" .Site.BaseURL }}{{ end }}">
+    <img src="{{ printf "%simages/logo.png" .Site.BaseURL }}" alt="logo">
+    {{ if eq .Site.Language.Lang "zh" }}启煊软件{{ else }}Qixuan{{ end }}
+  </a>
+  <span class="nav-title">{{ if eq .Site.Language.Lang "zh" }}问渠 DataOps-AI · 解决方案交互地图{{ else }}Wenqu DataOps-AI · Solution Map{{ end }}</span>
+</nav>
+<iframe
+  class="map-frame"
+  src="{{ printf "%smaps/wenqu-interactive-map.html" .Site.BaseURL }}"
+  title="{{ if eq .Site.Language.Lang "zh" }}问渠解决方案交互地图{{ else }}Wenqu Solution Interactive Map{{ end }}"
+  allowfullscreen>
+</iframe>
+</body>
+</html>
