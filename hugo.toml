@@ -35,44 +35,29 @@ enableGitInfo = false
     weight = 1
     identifier = 'home'
   [[languages.zh.menu.main]]
-    name = '新能源'
-    url = '/energy-solutions'
-    weight = 2
-    identifier = 'energy-solutions'
-  [[languages.zh.menu.main]]
-    name = '大数据'
-    url = '/solutions'
-    weight = 3
-    identifier = 'bigdata-solutions'
-  [[languages.zh.menu.main]]
-    name = '边缘AI'
-    url = '/edge-ai'
-    weight = 4
-    identifier = 'edge-ai'
-  [[languages.zh.menu.main]]
-    name = 'AI伴学'
-    url = '/ai-education'
-    weight = 5
-    identifier = 'ai-education'
-  [[languages.zh.menu.main]]
     name = '产品'
     url = '/products'
-    weight = 6
+    weight = 2
     identifier = 'products'
+  [[languages.zh.menu.main]]
+    name = '解决方案'
+    url = '/solutions'
+    weight = 3
+    identifier = 'solutions'
   [[languages.zh.menu.main]]
     name = '案例'
     url = '/cases'
-    weight = 7
+    weight = 4
     identifier = 'cases'
   [[languages.zh.menu.main]]
     name = '关于我们'
     url = '/about'
-    weight = 8
+    weight = 5
     identifier = 'about'
   [[languages.zh.menu.main]]
     name = '联系我们'
     url = '/contact'
-    weight = 9
+    weight = 6
     identifier = 'contact'
 
 [languages.en.menu]
@@ -82,44 +67,29 @@ enableGitInfo = false
     weight = 1
     identifier = 'home'
   [[languages.en.menu.main]]
-    name = 'New Energy'
-    url = '/energy-solutions'
-    weight = 2
-    identifier = 'energy-solutions'
-  [[languages.en.menu.main]]
-    name = 'Big Data'
-    url = '/solutions'
-    weight = 3
-    identifier = 'bigdata-solutions'
-  [[languages.en.menu.main]]
-    name = 'Edge AI'
-    url = '/edge-ai'
-    weight = 4
-    identifier = 'edge-ai'
-  [[languages.en.menu.main]]
-    name = 'AI Education'
-    url = '/ai-education'
-    weight = 5
-    identifier = 'ai-education'
-  [[languages.en.menu.main]]
     name = 'Products'
     url = '/products'
-    weight = 6
+    weight = 2
     identifier = 'products'
+  [[languages.en.menu.main]]
+    name = 'Solutions'
+    url = '/solutions'
+    weight = 3
+    identifier = 'solutions'
   [[languages.en.menu.main]]
     name = 'Cases'
     url = '/cases'
-    weight = 7
+    weight = 4
     identifier = 'cases'
   [[languages.en.menu.main]]
     name = 'About'
     url = '/about'
-    weight = 8
+    weight = 5
     identifier = 'about'
   [[languages.en.menu.main]]
     name = 'Contact'
     url = '/contact'
-    weight = 9
+    weight = 6
     identifier = 'contact'
 
 [params]

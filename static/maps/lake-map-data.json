@@ -1,0 +1,631 @@
+{
+  "generated_at": "2026-11-26 12:42:30",
+  "cluster": "qixuandata",
+  "title": "HodoopForge 数据湖地图 · Kerberos 版",
+  "subtitle": "容器级高可用 · Kerberos 数据面 · 防呆守护 · 实时入湖",
+  "summary": [
+    {
+      "label": "核心服务",
+      "value": "7/7 UP",
+      "status": "ok"
+    },
+    {
+      "label": "Kerberos",
+      "value": "KERBEROS · 7 服务",
+      "status": "ok"
+    },
+    {
+      "label": "HDFS",
+      "value": "bigtop-hostname3 Active · bigtop-hostname0 Standby · 3 DN",
+      "status": "ok"
+    },
+    {
+      "label": "Flink",
+      "value": "RUNNING · checkpoint 408",
+      "status": "ok"
+    },
+    {
+      "label": "Guard",
+      "value": "active · ambari-agent locked",
+      "status": "ok"
+    }
+  ],
+  "flow": [
+    {
+      "id": "kdc",
+      "name": "Kerberos / KDC",
+      "sub": "认证前置",
+      "status": "ok"
+    },
+    {
+      "id": "probes",
+      "name": "业务 / 探针",
+      "sub": "LLM · RAG · Answer",
+      "status": "ok"
+    },
+    {
+      "id": "kafka",
+      "name": "Kafka",
+      "sub": "3 broker · RF3",
+      "status": "ok"
+    },
+    {
+      "id": "flink",
+      "name": "Flink",
+      "sub": "3 sink · checkpoint 20s",
+      "status": "ok"
+    },
+    {
+      "id": "iceberg",
+      "name": "Iceberg -ha",
+      "sub": "77/77 · nameservice",
+      "status": "ok"
+    },
+    {
+      "id": "spark",
+      "name": "Spark / Hive",
+      "sub": "ThriftServer · HS2",
+      "status": "ok"
+    },
+    {
+      "id": "apps",
+      "name": "应用 / BI",
+      "sub": "查询 · 看板 · 导出",
+      "status": "ok"
+    }
+  ],
+  "layers": [
+    {
+      "id": "ingest",
+      "name": "接入层",
+      "desc": "业务事件、探针与外部客户端",
+      "nodes": [
+        {
+          "id": "probes",
+          "name": "业务探针",
+          "sub": "LLM / RAG / Answer · Flink RUNNING",
+          "status": "ok",
+          "metrics": [
+            "3 条链路",
+            "Kafka SASL/GSSAPI",
+            "ODS 以表查询为准"
+          ],
+          "desc": "业务侧 3 条链路：ai_inference_log、rag_query_log、answer_sample_log；Kafka 客户端需 Kerberos/JAAS，ODS 新鲜度以表查询为准。",
+          "endpoints": [
+            "Kafka topic: ai_inference_log / rag_query_log / answer_sample_log"
+          ],
+          "docs": [
+            "docs/KAFKA_EXTERNAL_ACCESS.md",
+            "docs/KERBEROS_ENABLEMENT.md"
+          ],
+          "commands": [
+            "kafka-console-producer.sh --bootstrap-server 192.168.0.60:9092 --topic ai_inference_log"
+          ]
+        },
+        {
+          "id": "kafka",
+          "name": "Kafka",
+          "sub": "3 broker · SASL_PLAINTEXT/GSSAPI",
+          "status": "ok",
+          "metrics": [
+            "RF3 · minISR=2",
+            "kafka/192.168.0.60 共享 principal",
+            "systemd kafka-broker 管理",
+            "advertised 192.168.0.60:9092/9093/9094"
+          ],
+          "desc": "h0/h2/h3 三 broker；SASL_PLAINTEXT/GSSAPI；共享 kafka/192.168.0.60 principal；advertised 192.168.0.60:9092/9093/9094。",
+          "endpoints": [
+            "192.168.0.60:9092",
+            "192.168.0.60:9093",
+            "192.168.0.60:9094"
+          ],
+          "docs": [
+            "docs/KAFKA_EXTERNAL_ACCESS.md",
+            "docs/KAFKA_ADVERTISED_LISTENER_RATIONALE_2026-11-09.md",
+            "docs/KERBEROS_ENABLEMENT.md"
+          ],
+          "commands": [
+            "kafka-topics.sh --bootstrap-server 192.168.0.60:9092 --describe"
+          ]
+        },
+        {
+          "id": "nat",
+          "name": "NAT / Hairpin",
+          "sub": "50 条映射 · 6 条 Kafka",
+          "status": "ok",
+          "metrics": [
+            "PREROUTING+OUTPUT 100 条",
+            "9093/9094 已补齐",
+            "容器 hairpin 3/3"
+          ],
+          "desc": "宿主机 DNAT + 容器 hairpin；Kafka 外部端口已切 SASL_PLAINTEXT。",
+          "endpoints": [
+            "scripts/kafka_external_listener.sh status"
+          ],
+          "docs": [
+            "docs/KAFKA_EXTERNAL_ACCESS.md",
+            "docs/LAN_ACCESS_GUIDE.md"
+          ],
+          "commands": [
+            "bash scripts/kafka_external_listener.sh status",
+            "sudo bash ambari3/scripts/setup-nat-forward.sh status"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compute",
+      "name": "计算层",
+      "desc": "实时与批处理计算",
+      "nodes": [
+        {
+          "id": "flink",
+          "name": "Flink",
+          "sub": "JM1 h0 / JM2 h1 · Kerberos",
+          "status": "ok",
+          "metrics": [
+            "job adb1b6a9879e RUNNING",
+            "checkpoint completed=408",
+            "Kafka SASL_PLAINTEXT/GSSAPI",
+            "zookeeper.sasl.disable=true"
+          ],
+          "desc": "实时入湖作业，checkpoint 20s，Exactly-Once 写 Iceberg；JM/TM 使用 keytab，Kafka SASL。",
+          "endpoints": [
+            "http://172.19.0.2:8081",
+            "http://172.19.0.5:8081"
+          ],
+          "docs": [
+            "docs/FLINK_OPS_RUNBOOK.md",
+            "docs/KERBEROS_ENABLEMENT.md"
+          ],
+          "commands": [
+            "curl -s http://172.19.0.2:8081/jobs/overview"
+          ]
+        },
+        {
+          "id": "spark",
+          "name": "Spark ThriftServer",
+          "sub": "Spark 3.5.6 · 10016 · Kerberos",
+          "status": "ok",
+          "metrics": [
+            "ThriftServer --principal spark/...",
+            "spark.yarn.keytab=spark.service.keytab",
+            "YARN usercache/spark 已修复",
+            "beeline select 1 通过"
+          ],
+          "desc": "业务查询入口；ThriftServer 10016 已切 Kerberos；catalog warehouse = hdfs://qixuandata/iceberg-warehouse-ha。",
+          "endpoints": [
+            "jdbc:hive2://bigtop-hostname1.bigtop.apache.org:10016/default;principal=spark/bigtop-hostname1.bigtop.apache.org@HODOOPFORGE.LOCAL"
+          ],
+          "docs": [
+            "docs/WAREHOUSE_ALIGNMENT_FIX_2026-11-19.md",
+            "docs/KERBEROS_ENABLEMENT.md",
+            "docs/LAN_ACCESS_GUIDE.md"
+          ],
+          "commands": [
+            "beeline -u 'jdbc:hive2://bigtop-hostname1.bigtop.apache.org:10016/default;transportMode=binary' -n spark -e 'SELECT 1'"
+          ]
+        },
+        {
+          "id": "yarn",
+          "name": "YARN",
+          "sub": "RM h0 · 3 NM",
+          "status": "ok",
+          "metrics": [
+            "3 NodeManager RUNNING",
+            "RM 8088"
+          ],
+          "desc": "Spark/Flink/Hive 的资源调度层；RM/NM 已 Kerberos，LinuxContainerExecutor。",
+          "endpoints": [
+            "http://192.168.0.60:8088"
+          ],
+          "docs": [
+            "docs/PRODUCTION_HA_UPGRADE_PLAN.md",
+            "docs/KERBEROS_ENABLEMENT.md"
+          ],
+          "commands": [
+            "yarn node -list"
+          ]
+        },
+        {
+          "id": "hive",
+          "name": "Hive / HMS",
+          "sub": "HS2 10000 · HMS 9083",
+          "status": "ok",
+          "metrics": [
+            "HS2 SELECT 1 正常",
+            "HMS 9083"
+          ],
+          "desc": "HiveServer2 + Metastore；HMS/HS2 Kerberos；HS2 ZK 动态发现临时关闭。",
+          "endpoints": [
+            "jdbc:hive2://192.168.0.60:10000/default;principal=hive/bigtop-hostname0.bigtop.apache.org@HODOOPFORGE.LOCAL",
+            "thrift://192.168.0.60:9083"
+          ],
+          "docs": [
+            "docs/HIVE_MYSQL_HA.md",
+            "docs/KERBEROS_ENABLEMENT.md"
+          ],
+          "commands": [
+            "beeline -u 'jdbc:hive2://192.168.0.60:10000/default;transportMode=binary' -n hive -e 'SELECT 1'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "name": "存储层",
+      "desc": "HA 文件系统与 Iceberg 仓库",
+      "nodes": [
+        {
+          "id": "hdfs",
+          "name": "HDFS NN HA",
+          "sub": "bigtop-hostname3 Active · bigtop-hostname0 Standby · 3 DataNode",
+          "status": "ok",
+          "metrics": [
+            "3 JN · 2 ZKFC · 3 DN",
+            "Kerberos RPC · DN 显式 FQDN",
+            "DN 使用 /etc/hadoop/conf-dn",
+            "nameservice qixuandata"
+          ],
+          "desc": "NameNode HA（h3 Active / h0 Standby）；DN 使用 /etc/hadoop/conf-dn 显式 FQDN principal；RPC Kerberos，web simple。",
+          "endpoints": [
+            "hdfs://qixuandata",
+            "http://192.168.0.60:50070"
+          ],
+          "docs": [
+            "docs/HDFS_NN_HA_PLATFORM_RUNBOOK.md",
+            "docs/KERBEROS_ENABLEMENT.md"
+          ],
+          "commands": [
+            "hdfs haadmin -getAllServiceState",
+            "hdfs dfsadmin -report"
+          ]
+        },
+        {
+          "id": "mysql",
+          "name": "MySQL 元数据库",
+          "status": "ok",
+          "sub": "Hive Metastore 主/副本",
+          "desc": "Hive Metastore MySQL 主 h0 / 异步副本 h3；切换脚本 mysql_failover.sh。",
+          "endpoints": [
+            "jdbc:mysql://bigtop-hostname0:3306"
+          ],
+          "metrics": [
+            "主 h0 / 副本 h3",
+            "RTO 1s / 回切 2s",
+            "lag=0"
+          ],
+          "commands": [
+            "bash scripts/mysql_failover.sh status"
+          ],
+          "docs": [
+            "docs/HIVE_MYSQL_HA.md"
+          ]
+        },
+        {
+          "id": "iceberg",
+          "name": "Iceberg -ha",
+          "sub": "77/77 表 · Location 对齐",
+          "status": "ok",
+          "metrics": [
+            "tables=77 aligned=77",
+            "Spark catalog → -ha",
+            "Flink warehouse → -ha",
+            "旧仓库保留回滚"
+          ],
+          "desc": "业务读与 Flink 写统一到 hdfs://qixuandata/iceberg-warehouse-ha；旧 /iceberg-warehouse 保留。",
+          "endpoints": [
+            "hdfs://qixuandata/iceberg-warehouse-ha"
+          ],
+          "docs": [
+            "docs/WAREHOUSE_ALIGNMENT_FIX_2026-11-19.md",
+            "docs/KERBEROS_ENABLEMENT.md"
+          ],
+          "commands": [
+            "python3 datalake/tools/check_lake_alignment.py"
+          ]
+        },
+        {
+          "id": "hbase",
+          "name": "HBase",
+          "sub": "1 Master · 1 RS",
+          "status": "ok",
+          "metrics": [
+            "active master 1",
+            "regionserver 1",
+            "0 dead"
+          ],
+          "desc": "HBase Master h0 / RegionServer h3；已切 Kerberos，znode parent=/hbase；Ranger 授权尚未 Kerberos 化。",
+          "endpoints": [
+            "http://192.168.0.60:16010"
+          ],
+          "docs": [
+            "docs/KERBEROS_ENABLEMENT.md",
+            "docs/INCIDENT_2026-11-18_HDFS_NN_RECOVERY.md"
+          ],
+          "commands": [
+            "echo status | hbase shell"
+          ]
+        },
+        {
+          "id": "zk",
+          "name": "ZooKeeper",
+          "sub": "3 节点",
+          "status": "warn",
+          "metrics": [
+            "h0/h1/h2",
+            "2181"
+          ],
+          "desc": "HDFS ZKFC/Kafka/HBase 协调；仍是 simple ZK，客户端通过 zookeeper.sasl.client=false 连接；后续可单独 Kerberos 化。",
+          "endpoints": [
+            "192.168.0.60:21810"
+          ],
+          "docs": [
+            "docs/PRODUCTION_HA_UPGRADE_PLAN.md",
+            "docs/KERBEROS_ENABLEMENT.md"
+          ],
+          "commands": [
+            "echo ruok | nc 192.168.0.60 21810"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "governance",
+      "name": "治理层",
+      "desc": "元数据、质量、血缘、成本与新鲜度",
+      "nodes": [
+        {
+          "id": "meta",
+          "name": "edulake_meta",
+          "sub": "edulake_meta · 6 张治理表",
+          "status": "ok",
+          "metrics": [
+            "asset_registry 376",
+            "data_quality_check 391",
+            "data_lineage 964",
+            "cost_daily 308",
+            "governance_action_log 12",
+            "rag_answer_samples 21"
+          ],
+          "desc": "迁移后的治理元数据；业务 ETL 已跑 11-18 质量/治理。",
+          "endpoints": [
+            "iceberg.edulake_meta.*"
+          ],
+          "docs": [
+            "docs/ARCHITECTURE.md",
+            "docs/HADOOPFORGE_EDULAKE_TEST_REPORT.md"
+          ],
+          "commands": [
+            "SELECT COUNT(*) FROM iceberg.edulake_meta.asset_registry"
+          ]
+        },
+        {
+          "id": "quality",
+          "name": "质量 / 血缘 / 成本",
+          "sub": "edulake_meta 治理表 · 历史基线 41 表",
+          "status": "ok",
+          "metrics": [
+            "41 表 / 35 正常 / 6 空 / 0 失败",
+            "dt=11-18",
+            "血缘 964 行"
+          ],
+          "desc": "业务侧质量检查、血缘、成本、SLO 探针；历史基线 41 表检查（35 正常/6 空/0 失败），当前以业务重跑为准。",
+          "endpoints": [
+            "/api/teaching/analytics/ops/"
+          ],
+          "docs": [
+            "docs/OPERATIONS_AUTOMATION.md",
+            "docs/ARCHITECTURE.md"
+          ],
+          "commands": [
+            "# 业务侧 run_daily_etl.sh 后复查"
+          ]
+        },
+        {
+          "id": "freshness",
+          "name": "Freshness / 数据产品",
+          "sub": "Flink 实时作业 RUNNING · ODS 新鲜度以表查询为准",
+          "status": "ok",
+          "metrics": [
+            "Flink 作业 RUNNING",
+            "ODS 新鲜度以表查询为准",
+            "lake-health 可用性以业务探针为准"
+          ],
+          "desc": "业务侧 lake-health / freshness 探针；当前 Flink 作业 adb1b6a9 RUNNING，具体 ODS 新鲜度以 Iceberg 表查询为准。",
+          "endpoints": [
+            "/ops/lake-health",
+            "/ops/freshness"
+          ],
+          "docs": [
+            "docs/FLINK_OPS_RUNBOOK.md",
+            "docs/ARCHITECTURE.md"
+          ],
+          "commands": [
+            "python3 datalake/tools/check_lake_alignment.py"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ops",
+      "name": "运维与安全",
+      "desc": "管理、自动化、安全与监控",
+      "nodes": [
+        {
+          "id": "ambari",
+          "name": "Ambari",
+          "sub": "20609 · security_type=KERBEROS",
+          "status": "ok",
+          "metrics": [
+            "security_type=KERBEROS",
+            "guard 锁定 ambari-agent",
+            "cluster-env/security_enabled=true",
+            "收口 request 2472 COMPLETED"
+          ],
+          "desc": "集群管理入口；security_type=KERBEROS；kerberos_guard 锁定 ambari-agent，避免旧配置覆盖。",
+          "endpoints": [
+            "http://192.168.0.60:20609"
+          ],
+          "docs": [
+            "docs/CURRENT_STATE.md",
+            "docs/KERBEROS_GUARD.md",
+            "docs/OPERATIONS_AUTOMATION.md"
+          ],
+          "commands": [
+            "bash scripts/ambari_reset_ha_wizard.sh"
+          ]
+        },
+        {
+          "id": "automation",
+          "name": "自动化自愈",
+          "sub": "guard 30s · healthcheck 10min · 旧 watchdog 停止",
+          "status": "ok",
+          "metrics": [
+            "kerberos_guard.timer active",
+            "healthcheck.timer active",
+            "watchdog.timer 已停止",
+            "Ambari agent 由 guard 锁定"
+          ],
+          "desc": "用户级 kerberos_guard 每 30s 运行；10 分钟健康巡检；旧 60s watchdog 已停止；NAT/容器自启保留。",
+          "endpoints": [
+            "/var/log/hodoopforge-healthcheck.log",
+            "~/.hodoopforge-kerberos/kerberos-guard.log"
+          ],
+          "docs": [
+            "docs/KERBEROS_GUARD.md",
+            "docs/OPERATIONS_AUTOMATION.md",
+            "docs/POST_SNAPSHOT_RUNBOOK.md"
+          ],
+          "commands": [
+            "bash scripts/post_snapshot_recover.sh --check",
+            "systemctl list-timers hodoopforge-healthcheck.timer"
+          ]
+        },
+        {
+          "id": "ranger",
+          "name": "Ranger",
+          "sub": "策略 id 19 · -ha 授权",
+          "status": "warn",
+          "metrics": [
+            "iceberg-warehouse-ha rwx",
+            "hdfs/flink/spark/ambari-qa"
+          ],
+          "desc": "HDFS/Hive/HBase 权限与审计；Ranger Admin/KMS 尚未 Kerberos 化，日志有 401/404，超级用户路径可用。",
+          "endpoints": [
+            "http://192.168.0.60:6080"
+          ],
+          "docs": [
+            "docs/PRODUCTION_HA_UPGRADE_PLAN.md",
+            "docs/KERBEROS_ENABLEMENT.md"
+          ],
+          "commands": [
+            "# Ranger Admin → iceberg-warehouse-ha"
+          ]
+        },
+        {
+          "id": "monitor",
+          "name": "监控",
+          "sub": "Prometheus 主备 · 12/12",
+          "status": "ok",
+          "metrics": [
+            "12/12 targets UP",
+            "主备双实例",
+            "Alertmanager 集群",
+            "22 条告警规则",
+            "管理面 exporter :9404"
+          ],
+          "desc": "Prometheus 主备 + 统一查询代理；12/12 targets、23 条规则；guard 与 healthcheck 纳入运维。",
+          "endpoints": [
+            "http://192.168.0.60:9090",
+            "http://192.168.0.60:19093",
+            "http://192.168.0.60:19090",
+            "http://192.168.0.60:9404"
+          ],
+          "docs": [
+            "docs/MONITORING_PROMETHEUS.md",
+            "docs/KERBEROS_GUARD.md"
+          ],
+          "commands": [
+            "curl -s http://172.19.0.5:9090/api/v1/targets",
+            "docker exec bigtop_hostname1 systemctl status prometheus"
+          ]
+        },
+        {
+          "id": "security",
+          "name": "Kerberos 安全总览",
+          "sub": "MIT KDC h0/h3 · HDFS/HBase/Hive/YARN/Flink/Kafka/Spark",
+          "status": "ok",
+          "metrics": [
+            "security_type=KERBEROS",
+            "guard 30s · 锁 ambari-agent",
+            "keytab 快照 + 配置漂移恢复",
+            "Ranger/KMS 尚未 Kerberos 化"
+          ],
+          "desc": "MIT KDC h0/h3；HDFS/HBase/Hive/YARN/Flink/Kafka/Spark 已 Kerberos；guard 锁 agent 并恢复配置/keytab 快照。",
+          "endpoints": [
+            "kdc: h0/h3:88",
+            "realm: HODOOPFORGE.LOCAL",
+            "guard: ~/.hodoopforge-kerberos/kerberos-guard.log"
+          ],
+          "docs": [
+            "docs/KERBEROS_ENABLEMENT.md",
+            "docs/KERBEROS_GUARD.md",
+            "docs/KERBEROS_INCIDENT_2026-11-24.md"
+          ],
+          "commands": [
+            "python3 scripts/kerberos_guard.py status",
+            "kinit -kt /etc/security/keytabs/hdfs.headless.keytab hdfs-qixuandata@HODOOPFORGE.LOCAL",
+            "bash scripts/kerberos_hdfs_enable.sh rollback"
+          ]
+        },
+        {
+          "id": "kdc",
+          "name": "MIT KDC 主备",
+          "status": "ok",
+          "sub": "h0/h3 · HODOOPFORGE.LOCAL",
+          "desc": "krb5kdc 主备、realm、4 节点 krb5.conf、双 principal/keytab。",
+          "endpoints": [
+            "h0:88",
+            "h3:88"
+          ],
+          "metrics": [
+            "realm HODOOPFORGE.LOCAL",
+            "KDC h0 + h3",
+            "chronyd 偏移 <1ms",
+            "keytab 双 principal"
+          ],
+          "commands": [
+            "bash scripts/kerberos_status.sh"
+          ],
+          "docs": [
+            "docs/KERBEROS_ENABLEMENT.md"
+          ]
+        },
+        {
+          "id": "guard",
+          "name": "Kerberos 防呆守护",
+          "status": "ok",
+          "sub": "30s · 锁 ambari-agent",
+          "desc": "用户级 systemd timer；锁 agent、恢复配置漂移、补起数据面、保存 keytab 快照；不调用宿主 systemctl stop，避免密码弹窗。",
+          "endpoints": [
+            "~/.hodoopforge-kerberos/kerberos-guard.log"
+          ],
+          "metrics": [
+            "sentinel ON",
+            "config drift 0",
+            "ambari-agent inactive",
+            "keytabs.tgz 快照"
+          ],
+          "commands": [
+            "python3 scripts/kerberos_guard.py status",
+            "python3 scripts/kerberos_guard.py --fix"
+          ],
+          "docs": [
+            "docs/KERBEROS_GUARD.md"
+          ]
+        }
+      ]
+    }
+  ]
+}

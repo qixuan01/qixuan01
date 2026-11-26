@@ -1,12 +1,13 @@
 {{ define "main" }}
+{{- $isZH := eq .Site.Language.Lang "zh" -}}
 <!-- Page Header -->
-<section class="page-header" style="background: linear-gradient(rgba(15,118,110,0.78), rgba(20,184,166,0.72)), url('{{ printf "%simages/hy-consult.jpg" $.Site.BaseURL }}') center/cover;">
+<section class="page-header" style="background: linear-gradient(135deg, rgba(8,17,31,0.95), rgba(14,26,43,0.9), rgba(15,118,110,0.15)), url('{{ printf "%simages/hy-consult.jpg" $.Site.BaseURL }}') center/cover;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if eq .Site.Language.Lang "zh" }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ if $isZH }}{{ printf "%s" $.Site.BaseURL }}{{ else }}{{ printf "%sen/" $.Site.BaseURL }}{{ end }}">{{ if $isZH }}首页{{ else }}Home{{ end }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
                     </ol>
                 </nav>
@@ -17,8 +18,51 @@
     </div>
 </section>
 
-<!-- Markdown Content (在线体验 + 四大产品线介绍) -->
-<section class="section">
+<!-- 两大核心数据智能产品入口卡片 -->
+<section style="background: linear-gradient(180deg,#08111f,#0e1a2b); padding: 2.5rem 0;">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                <h2 style="color:#e8f1fb; font-size:1.5rem; border-bottom:1px solid rgba(34,211,238,0.2); padding-bottom:0.6rem; display:inline-block;">
+                    {{ if $isZH }}核心数据智能产品{{ else }}Core Data Intelligence Products{{ end }}
+                </h2>
+            </div>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6">
+                <a href="{{ if $isZH }}{{ printf "%sproducts/wenqu-dataops-ai/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/products/wenqu-dataops-ai/" $.Site.BaseURL }}{{ end }}" style="display:block;text-decoration:none;background:linear-gradient(135deg,#08111f,#0e1a2b,rgba(34,211,238,0.07));border:1.5px solid rgba(34,211,238,0.3);border-radius:18px;padding:2rem 1.75rem;transition:all 0.25s;color:inherit;" onmouseover="this.style.borderColor='rgba(34,211,238,0.65)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(34,211,238,0.3)';this.style.transform='none'">
+                    <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;color:#22d3ee;background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.25);border-radius:999px;padding:0.2rem 0.75rem;display:inline-block;margin-bottom:0.75rem;">{{ if $isZH }}教育数据智能闭环{{ else }}Education Data Intelligence Loop{{ end }}</div>
+                    <div style="font-size:1.8rem;margin-bottom:0.5rem;">🧠</div>
+                    <h3 style="color:#e8f1fb;font-size:1.4rem;margin:0 0 0.3rem;">{{ if $isZH }}问渠 DataOps-AI{{ else }}Wenqu DataOps-AI{{ end }}</h3>
+                    <p style="color:#9db0c8;font-size:0.85rem;line-height:1.6;margin:0 0 1rem;">{{ if $isZH }}HodoopForge × EduLake × Edumind × 问渠智伴 — 四层架构，全链路教育数字化闭环，附交互地图{{ else }}HodoopForge × EduLake × Edumind × Wenqu AI — 4-layer architecture, full-loop education digitalization with interactive map{{ end }}</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                        <span style="font-size:0.7rem;color:#9db0c8;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:2px 8px;">360 {{ if $isZH }}测试通过{{ else }}Tests Passed{{ end }}</span>
+                        <span style="font-size:0.7rem;color:#9db0c8;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:2px 8px;">66 {{ if $isZH }}湖仓表{{ else }}Lake Tables{{ end }}</span>
+                        <span style="font-size:0.7rem;color:#9db0c8;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:2px 8px;">{{ if $isZH }}等保自检 84.8%{{ else }}Security 84.8%{{ end }}</span>
+                    </div>
+                    <div style="color:#22d3ee;font-size:0.82rem;font-weight:600;margin-top:1rem;">{{ if $isZH }}查看产品详情与交互地图 →{{ else }}View Product & Interactive Map →{{ end }}</div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="{{ if $isZH }}{{ printf "%sproducts/hodoopforge/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/products/hodoopforge/" $.Site.BaseURL }}{{ end }}" style="display:block;text-decoration:none;background:linear-gradient(135deg,#070d18,#0b1424,rgba(94,160,255,0.07));border:1.5px solid rgba(94,160,255,0.3);border-radius:18px;padding:2rem 1.75rem;transition:all 0.25s;color:inherit;" onmouseover="this.style.borderColor='rgba(94,160,255,0.65)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(94,160,255,0.3)';this.style.transform='none'">
+                    <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;color:#5ea0ff;background:rgba(94,160,255,0.1);border:1px solid rgba(94,160,255,0.25);border-radius:999px;padding:0.2rem 0.75rem;display:inline-block;margin-bottom:0.75rem;">{{ if $isZH }}容器级高可用 · 实时入湖{{ else }}Container HA · Real-time Ingestion{{ end }}</div>
+                    <div style="font-size:1.8rem;margin-bottom:0.5rem;">🌊</div>
+                    <h3 style="color:#e9f0ff;font-size:1.4rem;margin:0 0 0.3rem;">{{ if $isZH }}HodoopForge 数据湖{{ else }}HodoopForge Data Lake{{ end }}</h3>
+                    <p style="color:#91a5c4;font-size:0.85rem;line-height:1.6;margin:0 0 1rem;">{{ if $isZH }}Kafka → Flink → Iceberg · Kerberos 7 服务 · HDFS NN HA · 防呆守护 · 77 湖表全部对齐，附数据湖地图{{ else }}Kafka → Flink → Iceberg · Kerberos 7 services · HDFS NN HA · Guard-protected · 77 tables aligned with lake map{{ end }}</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                        <span style="font-size:0.7rem;color:#91a5c4;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:2px 8px;">7/7 {{ if $isZH }}服务 UP{{ else }}Services UP{{ end }}</span>
+                        <span style="font-size:0.7rem;color:#91a5c4;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:2px 8px;">77 Iceberg {{ if $isZH }}表{{ else }}Tables{{ end }}</span>
+                        <span style="font-size:0.7rem;color:#91a5c4;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:2px 8px;">Checkpoint 408+</span>
+                    </div>
+                    <div style="color:#5ea0ff;font-size:0.82rem;font-weight:600;margin-top:1rem;">{{ if $isZH }}查看产品详情与数据湖地图 →{{ else }}View Product & Lake Map →{{ end }}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Markdown Content (在线体验 + 其他产品线介绍) -->
+<section class="section" style="background:#f8faff;">
     <div class="container">
         <div class="content solution-content">
             {{ .Content }}
@@ -31,9 +75,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2 style="color: white; border-bottom: none;">{{ if eq .Site.Language.Lang "zh" }}申请产品演示{{ else }}Request a Demo{{ end }}</h2>
-                <p style="color: rgba(255,255,255,0.9);">{{ if eq .Site.Language.Lang "zh" }}联系我们获取 HadoopForge、悦学智伴、鸿源边缘AI 等产品演示{{ else }}Contact us for HadoopForge, Otowyue Learn AI, Hongyuan Edge AI product demos{{ end }}</p>
-                <a href="{{ if eq .Site.Language.Lang "zh" }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg" style="border-radius:25px;font-weight:600;">{{ if eq .Site.Language.Lang "zh" }}立即联系 →{{ else }}Contact Us →{{ end }}</a>
+                <h2 style="color: white; border-bottom: none;">{{ if $isZH }}申请产品演示{{ else }}Request a Demo{{ end }}</h2>
+                <p style="color: rgba(255,255,255,0.9);">{{ if $isZH }}联系我们获取问渠DataOps-AI、HodoopForge数据湖、HadoopForge、悦学智伴、鸿源边缘AI 等产品演示{{ else }}Contact us for Wenqu DataOps-AI, HodoopForge, HadoopForge, Otowyue Learn AI, Hongyuan Edge AI product demos{{ end }}</p>
+                <a href="{{ if $isZH }}{{ printf "%scontact/" $.Site.BaseURL }}{{ else }}{{ printf "%sen/contact/" $.Site.BaseURL }}{{ end }}" class="btn btn-outline-light btn-lg" style="border-radius:25px;font-weight:600;">{{ if $isZH }}立即联系 →{{ else }}Contact Us →{{ end }}</a>
             </div>
         </div>
     </div>

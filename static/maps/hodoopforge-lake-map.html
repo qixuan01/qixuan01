@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="data:,">
+<title>HodoopForge 数据湖地图 · Kerberos 版</title>
+<style>
+  :root{
+    --bg:#070d18; --bg2:#0b1424; --panel:rgba(15,26,44,.86); --panel2:#132038;
+    --ink:#e9f0ff; --muted:#91a5c4; --faint:#637896; --line:rgba(120,170,255,.16);
+    --accent:#5ea0ff; --accent2:#37e0b0; --warn:#f5c451; --bad:#ff6b6b; --plan:#a78bfa;
+    --ok:#39d98a; --chip:rgba(94,160,255,.08); --hover:rgba(94,160,255,.12);
+    --code:#050a13; --codeink:#cfe0ff;
+  }
+  [data-theme="light"]{
+    --bg:#eef3fa; --bg2:#f7f9fd; --panel:rgba(255,255,255,.92); --panel2:#f1f5fb;
+    --ink:#17243a; --muted:#5b6d86; --faint:#8493a8; --line:rgba(40,80,140,.16);
+    --accent:#1f6feb; --accent2:#0f9f7a; --warn:#a86b00; --bad:#cf2d2d; --plan:#6d4bd1;
+    --ok:#0f8f5f; --chip:rgba(31,111,235,.08); --hover:rgba(31,111,235,.10);
+    --code:#101a2a; --codeink:#e6efff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%}
+  body{
+    background:
+      radial-gradient(1100px 650px at 12% -10%, rgba(46,110,255,.20), transparent 60%),
+      radial-gradient(850px 560px at 95% 0%, rgba(55,224,176,.10), transparent 55%),
+      linear-gradient(180deg,var(--bg),var(--bg2) 55%,var(--bg));
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  button,input{font:inherit}
+  .app{max-width:1560px;margin:0 auto;padding:0 18px 44px}
+  .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    padding:12px 0;background:linear-gradient(180deg,var(--bg) 70%,transparent);backdrop-filter:blur(10px)}
+  .brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:grid;place-items:center;font-weight:800;color:#fff;box-shadow:0 0 26px rgba(64,140,255,.35)}
+  .brand h1{font-size:20px;margin:0;letter-spacing:.2px}
+  .brand .sub{font-size:12px;color:var(--muted);margin-top:3px}
+  .searchbox{flex:1 1 300px;max-width:560px;margin-left:auto;position:relative}
+  .searchbox input{width:100%;padding:10px 40px 10px 36px;border-radius:11px;border:1px solid var(--line);
+    background:var(--panel2);color:var(--ink);outline:none;font-size:13.5px}
+  .searchbox input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--chip)}
+  .searchbox .mag{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--faint)}
+  .searchbox kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:11px ui-monospace,Menlo,monospace;
+    color:var(--muted);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px;background:var(--panel)}
+  .iconbtn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);
+    color:var(--ink);cursor:pointer;display:grid;place-items:center;font-size:16px}
+  .iconbtn:hover{background:var(--hover)}
+  .metabar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    margin:4px 0 14px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--panel);
+    border-radius:999px;padding:6px 11px;font-size:12px;color:var(--muted)}
+  .chip b{color:var(--ink);font-weight:600}
+  .chip .dot{width:8px;height:8px;border-radius:50%;box-shadow:0 0 9px currentColor}
+  .meta{font-size:11.5px;color:var(--faint);text-align:right}
+  .meta b{color:var(--muted)}
+  .chain{display:flex;gap:8px;align-items:stretch;overflow-x:auto;padding:4px 2px 14px;scrollbar-width:thin}
+  .fnode{min-width:142px;flex:1;border:1px solid var(--line);border-radius:14px;padding:11px 13px;
+    background:linear-gradient(180deg,var(--panel),rgba(10,18,34,.72));cursor:pointer;transition:.16s}
+  .fnode:hover{transform:translateY(-1px);border-color:var(--accent);box-shadow:0 10px 26px rgba(0,0,0,.28)}
+  .fnode .fn{font-weight:650;font-size:13px;display:flex;align-items:center;gap:7px}
+  .fnode .fs{font-size:11px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .farrow{display:grid;place-items:center;color:var(--faint);min-width:16px;font-size:18px}
+  .toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:2px 0 14px}
+  .filters,.tours{display:flex;gap:6px;flex-wrap:wrap}
+  .filters button,.tours button{border:1px solid var(--line);background:transparent;color:var(--muted);
+    border-radius:9px;padding:7px 10px;font-size:12px;cursor:pointer}
+  .filters button:hover,.tours button:hover{color:var(--ink);border-color:var(--accent)}
+  .filters button.active,.tours button.active{background:var(--chip);color:var(--ink);border-color:var(--accent)}
+  .tours button{color:var(--accent2);border-color:rgba(55,224,176,.28)}
+  .main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:16px;align-items:start}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;min-width:0}
+  .layer{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:14px 14px 12px;
+    backdrop-filter:blur(8px)}
+  .layer h2{font-size:13px;margin:0 0 3px;letter-spacing:.3px}
+  .layer .ldesc{font-size:11px;color:var(--muted);margin-bottom:10px}
+  .nodes{display:flex;flex-direction:column;gap:8px}
+  .card{border:1px solid rgba(120,170,255,.12);border-radius:12px;padding:10px 11px;cursor:pointer;
+    background:rgba(10,18,34,.52);transition:.14s}
+  .card:hover,.card.sel{border-color:var(--accent);background:var(--hover)}
+  .card .row{display:flex;align-items:center;gap:7px}
+  .card .n{font-weight:650;font-size:13px}
+  .card .ss{font-size:11px;color:var(--muted);margin-top:3px;padding-left:15px;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .card .m{display:flex;gap:4px;flex-wrap:wrap;margin-top:7px;padding-left:15px}
+  .card .m span{font-size:10px;color:var(--muted);background:var(--chip);border:1px solid var(--line);
+    border-radius:999px;padding:1px 6px}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none;box-shadow:0 0 9px currentColor}
+  .ok{color:var(--ok)} .warn{color:var(--warn)} .bad{color:var(--bad)} .plan{color:var(--plan)} .off{color:var(--faint)}
+  .st-ok{background:var(--ok)} .st-warn{background:var(--warn)} .st-bad{background:var(--bad)}
+  .st-plan{background:var(--plan)} .st-off{background:var(--faint)}
+  .dim{opacity:.18}
+  .hl{border-color:var(--accent)!important;box-shadow:0 0 0 1px var(--accent),0 0 22px rgba(94,160,255,.18)}
+  .panel{position:sticky;top:76px;border:1px solid var(--line);background:var(--panel);border-radius:16px;
+    padding:16px;min-height:260px;backdrop-filter:blur(10px)}
+  .panel .kicker{font-size:10.5px;letter-spacing:.13em;color:var(--accent);font-weight:700;margin-bottom:5px}
+  .panel h3{margin:0 0 4px;font-size:18px}
+  .panel .dsub{font-size:12px;color:var(--muted);margin-bottom:12px}
+  .panel .desc{font-size:12.5px;line-height:1.7;color:var(--muted);margin:10px 0}
+  .panel .sec{font-size:10.5px;letter-spacing:.12em;color:var(--faint);text-transform:uppercase;margin:14px 0 6px}
+  .kv{display:grid;grid-template-columns:64px 1fr;gap:6px 9px;font-size:12px}
+  .kv .k{color:var(--faint)}
+  .kv code{font:11.5px ui-monospace,Menlo,Consolas,monospace;color:var(--accent2);word-break:break-all}
+  ul.clean{margin:0;padding-left:17px;color:var(--muted);font-size:12px;line-height:1.75}
+  .cmd{display:flex;gap:8px;align-items:flex-start;background:var(--code);color:var(--codeink);
+    border:1px solid var(--line);border-radius:9px;padding:8px 9px;margin:6px 0;
+    font:11px/1.55 ui-monospace,Menlo,Consolas,monospace;word-break:break-all}
+  .cmd button{margin-left:auto;flex:none;border:1px solid var(--line);background:rgba(255,255,255,.06);
+    color:var(--muted);border-radius:6px;padding:2px 6px;font-size:10px;cursor:pointer}
+  .docs{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+  .docs a{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:3px 8px;background:var(--chip)}
+  .empty{color:var(--faint);font-size:12px}
+  footer{margin-top:22px;border-top:1px solid var(--line);padding-top:12px;color:var(--faint);font-size:11.5px;
+    display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between}
+  footer code{color:var(--codeink);background:var(--code);padding:2px 6px;border-radius:5px}
+  .site-back{position:fixed;right:14px;bottom:14px;z-index:80;display:inline-flex;
+    align-items:center;gap:6px;padding:7px 12px;border-radius:999px;
+    background:linear-gradient(135deg,rgba(94,160,255,.18),rgba(55,224,176,.12));
+    border:1px solid var(--line);color:var(--accent);
+    font-size:12px;box-shadow:0 8px 28px rgba(0,0,0,.35);text-decoration:none}
+  .site-back:hover{background:var(--hover);text-decoration:none}
+  .prod-back{position:fixed;left:14px;bottom:14px;z-index:80;display:inline-flex;
+    align-items:center;gap:6px;padding:7px 12px;border-radius:999px;
+    background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    font-size:12px;box-shadow:0 8px 28px rgba(0,0,0,.35);text-decoration:none}
+  .prod-back:hover{background:var(--hover);text-decoration:none}
+  @media(max-width:980px){.main{grid-template-columns:1fr}.panel{position:static;order:-1}}
+  @media(max-width:640px){.app{padding:0 12px 32px}.brand h1{font-size:17px}.brand .sub{display:none}.meta{display:none}}
+</style>
+</head>
+<body>
+<a class="prod-back" href="/products/hodoopforge/">← 返回产品页</a>
+<a class="site-back" href="/">🏠 启煊软件官网</a>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="mark">HF</div>
+      <div>
+        <h1 id="title">HodoopForge 数据湖地图</h1>
+        <div class="sub" id="subtitle">容器级高可用 · Kerberos 数据面 · 防呆守护</div>
+      </div>
+    </div>
+    <div class="searchbox">
+      <span class="mag">⌕</span>
+      <input id="q" placeholder="搜索服务、端口、命令、文档…" autocomplete="off">
+      <kbd>/</kbd>
+    </div>
+    <button class="iconbtn" id="theme" title="切换明暗主题">◐</button>
+  </header>
+
+  <div class="metabar">
+    <div class="chips" id="summary"></div>
+    <div class="meta">cluster <b id="cluster">qixuandata</b> · snapshot <b id="generated">—</b></div>
+  </div>
+
+  <div class="chain" id="flow"></div>
+  <div class="toolbar">
+    <div class="filters" id="filters"></div>
+    <div class="tours" id="tours"></div>
+  </div>
+
+  <main class="main">
+    <div class="grid" id="grid"></div>
+    <aside class="panel" id="panel">
+      <div class="kicker">HODOOPFORGE</div>
+      <h3>点击任意节点</h3>
+      <div class="dsub">查看状态、入口、指标、命令与文档。</div>
+      <div class="desc">本页数据已内嵌，可直接通过 <b>file://</b> 或任意静态服务器打开，不依赖 lake-map-data.json 的 fetch。</div>
+      <div class="sec">快速路径</div>
+      <ul class="clean">
+        <li>实时链路：Kafka → Flink → Iceberg</li>
+        <li>查询链路：Spark/Hive → Iceberg/HDFS</li>
+        <li>认证与防呆：KDC → 服务 keytab → guard</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <div>数据快照：<code>lake-map-data.json</code> · 生成：<code>scripts/gen_lake_map_data.py</code> · 版本：2026-11-26 Kerberos</div>
+    <div><a href="ARCHITECTURE.md">架构</a> · <a href="CURRENT_STATE.md">当前状态</a> · <a href="KERBEROS_GUARD.md">防呆守护</a></div>
+  </footer>
+</div>
+
+<script id="lake-map-data" type="application/json">
+{
+ "generated_at": "2026-11-26 12:42:30",
+ "cluster": "qixuandata",
+ "title": "HodoopForge 数据湖地图 · Kerberos 版",
+ "subtitle": "容器级高可用 · Kerberos 数据面 · 防呆守护 · 实时入湖",
+ "summary": [
+  {
+   "label": "核心服务",
+   "value": "7/7 UP",
+   "status": "ok"
+  },
+  {
+   "label": "Kerberos",
+   "value": "KERBEROS · 7 服务",
+   "status": "ok"
+  },
+  {
+   "label": "HDFS",
+   "value": "bigtop-hostname3 Active · bigtop-hostname0 Standby · 3 DN",
+   "status": "ok"
+  },
+  {
+   "label": "Flink",
+   "value": "RUNNING · checkpoint 408",
+   "status": "ok"
+  },
+  {
+   "label": "Guard",
+   "value": "active · ambari-agent locked",
+   "status": "ok"
+  }
+ ],
+ "flow": [
+  {
+   "id": "kdc",
+   "name": "Kerberos / KDC",
+   "sub": "认证前置",
+   "status": "ok"
+  },
+  {
+   "id": "probes",
+   "name": "业务 / 探针",
+   "sub": "LLM · RAG · Answer",
+   "status": "ok"
+  },
+  {
+   "id": "kafka",
+   "name": "Kafka",
+   "sub": "3 broker · RF3",
+   "status": "ok"
+  },
+  {
+   "id": "flink",
+   "name": "Flink",
+   "sub": "3 sink · checkpoint 20s",
+   "status": "ok"
+  },
+  {
+   "id": "iceberg",
+   "name": "Iceberg -ha",
+   "sub": "77/77 · nameservice",
+   "status": "ok"
+  },
+  {
+   "id": "spark",
+   "name": "Spark / Hive",
+   "sub": "ThriftServer · HS2",
+   "status": "ok"
+  },
+  {
+   "id": "apps",
+   "name": "应用 / BI",
+   "sub": "查询 · 看板 · 导出",
+   "status": "ok"
+  }
+ ],
+ "layers": [
+  {
+   "id": "ingest",
+   "name": "接入层",
+   "desc": "业务事件、探针与外部客户端",
+   "nodes": [
+    {
+     "id": "probes",
+     "name": "业务探针",
+     "sub": "LLM / RAG / Answer · Flink RUNNING",
+     "status": "ok",
+     "metrics": [
+      "3 条链路",
+      "Kafka SASL/GSSAPI",
+      "ODS 以表查询为准"
+     ],
+     "desc": "业务侧 3 条链路：ai_inference_log、rag_query_log、answer_sample_log；Kafka 客户端需 Kerberos/JAAS，ODS 新鲜度以表查询为准。",
+     "endpoints": [
+      "Kafka topic: ai_inference_log / rag_query_log / answer_sample_log"
+     ],
+     "docs": [
+      "docs/KAFKA_EXTERNAL_ACCESS.md",
+      "docs/KERBEROS_ENABLEMENT.md"
+     ],
+     "commands": [
+      "kafka-console-producer.sh --bootstrap-server 192.168.0.60:9092 --topic ai_inference_log"
+     ]
+    },
+    {
+     "id": "kafka",
+     "name": "Kafka",
+     "sub": "3 broker · SASL_PLAINTEXT/GSSAPI",
+     "status": "ok",
+     "metrics": [
+      "RF3 · minISR=2",
+      "kafka/192.168.0.60 共享 principal",
+      "systemd kafka-broker 管理",
+      "advertised 192.168.0.60:9092/9093/9094"
+     ],
+     "desc": "h0/h2/h3 三 broker；SASL_PLAINTEXT/GSSAPI；共享 kafka/192.168.0.60 principal；advertised 192.168.0.60:9092/9093/9094。",
+     "endpoints": [
+      "192.168.0.60:9092",
+      "192.168.0.60:9093",
+      "192.168.0.60:9094"
+     ],
+     "docs": [
+      "docs/KAFKA_EXTERNAL_ACCESS.md",
+      "docs/KAFKA_ADVERTISED_LISTENER_RATIONALE_2026-11-09.md",
+      "docs/KERBEROS_ENABLEMENT.md"
+     ],
+     "commands": [
+      "kafka-topics.sh --bootstrap-server 192.168.0.60:9092 --describe"
+     ]
+    },
+    {
+     "id": "nat",
+     "name": "NAT / Hairpin",
+     "sub": "50 条映射 · 6 条 Kafka",
+     "status": "ok",
+     "metrics": [
+      "PREROUTING+OUTPUT 100 条",
+      "9093/9094 已补齐",
+      "容器 hairpin 3/3"
+     ],
+     "desc": "宿主机 DNAT + 容器 hairpin；Kafka 外部端口已切 SASL_PLAINTEXT。",
+     "endpoints": [
+      "scripts/kafka_external_listener.sh status"
+     ],
+     "docs": [
+      "docs/KAFKA_EXTERNAL_ACCESS.md",
+      "docs/LAN_ACCESS_GUIDE.md"
+     ],
+     "commands": [
+      "bash scripts/kafka_external_listener.sh status",
+      "sudo bash ambari3/scripts/setup-nat-forward.sh status"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "compute",
+   "name": "计算层",
+   "desc": "实时与批处理计算",
+   "nodes": [
+    {
+     "id": "flink",
+     "name": "Flink",
+     "sub": "JM1 h0 / JM2 h1 · Kerberos",
+     "status": "ok",
+     "metrics": [
+      "job adb1b6a9879e RUNNING",
+      "checkpoint completed=408",
+      "Kafka SASL_PLAINTEXT/GSSAPI",
+      "zookeeper.sasl.disable=true"
+     ],
+     "desc": "实时入湖作业，checkpoint 20s，Exactly-Once 写 Iceberg；JM/TM 使用 keytab，Kafka SASL。",
+     "endpoints": [
+      "http://172.19.0.2:8081",
+      "http://172.19.0.5:8081"
+     ],
+     "docs": [
+      "docs/FLINK_OPS_RUNBOOK.md",
+      "docs/KERBEROS_ENABLEMENT.md"
+     ],
+     "commands": [
+      "curl -s http://172.19.0.2:8081/jobs/overview"
+     ]
+    },
+    {
+     "id": "spark",
+     "name": "Spark ThriftServer",
+     "sub": "Spark 3.5.6 · 10016 · Kerberos",
+     "status": "ok",
+     "metrics": [
+      "ThriftServer --principal spark/...",
+      "spark.yarn.keytab=spark.service.keytab",
+      "YARN usercache/spark 已修复",
+      "beeline select 1 通过"
+     ],
+     "desc": "业务查询入口；ThriftServer 10016 已切 Kerberos；catalog warehouse = hdfs://qixuandata/iceberg-warehouse-ha。",
+     "endpoints": [
+      "jdbc:hive2://bigtop-hostname1.bigtop.apache.org:10016/default;principal=spark/bigtop-hostname1.bigtop.apache.org@HODOOPFORGE.LOCAL"
+     ],
+     "docs": [
+      "docs/WAREHOUSE_ALIGNMENT_FIX_2026-11-19.md",
+      "docs/KERBEROS_ENABLEMENT.md",
+      "docs/LAN_ACCESS_GUIDE.md"
+     ],
+     "commands": [
+      "beeline -u 'jdbc:hive2://bigtop-hostname1.bigtop.apache.org:10016/default;transportMode=binary' -n spark -e 'SELECT 1'"
+     ]
+    },
+    {
+     "id": "yarn",
+     "name": "YARN",
+     "sub": "RM h0 · 3 NM",
+     "status": "ok",
+     "metrics": [
+      "3 NodeManager RUNNING",
+      "RM 8088"
+     ],
+     "desc": "Spark/Flink/Hive 的资源调度层；RM/NM 已 Kerberos，LinuxContainerExecutor。",
+     "endpoints": [
+      "http://192.168.0.60:8088"
+     ],
+     "docs": [
+      "docs/PRODUCTION_HA_UPGRADE_PLAN.md",
+      "docs/KERBEROS_ENABLEMENT.md"
+     ],
+     "commands": [
+      "yarn node -list"
+     ]
+    },
+    {
+     "id": "hive",
+     "name": "Hive / HMS",
+     "sub": "HS2 10000 · HMS 9083",
+     "status": "ok",
+     "metrics": [
+      "HS2 SELECT 1 正常",
+      "HMS 9083"
+     ],
+     "desc": "HiveServer2 + Metastore；HMS/HS2 Kerberos；HS2 ZK 动态发现临时关闭。",
+     "endpoints": [
+      "jdbc:hive2://192.168.0.60:10000/default;principal=hive/bigtop-hostname0.bigtop.apache.org@HODOOPFORGE.LOCAL",
+      "thrift://192.168.0.60:9083"
+     ],
+     "docs": [
+      "docs/HIVE_MYSQL_HA.md",
+      "docs/KERBEROS_ENABLEMENT.md"
+     ],
+     "commands": [
+      "beeline -u 'jdbc:hive2://192.168.0.60:10000/default;transportMode=binary' -n hive -e 'SELECT 1'"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "storage",
+   "name": "存储层",
+   "desc": "HA 文件系统与 Iceberg 仓库",
+   "nodes": [
+    {
+     "id": "hdfs",
+     "name": "HDFS NN HA",
+     "sub": "bigtop-hostname3 Active · bigtop-hostname0 Standby · 3 DataNode",
+     "status": "ok",
+     "metrics": [
+      "3 JN · 2 ZKFC · 3 DN",
+      "Kerberos RPC · DN 显式 FQDN",
+      "DN 使用 /etc/hadoop/conf-dn",
+      "nameservice qixuandata"
+     ],
+     "desc": "NameNode HA（h3 Active / h0 Standby）；DN 使用 /etc/hadoop/conf-dn 显式 FQDN principal；RPC Kerberos，web simple。",
+     "endpoints": [
+      "hdfs://qixuandata",
+      "http://192.168.0.60:50070"
+     ],
+     "docs": [
+      "docs/HDFS_NN_HA_PLATFORM_RUNBOOK.md",
+      "docs/KERBEROS_ENABLEMENT.md"
+     ],
+     "commands": [
+      "hdfs haadmin -getAllServiceState",
+      "hdfs dfsadmin -report"
+     ]
+    },
+    {
+     "id": "mysql",
+     "name": "MySQL 元数据库",
+     "status": "ok",
+     "sub": "Hive Metastore 主/副本",
+     "desc": "Hive Metastore MySQL 主 h0 / 异步副本 h3；切换脚本 mysql_failover.sh。",
+     "endpoints": [
+      "jdbc:mysql://bigtop-hostname0:3306"
+     ],
+     "metrics": [
+      "主 h0 / 副本 h3",
+      "RTO 1s / 回切 2s",
+      "lag=0"
+     ],
+     "commands": [
+      "bash scripts/mysql_failover.sh status"
+     ],
+     "docs": [
+      "docs/HIVE_MYSQL_HA.md"
+     ]
+    },
+    {
+     "id": "iceberg",
+     "name": "Iceberg -ha",
+     "sub": "77/77 表 · Location 对齐",
+     "status": "ok",
+     "metrics": [
+      "tables=77 aligned=77",
+      "Spark catalog → -ha",
+      "Flink warehouse → -ha",
+      "旧仓库保留回滚"
+     ],
+     "desc": "业务读与 Flink 写统一到 hdfs://qixuandata/iceberg-warehouse-ha；旧 /iceberg-warehouse 保留。",
+     "endpoints": [
+      "hdfs://qixuandata/iceberg-warehouse-ha"
+     ],
+     "docs": [
+      "docs/WAREHOUSE_ALIGNMENT_FIX_2026-11-19.md",
+      "docs/KERBEROS_ENABLEMENT.md"
+     ],
+     "commands": [
+      "python3 datalake/tools/check_lake_alignment.py"
+     ]
+    },
+    {
+     "id": "hbase",
+     "name": "HBase",
+     "sub": "1 Master · 1 RS",
+     "status": "ok",
+     "metrics": [
+      "active master 1",
+      "regionserver 1",
+      "0 dead"
+     ],
+     "desc": "HBase Master h0 / RegionServer h3；已切 Kerberos，znode parent=/hbase；Ranger 授权尚未 Kerberos 化。",
+     "endpoints": [
+      "http://192.168.0.60:16010"
+     ],
+     "docs": [
+      "docs/KERBEROS_ENABLEMENT.md",
+      "docs/INCIDENT_2026-11-18_HDFS_NN_RECOVERY.md"
+     ],
+     "commands": [
+      "echo status | hbase shell"
+     ]
+    },
+    {
+     "id": "zk",
+     "name": "ZooKeeper",
+     "sub": "3 节点",
+     "status": "warn",
+     "metrics": [
+      "h0/h1/h2",
+      "2181"
+     ],
+     "desc": "HDFS ZKFC/Kafka/HBase 协调；仍是 simple ZK，客户端通过 zookeeper.sasl.client=false 连接；后续可单独 Kerberos 化。",
+     "endpoints": [
+      "192.168.0.60:21810"
+     ],
+     "docs": [
+      "docs/PRODUCTION_HA_UPGRADE_PLAN.md",
+      "docs/KERBEROS_ENABLEMENT.md"
+     ],
+     "commands": [
+      "echo ruok | nc 192.168.0.60 21810"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "governance",
+   "name": "治理层",
+   "desc": "元数据、质量、血缘、成本与新鲜度",
+   "nodes": [
+    {
+     "id": "meta",
+     "name": "edulake_meta",
+     "sub": "edulake_meta · 6 张治理表",
+     "status": "ok",
+     "metrics": [
+      "asset_registry 376",
+      "data_quality_check 391",
+      "data_lineage 964",
+      "cost_daily 308",
+      "governance_action_log 12",
+      "rag_answer_samples 21"
+     ],
+     "desc": "迁移后的治理元数据；业务 ETL 已跑 11-18 质量/治理。",
+     "endpoints": [
+      "iceberg.edulake_meta.*"
+     ],
+     "docs": [
+      "docs/ARCHITECTURE.md",
+      "docs/HADOOPFORGE_EDULAKE_TEST_REPORT.md"
+     ],
+     "commands": [
+      "SELECT COUNT(*) FROM iceberg.edulake_meta.asset_registry"
+     ]
+    },
+    {
+     "id": "quality",
+     "name": "质量 / 血缘 / 成本",
+     "sub": "edulake_meta 治理表 · 历史基线 41 表",
+     "status": "ok",
+     "metrics": [
+      "41 表 / 35 正常 / 6 空 / 0 失败",
+      "dt=11-18",
+      "血缘 964 行"
+     ],
+     "desc": "业务侧质量检查、血缘、成本、SLO 探针；历史基线 41 表检查（35 正常/6 空/0 失败），当前以业务重跑为准。",
+     "endpoints": [
+      "/api/teaching/analytics/ops/"
+     ],
+     "docs": [
+      "docs/OPERATIONS_AUTOMATION.md",
+      "docs/ARCHITECTURE.md"
+     ],
+     "commands": [
+      "# 业务侧 run_daily_etl.sh 后复查"
+     ]
+    },
+    {
+     "id": "freshness",
+     "name": "Freshness / 数据产品",
+     "sub": "Flink 实时作业 RUNNING · ODS 新鲜度以表查询为准",
+     "status": "ok",
+     "metrics": [
+      "Flink 作业 RUNNING",
+      "ODS 新鲜度以表查询为准",
+      "lake-health 可用性以业务探针为准"
+     ],
+     "desc": "业务侧 lake-health / freshness 探针；当前 Flink 作业 adb1b6a9 RUNNING，具体 ODS 新鲜度以 Iceberg 表查询为准。",
+     "endpoints": [
+      "/ops/lake-health",
+      "/ops/freshness"
+     ],
+     "docs": [
+      "docs/FLINK_OPS_RUNBOOK.md",
+      "docs/ARCHITECTURE.md"
+     ],
+     "commands": [
+      "python3 datalake/tools/check_lake_alignment.py"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ops",
+   "name": "运维与安全",
+   "desc": "管理、自动化、安全与监控",
+   "nodes": [
+    {
+     "id": "ambari",
+     "name": "Ambari",
+     "sub": "20609 · security_type=KERBEROS",
+     "status": "ok",
+     "metrics": [
+      "security_type=KERBEROS",
+      "guard 锁定 ambari-agent",
+      "cluster-env/security_enabled=true",
+      "收口 request 2472 COMPLETED"
+     ],
+     "desc": "集群管理入口；security_type=KERBEROS；kerberos_guard 锁定 ambari-agent，避免旧配置覆盖。",
+     "endpoints": [
+      "http://192.168.0.60:20609"
+     ],
+     "docs": [
+      "docs/CURRENT_STATE.md",
+      "docs/KERBEROS_GUARD.md",
+      "docs/OPERATIONS_AUTOMATION.md"
+     ],
+     "commands": [
+      "bash scripts/ambari_reset_ha_wizard.sh"
+     ]
+    },
+    {
+     "id": "automation",
+     "name": "自动化自愈",
+     "sub": "guard 30s · healthcheck 10min · 旧 watchdog 停止",
+     "status": "ok",
+     "metrics": [
+      "kerberos_guard.timer active",
+      "healthcheck.timer active",
+      "watchdog.timer 已停止",
+      "Ambari agent 由 guard 锁定"
+     ],
+     "desc": "用户级 kerberos_guard 每 30s 运行；10 分钟健康巡检；旧 60s watchdog 已停止；NAT/容器自启保留。",
+     "endpoints": [
+      "/var/log/hodoopforge-healthcheck.log",
+      "~/.hodoopforge-kerberos/kerberos-guard.log"
+     ],
+     "docs": [
+      "docs/KERBEROS_GUARD.md",
+      "docs/OPERATIONS_AUTOMATION.md",
+      "docs/POST_SNAPSHOT_RUNBOOK.md"
+     ],
+     "commands": [
+      "bash scripts/post_snapshot_recover.sh --check",
+      "systemctl list-timers hodoopforge-healthcheck.timer"
+     ]
+    },
+    {
+     "id": "ranger",
+     "name": "Ranger",
+     "sub": "策略 id 19 · -ha 授权",
+     "status": "warn",
+     "metrics": [
+      "iceberg-warehouse-ha rwx",
+      "hdfs/flink/spark/ambari-qa"
+     ],
+     "desc": "HDFS/Hive/HBase 权限与审计；Ranger Admin/KMS 尚未 Kerberos 化，日志有 401/404，超级用户路径可用。",
+     "endpoints": [
+      "http://192.168.0.60:6080"
+     ],
+     "docs": [
+      "docs/PRODUCTION_HA_UPGRADE_PLAN.md",
+      "docs/KERBEROS_ENABLEMENT.md"
+     ],
+     "commands": [
+      "# Ranger Admin → iceberg-warehouse-ha"
+     ]
+    },
+    {
+     "id": "monitor",
+     "name": "监控",
+     "sub": "Prometheus 主备 · 12/12",
+     "status": "ok",
+     "metrics": [
+      "12/12 targets UP",
+      "主备双实例",
+      "Alertmanager 集群",
+      "22 条告警规则",
+      "管理面 exporter :9404"
+     ],
+     "desc": "Prometheus 主备 + 统一查询代理；12/12 targets、23 条规则；guard 与 healthcheck 纳入运维。",
+     "endpoints": [
+      "http://192.168.0.60:9090",
+      "http://192.168.0.60:19093",
+      "http://192.168.0.60:19090",
+      "http://192.168.0.60:9404"
+     ],
+     "docs": [
+      "docs/MONITORING_PROMETHEUS.md",
+      "docs/KERBEROS_GUARD.md"
+     ],
+     "commands": [
+      "curl -s http://172.19.0.5:9090/api/v1/targets",
+      "docker exec bigtop_hostname1 systemctl status prometheus"
+     ]
+    },
+    {
+     "id": "security",
+     "name": "Kerberos 安全总览",
+     "sub": "MIT KDC h0/h3 · HDFS/HBase/Hive/YARN/Flink/Kafka/Spark",
+     "status": "ok",
+     "metrics": [
+      "security_type=KERBEROS",
+      "guard 30s · 锁 ambari-agent",
+      "keytab 快照 + 配置漂移恢复",
+      "Ranger/KMS 尚未 Kerberos 化"
+     ],
+     "desc": "MIT KDC h0/h3；HDFS/HBase/Hive/YARN/Flink/Kafka/Spark 已 Kerberos；guard 锁 agent 并恢复配置/keytab 快照。",
+     "endpoints": [
+      "kdc: h0/h3:88",
+      "realm: HODOOPFORGE.LOCAL",
+      "guard: ~/.hodoopforge-kerberos/kerberos-guard.log"
+     ],
+     "docs": [
+      "docs/KERBEROS_ENABLEMENT.md",
+      "docs/KERBEROS_GUARD.md",
+      "docs/KERBEROS_INCIDENT_2026-11-24.md"
+     ],
+     "commands": [
+      "python3 scripts/kerberos_guard.py status",
+      "kinit -kt /etc/security/keytabs/hdfs.headless.keytab hdfs-qixuandata@HODOOPFORGE.LOCAL",
+      "bash scripts/kerberos_hdfs_enable.sh rollback"
+     ]
+    },
+    {
+     "id": "kdc",
+     "name": "MIT KDC 主备",
+     "status": "ok",
+     "sub": "h0/h3 · HODOOPFORGE.LOCAL",
+     "desc": "krb5kdc 主备、realm、4 节点 krb5.conf、双 principal/keytab。",
+     "endpoints": [
+      "h0:88",
+      "h3:88"
+     ],
+     "metrics": [
+      "realm HODOOPFORGE.LOCAL",
+      "KDC h0 + h3",
+      "chronyd 偏移 <1ms",
+      "keytab 双 principal"
+     ],
+     "commands": [
+      "bash scripts/kerberos_status.sh"
+     ],
+     "docs": [
+      "docs/KERBEROS_ENABLEMENT.md"
+     ]
+    },
+    {
+     "id": "guard",
+     "name": "Kerberos 防呆守护",
+     "status": "ok",
+     "sub": "30s · 锁 ambari-agent",
+     "desc": "用户级 systemd timer；锁 agent、恢复配置漂移、补起数据面、保存 keytab 快照；不调用宿主 systemctl stop，避免密码弹窗。",
+     "endpoints": [
+      "~/.hodoopforge-kerberos/kerberos-guard.log"
+     ],
+     "metrics": [
+      "sentinel ON",
+      "config drift 0",
+      "ambari-agent inactive",
+      "keytabs.tgz 快照"
+     ],
+     "commands": [
+      "python3 scripts/kerberos_guard.py status",
+      "python3 scripts/kerberos_guard.py --fix"
+     ],
+     "docs": [
+      "docs/KERBEROS_GUARD.md"
+     ]
+    }
+   ]
+  }
+ ]
+}
+</script>
+<script>
+(function(){
+  "use strict";
+  var DATA = JSON.parse(document.getElementById("lake-map-data").textContent);
+  var STATUS = {ok:"正常",warn:"注意",bad:"异常",plan:"规划",off:"未启用"};
+  var TOURS = {
+    realtime:["kdc","kafka","flink","iceberg","hdfs"],
+    query:["kdc","spark","hive","iceberg","hdfs"],
+    security:["kdc","security","guard","ambari"],
+    ops:["guard","automation","monitor","ambari"]
+  };
+  var activeTour = null;
+  var selected = null;
+
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function findNode(id){
+    var i,j,l,n;
+    for(i=0;i<(DATA.layers||[]).length;i++){l=DATA.layers[i];
+      for(j=0;j<(l.nodes||[]).length;j++){n=l.nodes[j]; if(n.id===id) return n;}}
+    for(i=0;i<(DATA.flow||[]).length;i++){if(DATA.flow[i].id===id) return DATA.flow[i];}
+    return null;
+  }
+  function layerOf(id){
+    var i,j,l;
+    for(i=0;i<(DATA.layers||[]).length;i++){l=DATA.layers[i];
+      for(j=0;j<(l.nodes||[]).length;j++){if(l.nodes[j].id===id) return l.name;}}
+    return "";
+  }
+  function docHref(d){
+    var s=String(d||"");
+    s=s.replace(/^docs\//,"");
+    return "./"+s;
+  }
+  function copyText(t,btn){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){if(btn){btn.textContent="已复制";setTimeout(function(){btn.textContent="复制";},1200);}});
+    }else{
+      var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();
+      try{document.execCommand("copy");}catch(e){}document.body.removeChild(ta);
+      if(btn){btn.textContent="已复制";setTimeout(function(){btn.textContent="复制";},1200);}
+    }
+  }
+
+  function renderSummary(){
+    var box=document.getElementById("summary");
+    (DATA.summary||[]).forEach(function(s){
+      var c=document.createElement("span");c.className="chip";
+      c.innerHTML='<span class="dot st-'+esc(s.status)+'"></span><span>'+esc(s.label)+'</span><b>'+esc(s.value)+'</b>';
+      box.appendChild(c);
+    });
+    document.getElementById("title").textContent=DATA.title||"HodoopForge 数据湖地图";
+    document.getElementById("subtitle").textContent=DATA.subtitle||"";
+    document.getElementById("cluster").textContent=DATA.cluster||"";
+    document.getElementById("generated").textContent=DATA.generated_at||"—";
+  }
+
+  function renderFlow(){
+    var box=document.getElementById("flow");
+    (DATA.flow||[]).forEach(function(f,idx){
+      var n=findNode(f.id)||f;
+      var d=document.createElement("div");d.className="fnode";d.dataset.id=f.id;
+      d.innerHTML='<div class="fn"><span class="dot st-'+esc(n.status||f.status||"off")+'"></span>'+esc(f.name||n.name)+'</div>'+
+                  '<div class="fs">'+esc(n.sub||f.sub||"")+'</div>';
+      d.onclick=function(){openNode(f.id);};
+      box.appendChild(d);
+      if(idx<(DATA.flow||[]).length-1){
+        var a=document.createElement("div");a.className="farrow";a.textContent="→";box.appendChild(a);
+      }
+    });
+  }
+
+  function renderFilters(){
+    var box=document.getElementById("filters");
+    var all=document.createElement("button");all.textContent="全部";all.dataset.layer="all";all.className="active";
+    box.appendChild(all);
+    (DATA.layers||[]).forEach(function(l){
+      var b=document.createElement("button");b.textContent=l.name;b.dataset.layer=l.name;box.appendChild(b);
+    });
+    box.addEventListener("click",function(e){
+      var b=e.target.closest("button"); if(!b) return;
+      box.querySelectorAll("button").forEach(function(x){x.classList.remove("active");});
+      b.classList.add("active"); applyFilter();
+    });
+  }
+
+  function renderTours(){
+    var box=document.getElementById("tours");
+    var labels={realtime:"实时链路",query:"查询链路",security:"Kerberos 认证",ops:"值班检查"};
+    Object.keys(TOURS).forEach(function(k){
+      var b=document.createElement("button");b.textContent=labels[k];b.dataset.tour=k;box.appendChild(b);
+    });
+    var clear=document.createElement("button");clear.textContent="清除高亮";clear.dataset.tour="";box.appendChild(clear);
+    box.addEventListener("click",function(e){
+      var b=e.target.closest("button"); if(!b) return;
+      var k=b.dataset.tour;
+      box.querySelectorAll("button").forEach(function(x){x.classList.remove("active");});
+      if(!k){clearTour();return;}
+      b.classList.add("active"); startTour(k);
+    });
+  }
+
+  function renderLayers(){
+    var grid=document.getElementById("grid");
+    (DATA.layers||[]).forEach(function(l){
+      var sec=document.createElement("section");sec.className="layer";sec.dataset.layer=l.name;
+      var h=document.createElement("h2");h.textContent=l.name;sec.appendChild(h);
+      if(l.desc){var p=document.createElement("div");p.className="ldesc";p.textContent=l.desc;sec.appendChild(p);}
+      var nodes=document.createElement("div");nodes.className="nodes";
+      (l.nodes||[]).forEach(function(n){
+        var c=document.createElement("div");c.className="card";c.dataset.id=n.id;
+        c.dataset.search=[n.name,n.sub,n.desc,(n.metrics||[]).join(" "),(n.endpoints||[]).join(" "),(n.docs||[]).join(" ")].join(" ").toLowerCase();
+        var metrics=(n.metrics||[]).slice(0,3).map(function(m){return "<span>"+esc(m)+"</span>";}).join("");
+        c.innerHTML='<div class="row"><span class="dot st-'+esc(n.status)+'"></span><span class="n">'+esc(n.name)+'</span></div>'+
+                    '<div class="ss">'+esc(n.sub||"")+'</div><div class="m">'+metrics+'</div>';
+        c.onclick=function(){openNode(n.id);};
+        nodes.appendChild(c);
+      });
+      sec.appendChild(nodes);grid.appendChild(sec);
+    });
+  }
+
+  function openNode(id){
+    var n=findNode(id); if(!n) return;
+    selected=id;
+    document.querySelectorAll(".card").forEach(function(c){c.classList.toggle("sel",c.dataset.id===id);});
+    var panel=document.getElementById("panel");
+    var html='<div class="kicker">'+esc(layerOf(id)||"FLOW")+'</div>'+
+      '<h3><span class="dot st-'+esc(n.status||"off")+'" style="display:inline-block;margin-right:8px"></span>'+esc(n.name||id)+'</h3>'+
+      '<div class="dsub">'+esc(n.sub||"")+'</div>';
+    var kv="";
+    (n.endpoints||[]).forEach(function(e){kv+='<div class="k">入口</div><div><code>'+esc(e)+'</code></div>';});
+    if(kv){html+='<div class="kv">'+kv+'</div>';}
+    if(n.desc){html+='<div class="desc">'+esc(n.desc)+'</div>';}
+    if((n.metrics||[]).length){
+      html+='<div class="sec">指标</div><ul class="clean">'+n.metrics.map(function(m){return "<li>"+esc(m)+"</li>";}).join("")+'</ul>';
+    }
+    if((n.commands||[]).length){
+      html+='<div class="sec">命令</div>';
+      n.commands.forEach(function(c){
+        html+='<div class="cmd"><span>'+esc(c)+'</span><button data-cmd="'+esc(c)+'">复制</button></div>';
+      });
+    }
+    if((n.docs||[]).length){
+      html+='<div class="sec">文档</div><div class="docs">'+n.docs.map(function(d){
+        return '<a href="'+esc(docHref(d))+'" target="_blank" rel="opener">'+esc(d)+'</a>';
+      }).join("")+'</div>';
+    }
+    panel.innerHTML=html;
+    panel.querySelectorAll("button[data-cmd]").forEach(function(b){
+      b.onclick=function(){copyText(b.dataset.cmd,b);};
+    });
+    if(window.innerWidth<=980){panel.scrollIntoView({behavior:"smooth",block:"start"});}
+  }
+
+  function applyFilter(){
+    var q=(document.getElementById("q").value||"").trim().toLowerCase();
+    var layerBtn=document.querySelector("#filters button.active");
+    var layer=layerBtn?layerBtn.dataset.layer:"all";
+    document.querySelectorAll(".layer").forEach(function(sec){
+      var visible=0;
+      sec.querySelectorAll(".card").forEach(function(c){
+        var show=(!q||(c.dataset.search||"").indexOf(q)>=0)&&(layer==="all"||sec.dataset.layer===layer);
+        c.style.display=show?"":"none"; if(show) visible++;
+      });
+      sec.style.display=visible?"":"none";
+    });
+    document.querySelectorAll(".fnode").forEach(function(f){
+      var n=findNode(f.dataset.id)||{};
+      var text=[f.textContent,n.sub,n.desc].join(" ").toLowerCase();
+      f.style.display=(!q||text.indexOf(q)>=0)?"":"none";
+    });
+  }
+
+  function clearTour(){
+    activeTour=null;
+    document.querySelectorAll(".dim,.hl").forEach(function(x){x.classList.remove("dim","hl");});
+    document.querySelectorAll(".tours button").forEach(function(b){b.classList.remove("active");});
+  }
+  function startTour(k){
+    clearTour(); activeTour=k;
+    var ids=TOURS[k]||[]; var all=document.querySelectorAll(".card,.fnode");
+    all.forEach(function(x){
+      var id=x.dataset.id; if(ids.indexOf(id)>=0){x.classList.add("hl");}else{x.classList.add("dim");}
+    });
+    if(ids.length) openNode(ids[0]);
+  }
+
+  // theme
+  try{
+    var saved=localStorage.getItem("hodoopforge-lake-theme");
+    if(saved) document.documentElement.setAttribute("data-theme",saved);
+  }catch(e){}
+  document.getElementById("theme").onclick=function(){
+    var cur=document.documentElement.getAttribute("data-theme");
+    var next=cur==="dark"?"light":"dark";
+    document.documentElement.setAttribute("data-theme",next);
+    try{localStorage.setItem("hodoopforge-lake-theme",next);}catch(e){}
+  };
+
+  document.getElementById("q").addEventListener("input",applyFilter);
+  document.addEventListener("keydown",function(e){
+    if(e.key==="/"&&document.activeElement!==document.getElementById("q")){e.preventDefault();document.getElementById("q").focus();}
+    if(e.key==="Escape"){clearTour();document.getElementById("q").value="";applyFilter();}
+  });
+
+  renderSummary();renderFlow();renderFilters();renderTours();renderLayers();
+})();
+</script>
+</body>
+</html>

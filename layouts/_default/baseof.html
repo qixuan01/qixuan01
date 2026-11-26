@@ -853,12 +853,85 @@
                     {{- $isZH := eq $.Site.Language.Lang "zh" -}}
                     {{- $langPrefix := cond $isZH "" "en/" -}}
                     {{ if eq .Identifier "bigdata-solutions" }}
-                    <!-- 大数据 下拉菜单 -->
+                    <!-- 大数据 下拉菜单 - 已合并到产品 -->
+                    {{ else if eq .Identifier "energy-solutions" }}
+                    <!-- 新能源 下拉菜单 - 已合并到产品 -->
+                    {{ else if eq .Identifier "products" }}
+                    <!-- 产品 下拉菜单（含全产品线） -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%ssolutions/" $baseURL $langPrefix }}" id="bigdataDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ .Name }}
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="bigdataDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown" style="min-width:260px;">
+                            {{/* ---- DataOps + 数据湖 ---- */}}
+                            <li><span class="dropdown-header">🌊 {{ if $isZH }}数据智能{{ else }}Data Intelligence{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/wenqu-dataops-ai/" $baseURL $langPrefix }}">
+                                <i class="fas fa-brain me-2" style="color:#22d3ee;"></i>{{ if $isZH }}问渠 DataOps-AI{{ else }}Wenqu DataOps-AI{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/hodoopforge/" $baseURL $langPrefix }}">
+                                <i class="fas fa-layer-group me-2" style="color:#5ea0ff;"></i>{{ if $isZH }}HodoopForge 数据湖{{ else }}HodoopForge Data Lake{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            {{/* ---- 大数据解决方案 ---- */}}
+                            <li><span class="dropdown-header">📊 {{ if $isZH }}大数据解决方案{{ else }}Big Data Solutions{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/" $baseURL $langPrefix }}">
+                                <i class="fas fa-database me-2" style="color:#14b8a6;"></i>{{ if $isZH }}大数据解决方案总览{{ else }}Big Data Solutions{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            {{/* ---- 新能源 ---- */}}
+                            <li><span class="dropdown-header">⚡ {{ if $isZH }}新能源{{ else }}Smart Energy{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/" $baseURL $langPrefix }}">
+                                <i class="fas fa-solar-panel me-2" style="color:#16a34a;"></i>{{ if $isZH }}新能源解决方案总览{{ else }}Smart Energy Overview{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-ec/" $baseURL $langPrefix }}">
+                                <i class="fas fa-bolt me-2" style="color:#16a34a;"></i>{{ if $isZH }}储能逆变器 EC{{ else }}Energy Storage Inverter EC{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-hybrid/" $baseURL $langPrefix }}">
+                                <i class="fas fa-exchange-alt me-2" style="color:#16a34a;"></i>{{ if $isZH }}混合逆变器 Hybrid{{ else }}Hybrid Inverter{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-bat/" $baseURL $langPrefix }}">
+                                <i class="fas fa-battery-full me-2" style="color:#16a34a;"></i>{{ if $isZH }}储能电池 BAT{{ else }}Energy Storage Battery BAT{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-ev/" $baseURL $langPrefix }}">
+                                <i class="fas fa-charging-station me-2" style="color:#16a34a;"></i>{{ if $isZH }}直流充电桩 EVDC{{ else }}DC EV Charger EVDC{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            {{/* ---- 边缘AI ---- */}}
+                            <li><span class="dropdown-header">🔵 {{ if $isZH }}边缘AI推理{{ else }}Edge AI{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sedge-ai/" $baseURL $langPrefix }}">
+                                <i class="fas fa-microchip me-2" style="color:#0ea5e9;"></i>{{ if $isZH }}边缘AI产品线总览{{ else }}Edge AI Overview{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sedge-ai/hongyuan-accelerator/" $baseURL $langPrefix }}">
+                                <i class="fas fa-rocket me-2" style="color:#0ea5e9;"></i>{{ if $isZH }}鸿源加速器{{ else }}Hongyuan Accelerator{{ end }}
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sedge-ai/smart-terminal/" $baseURL $langPrefix }}">
+                                <i class="fas fa-terminal me-2" style="color:#0ea5e9;"></i>{{ if $isZH }}智能终端AI中间件{{ else }}Smart Terminal AI{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            {{/* ---- AI伴学 ---- */}}
+                            <li><span class="dropdown-header">🎓 {{ if $isZH }}AI伴学教育{{ else }}AI Education{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sai-education/" $baseURL $langPrefix }}">
+                                <i class="fas fa-graduation-cap me-2" style="color:#38bdf8;"></i>{{ if $isZH }}悦学智伴{{ else }}Otowyue Learn AI{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            {{/* ---- ERP ---- */}}
+                            <li><span class="dropdown-header">🏢 {{ if $isZH }}数字化变革{{ else }}Digital Transformation{{ end }}</span></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#digital-transformation" $baseURL $langPrefix }}">
+                                <i class="fas fa-chart-line me-2" style="color:#ea580c;"></i>{{ if $isZH }}中小企业 ERP 平台{{ else }}SME ERP Platform{{ end }}
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}" style="font-weight:600;">
+                                <i class="fas fa-th me-2" style="color:#14b8a6;"></i>{{ if $isZH }}在线体验 →{{ else }}Live Demo →{{ end }}
+                            </a></li>
+                        </ul>
+                    </li>
+                    {{ else if eq .Identifier "solutions" }}
+                    <!-- 解决方案 下拉菜单 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%ssolutions/" $baseURL $langPrefix }}" id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ .Name }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
                             <li><a class="dropdown-item" href="{{ printf "%s%ssolutions/" $baseURL $langPrefix }}">
                                 <i class="fas fa-database me-2" style="color:#14b8a6;"></i>{{ if $isZH }}大数据解决方案总览{{ else }}Big Data Solutions Overview{{ end }}
                             </a></li>
@@ -885,68 +958,7 @@
                                 <i class="fas fa-city me-2" style="color:#14b8a6;"></i>{{ if $isZH }}智慧城市{{ else }}Smart City{{ end }}
                             </a></li>
                         </ul>
-                    </li>
-                    {{ else if eq .Identifier "energy-solutions" }}
-                    <!-- 新能源 下拉菜单 -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%senergy-solutions/" $baseURL $langPrefix }}" id="energyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ .Name }}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="energyDropdown">
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/" $baseURL $langPrefix }}">
-                                <i class="fas fa-solar-panel me-2" style="color:#16a34a;"></i>{{ if $isZH }}新能源解决方案总览{{ else }}Smart Energy Overview{{ end }}
-                            </a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-ec/" $baseURL $langPrefix }}">
-                                <i class="fas fa-bolt me-2" style="color:#16a34a;"></i>{{ if $isZH }}储能逆变器 EC{{ else }}Energy Storage Inverter EC{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-hybrid/" $baseURL $langPrefix }}">
-                                <i class="fas fa-exchange-alt me-2" style="color:#16a34a;"></i>{{ if $isZH }}混合逆变器 Hybrid{{ else }}Hybrid Inverter{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-bat/" $baseURL $langPrefix }}">
-                                <i class="fas fa-battery-full me-2" style="color:#16a34a;"></i>{{ if $isZH }}储能电池 BAT{{ else }}Energy Storage Battery BAT{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/products-ev/" $baseURL $langPrefix }}">
-                                <i class="fas fa-charging-station me-2" style="color:#16a34a;"></i>{{ if $isZH }}直流充电桩 EVDC{{ else }}DC EV Charger EVDC{{ end }}
-                            </a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%senergy-solutions/advantages/" $baseURL $langPrefix }}">
-                                <i class="fas fa-star me-2" style="color:#16a34a;"></i>{{ if $isZH }}核心优势{{ else }}Core Advantages{{ end }}
-                            </a></li>
-                        </ul>
-                    </li>
-                    {{ else if eq .Identifier "products" }}
-                    <!-- 产品 下拉菜单 -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ .Name }}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-                            <li><span class="dropdown-header">📊 {{ if $isZH }}大数据运维{{ else }}Big Data O&M{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#hadoopforge" $baseURL $langPrefix }}">
-                                <i class="fas fa-database me-2" style="color:#14b8a6;"></i>HadoopForge
-                            </a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><span class="dropdown-header">🔴 {{ if $isZH }}边缘AI推理{{ else }}Edge AI{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#edge-ai" $baseURL $langPrefix }}">
-                                <i class="fas fa-microchip me-2" style="color:#0ea5e9;"></i>{{ if $isZH }}鸿源加速器{{ else }}Hongyuan Accelerator{{ end }}
-                            </a></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#edge-ai" $baseURL $langPrefix }}">
-                                <i class="fas fa-terminal me-2" style="color:#0ea5e9;"></i>{{ if $isZH }}智能终端AI中间件{{ else }}Smart Terminal AI{{ end }}
-                            </a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><span class="dropdown-header">🎓 {{ if $isZH }}AI伴学教育{{ else }}AI Education{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#ai-education" $baseURL $langPrefix }}">
-                                <i class="fas fa-graduation-cap me-2" style="color:#38bdf8;"></i>{{ if $isZH }}悦学智伴{{ else }}Otowyue Learn AI{{ end }}
-                            </a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><span class="dropdown-header">🏢 {{ if $isZH }}数字化变革{{ else }}Digital Transformation{{ end }}</span></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/#digital-transformation" $baseURL $langPrefix }}">
-                                <i class="fas fa-chart-line me-2" style="color:#ea580c;"></i>{{ if $isZH }}中小企业 ERP 平台{{ else }}SME ERP Platform{{ end }}
-                            </a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ printf "%s%sproducts/" $baseURL $langPrefix }}" style="font-weight:600;">
-                                <i class="fas fa-th me-2" style="color:#14b8a6;"></i>{{ if $isZH }}在线体验 →{{ else }}Live Demo →{{ end }}
+                    </li>-2" style="color:#14b8a6;"></i>{{ if $isZH }}智慧城市{{ else }}Smart City{{ end }}
                             </a></li>
                         </ul>
                     </li>

@@ -1,0 +1,242 @@
+{{ define "main" }}
+{{- $isZH := eq .Site.Language.Lang "zh" -}}
+{{- $baseURL := .Site.BaseURL -}}
+
+<!-- Page Header -->
+<section class="page-header" style="background: linear-gradient(135deg, rgba(7,13,24,0.95) 0%, rgba(11,20,36,0.90) 50%, rgba(94,160,255,0.10) 100%), url('{{ printf "%simages/hy-consult.jpg" $baseURL }}') center/cover; padding-top: 7rem; padding-bottom: 4rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center" style="background:rgba(255,255,255,0.08); border-radius:20px; padding:0.4rem 1rem; display:inline-flex;">
+                        <li class="breadcrumb-item"><a href="{{ if $isZH }}{{ $baseURL }}{{ else }}{{ printf "%sen/" $baseURL }}{{ end }}" style="color:rgba(255,255,255,0.75);">{{ if $isZH }}首页{{ else }}Home{{ end }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ if $isZH }}{{ printf "%sproducts/" $baseURL }}{{ else }}{{ printf "%sen/products/" $baseURL }}{{ end }}" style="color:rgba(255,255,255,0.75);">{{ if $isZH }}产品{{ else }}Products{{ end }}</a></li>
+                        <li class="breadcrumb-item active" style="color:rgba(255,255,255,0.9);">{{ .Title }}</li>
+                    </ol>
+                </nav>
+                <div style="display:inline-flex;align-items:center;gap:8px;margin:1rem 0 0.75rem;">
+                    <span style="background:linear-gradient(135deg,rgba(94,160,255,0.22),rgba(55,224,176,0.15));color:#5ea0ff;font-size:0.72rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:999px;letter-spacing:0.1em;border:1px solid rgba(94,160,255,0.3);">{{ if $isZH }}容器级高可用{{ else }}Container-level HA{{ end }}</span>
+                    <span style="background:rgba(55,224,176,0.12);color:#37e0b0;font-size:0.72rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:999px;letter-spacing:0.1em;border:1px solid rgba(55,224,176,0.3);">{{ if $isZH }}Kerberos 数据面{{ else }}Kerberos Data Plane{{ end }}</span>
+                    <span style="background:rgba(245,196,81,0.12);color:#f5c451;font-size:0.72rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:999px;letter-spacing:0.1em;border:1px solid rgba(245,196,81,0.3);">{{ if $isZH }}实时入湖{{ else }}Real-time Ingestion{{ end }}</span>
+                </div>
+                <h1 class="page-title" style="font-size:2.6rem; letter-spacing:0.03em;">{{ if $isZH }}HodoopForge 数据湖{{ else }}HodoopForge Data Lake{{ end }}</h1>
+                <p class="page-subtitle" style="font-size:1.1rem; color:rgba(255,255,255,0.8);">
+                    {{ if $isZH }}Kafka → Flink → Iceberg · HDFS NN HA · Kerberos 7 服务 · 防呆守护 · 77 湖表全部对齐{{ else }}Kafka → Flink → Iceberg · HDFS NN HA · Kerberos 7 services · Guard-protected · 77 lake tables aligned{{ end }}
+                </p>
+                <!-- 核心指标条 -->
+                <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:1.5rem;">
+                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">{{ if $isZH }}7/7 核心服务 UP{{ else }}7/7 Core Services UP{{ end }}</span>
+                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">{{ if $isZH }}Checkpoint 408+{{ else }}Checkpoint 408+{{ end }}</span>
+                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">{{ if $isZH }}77 Iceberg 表{{ else }}77 Iceberg Tables{{ end }}</span>
+                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">{{ if $isZH }}HDFS NN Active/Standby{{ else }}HDFS NN Active/Standby{{ end }}</span>
+                    <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid rgba(255,255,255,0.12);">qixuandata cluster</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 实时数据流 -->
+<section style="background:linear-gradient(180deg,#070d18,#0b1424); padding:2.5rem 0 2rem;">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                <h2 style="color:#e9f0ff; font-size:1.4rem; margin-bottom:0.4rem;">{{ if $isZH }}实时数据链路{{ else }}Real-time Data Pipeline{{ end }}</h2>
+            </div>
+        </div>
+        <!-- 流向图 -->
+        <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px;padding:0 1rem;">
+            {{ $flow := slice
+                (dict "id" "kdc" "name" "Kerberos / KDC" "sub" "认证前置 / Auth Gate" "c" "#37e0b0")
+                (dict "id" "probes" "name" "业务探针" "sub" "LLM · RAG · Answer / Probes" "c" "#5ea0ff")
+                (dict "id" "kafka" "name" "Kafka" "sub" "3 broker · RF3" "c" "#f5c451")
+                (dict "id" "flink" "name" "Flink" "sub" "Checkpoint 20s" "c" "#5ea0ff")
+                (dict "id" "iceberg" "name" "Iceberg -ha" "sub" "77 Tables" "c" "#37e0b0")
+                (dict "id" "spark" "name" "Spark / Hive" "sub" "Thrift · HS2" "c" "#5ea0ff")
+                (dict "id" "apps" "name" "应用 / BI" "sub" "Query · Dashboard / Apps" "c" "#a78bfa")
+            }}
+            {{ range $i, $n := $flow }}
+            {{ if gt $i 0 }}
+            <div style="color:rgba(94,160,255,0.5);font-size:1.3rem;padding:0 2px;">→</div>
+            {{ end }}
+            <div style="background:linear-gradient(180deg,rgba(15,26,44,0.86),rgba(10,18,34,0.72));border:1px solid rgba(120,170,255,0.16);border-radius:12px;padding:0.65rem 1rem;text-align:center;min-width:100px;flex:1;max-width:150px;">
+                <div style="font-weight:650;font-size:0.82rem;color:#e9f0ff;">{{ .name }}</div>
+                <div style="font-size:0.65rem;color:{{ .c }};margin-top:3px;line-height:1.4;">{{ .sub }}</div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- 四大技术层 -->
+<section style="background:#0b1424; padding:3rem 0;">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2 style="color:#e9f0ff; border-bottom:1px solid rgba(94,160,255,0.2); padding-bottom:0.75rem; display:inline-block; font-size:1.6rem;">{{ if $isZH }}平台技术层架{{ else }}Platform Architecture Layers{{ end }}</h2>
+            </div>
+        </div>
+        <div class="row g-3">
+            <!-- 接入层 -->
+            <div class="col-md-6 col-lg-3">
+                <div style="background:linear-gradient(180deg,rgba(94,160,255,0.08),rgba(94,160,255,0.03));border:1px solid rgba(94,160,255,0.2);border-radius:14px;padding:1.5rem;height:100%;">
+                    <div style="font-size:0.68rem;letter-spacing:0.14em;color:#5ea0ff;font-weight:750;margin-bottom:6px;">{{ if $isZH }}接入层{{ else }}INGEST{{ end }}</div>
+                    <h3 style="font-size:1rem;color:#e9f0ff;margin:0 0 0.5rem;">Kafka</h3>
+                    <p style="font-size:0.82rem;color:#91a5c4;line-height:1.65;margin:0;">{{ if $isZH }}3 broker · RF3 · minISR=2 · SASL_PLAINTEXT/GSSAPI · 共享 principal · advertised 192.168.0.60:9092-9094{{ else }}3 brokers · RF3 · minISR=2 · SASL_PLAINTEXT/GSSAPI · shared principal · advertised 192.168.0.60:9092-9094{{ end }}</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:0.75rem;">
+                        <span style="background:rgba(94,160,255,0.1);color:#5ea0ff;font-size:0.68rem;padding:2px 7px;border-radius:999px;">RF3</span>
+                        <span style="background:rgba(94,160,255,0.1);color:#5ea0ff;font-size:0.68rem;padding:2px 7px;border-radius:999px;">GSSAPI</span>
+                        <span style="background:rgba(94,160,255,0.1);color:#5ea0ff;font-size:0.68rem;padding:2px 7px;border-radius:999px;">outbox 兜底</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 计算层 -->
+            <div class="col-md-6 col-lg-3">
+                <div style="background:linear-gradient(180deg,rgba(55,224,176,0.08),rgba(55,224,176,0.03));border:1px solid rgba(55,224,176,0.22);border-radius:14px;padding:1.5rem;height:100%;">
+                    <div style="font-size:0.68rem;letter-spacing:0.14em;color:#37e0b0;font-weight:750;margin-bottom:6px;">{{ if $isZH }}计算层{{ else }}COMPUTE{{ end }}</div>
+                    <h3 style="font-size:1rem;color:#e9f0ff;margin:0 0 0.5rem;">Flink · Spark · YARN</h3>
+                    <p style="font-size:0.82rem;color:#91a5c4;line-height:1.65;margin:0;">{{ if $isZH }}Flink 实时入湖 Exactly-Once，checkpoint 20s；Spark ThriftServer 10016 Kerberos；YARN 3 NodeManager；Hive HMS/HS2 双入口{{ else }}Flink real-time Exactly-Once lake ingestion, 20s checkpoint; Spark ThriftServer 10016 Kerberos; YARN 3 NMs; Hive HMS/HS2{{ end }}</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:0.75rem;">
+                        <span style="background:rgba(55,224,176,0.1);color:#37e0b0;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Exactly-Once</span>
+                        <span style="background:rgba(55,224,176,0.1);color:#37e0b0;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Checkpoint 408</span>
+                        <span style="background:rgba(55,224,176,0.1);color:#37e0b0;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Spark 3.5.6</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 存储层 -->
+            <div class="col-md-6 col-lg-3">
+                <div style="background:linear-gradient(180deg,rgba(167,139,250,0.08),rgba(167,139,250,0.03));border:1px solid rgba(167,139,250,0.22);border-radius:14px;padding:1.5rem;height:100%;">
+                    <div style="font-size:0.68rem;letter-spacing:0.14em;color:#a78bfa;font-weight:750;margin-bottom:6px;">{{ if $isZH }}存储层{{ else }}STORAGE{{ end }}</div>
+                    <h3 style="font-size:1rem;color:#e9f0ff;margin:0 0 0.5rem;">HDFS HA · Iceberg · HBase</h3>
+                    <p style="font-size:0.82rem;color:#91a5c4;line-height:1.65;margin:0;">{{ if $isZH }}HDFS NN HA（h3 Active / h0 Standby）· 3 DN · nameservice qixuandata；Iceberg 77 表全部对齐 -ha 仓库；MySQL 主/副本元数据{{ else }}HDFS NN HA (h3 Active / h0 Standby) · 3 DNs · nameservice qixuandata; 77 Iceberg tables aligned to -ha warehouse; MySQL primary/replica metadata{{ end }}</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:0.75rem;">
+                        <span style="background:rgba(167,139,250,0.1);color:#a78bfa;font-size:0.68rem;padding:2px 7px;border-radius:999px;">NN HA</span>
+                        <span style="background:rgba(167,139,250,0.1);color:#a78bfa;font-size:0.68rem;padding:2px 7px;border-radius:999px;">77 Tables</span>
+                        <span style="background:rgba(167,139,250,0.1);color:#a78bfa;font-size:0.68rem;padding:2px 7px;border-radius:999px;">ACID 快照</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 运维安全 -->
+            <div class="col-md-6 col-lg-3">
+                <div style="background:linear-gradient(180deg,rgba(245,196,81,0.08),rgba(245,196,81,0.03));border:1px solid rgba(245,196,81,0.22);border-radius:14px;padding:1.5rem;height:100%;">
+                    <div style="font-size:0.68rem;letter-spacing:0.14em;color:#f5c451;font-weight:750;margin-bottom:6px;">{{ if $isZH }}运维与安全{{ else }}OPS & SECURITY{{ end }}</div>
+                    <h3 style="font-size:1rem;color:#e9f0ff;margin:0 0 0.5rem;">Ambari · Guard · Prometheus</h3>
+                    <p style="font-size:0.82rem;color:#91a5c4;line-height:1.65;margin:0;">{{ if $isZH }}Kerberos Guard 每 30s 锁定 ambari-agent，防止配置漂移；健康巡检 10 分钟；Ranger 授权；Prometheus + Grafana 监控{{ else }}Kerberos Guard locks ambari-agent every 30s to prevent config drift; 10-min healthcheck; Ranger authorization; Prometheus + Grafana monitoring{{ end }}</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:0.75rem;">
+                        <span style="background:rgba(245,196,81,0.1);color:#f5c451;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Guard 30s</span>
+                        <span style="background:rgba(245,196,81,0.1);color:#f5c451;font-size:0.68rem;padding:2px 7px;border-radius:999px;">Kerberos 7服务</span>
+                        <span style="background:rgba(245,196,81,0.1);color:#f5c451;font-size:0.68rem;padding:2px 7px;border-radius:999px;">自愈自检</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 交互地图 iframe -->
+<section style="background:#070d18; padding:2.5rem 0 0;">
+    <div class="container-fluid px-0">
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                <h2 style="color:#e9f0ff; font-size:1.6rem; margin-bottom:0.4rem;">{{ if $isZH }}数据湖交互地图{{ else }}Data Lake Interactive Map{{ end }}</h2>
+                <p style="color:#91a5c4; font-size:0.9rem; margin-bottom:0.75rem;">
+                    {{ if $isZH }}点击节点查看状态、端口、命令与文档 · 绿=运行 · 黄=警告 · 蓝=规划{{ else }}Click nodes for status, ports, commands and docs · Green=Running · Yellow=Warning · Blue=Planned{{ end }}
+                </p>
+                <a href="/maps/hodoopforge-lake-map.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(94,160,255,0.15),rgba(55,224,176,0.12));color:#5ea0ff;border:1px solid rgba(94,160,255,0.3);border-radius:999px;padding:0.4rem 1.1rem;font-size:0.8rem;font-weight:600;text-decoration:none;margin-bottom:1rem;">
+                    ⛶ {{ if $isZH }}全屏查看{{ else }}Full Screen{{ end }}
+                </a>
+            </div>
+        </div>
+        <div style="width:100%;background:#070d18;border-top:1px solid rgba(94,160,255,0.15);">
+            <iframe
+                src="/maps/hodoopforge-lake-map.html"
+                style="width:100%;height:88vh;min-height:640px;border:none;display:block;"
+                title="{{ if $isZH }}HodoopForge 数据湖交互地图{{ else }}HodoopForge Data Lake Interactive Map{{ end }}"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- 治理层：元数据与质量 -->
+<section style="background:#0b1424; padding:3rem 0;">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2 style="color:#e9f0ff; border-bottom:1px solid rgba(55,224,176,0.3); padding-bottom:0.75rem; display:inline-block; font-size:1.6rem;">{{ if $isZH }}治理层：元数据 · 质量 · 血缘{{ else }}Governance: Metadata · Quality · Lineage{{ end }}</h2>
+            </div>
+        </div>
+        <div class="row g-3">
+            {{ $govs := slice
+                (dict "icon" "🗂️" "zh_title" "edulake_meta" "en_title" "edulake_meta Catalog"
+                      "zh" "6 张治理表：asset_registry 376 · quality_check 391 · data_lineage 964 · cost_daily 308 · governance_action 12 · rag_samples 21"
+                      "en" "6 governance tables: asset_registry 376 · quality_check 391 · data_lineage 964 · cost_daily 308 · governance_action 12 · rag_samples 21")
+                (dict "icon" "✅" "zh_title" "质量 · 基线" "en_title" "Quality · Baseline"
+                      "zh" "历史基线 41 表检查（35 正常 / 6 空 / 0 失败）；当前 dt=11-18 以业务重跑为准；血缘 964 行完整记录"
+                      "en" "Historical baseline: 41 tables (35 ok / 6 empty / 0 failed); current dt=11-18 by business re-run; lineage 964 records")
+                (dict "icon" "🔄" "zh_title" "新鲜度 · 数据产品" "en_title" "Freshness · Data Products"
+                      "zh" "Flink 实时作业 RUNNING，ODS 新鲜度以 Iceberg 表查询为准；lake-health / freshness 探针对接 DataOps"
+                      "en" "Flink streaming job RUNNING; ODS freshness verified via Iceberg table query; lake-health / freshness probes integrated with DataOps")
+                (dict "icon" "🔒" "zh_title" "Kerberos · 安全" "en_title" "Kerberos Security"
+                      "zh" "Realm HODOOPFORGE.LOCAL；已 Kerberos：HDFS/HBase/Hive/YARN/Flink/Kafka/Spark 7 服务；Guard 防漂移"
+                      "en" "Realm HODOOPFORGE.LOCAL; Kerberized: HDFS/HBase/Hive/YARN/Flink/Kafka/Spark 7 services; Guard prevents drift")
+            }}
+            {{ range $govs }}
+            <div class="col-md-6">
+                <div style="background:rgba(11,20,36,0.8);border:1px solid rgba(55,224,176,0.15);border-radius:12px;padding:1.25rem;height:100%;">
+                    <div style="font-size:1.5rem;margin-bottom:0.5rem;">{{ .icon }}</div>
+                    <h4 style="font-size:0.95rem;font-weight:650;color:#e9f0ff;margin:0 0 0.4rem;">{{ if $isZH }}{{ .zh_title }}{{ else }}{{ .en_title }}{{ end }}</h4>
+                    <p style="font-size:0.8rem;color:#91a5c4;line-height:1.65;margin:0;">{{ if $isZH }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- 集群拓扑 -->
+<section style="background:linear-gradient(180deg,#0b1424,#070d18); padding:2.5rem 0;">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                <h2 style="color:#e9f0ff; font-size:1.4rem; margin-bottom:0.4rem;">{{ if $isZH }}集群拓扑（4 容器 · 单宿主机）{{ else }}Cluster Topology (4 containers · single host){{ end }}</h2>
+            </div>
+        </div>
+        <div class="row g-2">
+            {{ $nodes := slice
+                (dict "name" "bigtop-hostname0" "ip" "172.19.0.2" "zh_roles" "NN(Standby) · RM · HMS/HS2 · Ranger · Flink JM1 · Kafka · ZK · Ambari · KDC · MySQL 主" "en_roles" "NN(Standby) · RM · HMS/HS2 · Ranger · Flink JM1 · Kafka · ZK · Ambari · KDC · MySQL Primary")
+                (dict "name" "bigtop-hostname1" "ip" "172.19.0.5" "zh_roles" "Spark ThriftServer · HMS · DataNode · NM · ZK · JN · Flink JM2 · 监控 · ATS" "en_roles" "Spark ThriftServer · HMS · DataNode · NM · ZK · JN · Flink JM2 · Monitor · ATS")
+                (dict "name" "bigtop-hostname2" "ip" "172.19.0.3" "zh_roles" "Kafka · DataNode · NM · ZK · Flink TM" "en_roles" "Kafka · DataNode · NM · ZK · Flink TM")
+                (dict "name" "bigtop-hostname3" "ip" "172.19.0.4" "zh_roles" "NN(Active) · HBase RS · HS2 · MySQL 副本 · DataNode · NM · JN · ZKFC · Kafka · Flink TM · KDC 备" "en_roles" "NN(Active) · HBase RS · HS2 · MySQL Replica · DataNode · NM · JN · ZKFC · Kafka · Flink TM · KDC Backup")
+            }}
+            {{ range $nodes }}
+            <div class="col-md-6">
+                <div style="background:rgba(15,26,44,0.8);border:1px solid rgba(94,160,255,0.14);border-radius:10px;padding:1rem 1.25rem;">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.4rem;">
+                        <span style="font-weight:700;font-size:0.88rem;color:#e9f0ff;font-family:ui-monospace,Menlo,monospace;">{{ .name }}</span>
+                        <span style="font-size:0.72rem;color:#5ea0ff;background:rgba(94,160,255,0.1);border:1px solid rgba(94,160,255,0.2);border-radius:999px;padding:1px 8px;font-family:ui-monospace,Menlo,monospace;">{{ .ip }}</span>
+                    </div>
+                    <p style="font-size:0.76rem;color:#91a5c4;line-height:1.6;margin:0;">{{ if $isZH }}{{ .zh_roles }}{{ else }}{{ .en_roles }}{{ end }}</p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        <p style="font-size:0.78rem;color:#637896;text-align:center;margin-top:1rem;">{{ if $isZH }}宿主机 192.168.0.60 · Ambari http://192.168.0.60:20609{{ else }}Host 192.168.0.60 · Ambari http://192.168.0.60:20609{{ end }}</p>
+    </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(135deg,#070d18,#0b1424,rgba(94,160,255,0.08)); padding:3.5rem 0; text-align:center;">
+    <div class="container">
+        <div class="col-lg-8 mx-auto">
+            <h2 style="color:#e9f0ff; border-bottom:none; font-size:1.7rem;">{{ if $isZH }}部署咨询与合作洽谈{{ else }}Deployment Consulting & Partnership{{ end }}</h2>
+            <p style="color:#91a5c4; font-size:0.95rem; margin:0.75rem 0 1.5rem;">{{ if $isZH }}HodoopForge 数据湖支持企业级私有化部署，提供完整的 Hadoop 生态集群交付与运维服务{{ else }}HodoopForge Data Lake supports enterprise private deployment with full Hadoop ecosystem delivery and O&M services{{ end }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+                <a href="{{ if $isZH }}{{ printf "%scontact/" $baseURL }}{{ else }}{{ printf "%sen/contact/" $baseURL }}{{ end }}" style="background:linear-gradient(135deg,#5ea0ff,#37e0b0);color:#07131f;font-weight:700;padding:0.75rem 2rem;border-radius:999px;text-decoration:none;font-size:0.95rem;">{{ if $isZH }}立即联系 →{{ else }}Contact Us →{{ end }}</a>
+                <a href="/maps/hodoopforge-lake-map.html" target="_blank" rel="noopener" style="background:transparent;color:#5ea0ff;border:1.5px solid rgba(94,160,255,0.5);font-weight:600;padding:0.75rem 2rem;border-radius:999px;text-decoration:none;font-size:0.95rem;">{{ if $isZH }}查看数据湖地图{{ else }}View Lake Map{{ end }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
